@@ -178,12 +178,12 @@ camera.position.set(to_centroid.x, to_centroid.y, cameraZPosition);
 var textureLoader = new THREE.TextureLoader();
 
 textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
-	
-	return;
 		
-	const to_park_geometry = toronto_bounds.features[0].geometry.coordinates
+	/*const to_park_geometry = toronto_bounds.features[0].geometry.coordinates
 	.map(polyToShapeGeometry)
-	.reduce(reduceGeometry);
+	.reduce(reduceGeometry);*/
+	
+	const to_park_geometry = new THREE.Geometry().copy(to_geometry);
 
 	to_park_geometry.computeBoundingBox();
 	
@@ -204,7 +204,7 @@ textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
 	
 	material.blending = THREE.AdditiveAlphaBlending;
 	
-	var to_parks = new THREE.Mesh(to_park_geometry, material);
+	const to_parks = new THREE.Mesh(to_park_geometry, material);
 	to_parks.renderOrder = RENDER_ORDER_FEATURE_MAP;
 	scene.add(to_parks);
 	
