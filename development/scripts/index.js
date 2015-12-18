@@ -241,11 +241,15 @@ function makeTextLabelSprite(labelText, position, size) {
 	textLabelMap.magFilter = THREE.LinearFilter;
 	textLabelMap.minFilter = THREE.LinearFilter;
 	textLabelMap.needsUpdate = true;
+	textLabelMap.premultiplyAlpha = true;
 	
 	const labelMaterial = new THREE.SpriteMaterial( {
 		map: textLabelMap,
 		transparent: true
 	});
+	
+	labelMaterial.blending = THREE.CustomBlending;
+	labelMaterial.blendSrc = THREE.OneFactor;
 	
 	const sprite = new THREE.Sprite(labelMaterial);
 	sprite.renderOrder = RENDER_ORDER_TEXT;
