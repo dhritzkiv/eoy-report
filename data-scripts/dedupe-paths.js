@@ -6,26 +6,36 @@ const path = require("path");
 
 const inPath = path.join(process.cwd(), process.argv[2]);
 const outPath = path.join(process.cwd(), process.argv[3]);
-
-const tolerance = 0.0025;
-
-let total = 0;
+const tolerance = parseFloat(process.argv[4]) || 0.0025;
 
 fs.readFile(inPath, "utf8", function(err, src) {
 	
-	let rides = JSON.parse(src);//json string to JS object
+	let paths = JSON.parse(src);//json string to JS object
 	
-	rides.reverse();//oldest first
+	//paths.reverse();//oldest first
 	
-	rides.forEach(function(rideA) {
+	const interopPointsCount = 20;
 	
-		const interopPointsCount = 20;	
+	function filterByGreaterDateOrGreaterIndexPosition(rideA) {
+		return function(rideB, index) {
+			if (rideB.start_date_local) {
+				return new Date(rideB.start_date_local) > new Date(rideA.start_date_local);
+			} else {
+				return index > paths.indexOf(rideA);
+			}
+		}
+	}
+	
+	paths = paths.filter(path => path.points.length > 2);
+	
+	paths.forEach(function(rideA) {
+		
 		const rideAPoints = interpolateLineRange(rideA.points, interopPointsCount);
 		
-		rides
+		paths
 		.filter(rideB => rideA !== rideB)
 		.filter(rideB => !rideB.dupe)
-		.filter(rideB => new Date(rideB.start_date_local) > new Date(rideA.start_date_local))
+		.filter(filterByGreaterDateOrGreaterIndexPosition(rideA))
 		.forEach(function(rideB) {
 			const rideBPoints = interpolateLineRange(rideB.points, interopPointsCount);
 			
@@ -41,16 +51,13 @@ fs.readFile(inPath, "utf8", function(err, src) {
 			
 			const averageDistanceDiff = totalDistanceDiff / interopPointsCount;
 			
-			if (averageDistanceDiff <= tolerance) {				
-				rideB.dupe = true;
-				//console.log(`"${rideA.name}" and "${rideB.name}" are similar. Ride distance difference of (${rideA.distance - rideB.distance}m)`);
-			}
+			rideB.dupe = averageDistanceDiff <= tolerance;//true
 		});
 	});
 	
-	rides.reverse();
+	paths.reverse();
 	
-	fs.writeFile(outPath, JSON.stringify(rides, null, "\t"), {
+	fs.writeFile(outPath, JSON.stringify(paths, null, "\t"), {
 		encoding: "utf8"
 	}, function(err) {
 		console.log(err || "done!");

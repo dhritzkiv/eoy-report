@@ -13,12 +13,12 @@ const reducePoints = (total, ride) => total + ride.points.length;
 
 fs.readFile(inPath, "utf8", function(err, src) {
 	
-	let rides = JSON.parse(src);//json string to JS object
-	const originalPointCount = rides.reduce(reducePoints, 0);
+	let paths = JSON.parse(src);//json string to JS object
+	const originalPointCount = paths.reduce(reducePoints, 0);
 	
 	const startTime = Date.now();
 	
-	rides = rides.map(function(ride) {
+	paths = paths.map(function(ride) {
 		const srcPointsObjectArray = ride.points.map(point => {
 			return {
 				x: point[0],
@@ -33,13 +33,13 @@ fs.readFile(inPath, "utf8", function(err, src) {
 		return ride;
 	});
 	
-	const finalPointCount = rides.reduce(reducePoints, 0);
+	const finalPointCount = paths.reduce(reducePoints, 0);
 	
 	console.log("starting points: %d", originalPointCount);
 	console.log("final points: %d", finalPointCount);
 	console.log("task time: %d ms", Date.now() - startTime);
 	
-	fs.writeFile(outPath, JSON.stringify(rides, null, "\t"), {
+	fs.writeFile(outPath, JSON.stringify(paths, null, "\t"), {
 		encoding: "utf8"
 	}, function(err) {
 		console.log(err || "write complete");
