@@ -386,7 +386,8 @@ function filterActivitiesToBounds(activity) {
 rides
 .filter(filterActivitiesToBounds)
 .filter(ride => !ride.dupe)
-.forEach(function(ride) {
+.map(function(ride) {
+	
 	const lineGeometry = new Float32Array(ride.points.length * 3);
 
 	ride.points.forEach((point, index) => {	
@@ -398,11 +399,13 @@ rides
 	const line = new MeshLine();
 	line.setGeometry(lineGeometry);
 	
-	const mesh = new THREE.Mesh( line.geometry, rideLineMaterial );
+	return line;
+})
+.map(line => line.geometry)
+.forEach(function(geometry) {
+	const mesh = new THREE.Mesh(geometry, rideLineMaterial);
 	mesh.position.z = 0.0001;
-	//mesh.matrixAutoUpdate = false;
 	mesh.renderOrder = RENDER_ORDER_LINES;
-	
 	scene.add(mesh);
 });
 
