@@ -131,6 +131,8 @@ const lakeMaterial = new THREE.MeshBasicMaterial({
 	color: blue
 });
 
+lakeMaterial.depthWrite = false;
+
 const lo_geometry = lake_ontario_bounds.features[0].geometry.coordinates
 .map(polyToShapeGeometry)
 .reduce(reduceGeometry);
@@ -160,6 +162,8 @@ const to_geometry = toronto_bounds.features[0].geometry.coordinates
 var to_material = new THREE.MeshBasicMaterial({
 	color: "#dfedea"
 });
+
+to_material.depthWrite = false
 
 to_geometry.computeBoundingBox();
 const to_plane = new THREE.Mesh(to_geometry, to_material);
@@ -201,6 +205,8 @@ textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
 		color: "#bcd1b4",
 		transparent: true
 	});
+	
+	material.depthWrite = false;
 	
 	material.blending = THREE.AdditiveAlphaBlending;
 	
@@ -248,6 +254,8 @@ function makeTextLabelSprite(labelText, position, size) {
 		transparent: true
 	});
 	
+	labelMaterial.depthWrite = false;
+	
 	labelMaterial.blending = THREE.CustomBlending;
 	labelMaterial.blendSrc = THREE.OneFactor;
 	
@@ -292,6 +300,8 @@ const rideLineMaterial = new MeshLineMaterial({
 	blending: THREE.AdditiveBlending
 });
 
+//rideLineMaterial.depthWrite = false;
+
 const walkLineMaterial = new MeshLineMaterial({
 	lineWidth: 0.0001 * 2.5,//size of individual street
 	sizeAttenuation: 1,
@@ -303,6 +313,8 @@ const walkLineMaterial = new MeshLineMaterial({
 	color: new THREE.Color(0xbc4fff),
 	blending: THREE.AdditiveBlending
 });
+
+//walkLineMaterial.depthWrite = false;
 
 function filterActivitiesToBounds(activity) {
 	return activity.points.every(function(point) {
