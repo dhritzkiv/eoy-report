@@ -23,8 +23,11 @@ const RENDER_ORDER_LINES = 0.3;
 const RENDER_ORDER_PLACES = 0.4;
 const RENDER_ORDER_LABELS = 0.5;
 
+const LABEL_SIZE_METRO = 1;
+const LABEL_SIZE_SMALL = 0.6;
+
 const COLOR_LAND = "#f2f7f6";
-const blue = "#3cf";//0x3cf3cf;
+const COLOR_WATER = "#3cf";//0x3cf3cf;
 
 function coordsToPoint(coords) {
 	var latitude = coords[1];
@@ -123,7 +126,7 @@ document.body.appendChild(renderer.domElement);
 /* Lake Ontario */
 
 const lakeMaterial = new THREE.MeshBasicMaterial({
-	color: blue
+	color: COLOR_WATER
 });
 
 lakeMaterial.depthWrite = false;
@@ -262,12 +265,13 @@ function makeTextLabelSprite(labelText, position, size) {
 	labelSprites.push(sprite);
 }
 
-makeTextLabelSprite("Toronto", [camera.position.x, camera.position.y], 1);
-makeTextLabelSprite("Guelph", [-80.248167, 43.544805], 0.8);
-makeTextLabelSprite("Hamilton", [-79.866091, 43.250021], 0.8);
-makeTextLabelSprite("Oakville", [-79.687666, 43.467517], 0.65);
-makeTextLabelSprite("Barrie", [-79.690332, 44.389356], 0.8);
-makeTextLabelSprite("Oro", [-79.517794, 44.459435], 0.5);
+makeTextLabelSprite("Toronto", [camera.position.x, camera.position.y], LABEL_SIZE_METRO);
+makeTextLabelSprite("Mississauga", [-79.65, 43.6], LABEL_SIZE_SMALL);
+makeTextLabelSprite("Guelph", [-80.248167, 43.544805], LABEL_SIZE_SMALL);
+makeTextLabelSprite("Hamilton", [-79.866091, 43.250021], LABEL_SIZE_SMALL);
+makeTextLabelSprite("Oakville", [-79.687666, 43.467517], LABEL_SIZE_SMALL);
+makeTextLabelSprite("Barrie", [-79.690332, 44.389356], LABEL_SIZE_SMALL);
+makeTextLabelSprite("Oro-Medonte", [-79.523333, 44.5], LABEL_SIZE_SMALL);
 
 function updateSpriteScale(sprite) {
 	const virtual_z = -(cameraZPosition * 36) + sprite.position.z;
