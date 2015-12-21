@@ -105,7 +105,7 @@ function lonLatToVector3( lng, lat, out ) {
 //console.log(lonLatToVector3(rides[0].points[0][0], rides[0].points[0][1]))
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.0001, 0.5);
+const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.0001, 1);
 const resolution = new THREE.Vector2( window.innerWidth, window.innerHeight );
 
 let needsRender = true;
@@ -169,8 +169,8 @@ const to_centroid = new THREE.Vector3();
 to_centroid.addVectors(to_geometry.boundingBox.min, to_geometry.boundingBox.max);
 to_centroid.divideScalar(2);
 
-const cameraZPosition = to_geometry.boundingBox.size().x / 2 / (window.innerWidth / window.innerHeight);
-camera.position.set(to_centroid.x, to_centroid.y, cameraZPosition);
+const cameraZPosition = (to_geometry.boundingBox.size().x / 2) / (window.innerWidth / window.innerHeight);
+camera.position.set(to_centroid.x, to_centroid.y, cameraZPosition * 1.1);
 
 /* Toronto Parks */
 
@@ -387,11 +387,12 @@ function onWindowResize() {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 
-	camera.aspect = w / h;
-	camera.updateProjectionMatrix();
-
 	renderer.setSize( w, h );
 	resolution.set( w, h );
+
+	camera.aspect = w / h;
+	camera.updateProjectionMatrix();
+	
 	needsRender = true;
 }
 
@@ -403,8 +404,8 @@ renderer.domElement.addEventListener("mousewheel", function(event) {
 	event.preventDefault();
 	camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 	
-	if (camera.position.z < camera.near) {
-		camera.position.z = camera.near;
+	if (camera.position.z < 0.01) {
+		camera.position.z = 0.01;
 	} else if (camera.position.z > camera.far) {
 		camera.position.z = camera.far;
 	}
