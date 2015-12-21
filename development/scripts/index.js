@@ -79,12 +79,7 @@ function polyToShapeGeometry(polygons) {
 	return new THREE.ShapeGeometry(shape);
 }
 
-function reduceGeometry(merged, current) {
-	
-	if (!merged) {
-		return current;
-	}
-	
+function reduceGeometry(merged, current) {	
 	merged.merge(current);
 	return merged;
 }
