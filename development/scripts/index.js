@@ -220,18 +220,20 @@ textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
 const labelSprites = [];
 
 function makeTextLabelSprite(labelText, position, size) {
+	labelText = labelText.toUpperCase();
 	const canvas = document.createElement("canvas");
 	const context = canvas.getContext("2d");
-	canvas.width = 1024;
-	canvas.height = 1024;
+	canvas.width = 256;
+	canvas.height = 256;
 	
 	context.textAlign = "center";
 	context.textBaseline = "middle";
-	const fontSize = canvas.width / 4 * size;
-	context.font = "italic small-caps 700 " + fontSize + "px sans-serif";
+	const fontSize = canvas.width / 8 * size;
+	const fontWeight = size > 0.75 ? 700 : 400;
+	context.font = fontWeight + " " + fontSize + "px 'Montserrat', sans-serif";
 	
 	context.strokeStyle = COLOR_LAND;
-	context.lineWidth = Math.sqrt(canvas.width) * size;
+	context.lineWidth = (Math.floor(Math.sqrt(canvas.width)) * 0.25) * (size / 0.5);
 	context.lineCap = "round";
 	context.lineJoin = "round";
 	context.strokeText(labelText, canvas.width / 2, canvas.height / 2);
@@ -263,6 +265,7 @@ function makeTextLabelSprite(labelText, position, size) {
 	scene.add(sprite);
 	
 	labelSprites.push(sprite);
+	return sprite;
 }
 
 makeTextLabelSprite("Toronto", [camera.position.x, camera.position.y], LABEL_SIZE_METRO);
@@ -274,7 +277,7 @@ makeTextLabelSprite("Barrie", [-79.690332, 44.389356], LABEL_SIZE_SMALL);
 makeTextLabelSprite("Oro-Medonte", [-79.523333, 44.5], LABEL_SIZE_SMALL);
 
 function updateSpriteScale(sprite) {
-	const virtual_z = -(cameraZPosition * 36) + sprite.position.z;
+	const virtual_z = -4 + (sprite.position.z / 4);
 	
 	const v = sprite.position
 	.clone()
@@ -376,14 +379,18 @@ const render = function () {
 	if (!needsRender) {
 		return;
 	}
-	
-	labelSprites.forEach(updateSpriteScale);
 
 	renderer.render(scene, camera);
 	needsRender = false;
 };
 
+onWindowResize();
+
 render();
+
+labelSprites.forEach(updateSpriteScale);
+needsRender = true;
+
 console.timeEnd("load");
 
 function onWindowResize() {
@@ -400,8 +407,6 @@ function onWindowResize() {
 	needsRender = true;
 }
 
-onWindowResize();
-
 window.addEventListener("resize", onWindowResize);
 
 renderer.domElement.addEventListener("mousewheel", function(event) {
@@ -413,6 +418,8 @@ renderer.domElement.addEventListener("mousewheel", function(event) {
 	} else if (camera.position.z > camera.far) {
 		camera.position.z = camera.far;
 	}
+	
+	labelSprites.forEach(updateSpriteScale);
 	
 	needsRender = true;
 });
