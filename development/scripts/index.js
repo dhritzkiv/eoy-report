@@ -361,7 +361,7 @@ const rideLineMaterial = new MeshLineMaterial({
 //rideLineMaterial.depthWrite = false;
 
 const walkLineMaterial = new MeshLineMaterial({
-	lineWidth: 0.0001 * 2.5,//size of individual street
+	lineWidth: 0.0001 * 1.25,//size of individual street
 	sizeAttenuation: 1,
 	resolution: resolution,
 	near: camera.near,
