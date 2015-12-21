@@ -10,6 +10,7 @@
     "async": "^1.5.0",
     "line-interpolate-points": "^1.0.5",
     "moves-api": "0.0.4",
+    "node-foursquare": "^0.3.0",
     "polyline": "^0.2.0",
     "simplify-js": "^1.2.1",
     "strava-v3": "^1.8.1",
