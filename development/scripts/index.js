@@ -6,6 +6,7 @@ const MeshLineMaterial = require("./THREE.MeshLine").MeshLineMaterial;
 
 console.time("load");
 
+const checkins = require("../../data/2015_foursquare-checkins.json")
 const rides = require("../../data/2015_rides_dupes-marked_simplified.json");
 const walks = require("../../data/2015_walks_deduped_simplified.json");
 const lake_ontario_bounds = require("../../data/lake-ontario-simple_0-005-tolerance-multi.json");
@@ -287,6 +288,61 @@ function updateSpriteScale(sprite) {
 	sprite.scale.set(scale, scale, scale);
 }
 
+/* Points (checkins) */
+
+const pointCanvas = document.createElement("canvas");
+const pointCanvasContext = pointCanvas.getContext("2d");
+const pointDimension = 96;
+const pointRadius = pointDimension / 2;
+const pointLineWidth = pointDimension / 8;
+pointCanvas.width = pointDimension;
+pointCanvas.height = pointDimension;
+pointCanvasContext.fillStyle = "green";
+pointCanvasContext.strokeStyle = COLOR_LAND;
+pointCanvasContext.lineWidth = pointLineWidth;
+pointCanvasContext.beginPath();
+pointCanvasContext.arc(pointRadius, pointRadius, pointRadius - pointLineWidth, 0, 2 * Math.PI);
+pointCanvasContext.fill();
+pointCanvasContext.closePath();
+pointCanvasContext.beginPath();
+pointCanvasContext.arc(pointRadius, pointRadius, pointRadius - (pointLineWidth / 2), 0, 2 * Math.PI);
+pointCanvasContext.stroke();
+pointCanvasContext.closePath();
+
+const pointTexture = new THREE.Texture(pointCanvas);
+pointTexture.premultiplyAlpha = true;
+pointTexture.needsUpdate = true;
+
+const pointMaterial = new THREE.PointsMaterial({
+	size: 0.001,
+	map: pointTexture,
+	transparent: true,
+	sizeAttenuation: true
+});
+
+pointMaterial.blending = THREE.CustomBlending;
+pointMaterial.blendSrc = THREE.OneFactor;
+
+pointMaterial.depthWrite = false;
+
+const checkinGeometry = new THREE.BufferGeometry();
+const checkinVertices = new Float32Array(checkins.length * 3);
+
+checkins
+.map(checkin => checkin.point)
+.forEach(function(point, index) {
+	checkinVertices[index * 3 + 0] = point[0];
+	checkinVertices[index * 3 + 1] = point[1];
+	checkinVertices[index * 3 + 2] = 0;
+});
+
+checkinGeometry.addAttribute('position', new THREE.BufferAttribute(checkinVertices, 3));
+
+const checkinParticles = new THREE.Points(checkinGeometry, pointMaterial);
+checkinParticles.position.z = 0.0001;
+checkinParticles.renderOrder = RENDER_ORDER_PLACES;
+
+scene.add(checkinParticles);
 
 /* Line */
 
