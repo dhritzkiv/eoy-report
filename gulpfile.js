@@ -9,6 +9,8 @@ const watchify = require('watchify');
 const browserify = require('browserify');
 const sass = require("gulp-sass");
 const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 
 
 const developmentDir = path.join(__dirname, 'development');
@@ -69,6 +71,41 @@ const clientAppBundle = makeBundle(clientAppBundler, "moves-gl-2015.min.js");
 
 gulp.task('build', clientAppBundle);
 
+gulp.task('sass', function() {
+	//const startTime = process.hrtime();
+	
+	const browserSupport = [
+		'last 1 versions',
+		'last 2 Chrome versions',
+		'last 2 Firefox versions',
+		'Safari >=8',
+		'iOS >= 8',
+		'Explorer >= 11'
+	];
+
+	return gulp.src(path.join(sourceStylesDir, "main.scss"))
+	//.pipe(sourcemaps.init())
+	.pipe(sass().on('error', sass.logError))
+	.pipe(postcss([
+		//assets(assetsOptions),
+		autoprefixer({
+			browsers: browserSupport
+		})
+	]))/*
+	.pipe(rename({
+		basename: "matterandform",
+		suffix: ".min"
+	}))*/
+	//.pipe(sourcemaps.write('./maps'))
+	.pipe(gulp.dest(outputStylesDir))
+	//.pipe(notifyOnDone(startTime));
+});
+
 gulp.task('browserify', ['build'], function() {
 	clientAppBundler.on('update', clientAppBundle);
+});
+
+gulp.task('watch', ["browserify"], function() {
+	gulp.watch(path.join(sourceStylesDir, "*.scss"), ["sass"]);
+	//gulp.start("browserify");
 });
