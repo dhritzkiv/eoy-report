@@ -66,7 +66,7 @@ function makeBundle(bundler, targetFile) {
 	};
 }
 
-const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "index.js"));
+const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "app.js"));
 const clientAppBundle = makeBundle(clientAppBundler, "moves-gl-2015.min.js");
 
 gulp.task('build', clientAppBundle);

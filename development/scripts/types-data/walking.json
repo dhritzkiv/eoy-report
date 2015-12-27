@@ -1,0 +1,35 @@
+{
+	"text": "WALKING",
+	"sources": ["Apple Health", "Moves"],
+	"stats": [
+		{
+			"title": "Total distance",
+			"value": 1874.826,
+			"value_type": "km"
+		},
+		{
+			"title": "Total steps taken",
+			"value": 2575173
+		},
+		{
+			"title": "Total walking time",
+			"value": 395.55,
+			"value_type": "hr"	
+		},
+		{
+			"title": "Est. total calories burned",
+			"value": 90091
+		},
+		{
+			"title": "Most steps in one day",
+			"value": 25216,
+			"date": "2015-05-18T04:00:00.000Z"
+		},
+		{
+			"title": "Fastest daily avg. speed",
+			"value": 5.1671814672,
+			"value_type": "kph",
+			"date": "2015-01-30T05:00:00.000Z"
+		}
+	]
+}

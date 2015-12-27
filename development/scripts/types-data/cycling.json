@@ -1,0 +1,52 @@
+{
+	"text": "2015 was my best cycling year yet. Last year I managed two 50+km rides, while in 2015 I managed eight, including my longest ride yet at 190km.\n\
+	\n\
+	2016 will see me try and double that still, and attempt a 320km ride – to Niagara Falls and back.",
+	"sources": ["Strava"],
+	"stats": [
+		{
+			"title": "Total distance",
+			"value": 2922,
+			"value_type": "km"
+		},
+		{
+			"title": "Total cycling time",
+			"value": 142.45,
+			"value_type": "hr"
+		},
+		{
+			"title": "Total elevation gain",
+			"value": 7142,
+			"value_type": "m"
+		},
+		{
+			"title": "Total Nº of rides",
+			"value": 579
+		},
+		{
+			"title": "Est. total calories burned",
+			"value": "56646"
+		},
+		{
+			"title": "Max speed",
+			"value": 71.6,
+			"value_type": "kph",
+			"date": "2015-04-18T15:44:00.000Z",
+			"date_link": "http://www.strava.com/activities/288041570"
+		},
+		{
+			"title": "Fastest commute",
+			"value": 3.2666666667,
+			"value_type": "min"
+		},
+		{
+			"title": "Longest ride",
+			"value": 191.4,
+			"value_type": "km"
+		},
+		{
+			"title": "Premature dismounts",
+			"value": 5
+		}
+	]
+}

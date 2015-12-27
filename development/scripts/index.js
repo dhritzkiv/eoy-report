@@ -21,14 +21,18 @@ const RENDER_ORDER_FEATURES = 0;
 const RENDER_ORDER_FEATURE_MAP = 0.1;
 const RENDER_ORDER_TEXT = 0.2;
 const RENDER_ORDER_LINES = 0.3;
+const RENDER_ORDER_LINES_RIDES = 0.31;
+const RENDER_ORDER_LINES_WALKS = 0.32;
 const RENDER_ORDER_PLACES = 0.4;
 const RENDER_ORDER_LABELS = 0.5;
 
 const LABEL_SIZE_METRO = 1;
 const LABEL_SIZE_SMALL = 0.6;
 
-const COLOR_LAND = "#f2f7f6";
-const COLOR_WATER = "#3cf";//0x3cf3cf;
+const COLOR_LAND = "#f1f7f6";
+const COLOR_PARKS = "#d8e5e0";
+const COLOR_WATER = "#b6d8db";//0x3cf3cf;
+const COLOR_TEXT = "#373d3d";
 
 function coordsToPoint(coords) {
 	var latitude = coords[1];
@@ -136,7 +140,17 @@ const lo_geometry = lake_ontario_bounds.features[0].geometry.coordinates
 .map(polyToShapeGeometry)
 .reduce(reduceGeometry);
 
-const lo_plane = new THREE.Mesh(lo_geometry, lakeMaterial.clone());
+const lo_material = lakeMaterial.clone();
+
+/*const lo_texture = THREE.ImageUtils.loadTexture("/img/texture-test.png");
+lo_texture.wrapS = THREE.RepeatWrapping;
+lo_texture.wrapT = THREE.RepeatWrapping;
+//lo_texture.magFilter = THREE.NearestFilter;
+//lo_texture.minFilter = THREE.LinearFilter;//LinearMipMapNearestFilter;
+
+lo_material.map = lo_texture;*/
+
+const lo_plane = new THREE.Mesh(lo_geometry, lo_material);
 lo_plane.renderOrder = RENDER_ORDER_FEATURES;
 scene.add(lo_plane);
 
@@ -159,7 +173,7 @@ const to_geometry = toronto_bounds.features[0].geometry.coordinates
 .reduce(reduceGeometry);
 
 var to_material = new THREE.MeshBasicMaterial({
-	color: "#dfedea"
+	color: "#ebf2f1"
 });
 
 to_material.depthWrite = false
@@ -178,13 +192,9 @@ camera.position.set(to_centroid.x, to_centroid.y, cameraZPosition * 1.1);
 
 /* Toronto Parks */
 
-var textureLoader = new THREE.TextureLoader();
+const textureLoader = new THREE.TextureLoader();
 
 textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
-		
-	/*const to_park_geometry = toronto_bounds.features[0].geometry.coordinates
-	.map(polyToShapeGeometry)
-	.reduce(reduceGeometry);*/
 	
 	const to_park_geometry = new THREE.Geometry().copy(to_geometry);
 
@@ -201,7 +211,7 @@ textureLoader.load("/img/toronto-parks_alpha.png",	function (texture) {
 	
 	var material = new THREE.MeshBasicMaterial({
 		alphaMap: texture,
-		color: "#bcd1b4",
+		color: COLOR_PARKS,
 		transparent: true
 	});
 	
@@ -224,8 +234,9 @@ function makeTextLabelSprite(labelText, position, size) {
 	labelText = labelText.toUpperCase();
 	const canvas = document.createElement("canvas");
 	const context = canvas.getContext("2d");
-	canvas.width = 256;
-	canvas.height = 256;
+	const dimension = 512 * size;
+	canvas.width = dimension;
+	canvas.height = dimension;
 	
 	context.textAlign = "center";
 	context.textBaseline = "middle";
@@ -239,12 +250,12 @@ function makeTextLabelSprite(labelText, position, size) {
 	context.lineJoin = "round";
 	context.strokeText(labelText, canvas.width / 2, canvas.height / 2);
 	
-	context.fillStyle = "#90bebe";
+	context.fillStyle = COLOR_TEXT;
 	context.fillText(labelText, canvas.width / 2, canvas.height / 2);
 	
 	const textLabelMap = new THREE.Texture(canvas);
 	
-	textLabelMap.anisotropy = renderer.getMaxAnisotropy();
+	//textLabelMap.anisotropy = renderer.getMaxAnisotropy();
 	textLabelMap.magFilter = THREE.LinearFilter;
 	textLabelMap.minFilter = THREE.LinearFilter;
 	textLabelMap.needsUpdate = true;
@@ -297,7 +308,7 @@ const pointRadius = pointDimension / 2;
 const pointLineWidth = pointDimension / 8;
 pointCanvas.width = pointDimension;
 pointCanvas.height = pointDimension;
-pointCanvasContext.fillStyle = "green";
+pointCanvasContext.fillStyle = COLOR_TEXT;
 pointCanvasContext.strokeStyle = COLOR_LAND;
 pointCanvasContext.lineWidth = pointLineWidth;
 pointCanvasContext.beginPath();
@@ -405,7 +416,7 @@ rides
 .forEach(function(geometry) {
 	const mesh = new THREE.Mesh(geometry, rideLineMaterial);
 	mesh.position.z = 0.0001;
-	mesh.renderOrder = RENDER_ORDER_LINES;
+	mesh.renderOrder = RENDER_ORDER_LINES_RIDES;
 	scene.add(mesh);
 });
 
@@ -427,7 +438,7 @@ walks
 	const mesh = new THREE.Mesh( line.geometry, walkLineMaterial );
 	mesh.position.z = 0.0001;
 	//mesh.matrixAutoUpdate = false;
-	mesh.renderOrder = RENDER_ORDER_LINES;
+	mesh.renderOrder = RENDER_ORDER_LINES_WALKS;
 	
 	scene.add(mesh);
 });
@@ -472,8 +483,10 @@ renderer.domElement.addEventListener("mousewheel", function(event) {
 	event.preventDefault();
 	camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 	
-	if (camera.position.z < 0.01) {
-		camera.position.z = 0.01;
+	const minCameraZ = 0.02;
+	
+	if (camera.position.z < minCameraZ) {
+		camera.position.z = minCameraZ;
 	} else if (camera.position.z > camera.far) {
 		camera.position.z = camera.far;
 	}

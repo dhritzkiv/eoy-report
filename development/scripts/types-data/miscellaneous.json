@@ -1,0 +1,20 @@
+{
+	"text": "STUFF",
+	"sources": [],
+	"stats": [
+		{
+			"title": "First place in 2015",
+			"value": "Lakeview Restaurant",
+			"date": "2015-01-01T05:00:00.000Z"
+		},
+		{
+			"title": "Last place in 2015",
+			"value": "The Banwatts'",
+			"date": "2015-12-31T05:00:00.000Z"
+		},
+		{
+			"title": "Days with a moustache",
+			"value": 42
+		}
+	]
+}

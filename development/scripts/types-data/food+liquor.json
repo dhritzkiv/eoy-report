@@ -1,0 +1,22 @@
+{
+	"text": "I like Beer",
+	"sources": ["Untappd", "Foursquare"],
+	"stats": [
+		{
+			"title": "Avg. coffees per day",
+			"value": 1.4246575342
+		},
+		{
+			"title": "Avg. beers per day",
+			"value": 0.97265625
+		},
+		{
+			"title": "Bellwoods Brewery Brews",
+			"value": 22
+		},
+		{
+			"title": "Times at Food & Liquor",
+			"value": 3
+		}
+	]
+}
