@@ -56,11 +56,19 @@ a[href] {
 				
 .si-unit {
 	text-transform: none;
-	font-variant: small-caps;
 }
 
 canvas {
 	font-family: $ffSans;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: hand;
+	cursor: -webkit-grab;
+	
+	&:active {
+		cursor: -webkit-grabbing;
+	}
 }
 
 body > main {
@@ -76,15 +84,16 @@ body > main {
 body > nav {
 	position: relative;
 	width: 100%;
-	height: 72px;
+	height: 52px;
 	text-align: center;
 	background-color: #cfd4d4;
 	flex: 0 1 auto;
 	
 	h1 {
-		font-size: 36px;
+		font-size: 28px;
 		margin: 0;
-		line-height: 72px;
+		line-height: 52px;
+		letter-spacing: 0.015em;
 		text-transform: uppercase;
 	}
 	
@@ -116,6 +125,7 @@ body > main > section > main {
 }
 
 body > main > section.maps > main {
+	position: relative;
 	overflow: hidden;
 }
 
@@ -126,17 +136,18 @@ body > main > section#maps canvas {
 
 body > main > section > nav {
 	flex: 0 0 auto;
-	height: 36px;
+	height: 32px;
 	width: 100%;
 	background-color: #9aa1a1;
 	text-align: center;
-	vertical-align: middle;
-	line-height: 36px;
-	font-size: 17px;
-	font-weight: 600;
 	
 	a[href] {
 		color: white;
+		line-height: 32px;
+		font-size: 14px;
+		font-weight: 600;
+		vertical-align: middle;
+		letter-spacing: 0.08em;
 		margin: 0 ($gutter / 2);
 	}
 }
@@ -275,7 +286,7 @@ body > main > section > main > section {
 			justify-content: center;
 			align-content: center;
 			width: 220px;
-			height: 220px;
+			height: 165px;
 			margin: 2px;
 			//background-color: red;
 			box-shadow: inset 0px 0px 0px 1px rgba($colorText, 0.15);
