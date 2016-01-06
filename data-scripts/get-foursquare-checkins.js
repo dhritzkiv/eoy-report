@@ -25,6 +25,8 @@ else {
 
 function getCheckinsFor2015() {
 	
+	const lastDateIn2015 = new Date(2015, 11, 31, 23, 59, 59);
+	
 	const limit = 250;//maximum;
 	let offset = 0;
 	let isDone = false;
@@ -35,8 +37,10 @@ function getCheckinsFor2015() {
 		return {
 			id: checkin.venue.id,
 			name: checkin.venue.name,
-			date: new Date(checkin.createdAt * 1000),
-			point: [checkin.venue.location.lng, checkin.venue.location.lat]
+			categories: checkin.venue.categories.map(cat => cat.name),
+			date: new Date(checkin.createdAt * 1000),//first date
+			point: [checkin.venue.location.lng, checkin.venue.location.lat],
+			times: 1
 		}
 	}
 
@@ -53,7 +57,9 @@ function getCheckinsFor2015() {
 				return callback(err);
 			}
 			
-			const checkins = data.checkins.items.map(formatCheckinVenue);
+			const checkins = data.checkins.items
+			.map(formatCheckinVenue)
+			.filter(checkin => checkin.date < lastDateIn2015);
 			
 			console.log(`got ${checkins.length} checkins. offset is ${offset}`);
 			
@@ -64,7 +70,16 @@ function getCheckinsFor2015() {
 				return callback();
 			}
 			
-			checkins.forEach(checkin => checkins2015Map.set(checkin.id, checkin));
+			checkins.forEach(checkin => {
+				
+				const existingCheckin = checkins2015Map.get(checkin.id);
+				
+				if (existingCheckin) {
+					existingCheckin.times++;
+				}
+				
+				checkins2015Map.set(checkin.id, existingCheckin || checkin);
+			});
 			
 			callback();
 		});
@@ -75,6 +90,7 @@ function getCheckinsFor2015() {
 	    }
 	    
 	    const checkins2015Array = Array.from(checkins2015Map.values());
+	    checkins2015Array.sort((a, b) => b.times - a.times);
 	    
 	    fs.writeFile(checkinsWritePath, JSON.stringify(checkins2015Array, null, '\t'), function(err) {
 	        console.log(err || "done writing");

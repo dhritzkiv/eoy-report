@@ -14,7 +14,11 @@ fs.readFile(inPath, "utf8", function(err, src) {
 	
 	//paths.reverse();//oldest first
 	
-	const interopPointsCount = 20;
+	const averagePointCount = paths
+	.map(path => path.points.length)
+	.reduce((total, pointsLength) => total + pointsLength) / paths.length;
+	
+	const interopPointsCount = averagePointCount;
 	
 	function filterByGreaterDateOrGreaterIndexPosition(rideA) {
 		return function(rideB, index) {
@@ -33,8 +37,11 @@ fs.readFile(inPath, "utf8", function(err, src) {
 		const rideAPoints = interpolateLineRange(rideA.points, interopPointsCount);
 		
 		paths
+		//rideB isn't rideA
 		.filter(rideB => rideA !== rideB)
+		//rideB hasn't already been marked a dupe
 		.filter(rideB => !rideB.dupe)
+		//rideB comes after rideA
 		.filter(filterByGreaterDateOrGreaterIndexPosition(rideA))
 		.forEach(function(rideB) {
 			const rideBPoints = interpolateLineRange(rideB.points, interopPointsCount);
@@ -55,7 +62,12 @@ fs.readFile(inPath, "utf8", function(err, src) {
 		});
 	});
 	
+	console.log("rides before: %d", paths.length);
+	
+	paths = paths.filter(path => !path.dupe);
 	paths.reverse();
+	
+	console.log("rides after: %d", paths.length);
 	
 	fs.writeFile(outPath, JSON.stringify(paths, null, "\t"), {
 		encoding: "utf8"

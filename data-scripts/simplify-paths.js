@@ -2,12 +2,12 @@
 
 const fs = require("fs");
 const path = require("path");
-const simplify = require("simplify-js");
+const simplify = require("simplify-path");
 
 const inPath = path.join(process.cwd(), process.argv[2]);
 const outPath = path.join(process.cwd(), process.argv[3]);
 
-const tolerance = 0.00025;
+const tolerance = 0.00005;
 	
 const reducePoints = (total, ride) => total + ride.points.length;
 
@@ -18,18 +18,8 @@ fs.readFile(inPath, "utf8", function(err, src) {
 	
 	const startTime = Date.now();
 	
-	paths = paths.map(function(ride) {
-		const srcPointsObjectArray = ride.points.map(point => {
-			return {
-				x: point[0],
-				y: point[1]
-			}
-		});
-		
-		const simplifiedPoints = simplify(srcPointsObjectArray, tolerance, true);
-		
-		ride.points = simplifiedPoints.map(point => [point.x, point.y]);
-		
+	paths = paths.map(function(ride) {		
+		ride.points = simplify(ride.points, tolerance);
 		return ride;
 	});
 	

@@ -9,7 +9,7 @@ const polyline = require('polyline');
 const rideIdsFilePath = "./data/2015_ride_ids.json";
 const ridesFilePath = "./data/2015_rides.json";
 
-const targetRideKeys = ["id", "name", "distance", "moving_time", "elapsed_time", "total_elevation_gain", "start_date_local", "gear_id", "average_speed", "max_speed", "average_watts", "calories"];
+const targetRideKeys = ["id", "name", "distance", "moving_time", "elapsed_time", "total_elevation_gain", "start_date_local", "average_speed", "max_speed", "calories"];
 
 function getRideIdsFor2015() {
 	const ride_ids = [];
@@ -32,12 +32,12 @@ function getRideIdsFor2015() {
 				return callback(err);
 			}
 			
-			console.log("page %d; retrieved %d rides.", retrievalPage, rides.length);
-			
 			latestRide = rides[rides.length - 1];
 			
 			rides = rides.filter(testFor2015);
 			rides.forEach(ride => ride_ids.push(ride.id));
+			
+			console.log("page %d; retrieved %d rides.", retrievalPage, rides.length);
 			
 			retrievalPage++
 			callback();
@@ -48,13 +48,11 @@ function getRideIdsFor2015() {
 	        return console.error(err);
         }
         
-        fs.writeFile(rideIdsFile, JSON.stringify(rideIdsFilePath, null, '\t'), function(err) {
+        fs.writeFile(rideIdsFilePath, JSON.stringify(ride_ids, null, '\t'), function(err) {
 	        console.log(err || "done writing");
         });
     });
 }
-
-//getRideIdsFor2015();
 
 function simplifyRideData(ride) {
 	const simple = {};
@@ -63,7 +61,7 @@ function simplifyRideData(ride) {
 	
 	simple.points = polyline.decode(ride.map.polyline);
 	//reverse order of coords
-	simple.points = simple.points.map(point => point.reverse())
+	simple.points = simple.points.map(point => point.reverse());
 	
 	return simple;
 }
@@ -93,11 +91,9 @@ function getRidesFor2015() {
 		
 		let lastFetch = Date.now();
 		const ride_ids = JSON.parse(data);
-		const writeStream = fs.createWriteStream(ridesFilePath);
+		const rides = [];
 		
-		writeStream.write("[", "utf8");
-		
-		async.eachSeries(ride_ids, function(ride_id, callback) {
+		async.eachLimit(ride_ids, 4, function(ride_id, callback) {
 			lastFetch = new Date();
 			
 			getRideById(ride_id, function(err, ride) {
@@ -111,24 +107,24 @@ function getRidesFor2015() {
 				
 				console.log(`#${index} [${(new Date()).toLocaleTimeString()}]: Parsed "${ride.name}" (${(new Date(ride.start_date_local)).toLocaleDateString()}) with ${ride.points.length} points`);
 				
-				const rideJSON = JSON.stringify(ride, null, '\t');
-				writeStream.write(rideJSON, "utf8", function(err) {
-					if (err) {
-						return callback(err);
-					}
+				rides.push(ride);
 					
-					//wait at most 1s between fetches.
-					setTimeout(callback, Math.max((lastFetch + 1000) - Date.now(), 0));
-				});
+				//wait at most 1s between fetches.
+				setTimeout(callback, Math.max((lastFetch + 250) - Date.now(), 0));
 			});
 		}, function(err) {
+			
 			if (err) {
 				console.error(err);
 			}
 			
-			writeStream.end("]", "utf8");
+			const ridesJSON = JSON.stringify(rides, null, '\t');
+			
+			fs.writeFileSync(ridesFilePath, ridesJSON, "utf8");
 		});
 	});
 }
+
+//getRideIdsFor2015();
 
 getRidesFor2015();

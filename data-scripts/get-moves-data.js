@@ -9,19 +9,6 @@ const Moves = require('moves-api');
 const moves = new Moves.MovesApi(movesConfig);
 const async = require('async');
 
-//const rideIdsFilePath = "./data/2015_ride_ids.json";
-//const ridesFilePath = "./data/2015_rides.json";
-
-//const targetRideKeys = ["id", "name", "distance", "moving_time", "elapsed_time", "total_elevation_gain", "start_date_local", "gear_id", "average_speed", "max_speed", "average_watts", "calories"];
-
-//return console.log(moves.generateAuthUrl(["activity", "location"]));
-
-/*return moves.getAccessToken("", function(err, authData) {
-	console.log(err || authData);
-});*/
-
-//getRideIdsFor2015();
-
 function getTotalSteps() {
 	
 	const currentDatePlusOneMonth = new Date();
@@ -53,26 +40,11 @@ function getTotalSteps() {
 			.filter(summaries => summaries)
 			.map(
 				summaries => summaries.filter(
-					summary => summary.activity === "walking"
+					summary => summary.group === "walking" || summary.group === "running"
 				)
 			)
 			//flatten array
 			.reduce((a, b) => a.concat(b), [])
-			//filter out any null segments
-			/*.filter(seg => seg)
-			//only include move activities
-			.filter(seg => seg.type === "move")
-			.map(seg => seg.activities)
-			//activities can have multiple parts? 
-			.reduce((a, b) => a.concat(b), [])	
-			//only include walking activities (cycling is handled differently)
-			.filter(activity => activity.activity === "walking")
-			//we're only interested in the points
-			.map(activity => activity.trackPoints)
-			//format the point objects to [lon, lat] arrays
-			.map(walks => walks.map(points => [points.lon, points.lat]))
-			//each walk is an object to match other data structures
-			.map(walks => ({points: walks}));*/
 			
 			next(null, walks);
 		});
@@ -90,7 +62,7 @@ function getTotalSteps() {
 	});
 }
 
-getTotalSteps();
+//getTotalSteps();
 
 function getWalks() {
 
@@ -130,7 +102,7 @@ function getWalks() {
 			//activities can have multiple parts? 
 			.reduce((a, b) => a.concat(b), [])	
 			//only include walking activities (cycling is handled differently)
-			.filter(activity => activity.activity === "walking")
+			.filter(activity => activity.group === "walking" || activity.group === "running")
 			//we're only interested in the points
 			.map(activity => activity.trackPoints)
 			//format the point objects to [lon, lat] arrays
@@ -155,3 +127,5 @@ function getWalks() {
 		fs.writeFileSync(path.join(process.cwd(), "data", "2015_walks.json"), walksJSON);
 	});
 }
+
+getWalks();
