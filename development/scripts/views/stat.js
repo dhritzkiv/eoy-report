@@ -98,6 +98,9 @@ module.exports = View.extend({
 		"model.value_formatted": {
 			selector: "h3"
 		},
+		"model.secondary_value_formatted": {
+			selector: "h5"
+		},
 		adjusted_fontSize: {
 			type: function(el, val) {
 				if (val) {
@@ -108,12 +111,11 @@ module.exports = View.extend({
 		},
 		letter_spacing: {
 			type: function(el, val) {
-				el.style.letterSpacing = val + "px";
+				if (val) {
+					el.style.letterSpacing = val + "px";
+				}
 			},
 			selector: "h3"
-		},
-		"model.date_formatted": {
-			selector: "h5"
 		}
 	}
 });

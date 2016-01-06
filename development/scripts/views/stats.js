@@ -11,7 +11,7 @@ const modelDatas = {
 	cycling: require(`../types-data/cycling.json`),
 	walking: require(`../types-data/walking.json`),
 	"food+liquor": require(`../types-data/food+liquor.json`),
-	//"audio+video": require(`../types-data/cycling.json`),
+	"audio+video": require(`../types-data/audio+video.json`),
 	"miscellaneous": require(`../types-data/miscellaneous.json`)
 };
 
@@ -56,8 +56,8 @@ const TypeView = View.extend({
 			deps: ["model.text"],
 			fn: function() {
 				return this.model.text
-				.replace(/(?:\s|^)(\d(?:\d|\.|,|\+)+(?:k?m)?)([\s\.,])/gi, ` <span class="digit">$1</span>$2`)
-				.replace(/(\d(?:\d|\.|,|\+)+)(m|km|s|min|hr)(\s|\.|<|$)/gi, `$1<abbr class="si-unit">$2</abbr>$3`);
+				.replace(/(\s|^)(\d(?:\d|\.|,|\+|\s)+(?:k?m)?)([\s\.,])/gi, `$1<span class="digit">$2</span>$3`)
+				.replace(/(\d(?:\d|\.|,|\+|\s)+)(m|km|s|min|hr)(\s|\.|<|$)/gi, `$1<abbr class="si-unit">$2</abbr>$3`);
 			}
 		}
 	},

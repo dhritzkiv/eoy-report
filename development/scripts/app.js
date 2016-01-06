@@ -10,7 +10,7 @@ const MainView = View.extend({
 		<body>
 			<main></main>
 			<nav id="main-nav">
-				<h1>Twenty Fifteen</h1>
+				<h1>Daniel's Twenty Fifteen</h1>
 				<a data-hook="switch-modes">Switch</a>
 			</nav>
 		</body>

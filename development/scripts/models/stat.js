@@ -19,7 +19,7 @@ module.exports = State.extend({
 		alt_text: {
 			type: "string"
 		},
-		date: {
+		secondary_value: {
 			type: "string"
 		}
 	},
@@ -63,14 +63,23 @@ module.exports = State.extend({
 				return formattedValue;
 			}
 		},
-		date_formatted: {
-			deps: ["date"],
+		secondary_value_formatted: {
+			deps: ["secondary_value"],
 			fn: function() {
-				if (!this.date) {
+				
+				const value = this.secondary_value;
+				
+				if (!value) {
 					return "";
 				}
 				
-				return moment(this.date).format("LL");
+				const date = moment(value);
+				
+				if (date.isValid()) {
+					return date.format("LL");
+				} else {
+					return value;
+				}
 			}
 		}
 	}

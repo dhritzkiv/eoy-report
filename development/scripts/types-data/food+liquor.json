@@ -1,18 +1,46 @@
 {
-	"text": "I like Beer",
+	"title": "Food & Liquor",
+	"text": "If you saw me pulling out my phone anytime we walked into a building, this is why: my Swarm checkins.\n\
+	\n\
+	\"Do you ever eat at home?\" No.\n\
+	\n\
+	Live two blocks from Bellwoods Brewery",
 	"sources": ["Untappd", "Foursquare"],
 	"stats": [
 		{
-			"title": "Avg. coffees per day",
-			"value": 1.4246575342
+			"title": "Food checkins",
+			"value": 493,
+			"secondary_value": "Restaurants, Diners, Takeout, Fast Food"
 		},
 		{
-			"title": "Avg. beers per day",
-			"value": 0.97265625
+			"title": "Coffee checkins",
+			"value": 220,
+			"secondary_value": "Cafés, Coffee Shops"
 		},
 		{
-			"title": "Bellwoods Brewery Brews",
-			"value": 22
+			"title": "Liquor checkins",
+			"value": 58,
+			"secondary_value": "Bars, Pubs, Breweries, Liquor Stores"
+		},
+		{
+			"title": "Most checkins at venue",
+			"value": 39,
+			"secondary_value": "The Tenant of Parkdale"
+		},
+		{
+			"title": "Avg. coffee per day",
+			"value": 427.39726026,
+			"value_type": "mL"
+		},
+		{
+			"title": "Avg. beer per day",
+			"value": 0.9417490494,
+			"value_type": "pints"
+		},
+		{
+			"title": "Bellwoods Brewery Brews*",
+			"value": 22,
+			"secondary_value": "*unique"
 		},
 		{
 			"title": "Times at Food & Liquor",

@@ -1,0 +1,35 @@
+{
+	"title": "Audio & Video",
+	"text": "Tunez",
+	"sources": ["iTunes Library", "Last.fm", "Netflix", "The X-Files Skippable Guide"],
+	"stats": [
+		{
+			"title": "Top album play count",
+			"value": 747,
+			"secondary_value": "I Love You, Honeybear"
+		},
+		{
+			"title": "Top track play count",
+			"value": 99,
+			"secondary_value": "Kill v. Maim",
+		},
+		{
+			"title": "Total listening time",
+			"value": 697.02990917,
+			"value_type": "hr"
+		},
+		{
+			"title": "Movies seen in theatres",
+			"value": 8
+		},
+		{
+			"title": "SCENE points redeemed",
+			"value": 19000
+		},
+		{
+			"title": "Episodes of X-Files rewatched",
+			"value": 110,
+			"secondary_value": "out of 202 episodes"
+		}
+	]
+}

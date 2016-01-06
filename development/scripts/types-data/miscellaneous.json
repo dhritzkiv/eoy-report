@@ -1,20 +1,34 @@
 {
-	"text": "STUFF",
+	"title": "Miscellaneous",
+	"text": "Everything else. Mostly not even numbers.",
 	"sources": [],
 	"stats": [
 		{
 			"title": "First place in 2015",
 			"value": "Lakeview Restaurant",
-			"date": "2015-01-01T05:00:00.000Z"
+			"secondary_value": "2015-01-01T05:00:00.000Z"
 		},
 		{
 			"title": "Last place in 2015",
 			"value": "The Banwatts'",
-			"date": "2015-12-31T05:00:00.000Z"
+			"secondary_value": "2015-12-31T05:00:00.000Z"
 		},
 		{
 			"title": "Days with a moustache",
 			"value": 42
+		},
+		{
+			"title": "Pants ripped",
+			"value": 4
+		},
+		{
+			"title": "Times in a car",
+			"value": 19
+		},
+		{
+			"title": "Most fun",
+			"value": "Dan Deacon",
+			"secondary_value": "@ XOXO in Portland, OR"
 		}
 	]
 }
