@@ -9,6 +9,7 @@ const THREE = require("three.js");
 const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
 
+const checkins = require("../../../data/2015_foursquare-checkins.json");
 const rides = require("../../../data/2015_rides_deduped_simplified.json");
 const walks = require("../../../data/2015_walks_deduped_simplified.json");
 
@@ -66,7 +67,7 @@ module.exports = View.extend({
 	props: {
 		city: {
 			type: "string",
-			default: "lv"
+			default: "to"
 		},
 		needsRender: {
 			type: "boolean",
@@ -124,38 +125,102 @@ module.exports = View.extend({
 				}),
 				new LabelMapFeature({
 					name: "Toronto",
-					position: new THREE.Vector3(-79.4, 43.7, 0),
+					position: new THREE.Vector3(-79.4, 43.7, 0.025),
 					size: consts.LABEL_SIZE_METRO
 				}),
 				new LabelMapFeature({
 					name: "Hamilton",
-					position: new THREE.Vector3(-79.866091, 43.250021, 0),
-					size: consts.LABEL_SIZE_SMALL
+					position: new THREE.Vector3(-79.866091, 43.250021, 0.01),
+					size: consts.LABEL_SIZE_MEDIUM
 				}),
 				new LabelMapFeature({
 					name: "Guelph",
-					position: new THREE.Vector3(-80.248167, 43.544805, 0),
-					size: consts.LABEL_SIZE_SMALL
+					position: new THREE.Vector3(-80.248167, 43.544805, 0.01),
+					size: consts.LABEL_SIZE_MEDIUM
 				}),
 				new LabelMapFeature({
 					name: "Oakville",
-					position: new THREE.Vector3(-79.687666, 43.467517, 0),
+					position: new THREE.Vector3(-79.687666, 43.467517, 0.01),
 					size: consts.LABEL_SIZE_SMALL
 				}),
 				new LabelMapFeature({
 					name: "Barrie",
-					position: new THREE.Vector3(-79.690332, 44.389356, 0),
-					size: consts.LABEL_SIZE_SMALL
+					position: new THREE.Vector3(-79.690332, 44.389356, 0.01),
+					size: consts.LABEL_SIZE_MEDIUM
 				}),
 				new LabelMapFeature({
 					name: "Missisauga",
-					position: new THREE.Vector3(-79.65, 43.6, 0),
+					position: new THREE.Vector3(-79.65, 43.6, 0.01),
 					size: consts.LABEL_SIZE_SMALL
 				}),
 				new LabelMapFeature({
 					name: "Oro-Medonte",
-					position: new THREE.Vector3(-79.523333, 44.5, 0),
+					position: new THREE.Vector3(-79.523333, 44.5, 0.01),
 					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Burlington",
+					position: new THREE.Vector3(-79.8, 43.316667, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Vaughn",
+					position: new THREE.Vector3(-79.5, 43.83333, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "King",
+					position: new THREE.Vector3(-79.6044, 44.0463, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Bradford",
+					position: new THREE.Vector3(-79.633333, 44.13333, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Innisfil",
+					position: new THREE.Vector3(-79.583333, 44.3, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Pickering",
+					position: new THREE.Vector3(-79.089, 43.8354, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Newmarket",
+					position: new THREE.Vector3(-79.466667, 44.05, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				/*new LabelMapFeature({
+					name: "Aurora",
+					position: new THREE.Vector3(-79.466667, 44, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),*/
+				new LabelMapFeature({
+					name: "Broke Wrist Here",
+					position: new THREE.Vector3(-79.545822, 44.112856, 0.005),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.1
+				}),
+				new LabelMapFeature({
+					name: "WayHome",
+					position: new THREE.Vector3(-79.520159, 44.479942, 0.005),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.15
+				}),
+				new LabelMapFeature({
+					name: "YTZ",
+					position: new THREE.Vector3(-79.396111, 43.6275, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
+				}),
+				new LabelMapFeature({
+					name: "YYZ",
+					position: new THREE.Vector3(-79.630556, 43.676667, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
 				})
 			]
 		},
@@ -195,13 +260,24 @@ module.exports = View.extend({
 				}),
 				new LabelMapFeature({
 					name: "Las Vegas",
-					position: new THREE.Vector3(-115, 36.15, 0),
+					position: new THREE.Vector3(-115.136389, 36.175, 0.01),
 					size: consts.LABEL_SIZE_METRO
 				}),
 				new LabelMapFeature({
-					name: "Downtown Las Vegas",
-					position: new THREE.Vector3(-115.13983, 36.169941, 0),
+					name: "Las Vegas Strip",
+					position: new THREE.Vector3(-115.172222, 36.120833, 0.01),
 					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "Las Vegas Strip",
+					position: new THREE.Vector3(-115.172222, 36.120833, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "LAS",
+					position: new THREE.Vector3(-115.152222, 36.08, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
 				})
 			]
 		},
@@ -240,14 +316,67 @@ module.exports = View.extend({
 				}),
 				new LabelMapFeature({
 					name: "Manhattan",
-					position: new THREE.Vector3(-73.959722, 40.790278, 0),
+					position: new THREE.Vector3(-73.959722, 40.790278, 0.01),
 					size: consts.LABEL_SIZE_METRO
 				}),
 				new LabelMapFeature({
 					name: "Brooklyn",
-					position: new THREE.Vector3(-73.990278, 40.692778, 0),
+					position: new THREE.Vector3(-73.990278, 40.692778, 0.01),
 					size: consts.LABEL_SIZE_METRO
 				}),
+				new LabelMapFeature({
+					name: "Newark",
+					position: new THREE.Vector3(-74.172367, 40.735657, 0.01),
+					size: consts.LABEL_SIZE_SMALL
+				}),
+				new LabelMapFeature({
+					name: "EWR",
+					position: new THREE.Vector3(-74.168611, 40.6925, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
+				}),
+				/*new LabelMapFeature({
+					name: "WTC",
+					position: new THREE.Vector3(-74.0125, 40.711667, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "High Line",
+					position: new THREE.Vector3(-74.005, 40.748333, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "UN Building",
+					position: new THREE.Vector3(-73.968056, 40.749444, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "Flatiron Building",
+					position: new THREE.Vector3(-73.989722, 40.741111, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "Williamsburg",
+					position: new THREE.Vector3(-73.95333, 40.713333, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "Chinatown",
+					position: new THREE.Vector3(-73.997222, 40.714722, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				}),
+				new LabelMapFeature({
+					name: "SoHo",
+					position: new THREE.Vector3(-74.000833, 40.723056, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.05
+				})*/
 			]
 		},
 		pdx: {
@@ -281,7 +410,25 @@ module.exports = View.extend({
 				new RoadMapFeature({
 					name: "Trimet",
 					geojson_uri: "/data/portland-bus-routes-merged-joined_fixed.geojson",
-					renderOrder: 0.02
+					renderOrder: 0.02,
+					hide_at_z: 0.075
+				}),
+				new LabelMapFeature({
+					name: "Portland",
+					position: new THREE.Vector3(-122.681944, 45.52, 0.01),
+					size: consts.LABEL_SIZE_METRO,
+				}),
+				new LabelMapFeature({
+					name: "PDX",
+					position: new THREE.Vector3(-122.5975, 45.588611, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
+				}),
+				new LabelMapFeature({
+					name: "XOXO",
+					position: new THREE.Vector3(-122.652, 45.518972, 0.001),
+					size: consts.LABEL_SIZE_NANO,
+					hide_at_z: 0.075
 				})
 			]
 		},
@@ -408,7 +555,22 @@ module.exports = View.extend({
 		camera.aspect = rect.width / rect.height;
 		camera.updateProjectionMatrix();
 		
+		this.updateMaxCameraZ();
+		this.updateForCameraZ();
+		
 		this.needsRender = true;
+	},
+	updateMaxCameraZ: function() {
+		
+		const camera = this.camera;
+		
+		if (this.area) {
+			const bounds = this.area.bounds;
+			const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1])
+			this.max_camera_z = (size / 4) / camera.aspect;
+		} else {
+			this.max_camera_z = camera.far;
+		}
 	},
 	mousewheelHandler: function(event) {
 		
@@ -419,22 +581,15 @@ module.exports = View.extend({
 		camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 		
 		const minCameraZ = 0.02;
-		let maxCameraZ = camera.far;
-		
-		if (this.area) {
-			let bounds = this.area.bounds;
-			
-			const canvas = this.query("canvas");
-			const screenAspectRatio = canvas.clientWidth / canvas.clientHeight;
-			
-			maxCameraZ = ((bounds[1][0] - bounds[0][0]) / 4) / screenAspectRatio;
-		}
+		const maxCameraZ = this.max_camera_z;
 		
 		if (camera.position.z < minCameraZ) {
 			camera.position.z = minCameraZ;
 		} else if (camera.position.z > maxCameraZ) {
 			camera.position.z = maxCameraZ;
 		}
+		
+		this.updateForCameraZ();
 		
 		this.needsRender = true;
 	},
@@ -538,6 +693,36 @@ module.exports = View.extend({
 		
 		event.preventDefault();
 	},
+	updateForCameraZ: function() {
+		
+		const camera = this.camera;
+		const scene = this.scene;
+		
+		const cameraZPosition = camera.position.z;
+		const cameraMatrixWorldInverse = camera.matrixWorldInverse;
+		
+		scene.children
+		.filter(child => child.userData && child.userData.hide_at_z)
+		.forEach(child => {
+			child.visible = cameraZPosition < child.userData.hide_at_z;
+		});
+		
+		scene.children
+		.filter(child => child instanceof THREE.Sprite)
+		.filter(child => child.visible)
+		.forEach(sprite => {
+			const virtual_z = -4 + (sprite.position.z / 4);
+	
+			const v = sprite.position
+			.clone()
+			.applyMatrix4(cameraMatrixWorldInverse);
+			
+			const scale = (v.z - cameraZPosition) / virtual_z;
+			sprite.scale.set(scale, scale, scale);
+		});
+		
+		this.needsRender = true;
+	},
 	setUpArea: function(area) {
 		
 		const self = this;
@@ -547,6 +732,8 @@ module.exports = View.extend({
 		//scene.traverse(object => scene.remove(object));
 		
 		console.time(area.name);
+		
+		this.updateMaxCameraZ();
 		
 		area.features.forEach(feature => feature.points = []);
 		
@@ -560,6 +747,7 @@ module.exports = View.extend({
 						
 						if (index === 0) {
 							cameraToMeshGeometryCentroid(mesh.geometry);
+							requestAnimationFrame(() => self.updateForCameraZ());
 						}
 						
 						scene.add(mesh);
@@ -589,7 +777,7 @@ module.exports = View.extend({
 			const areaAspectRatio = size.x / size.y;
 			let dimension = 0;
 			
-			if (screenAspectRatio > areaAspectRatio) {
+			if (screenAspectRatio < areaAspectRatio) {
 				dimension = size.x / 2;
 			} else {
 				dimension = size.y / 2;
@@ -664,8 +852,74 @@ module.exports = View.extend({
 			scene.add(mesh);
 		});
 		
+		/* Points (checkins) */
+		
+		function makeCheckinDot(color) {
+			const pointCanvas = document.createElement("canvas");
+			const context = pointCanvas.getContext("2d");
+			const pointDimension = 12;
+			const pointRadius = pointDimension / 2;
+			const pointLineWidth = pointDimension / 6;
+			const fullCircle = 2 * Math.PI;
+			
+			pointCanvas.width = pointDimension;
+			pointCanvas.height = pointDimension;
+			
+			context.beginPath();
+			context.arc(pointRadius, pointRadius, pointRadius, 0, fullCircle);
+			context.fillStyle = consts.COLOR_LAND;
+			context.fill();
+			context.closePath();
+			context.beginPath();
+			context.arc(pointRadius, pointRadius, pointRadius - pointLineWidth, 0, fullCircle);
+			context.fillStyle = color || consts.COLOR_TEXT;
+			context.fill();
+			context.closePath();
+			
+			return pointCanvas
+		}
+
+		const pointTexture = new THREE.Texture(makeCheckinDot());
+		pointTexture.premultiplyAlpha = true;
+		pointTexture.needsUpdate = true;
+		pointTexture.magFilter = THREE.NearestFilter;
+		pointTexture.minFilter = THREE.NearestFilter;//THREE.LinearFilter;//LinearMipMapNearestFilter;
+		
+		const pointMaterial = new THREE.PointsMaterial({
+			size: 12,//0.00075,
+			map: pointTexture,
+			transparent: true,
+			sizeAttenuation: false//true
+		});
+		
+		pointMaterial.blending = THREE.CustomBlending;
+		pointMaterial.blendSrc = THREE.OneFactor;
+		
+		pointMaterial.depthWrite = false;
+		
+		const checkinGeometry = new THREE.BufferGeometry();
+		const checkinVertices = new Float32Array(checkins.length * 3);
+		
+		checkins
+		.map(checkin => checkin.point)
+		.forEach(function(point, index) {
+			checkinVertices[index * 3 + 0] = point[0];
+			checkinVertices[index * 3 + 1] = point[1];
+			checkinVertices[index * 3 + 2] = 0;
+		});
+		
+		checkinGeometry.addAttribute('position', new THREE.BufferAttribute(checkinVertices, 3));
+		
+		const checkinParticles = new THREE.Points(checkinGeometry, pointMaterial);
+		checkinParticles.position.z = 0.0001;
+		checkinParticles.renderOrder = consts.RENDER_ORDER_PLACES;
+		checkinParticles.userData.hide_at_z = 0.075;
+		
+		scene.add(checkinParticles);
+		
 		this.needsRender = true;
 		
+		this.updateForCameraZ();
 		
 		console.timeEnd(area.name);
 		

@@ -135,6 +135,7 @@ module.exports = MapFeature.extend({
 		
 		lines.forEach(line => plane.add(line));
 		plane.renderOrder = this.renderOrder;
+		plane.userData.hide_at_z = self.hide_at_z;
 		console.timeEnd(this.name);
 		return plane;
 	}

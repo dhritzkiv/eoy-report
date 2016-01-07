@@ -10,7 +10,9 @@ consts.RENDER_ORDER_PLACES = 0.4;
 consts.RENDER_ORDER_LABELS = 0.5;
 
 consts.LABEL_SIZE_METRO = 1;
-consts.LABEL_SIZE_SMALL = 0.6;
+consts.LABEL_SIZE_MEDIUM = 0.8;
+consts.LABEL_SIZE_SMALL = 0.7;
+consts.LABEL_SIZE_NANO = 0.55;
 
 consts.COLOR_LAND = "#f5faf9";
 consts.COLOR_ROADS_MINOR = "#efefef";

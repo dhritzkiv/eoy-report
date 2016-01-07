@@ -41,6 +41,9 @@ module.exports = Model.extend({
 		renderOrder: {
 			type: "number",
 			default: consts.RENDER_ORDER_FEATURES
+		},
+		hide_at_z: {
+			type: "number"
 		}
 	},
 	derived: {
@@ -83,6 +86,7 @@ module.exports = Model.extend({
 		plane.renderOrder = this.renderOrder;
 		plane.position.z = this.z_position;
 		plane.matrixAutoUpdate = false;
+		plane.userData = this.hide_at_z;
 		console.timeEnd(this.name);
 		return plane;
 	},

@@ -12,11 +12,11 @@ module.exports = MapFeature.extend({
 		},
 		z_position: {
 			type: "number",
-			default: 0.05
+			default: 0.005
 		},
 		position: {
 			type: "object",
-			default: () => new THREE.Vector3()
+			default: () => new THREE.Vector3(0, 0, 0.01)
 		},
 		size: {
 			type: "number",
@@ -37,7 +37,10 @@ module.exports = MapFeature.extend({
 		const position = this.position;
 		const size = this.size;
 		
-		labelText = labelText.toUpperCase();
+		if (size >= 0.65) {
+			labelText = labelText.toUpperCase();
+		}
+		
 		const canvas = document.createElement("canvas");
 		const context = canvas.getContext("2d");
 		const dimension = 512 * size;
@@ -51,7 +54,7 @@ module.exports = MapFeature.extend({
 		context.font = `${fontWeight} ${fontSize}px ${fontFamily}, sans-serif`;
 		
 		context.strokeStyle = consts.COLOR_LAND;
-		context.lineWidth = (Math.floor(Math.sqrt(canvas.width)) * 0.25) * (size / 0.5);
+		context.lineWidth = (Math.floor(Math.sqrt(canvas.width)) * 0.5) * (size / 0.5);
 		context.lineCap = "round";
 		context.lineJoin = "round";
 		context.strokeText(labelText, canvas.width / 2, canvas.height / 2);
@@ -79,10 +82,9 @@ module.exports = MapFeature.extend({
 		
 		const sprite = new THREE.Sprite(labelMaterial);
 		sprite.renderOrder = consts.RENDER_ORDER_LABELS;
-		//sprite.position.set(position.x, position.y, 0.05 * size);
 		
-		sprite.scale.set(0.15, 0.15);
-		sprite.position.set(position.x, position.y, this.z_position * (size * size));
+		sprite.position.set(position.x, position.y, position.z * size);
+		sprite.userData.hide_at_z = this.hide_at_z;
 		
 		//labelSprites.push(sprite);
 		

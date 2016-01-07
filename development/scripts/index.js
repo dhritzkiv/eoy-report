@@ -6,7 +6,7 @@ const MeshLineMaterial = require("./THREE.MeshLine").MeshLineMaterial;
 
 console.time("load");
 
-const checkins = require("../../data/2015_foursquare-checkins.json")
+const checkins = require("../../data/2015_foursquare-checkins.json");
 const rides = require("../../data/2015_rides_dupes-marked_simplified.json");
 const walks = require("../../data/2015_walks_deduped_simplified.json");
 const lake_ontario_bounds = require("../../data/lake-ontario-simple_0-005-tolerance-multi.json");
