@@ -19,6 +19,9 @@ const modelDatas = {
 
 const TypeModel = State.extend({
 	props: {
+		title: {
+			type: "string"
+		},
 		text: {
 			type: "string"
 		},
@@ -37,7 +40,7 @@ const TypeView = View.extend({
 		<section>
 			<div class="text-holder">
 				<div class="text">
-					<h2>2015</h2>
+					<h2></h2>
 					<p data-hook="body"></p>
 					<p class="sources">Sources: <span></span></p>
 				</div>
@@ -73,6 +76,9 @@ const TypeView = View.extend({
 		sourcesHTML: {
 			type: "innerHTML",
 			selector: ".sources span"
+		},
+		"model.title": {
+			selector: "h2"
 		}
 	},
 	render: function() {
@@ -89,6 +95,9 @@ module.exports = View.extend({
 		type: {
 			type: "string",
 			default: "cycling"
+		},
+		title: {
+			type: "string"
 		}
 	},
 	template: `
@@ -108,7 +117,12 @@ module.exports = View.extend({
 			type: "attribute",
 			name: "data-type",
 			selector: "main"
-		}
+		},
+		title: {
+			type: "attribute",
+			name: "data-title",
+			selector: "main"
+		},
 	},
 	render: function() {
 		this.renderWithTemplate(this);
@@ -118,11 +132,13 @@ module.exports = View.extend({
 		
 		this.listenToAndRun(this, "change:type", () => {
 			
-			let model = null;
+			let model = new TypeModel(modelDatas[this.type]);
 			
 			const view = new TypeView({
-				model: new TypeModel(modelDatas[this.type])
+				model: model
 			});
+			
+			this.title = model.title;
 			
 			this.pageSwitcher.set(view);
 		});
