@@ -155,17 +155,17 @@ body > main > section > nav {
 body > main > section#stats > main {
 	
 	&:before {
+		$fontSize: 320px;
 		display: inline-block;
 		width: 100%;
 		text-align: center;
 		position: fixed;
 		left: 0;
-		//bottom: 96px;
-		top: calc(100vh - 360px);
+		top: calc(100vh - $fontSize);
 		z-index: 0;
-		content: attr(data-type);
-		//top: calc(60vh - 128px);
-		font-size: 360px;
+		content: attr(data-title);
+		white-space: nowrap;
+		font-size: $fontSize;
 		font-weight: 600;
 		margin: 0;
 		line-height: 1em;
@@ -234,19 +234,25 @@ body > main > section > main > section {
 	
 	.text {
 		//width: $width;
+		position: relative;
 		
 		h2 {
 			font-size: 36px;
 			margin: $gutter * 1.5 0;
+			z-index: 1;
 			
 			&:after {
 				content: "";
+				position: absolute;
 				display: block;
 				width: 64px;
 				height: 2px;
 				margin-top: 2px;
 				margin-bottom: -2px;
 				background-color: $colorText;
+				user-select: none;
+				pointer-events: none;
+				z-index: 0;
 			}
 		}
 			
