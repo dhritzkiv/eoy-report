@@ -5,6 +5,8 @@ $colorText: #373d3d;
 $colorCycling: #ec5f30;
 $colorWalking: #24d672;
 $colorFandL: #cb9625;
+$colorAandV: #5360e1;
+$colorMisc: #71616a;
 
 $ffSans: "Futura PT", Futura, sans-serif;
 $ffSerif: "Adobe Caslon Pro", "Baskerville", serif;
@@ -174,35 +176,23 @@ body > main > section#stats > main {
 		text-transform: uppercase;
 	}
 	
-	&[data-type=cycling] {
-		::selection {
-			background-color: $colorCycling;
-		}
-		
-		& h3 {
-			color: $colorCycling;
-		}
-	}
-	
-	&[data-type=walking] {
-		::selection {
-			background-color: $colorWalking;
-		}
-		
-		& h3 {
-			color: $colorWalking;
+	@mixin sectionColor($section, $color) {
+		&[data-type=#{$section}] {
+			::selection {
+				background-color: $color;
+			}
+			
+			& h3 {
+				color: $color;
+			}
 		}
 	}
 	
-	&[data-type="food+liquor"] {
-		::selection {
-			background-color: $colorFandL;
-		}
-		
-		& h3 {
-			color: $colorFandL;
-		}
-	}
+	@include sectionColor("cycling", $colorCycling);
+	@include sectionColor("walking", $colorWalking);
+	@include sectionColor("food\\+liquor", $colorFandL);
+	@include sectionColor("audio\\+video", $colorAandV);
+	@include sectionColor("miscellaneous", $colorMisc);
 }
 
 body > main > section > main > section {
