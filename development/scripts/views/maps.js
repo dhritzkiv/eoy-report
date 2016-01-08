@@ -866,9 +866,9 @@ module.exports = View.extend({
 		function makeCheckinDot(color) {
 			const pointCanvas = document.createElement("canvas");
 			const context = pointCanvas.getContext("2d");
-			const pointDimension = 12;
+			const pointDimension = 16 * window.devicePixelRatio;
 			const pointRadius = pointDimension / 2;
-			const pointLineWidth = pointDimension / 6;
+			const pointLineWidth = pointDimension / 4;
 			const fullCircle = 2 * Math.PI;
 			
 			pointCanvas.width = pointDimension;
@@ -888,14 +888,16 @@ module.exports = View.extend({
 			return pointCanvas
 		}
 
-		const pointTexture = new THREE.Texture(makeCheckinDot());
+		const pointCanvas = makeCheckinDot();
+		const pointTexture = new THREE.Texture(pointCanvas);
 		pointTexture.premultiplyAlpha = true;
 		pointTexture.needsUpdate = true;
-		pointTexture.magFilter = THREE.NearestFilter;
-		pointTexture.minFilter = THREE.NearestFilter;//THREE.LinearFilter;//LinearMipMapNearestFilter;
+		pointTexture.anisotropy = self.renderer.getMaxAnisotropy();
+		pointTexture.magFilter = THREE.LinearFilter//THREE.NearestFilter;
+		pointTexture.minFilter = THREE.LinearFilter//THREE.NearestFilter;//THREE.LinearFilter;//LinearMipMapNearestFilter;
 		
 		const pointMaterial = new THREE.PointsMaterial({
-			size: 12,//0.00075,
+			size: pointCanvas.width / 2,//0.00075,
 			map: pointTexture,
 			transparent: true,
 			sizeAttenuation: false//true
