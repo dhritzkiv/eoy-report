@@ -13,6 +13,11 @@ const checkins = require("../../../data/2015_foursquare-checkins.json");
 const rides = require("../../../data/2015_rides_deduped_simplified.json");
 const walks = require("../../../data/2015_walks_deduped_simplified.json");
 
+const DECELERATION_RATE = 0.91;
+const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) * 2;
+const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
+const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAccelerationY"];
+
 const consts = require("../consts");
 
 function filterActivitiesToBounds(bounds) {	
@@ -489,6 +494,10 @@ module.exports = View.extend({
 	isMouseDown: false,
 	mouseDownX: 0,
 	mouseDownY: 0,
+	translationVelocityX: 0,
+	translationVelocityY: 0,
+	translationAccelerationX: 0,
+	translationAccelerationY: 0,
 	render: function() {
 		this.renderWithTemplate(this);
 		
@@ -541,14 +550,55 @@ module.exports = View.extend({
 		return this;
 	},
 	canvasRender: function () {
+		
 		requestAnimationFrame(() => this.canvasRender());
 		
 		if (!this.needsRender) {
 			return;
 		}
+		
+		const view = this;
+		const camera = this.camera;
+		
+		let xTranslationUnits;
+		let yTranslationUnits;
+		
+		if (!this.mouseDown /*&& !view.numFingersTouching*/)	{
+			xTranslationUnits = this.translationAccelerationX;
+			yTranslationUnits = this.translationAccelerationY;
+		} else {
+			xTranslationUnits = this.translationVelocityX;
+			yTranslationUnits = this.translationVelocityY;
+		}
+		
+		const distanceDampening = 100 * (0.75 / camera.position.z);
+		
+		xTranslationUnits /= distanceDampening;
+		yTranslationUnits /= distanceDampening;
+		xTranslationUnits /= 4;
+		yTranslationUnits /= 4;
+		
+		camera.position.x += xTranslationUnits;
+		camera.position.y += yTranslationUnits;
+		
+		view.translationVelocityX = 0;
+		view.translationVelocityY = 0;
+		
+		ACCELERATION_PROPERTIES.forEach(prop => {
+
+			//Slow the spinning down every frame
+			view[prop] *= DECELERATION_RATE;
+
+			//make sure we're not spinning forever
+			if (Math.abs(view[prop]) < ACCELERATION_MIN_CAP) {
+				view[prop] = 0;
+			}
+		});
+		
+		view.needsRender = ACCELERATION_PROPERTIES.some(prop => Boolean(view[prop]));
 	
 		this.renderer.render(this.scene, this.camera);
-		this.needsRender = false;
+		//this.needsRender = false;
 	},
 	windowResize: function() {
 		const renderer = this.renderer;
@@ -604,6 +654,11 @@ module.exports = View.extend({
 		this.mouseDownX = event.clientX;
 		this.mouseDownY = event.clientY;
 		
+		this.translationAccelerationX = 0;
+		this.translationAccelerationY = 0;
+		this.translationVelocityX = 0;
+		this.translationVelocityY = 0;
+		
 		event.preventDefault();
 	},
 	mousemoveHandler: function(event) {
@@ -622,8 +677,14 @@ module.exports = View.extend({
 		
 		const camera = this.camera;
 		
-		camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
-		camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
+		//camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
+		//camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
+		
+		this.translationVelocityX = -changeX; //negative left
+		this.translationVelocityY = changeY; //negative up
+
+		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
+		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
 		
 		this.needsRender = true;
 	},
@@ -637,6 +698,11 @@ module.exports = View.extend({
 		this.mouseDownX = event.touches[0].clientX;
 		this.mouseDownY = event.touches[0].clientY;
 		
+		this.rotationAccelerationY = 0;
+		this.rotationAccelerationX = 0;
+		this.rotationVelocityX = 0;
+		this.rotationVelocityY = 0;
+		
 		event.preventDefault();
 	},
 	touchmoveHandler: function(event) {
@@ -645,16 +711,22 @@ module.exports = View.extend({
 			return;
 		}
 		
-		var changeX = event.touches[0].clientX - this.mouseDownX;
-		var changeY = event.touches[0].clientY - this.mouseDownY;
+		const changeX = event.touches[0].clientX - this.mouseDownX;
+		const changeY = event.touches[0].clientY - this.mouseDownY;
 		
 		this.mouseDownX = event.touches[0].clientX;
 		this.mouseDownY = event.touches[0].clientY;
 		
 		const camera = this.camera;
 		
-		camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
-		camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
+		//camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
+		//camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
+		
+		this.translationVelocityX = -changeX; //negative left
+		this.translationVelocityY = changeY; //negative up
+
+		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
+		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
 		
 		this.needsRender = true;
 		
