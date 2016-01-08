@@ -529,7 +529,7 @@ module.exports = View.extend({
 		
 		function removeRecursive(parent) {
 			parent.children
-			.filter(child => child instanceof THREE.Object3D)
+			.filter(child => !(child instanceof THREE.Scene))
 			.forEach(child => {
 				removeRecursive(child);
 				parent.remove(child);
