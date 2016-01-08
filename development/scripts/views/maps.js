@@ -77,10 +77,6 @@ module.exports = View.extend({
 		city: {
 			type: "string",
 			default: "to"
-		},
-		needsRender: {
-			type: "boolean",
-			default: true
 		}
 	},
 	areas: {
@@ -489,6 +485,7 @@ module.exports = View.extend({
 		"touchmove canvas": "touchmoveHandler",
 		"touchend canvas": "touchendHandler"
 	},
+	needsRender: true,
 	isMouseDown: false,
 	mouseDownX: 0,
 	mouseDownY: 0,
