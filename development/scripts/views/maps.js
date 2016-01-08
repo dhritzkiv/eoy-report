@@ -15,10 +15,19 @@ const walks = require("../../../data/2015_walks_deduped_simplified.json");
 
 const consts = require("../consts");
 
-function filterActivitiesToBounds(bounds) {
-	return activity => activity.points.every(
-		point => point[0] > bounds[0][0] && point[0] < bounds[1][0] && point[1] > bounds[0][1] && point[1] < bounds[1][1]
-	)
+function filterActivitiesToBounds(bounds) {	
+	return activity => {
+		
+		let pointOrPoints = activity.points;
+		
+		if (!pointOrPoints) {
+			pointOrPoints = [activity.point];
+		}
+		
+		return pointOrPoints.every(
+			point => point[0] > bounds[0][0] && point[0] < bounds[1][0] && point[1] > bounds[0][1] && point[1] < bounds[1][1]
+		)
+	}
 }
 
 const resolution = new THREE.Vector2( window.innerWidth, window.innerHeight );
@@ -901,6 +910,7 @@ module.exports = View.extend({
 		const checkinVertices = new Float32Array(checkins.length * 3);
 		
 		checkins
+		.filter(filterActivities)
 		.map(checkin => checkin.point)
 		.forEach(function(point, index) {
 			checkinVertices[index * 3 + 0] = point[0];
