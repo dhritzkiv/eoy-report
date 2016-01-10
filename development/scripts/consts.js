@@ -15,10 +15,11 @@ consts.LABEL_SIZE_SMALL = 0.7;
 consts.LABEL_SIZE_NANO = 0.55;
 
 consts.COLOR_LAND = "#f5faf9";
-consts.COLOR_ROADS_MINOR = "#efefef";
-consts.COLOR_ROADS_MAJOR = "#eaeaea";
+consts.COLOR_ROADS_MINOR = "#ebe8e6";
+consts.COLOR_ROADS_MAJOR = "#e5e3e1";
+consts.COLOR_ROADS_TRANSIT = "#ebd1e2";//not really roads
 consts.COLOR_PARKS = "#d1ebc7";
 consts.COLOR_WATER = "#a4d0de";
-consts.COLOR_TEXT = "#373d3d";
+consts.COLOR_TEXT = "#3f444e";
 consts.COLOR_AIRPORT_GROUNDS = "#d9cfe5";
 consts.COLOR_AIRPORT_FEATURES = "#ccbcdd";
