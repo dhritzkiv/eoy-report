@@ -14,7 +14,7 @@ function reduceGeometry(merged, current) {
 
 module.exports = Model.extend({
 	url: function() {
-		return `/data/${this.name}.json`
+		return `/data/${this.name}.json`;
 	},
 	props: {
 		name: {
@@ -44,6 +44,10 @@ module.exports = Model.extend({
 		},
 		hide_at_z: {
 			type: "number"
+		},
+		visible: {
+			type: "boolean",
+			default: true
 		}
 	},
 	derived: {
@@ -77,7 +81,7 @@ module.exports = Model.extend({
 			})
 			.reduce(reduceGeometry);
 		})
-		.reduce(reduceGeometry)
+		.reduce(reduceGeometry);
 	},
 	getMesh: function() {
 		console.time(this.name);
@@ -87,6 +91,7 @@ module.exports = Model.extend({
 		plane.position.z = this.z_position;
 		plane.matrixAutoUpdate = false;
 		plane.userData = this.hide_at_z;
+		plane.visible = this.visible;
 		console.timeEnd(this.name);
 		return plane;
 	},
@@ -100,4 +105,4 @@ module.exports = Model.extend({
 			}
 		});
 	}
-})
+});

@@ -15,5 +15,5 @@ module.exports = function addPolygonsToShape(shape) {
 			//polygon.forEach(addPointsToPathOrShape(path));
 			shape.holes.push(path);
 		}
-	}
-}
+	};
+};

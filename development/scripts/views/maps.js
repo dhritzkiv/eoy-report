@@ -2,8 +2,6 @@
 
 const View = require("ampersand-view");
 const State = require("ampersand-state");
-const Model = require("ampersand-model");
-const Collection = require("ampersand-collection");
 
 const THREE = require("three.js");
 const MeshLine = require("../THREE.MeshLine").MeshLine;
@@ -31,8 +29,8 @@ function filterActivitiesToBounds(bounds) {
 		
 		return pointOrPoints.every(
 			point => point[0] > bounds[0][0] && point[0] < bounds[1][0] && point[1] > bounds[0][1] && point[1] < bounds[1][1]
-		)
-	}
+		);
+	};
 }
 
 const resolution = new THREE.Vector2( window.innerWidth, window.innerHeight );
@@ -62,24 +60,9 @@ const MapArea = State.extend({
 	},
 });
 
-const CityState = State.extend({
-	props: {
-		name: {
-			type: "string"
-		},
-		bounds: {
-			type: "array",
-			default: () => []
-		}
-	},
-	collections: {
-		
-	}
-});
-
 module.exports = View.extend({
 	props: {
-		city: {
+		area_name: {
 			type: "string",
 			default: "to"
 		}
@@ -93,7 +76,8 @@ module.exports = View.extend({
 			],
 			features: [
 				new MapFeature({
-					geojson_uri: "/data/toronto-border.geojson"
+					geojson_uri: "/data/toronto-border.geojson",
+					visible: false
 				}),
 				new LakeMapFeature({
 					name: "Lake Ontario",
@@ -243,7 +227,8 @@ module.exports = View.extend({
 			features: [
 				new MapFeature({
 					geojson_uri: "/data/lv-box.geojson",
-					renderOrder: -0.1
+					renderOrder: -0.1,
+					visible: false
 				}),
 				new MapFeature({
 					geojson_uri: "/data/lv-commercial.geojson",
@@ -300,7 +285,8 @@ module.exports = View.extend({
 			features: [
 				new MapFeature({
 					geojson_uri: "/data/new-york-city-admin.geojson",
-					renderOrder: -0.02
+					renderOrder: -0.02,
+					visible: false
 				}),
 				new LakeMapFeature({
 					geojson_uri: "/data/new-york-coastline.geojson"
@@ -318,7 +304,7 @@ module.exports = View.extend({
 					geojson_uri: "/data/new-york-parks.geojson",
 					color: consts.COLOR_PARKS,
 					renderOrder: 0.015
-				}),,
+				}),
 				new RoadMapFeature({
 					name: "MTA",
 					geojson_uri: "/data/new-york-subway.geojson",
@@ -398,7 +384,8 @@ module.exports = View.extend({
 			features: [
 				new MapFeature({
 					geojson_uri: "/data/portland-boundaries.geojson",
-					renderOrder: -0.02
+					renderOrder: -0.02,
+					visible: false
 				}),
 				new LakeMapFeature({
 					geojson_uri: "/data/portland-river-coasts.geojson"
@@ -442,7 +429,7 @@ module.exports = View.extend({
 				})
 			]
 		},
-		/*surrey: {
+		surrey: {
 			name: "Surrey",
 			bounds: [
 				[-122.95, 48.75],
@@ -451,7 +438,8 @@ module.exports = View.extend({
 			features: [
 				new MapFeature({
 					geojson_uri: "/data/surrey-box.geojson",
-					renderOrder: -0.02
+					renderOrder: -0.02,
+					visible: false
 				}),
 				new LakeMapFeature({
 					geojson_uri: "/data/surrey-coastline.geojson"
@@ -465,7 +453,7 @@ module.exports = View.extend({
 					geojson_uri: "/data/surrey-roads.geojson"
 				})
 			]
-		}*/
+		}
 	},
 	template: `
 		<section id="maps">
@@ -490,6 +478,13 @@ module.exports = View.extend({
 		"touchmove canvas": "touchmoveHandler",
 		"touchend canvas": "touchendHandler"
 	},
+	bindings: {
+		"area_name": {
+			type: "attribute",
+			name: "data-area",
+			selector: "section"
+		}
+	},
 	needsRender: true,
 	isMouseDown: false,
 	mouseDownX: 0,
@@ -505,14 +500,15 @@ module.exports = View.extend({
 		
 		const renderer = this.renderer = new THREE.WebGLRenderer({
 			antialias: true,
-			canvas: canvas
+			canvas: canvas,
+			alpha: true
 		});
 		
-		renderer.setClearColor(consts.COLOR_LAND);
+		//renderer.setClearColor(consts.COLOR_LAND);
 		renderer.setPixelRatio(window.devicePixelRatio || 1);
 		
 		const scene = this.scene = new THREE.Scene();
-		const camera = this.camera = new THREE.PerspectiveCamera(90, canvas.clientWidth / canvas.clientHeight, 0.0001, 1);
+		this.camera = new THREE.PerspectiveCamera(90, canvas.clientWidth / canvas.clientHeight, 0.0001, 1);
 		
 		requestAnimationFrame(() => this.windowResize());
 		
@@ -536,11 +532,11 @@ module.exports = View.extend({
 			});
 		}
 		
-		this.listenToAndRun(this, "change:city", () => {
+		this.listenToAndRun(this, "change:area_name", () => {
 			
 			removeRecursive(scene);
 			
-			const area = this.area = new MapArea(this.areas[this.city]);
+			const area = this.area = new MapArea(this.areas[this.area_name]);
 			
 			requestAnimationFrame(() => this.setUpArea(area));
 		});
@@ -622,7 +618,7 @@ module.exports = View.extend({
 		
 		if (this.area) {
 			const bounds = this.area.bounds;
-			const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1])
+			const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]);
 			this.max_camera_z = (size / 4) / camera.aspect;
 		} else {
 			this.max_camera_z = camera.far;
@@ -675,11 +671,6 @@ module.exports = View.extend({
 		this.mouseDownX = event.clientX;
 		this.mouseDownY = event.clientY;
 		
-		const camera = this.camera;
-		
-		//camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
-		//camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
-		
 		this.translationVelocityX = -changeX; //negative left
 		this.translationVelocityY = changeY; //negative up
 
@@ -716,11 +707,6 @@ module.exports = View.extend({
 		
 		this.mouseDownX = event.touches[0].clientX;
 		this.mouseDownY = event.touches[0].clientY;
-		
-		const camera = this.camera;
-		
-		//camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
-		//camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
 		
 		this.translationVelocityX = -changeX; //negative left
 		this.translationVelocityY = changeY; //negative up
@@ -852,14 +838,8 @@ module.exports = View.extend({
 			const size = geometry.boundingBox.size();
 			const canvas = self.query("canvas");
 			const screenAspectRatio = canvas.clientWidth / canvas.clientHeight;
-			const areaAspectRatio = size.x / size.y;
-			let dimension = 0;
 			
-			if (screenAspectRatio < areaAspectRatio) {
-				dimension = size.x / 2;
-			} else {
-				dimension = size.y / 2;
-			}
+			const dimension = Math.max(size.x, size.y) / 2;
 			
 			const cameraZPosition = dimension / screenAspectRatio;
 			
@@ -869,7 +849,7 @@ module.exports = View.extend({
 		/* Line */
 		
 		const rideLineMaterial = new MeshLineMaterial({
-			lineWidth: 0.0001 * 2.5,//size of individual street
+			lineWidth: 0.0001 * 1.85,//size of individual street
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
@@ -878,7 +858,7 @@ module.exports = View.extend({
 		});
 		
 		const walkLineMaterial = new MeshLineMaterial({
-			lineWidth: 0.0001 * 1.25,//half size of individual street
+			lineWidth: 0.0001 * 1,//half size of individual street
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
@@ -954,7 +934,7 @@ module.exports = View.extend({
 			context.fill();
 			context.closePath();
 			
-			return pointCanvas
+			return pointCanvas;
 		}
 
 		const pointCanvas = makeCheckinDot();
@@ -962,8 +942,8 @@ module.exports = View.extend({
 		pointTexture.premultiplyAlpha = true;
 		pointTexture.needsUpdate = true;
 		pointTexture.anisotropy = self.renderer.getMaxAnisotropy();
-		pointTexture.magFilter = THREE.LinearFilter//THREE.NearestFilter;
-		pointTexture.minFilter = THREE.LinearFilter//THREE.NearestFilter;//THREE.LinearFilter;//LinearMipMapNearestFilter;
+		pointTexture.magFilter = THREE.LinearFilter;//THREE.NearestFilter;
+		pointTexture.minFilter = THREE.LinearFilter;//THREE.NearestFilter;//THREE.LinearFilter;//LinearMipMapNearestFilter;
 		
 		const pointMaterial = new THREE.PointsMaterial({
 			size: pointCanvas.width / 2,//0.00075,

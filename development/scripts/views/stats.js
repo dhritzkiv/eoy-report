@@ -88,7 +88,7 @@ const TypeView = View.extend({
 		
 		return this;
 	}
-})
+});
 
 module.exports = View.extend({
 	props: {

@@ -51,7 +51,7 @@ module.exports = View.extend({
 				const charLength = value.replace(/[\.,]/g,"").length;
 				const letterSpacing = difference / charLength;
 				this.letter_spacing = letterSpacing;
-				return
+				return;
 			}
 		});
 	},

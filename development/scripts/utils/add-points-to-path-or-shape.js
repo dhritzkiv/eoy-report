@@ -7,5 +7,5 @@ module.exports = function addPointsToPathOrShape(pathOrShape) {
 		} else {
 			pathOrShape.lineTo(point[0], point[1]);
 		}
-	}
-}
+	};
+};

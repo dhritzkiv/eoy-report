@@ -13,7 +13,7 @@ const Router = AmpersandRouter.extend({
 	routes: {
 		"": "root",
 		"maps": "maps",
-		"maps/:city": "maps",
+		"maps/:area_name": "maps",
 		"stats": "stats",
 		"stats/:type": "stats"
 	},
@@ -21,19 +21,19 @@ const Router = AmpersandRouter.extend({
 	root: function() {
 		this.navigate("/stats");
 	},
-	maps: function(city) {
+	maps: function(area_name) {
 		
-		if (!city) {
+		if (!area_name) {
 			return this.redirectTo("/maps/to");
 		}
 		
 		const currentModeView = this.currentModeView;
 		
 		if (currentModeView instanceof MapsPage) {
-			currentModeView.city = city
+			currentModeView.area_name = area_name;
 		} else {
 			this.trigger("newMode", new MapsPage({
-				city: city
+				area_name: area_name
 			}));
 		}		
 		
@@ -48,7 +48,7 @@ const Router = AmpersandRouter.extend({
 		const currentModeView = this.currentModeView;
 		
 		if (currentModeView instanceof StatsPage) {
-			currentModeView.type = type
+			currentModeView.type = type;
 		} else {
 			this.trigger("newMode", new StatsPage({
 				type: type

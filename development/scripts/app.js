@@ -55,13 +55,12 @@ const MainView = View.extend({
 		this.pageSwitcher.set(view);
 	},
 	render: function() {
-		const self = this;
 		this.renderWithTemplate();
 		
 		this.pageContainer = this.query('main');
 
 		this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
-			show: function(newView) {
+			show: function() {
 				
 				//document.title = result(newView, "pageTitle");
 				window.scrollTo(0, 0);

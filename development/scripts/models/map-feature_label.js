@@ -24,10 +24,6 @@ module.exports = MapFeature.extend({
 		}
 	},
 	getMesh: function() {
-
-		const self = this;
-		
-		const materials = {};
 		
 		console.time(this.name);
 		
@@ -64,8 +60,8 @@ module.exports = MapFeature.extend({
 		
 		const textLabelMap = new THREE.Texture(canvas);
 		
-		//textLabelMap.anisotropy = renderer.getMaxAnisotropy();
-		textLabelMap.magFilter = THREE.LinearFilter;
+		//textLabelMap.anisotropy = 16;//renderer.getMaxAnisotropy();
+		textLabelMap.magFilter = THREE.LinearFilter;//THREE.NearestFilter;
 		textLabelMap.minFilter = THREE.LinearFilter;
 		textLabelMap.needsUpdate = true;
 		textLabelMap.premultiplyAlpha = true;
