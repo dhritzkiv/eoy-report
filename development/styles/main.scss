@@ -1,6 +1,9 @@
+$colorDark1: #4C77A6;
+$colorDark2: #3f444e;
+
 $colorBackground: #f2f7f6;
 $colorBackgroundDarker: #e6edec;
-$colorText: #373d3d;
+$colorText: $colorDark2;
 
 $colorCycling: #ec5f30;
 $colorWalking: #24d672;
@@ -49,6 +52,7 @@ p.sources {
 	margin-top: $gutter;
 	color: rgba($colorText, 0.5);
 	font-size: 10px;
+	line-height: 14px;
 	text-transform: uppercase;
 }
 
@@ -86,23 +90,53 @@ body > main {
 body > nav {
 	position: relative;
 	width: 100%;
-	height: 52px;
+	height: 58px;
 	text-align: center;
-	background-color: #cfd4d4;
+	background-color: $colorBackgroundDarker;
 	flex: 0 1 auto;
 	
 	h1 {
 		font-size: 28px;
 		margin: 0;
-		line-height: 52px;
+		line-height: 58px;
 		letter-spacing: 0.015em;
 		text-transform: uppercase;
 	}
 	
 	[data-hook=switch-modes] {
+		margin-top: 6px;
+		font-weight: 600;
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: $gutter;
+		display: inline-block;
+		font-size: 8px;
+		text-align: center;
+		text-transform: uppercase;
+		color: $colorText;
+		
+		&:before {
+			width: 32px;
+			height: 32px;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 4px;
+			position: relative;
+			//top: 0;
+			//left: 0;
+			content: "";
+			background-size: 100% 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			vertical-align: middle;		
+		}
+		
+		&[href*=maps]:before {
+			background-image: url("/img/mode_maps.svg");
+		}
+		&[href*=stats]:before {
+			background-image: url("/img/mode_stats.svg");
+		}
 	}
 }
 
@@ -140,50 +174,76 @@ body > main > section > nav {
 	flex: 0 0 auto;
 	height: 32px;
 	width: 100%;
-	background-color: #9aa1a1;
+	background-color: lighten($colorDark2, 5%);
 	text-align: center;
 	
 	a[href] {
-		color: white;
+		color: rgba(darken($colorBackgroundDarker, 20%), 0.8);
 		line-height: 32px;
 		font-size: 14px;
 		font-weight: 600;
 		vertical-align: middle;
 		letter-spacing: 0.08em;
 		margin: 0 ($gutter / 2);
+	
+		&:hover {
+			color: $colorBackground;
+		}
 	}
 }
 
-body > main > section#stats > main {
+body > main > section#maps {
 	
-	&:before {
-		$fontSize: 320px;
-		display: inline-block;
-		width: 100%;
-		text-align: center;
-		position: fixed;
-		left: 0;
-		top: calc(100vh - $fontSize);
-		z-index: 0;
-		content: attr(data-title);
-		white-space: nowrap;
-		font-size: $fontSize;
-		font-weight: 600;
-		margin: 0;
-		line-height: 1em;
-		vertical-align: baseline;
-		color: $colorBackground;
-		text-transform: uppercase;
+	@each $area in to, lv, nyc, pdx, surrey {
+		&[data-area=#{$area}] nav a[href*=#{$area}] {
+			color: $colorBackground;
+		}
+	}
+}
+
+body > main > section#stats {
+	
+	main {
+		position: relative;
+		
+		&:before {
+			$fontSize: 320px;
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			position: fixed;
+			left: 0;
+			bottom: - ($fontSize / 10);
+			//top: calc(100vh - $fontSize);
+			z-index: 0;
+			content: attr(data-title);
+			white-space: nowrap;
+			font-size: $fontSize;
+			font-weight: 600;
+			margin: 0;
+			line-height: 1em;
+			vertical-align: baseline;
+			color: $colorBackground;
+			text-transform: uppercase;
+		}
+	}
+	
+	@each $type in "cycling", "walking", "food\\+liquor", "audio\\+video", "miscelleneous" {
+		&[data-type=#{$type}] nav a[href*=#{$type}] {
+			color: $colorBackground;
+		}
 	}
 	
 	@mixin sectionColor($section, $color) {
 		&[data-type=#{$section}] {
-			::selection {
-				background-color: $color;
-			}
+			& > main {
+				::selection {
+					background-color: $color;
+				}
 			
-			& h3 {
-				color: $color;
+				h3 {
+					color: $color;
+				}
 			}
 		}
 	}

@@ -84,7 +84,7 @@ module.exports = MapFeature.extend({
 			}
 			
 			if (["bus", "sc", "max", "at", "subway"].indexOf(feature.properties.type) !== -1) {
-				color = "#f7e4f1";
+				color = consts.COLOR_ROADS_TRANSIT;
 			}
 			
 			function getMaterial() {

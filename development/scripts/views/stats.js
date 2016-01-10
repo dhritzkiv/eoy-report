@@ -116,7 +116,7 @@ module.exports = View.extend({
 		type: {
 			type: "attribute",
 			name: "data-type",
-			selector: "main"
+			selector: "section"
 		},
 		title: {
 			type: "attribute",
