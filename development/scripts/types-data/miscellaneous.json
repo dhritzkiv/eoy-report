@@ -9,9 +9,14 @@
 			"secondary_value": "2015-01-01T05:00:00.000Z"
 		},
 		{
-			"title": "Last place in 2015",
-			"value": "The Banwatts'",
-			"secondary_value": "2015-12-31T05:00:00.000Z"
+			"title": "Most fun",
+			"value": "Dan Deacon",
+			"secondary_value": "@ XOXO in Portland, OR"
+		},
+		{
+			"title": "Least fun",
+			"value": "Walking in Las Vegas",
+			"secondary_value": "38.6 Walk Score…"
 		},
 		{
 			"title": "Days with a moustache",
@@ -23,16 +28,28 @@
 		},
 		{
 			"title": "Times in a car",
-			"value": 19
+			"value": 21
 		},
 		{
-			"title": "Most fun",
-			"value": "Dan Deacon",
-			"secondary_value": "@ XOXO in Portland, OR"
+			"title": "Times in a plane",
+			"value": 15
+		},
+		{
+			"title": "Instagram Posts",
+			"value": 88
+		},
+		{
+			"title": "Tweets",
+			"value": 1331
 		},
 		{
 			"title": "X-Rays",
 			"value": "4"
+		},
+		{
+			"title": "Last place in 2015",
+			"value": "The Banwatts'",
+			"secondary_value": "2015-12-31T05:00:00.000Z"
 		}
 	]
 }
