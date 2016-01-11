@@ -8,11 +8,6 @@ const THREE = require("three.js");
 const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
 
-const MapFeature = require("../models/map-feature");
-const LakeMapFeature = require("../models/map-feature_lake");
-const RoadMapFeature = require("../models/map-feature_road");
-const LabelMapFeature = require("../models/map-feature_label");
-
 const areas = require("../models/areas");
 
 const checkins = require("../../../data/2015_foursquare-checkins.json");
@@ -380,7 +375,6 @@ module.exports = View.extend({
 		
 		const cameraZPosition = camera.position.z;
 		const cameraMatrixWorldInverse = camera.matrixWorldInverse;
-		const cameraFar = camera.far;
 		
 		scene.children
 		.filter(child => child.userData && child.userData.hide_at_z)

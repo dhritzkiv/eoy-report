@@ -29,4 +29,4 @@ consts.PROJECTION_MTM10 = "+proj=tmerc +lat_0=0 +lon_0=-79.5 +k=0.9999 +x_0=3048
 consts.PROJECTION_UTM17 = "+proj=utm +zone=17 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";
 consts.PROJECTION_OREGON_NORTH = "+proj=lcc +lat_1=44.33333333333334 +lat_2=46 +lat_0=43.66666666666666 +lon_0=-120.5 +x_0=2500000 +y_0=0 +ellps=GRS80 +units=m +no_defs";
 consts.PROJECTION_NEW_YORK_ISLAND = "+proj=lcc +lat_1=41.03333333333333 +lat_2=40.66666666666666 +lat_0=40.16666666666666 +lon_0=-74 +x_0=300000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";
-consts.PROJECTION_NEVADA_WEST = "+proj=tmerc +lat_0=34.75 +lon_0=-118.5833333333333 +k=0.9999 +x_0=800000 +y_0=4000000 +ellps=GRS80 +units=m +no_defs"
+consts.PROJECTION_NEVADA_WEST = "+proj=tmerc +lat_0=34.75 +lon_0=-118.5833333333333 +k=0.9999 +x_0=800000 +y_0=4000000 +ellps=GRS80 +units=m +no_defs";

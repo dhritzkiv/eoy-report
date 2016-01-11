@@ -1,8 +1,5 @@
 "use strict";
 
-const THREE = require("three.js");
-const State = require("ampersand-state");
-
 const MapFeature = require("../models/map-feature");
 const LakeMapFeature = require("../models/map-feature_lake");
 const RoadMapFeature = require("../models/map-feature_road");
@@ -435,4 +432,4 @@ module.exports = {
 			})
 		]
 	}
-}
+};
