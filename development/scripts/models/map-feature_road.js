@@ -110,7 +110,7 @@ module.exports = MapFeature.extend({
 						
 			const lineGeometry = new Float32Array(coords.length * 3);
 			
-			coords.forEach((point, index) => {	
+			coords.forEach((point, index) => {
 				lineGeometry[index * 3 + 0] = point[0];
 				lineGeometry[index * 3 + 1] = point[1];
 				lineGeometry[index * 3 + 2] = 0;

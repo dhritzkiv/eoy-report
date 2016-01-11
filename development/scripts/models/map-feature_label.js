@@ -67,7 +67,7 @@ module.exports = MapFeature.extend({
 		textLabelMap.needsUpdate = true;
 		textLabelMap.premultiplyAlpha = true;
 		
-		const labelMaterial = new THREE.SpriteMaterial( {
+		const labelMaterial = new THREE.SpriteMaterial({
 			map: textLabelMap,
 			transparent: true
 		});

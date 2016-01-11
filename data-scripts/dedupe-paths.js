@@ -53,7 +53,7 @@ fs.readFile(inPath, "utf8", function(err, src) {
 				const x2 = rideBPoint[0];
 				const y2 = rideBPoint[1];
 				
-				return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));		
+				return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 			}).reduce((total, distance) => total + distance, 0);
 			
 			const averageDistanceDiff = totalDistanceDiff / interopPointsCount;

@@ -99,8 +99,8 @@ function getWalks() {
 			.filter(seg => seg.type === "move")
 			//return only activities
 			.map(seg => seg.activities)
-			//activities can have multiple parts? 
-			.reduce((a, b) => a.concat(b), [])	
+			//activities can have multiple parts?
+			.reduce((a, b) => a.concat(b), [])
 			//only include walking activities (cycling is handled differently)
 			.filter(activity => activity.group === "walking" || activity.group === "running")
 			//we're only interested in the points

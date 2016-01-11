@@ -36,7 +36,7 @@ function convertPointForProjection(toProjection) {
 	};
 }
 
-function filterActivitiesToBounds(bounds) {	
+function filterActivitiesToBounds(bounds) {
 	return activity => {
 		
 		let pointOrPoints = activity.points;
@@ -67,7 +67,7 @@ const MapArea = State.extend({
 			type: "array",
 			default: () => []
 		}
-	},
+	}
 });
 
 module.exports = View.extend({
@@ -484,7 +484,7 @@ module.exports = View.extend({
 		const pointsToGeometry = points => {
 			const lineGeometry = new Float32Array(points.length * 3);
 		
-			points.forEach((point, index) => {	
+			points.forEach((point, index) => {
 				lineGeometry[index * 3 + 0] = point[0];
 				lineGeometry[index * 3 + 1] = point[1];
 				lineGeometry[index * 3 + 2] = 0;

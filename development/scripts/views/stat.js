@@ -48,7 +48,7 @@ module.exports = View.extend({
 			
 			if (measured.width > maxWidth) {
 				const difference = maxWidth - measured.width;
-				const charLength = value.replace(/[\.,]/g,"").length;
+				const charLength = value.replace(/[\.,]/g, "").length;
 				const letterSpacing = difference / charLength;
 				this.letter_spacing = letterSpacing;
 				return;

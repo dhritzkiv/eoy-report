@@ -21,8 +21,8 @@ function getRideIdsFor2015() {
 	const testFor2015 = (ride) => ride && new Date(ride.start_date_local) > startOf2015;
 	
 	async.doWhilst(function (callback) {
-        strava.athlete.listActivities({
-	        page: retrievalPage,
+		strava.athlete.listActivities({
+			page: retrievalPage,
 			per_page: 200
 		}, function(err, rides) {
 			
@@ -42,13 +42,13 @@ function getRideIdsFor2015() {
 			retrievalPage++
 			callback();
 		});
-    }, () => testFor2015(latestRide), function (err) {
+	}, () => testFor2015(latestRide), function (err) {
 	    
-        if (err) {
-	        return console.error(err);
-        }
+	if (err) {
+		return console.error(err);
+	}
         
-        fs.writeFile(rideIdsFilePath, JSON.stringify(ride_ids, null, '\t'), function(err) {
+	fs.writeFile(rideIdsFilePath, JSON.stringify(ride_ids, null, '\t'), function(err) {
 	        console.log(err || "done writing");
         });
     });
@@ -81,7 +81,7 @@ function getRidesFor2015() {
 	
 	function padRec(number, paddingNumber, length) {
 		return number.length >= length ? number : padRec(paddingNumber + number, paddingNumber, length);
-    }
+	}
 	
 	fs.readFile(rideIdsFilePath, "utf8", function(err, data) {
 		

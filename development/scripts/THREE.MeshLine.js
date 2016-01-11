@@ -19,28 +19,28 @@ THREE.MeshLine = function() {
 
 };
 
-THREE.MeshLine.prototype.setGeometry = function( g, c ) {
+THREE.MeshLine.prototype.setGeometry = function(g, c) {
 
 	this.widthCallback = c;
 
 	this.positions = [];
 
-	if( g instanceof THREE.Geometry ) {
-		for( let j = 0; j < g.vertices.length; j++ ) {
+	if (g instanceof THREE.Geometry) {
+		for (let j = 0; j < g.vertices.length; j++) {
 			let v = g.vertices[ j ];
-			this.positions.push( v.x, v.y, v.z );
-			this.positions.push( v.x, v.y, v.z );
+			this.positions.push(v.x, v.y, v.z);
+			this.positions.push(v.x, v.y, v.z);
 		}
 	}
 
-	if( g instanceof THREE.BufferGeometry ) {
+	if (g instanceof THREE.BufferGeometry) {
 		// read attribute positions ?
 	}
 
-	if( g instanceof Float32Array || g instanceof Array ) {
-		for( let j = 0; j < g.length; j += 3 ) {
-			this.positions.push( g[ j ], g[ j + 1 ], g[ j + 2 ] );
-			this.positions.push( g[ j ], g[ j + 1 ], g[ j + 2 ] );
+	if (g instanceof Float32Array || g instanceof Array) {
+		for (let j = 0; j < g.length; j += 3) {
+			this.positions.push(g[ j ], g[ j + 1 ], g[ j + 2 ]);
+			this.positions.push(g[ j ], g[ j + 1 ], g[ j + 2 ]);
 		}
 	}
 
@@ -48,18 +48,18 @@ THREE.MeshLine.prototype.setGeometry = function( g, c ) {
 
 };
 
-THREE.MeshLine.prototype.compareV3 = function( a, b ) {
+THREE.MeshLine.prototype.compareV3 = function(a, b) {
 
 	var aa = a * 6;
 	var ab = b * 6;
-	return ( this.positions[ aa ] === this.positions[ ab ] ) && ( this.positions[ aa + 1 ] === this.positions[ ab + 1 ] ) && ( this.positions[ aa + 2 ] === this.positions[ ab + 2 ] );
+	return (this.positions[ aa ] === this.positions[ ab ]) && (this.positions[ aa + 1 ] === this.positions[ ab + 1 ]) && (this.positions[ aa + 2 ] === this.positions[ ab + 2 ]);
 
 };
 
-THREE.MeshLine.prototype.copyV3 = function( a ) {
+THREE.MeshLine.prototype.copyV3 = function(a) {
 
 	var aa = a * 6;
-	return [ this.positions[ aa ], this.positions[ aa + 1 ], this.positions[ aa + 2 ] ];
+	return [this.positions[ aa ], this.positions[ aa + 1 ], this.positions[ aa + 2 ]];
 
 };
 
@@ -74,86 +74,86 @@ THREE.MeshLine.prototype.process = function() {
 	this.indices_array = [];
 	this.uvs = [];
 
-	for( let j = 0; j < l; j++ ) {
-		this.side.push( 1 );
-		this.side.push( -1 );
+	for (let j = 0; j < l; j++) {
+		this.side.push(1);
+		this.side.push(-1);
 	}
 
 	let w;
-	for( let j = 0; j < l; j++ ) {
+	for (let j = 0; j < l; j++) {
 		
-		if( this.widthCallback ) {
-			w = this.widthCallback( j / ( l -1 ) );
+		if (this.widthCallback) {
+			w = this.widthCallback(j / (l - 1));
 		} else {
 			w = 1;
 		}
 		
-		this.width.push( w );
-		this.width.push( w );
+		this.width.push(w);
+		this.width.push(w);
 	}
 
-	for( let j = 0; j < l; j++ ) {
-		this.uvs.push( j / ( l - 1 ), 0 );
-		this.uvs.push( j / ( l - 1 ), 1 );
+	for (let j = 0; j < l; j++) {
+		this.uvs.push(j / (l - 1), 0);
+		this.uvs.push(j / (l - 1), 1);
 	}
 
 	let v;
 
-	if( this.compareV3( 0, l - 1 ) ){
-		v = this.copyV3( l - 2 );
+	if (this.compareV3(0, l - 1)) {
+		v = this.copyV3(l - 2);
 	} else {
-		v = this.copyV3( 0 );
+		v = this.copyV3(0);
 	}
-	this.previous.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-	this.previous.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-	for( let j = 0; j < l - 1; j++ ) {
-		v = this.copyV3( j );
-		this.previous.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-		this.previous.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-	}
-
-	for( let j = 1; j < l; j++ ) {	
-		v = this.copyV3( j );
-		this.next.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-		this.next.push( v[ 0 ], v[ 1 ], v[ 2 ] );
+	this.previous.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+	this.previous.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+	for (let j = 0; j < l - 1; j++) {
+		v = this.copyV3(j);
+		this.previous.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+		this.previous.push(v[ 0 ], v[ 1 ], v[ 2 ]);
 	}
 
-	if( this.compareV3( l - 1, 0 ) ){
-		v = this.copyV3( 1 );
+	for (let j = 1; j < l; j++) {
+		v = this.copyV3(j);
+		this.next.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+		this.next.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+	}
+
+	if (this.compareV3(l - 1, 0)) {
+		v = this.copyV3(1);
 	} else {
-		v = this.copyV3( l - 1 );
+		v = this.copyV3(l - 1);
 	}
-	this.next.push( v[ 0 ], v[ 1 ], v[ 2 ] );
-	this.next.push( v[ 0 ], v[ 1 ], v[ 2 ] );
+	this.next.push(v[ 0 ], v[ 1 ], v[ 2 ]);
+	this.next.push(v[ 0 ], v[ 1 ], v[ 2 ]);
 
-	for( let j = 0; j < l - 1; j++ ) {
+	for (let j = 0; j < l - 1; j++) {
 		var n = j * 2;
-		this.indices_array.push( n, n + 1, n + 2 );
-		this.indices_array.push( n + 2, n + 1, n + 3 );
+		this.indices_array.push(n, n + 1, n + 2);
+		this.indices_array.push(n + 2, n + 1, n + 3);
 	}
 
 	this.attributes = {
-		position: new THREE.BufferAttribute( new Float32Array( this.positions ), 3 ),
-		previous: new THREE.BufferAttribute( new Float32Array( this.previous ), 3 ),
-		next: new THREE.BufferAttribute( new Float32Array( this.next ), 3 ),
-		side: new THREE.BufferAttribute( new Float32Array( this.side ), 1 ),
-		width: new THREE.BufferAttribute( new Float32Array( this.width ), 1 ),
-		uv: new THREE.BufferAttribute( new Float32Array( this.uvs ), 2 ),
-		index: new THREE.BufferAttribute( new Uint16Array( this.indices_array ), 1 )
+		position: new THREE.BufferAttribute(new Float32Array(this.positions), 3),
+		previous: new THREE.BufferAttribute(new Float32Array(this.previous), 3),
+		next: new THREE.BufferAttribute(new Float32Array(this.next), 3),
+		side: new THREE.BufferAttribute(new Float32Array(this.side), 1),
+		width: new THREE.BufferAttribute(new Float32Array(this.width), 1),
+		uv: new THREE.BufferAttribute(new Float32Array(this.uvs), 2),
+		index: new THREE.BufferAttribute(new Uint16Array(this.indices_array), 1)
 	};
 
-	this.geometry.addAttribute( 'position', this.attributes.position );
-	this.geometry.addAttribute( 'previous', this.attributes.previous );
-	this.geometry.addAttribute( 'next', this.attributes.next );
-	this.geometry.addAttribute( 'side', this.attributes.side );
-	this.geometry.addAttribute( 'width', this.attributes.width );
-	this.geometry.addAttribute( 'uv', this.attributes.uv );
+	this.geometry.addAttribute('position', this.attributes.position);
+	this.geometry.addAttribute('previous', this.attributes.previous);
+	this.geometry.addAttribute('next', this.attributes.next);
+	this.geometry.addAttribute('side', this.attributes.side);
+	this.geometry.addAttribute('width', this.attributes.width);
+	this.geometry.addAttribute('uv', this.attributes.uv);
 
-	this.geometry.setIndex( this.attributes.index );
+	this.geometry.setIndex(this.attributes.index);
 
 };
 
-THREE.MeshLineMaterial = function ( parameters ) {
+THREE.MeshLineMaterial = function (parameters) {
 
 	var vertexShaderSource = [
 'precision highp float;',
@@ -236,7 +236,7 @@ THREE.MeshLineMaterial = function ( parameters ) {
 '	 vPosition = ( modelViewMatrix * vec4( position, 1. ) ).xyz;',
 '    gl_Position = finalPosition;',
 '',
-'}' ];
+'}'];
 
 	var fragmentShaderSource = [
 		'#extension GL_OES_standard_derivatives : enable',
@@ -259,35 +259,35 @@ THREE.MeshLineMaterial = function ( parameters ) {
 '	 	 ',
 '	 }',
 '    gl_FragColor = c;',
-'',   
-'}' ];
+'',
+'}'];
 
-	function check( v, d ) {
-		if( v === undefined ) {
+	function check(v, d) {
+		if (v === undefined) {
 			return d;
 		}
 		
 		return v;
 	}
 
-	THREE.Material.call( this );
+	THREE.Material.call(this);
 
 	parameters = parameters || {};
 
-	this.lineWidth = check( parameters.lineWidth, 1 );
-	this.map = check( parameters.map, null );
-	this.useMap = check( parameters.useMap, 0 );
-	this.color = check( parameters.color, new THREE.Color( 0xffffff ) );
-	this.opacity = check( parameters.opacity, 1 );
-	this.resolution = check( parameters.resolution, new THREE.Vector2( 1, 1 ) );
-	this.sizeAttenuation = check( parameters.sizeAttenuation, 1 );
-	this.near = check( parameters.near, 1 );
-	this.far = check( parameters.far, 1 );
-	this.dashArray = check( parameters.dashArray, [] );
-	this.useDash = ( this.dashArray !== [] ) ? 1 : 0;
+	this.lineWidth = check(parameters.lineWidth, 1);
+	this.map = check(parameters.map, null);
+	this.useMap = check(parameters.useMap, 0);
+	this.color = check(parameters.color, new THREE.Color(0xffffff));
+	this.opacity = check(parameters.opacity, 1);
+	this.resolution = check(parameters.resolution, new THREE.Vector2(1, 1));
+	this.sizeAttenuation = check(parameters.sizeAttenuation, 1);
+	this.near = check(parameters.near, 1);
+	this.far = check(parameters.far, 1);
+	this.dashArray = check(parameters.dashArray, []);
+	this.useDash = (this.dashArray !== []) ? 1 : 0;
 
-	var material = new THREE.RawShaderMaterial( { 
-		uniforms:{
+	var material = new THREE.RawShaderMaterial({
+		uniforms: {
 			lineWidth: { type: 'f', value: this.lineWidth },
 			map: { type: 't', value: this.map },
 			useMap: { type: 'f', value: this.useMap },
@@ -297,11 +297,11 @@ THREE.MeshLineMaterial = function ( parameters ) {
 			sizeAttenuation: { type: 'f', value: this.sizeAttenuation },
 			near: { type: 'f', value: this.near },
 			far: { type: 'f', value: this.far },
-			dashArray: { type: 'v2', value: new THREE.Vector2( this.dashArray[ 0 ], this.dashArray[ 1 ] ) },
+			dashArray: { type: 'v2', value: new THREE.Vector2(this.dashArray[ 0 ], this.dashArray[ 1 ]) },
 			useDash: { type: 'f', value: this.useDash }
 		},
-		vertexShader: vertexShaderSource.join( '\r\n' ),
-		fragmentShader: fragmentShaderSource.join( '\r\n' )
+		vertexShader: vertexShaderSource.join('\r\n'),
+		fragmentShader: fragmentShaderSource.join('\r\n')
 	});
 
 	delete parameters.lineWidth;
@@ -317,25 +317,25 @@ THREE.MeshLineMaterial = function ( parameters ) {
 
 	material.type = 'MeshLineMaterial';
 
-	material.setValues( parameters );
+	material.setValues(parameters);
 
 	return material;
 
 };
 
-THREE.MeshLineMaterial.prototype = Object.create( THREE.Material.prototype );
+THREE.MeshLineMaterial.prototype = Object.create(THREE.Material.prototype);
 THREE.MeshLineMaterial.prototype.constructor = THREE.MeshLineMaterial;
 
-THREE.MeshLineMaterial.prototype.copy = function ( source ) {
+THREE.MeshLineMaterial.prototype.copy = function (source) {
 
-	THREE.Material.prototype.copy.call( this, source );
+	THREE.Material.prototype.copy.call(this, source);
 
 	this.lineWidth = source.lineWidth;
 	this.map = source.map;
 	this.useMap = source.useMap;
-	this.color.copy( source.color );
+	this.color.copy(source.color);
 	this.opacity = source.opacity;
-	this.resolution.copy( source.resolution );
+	this.resolution.copy(source.resolution);
 	this.sizeAttenuation = source.sizeAttenuation;
 	this.near = source.near;
 	this.far = source.far;

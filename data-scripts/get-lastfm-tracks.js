@@ -13,14 +13,14 @@ const tracks = [];
 
 parser.on("track", function(track) {
 	if (track.Year === 2015) {
-    	tracks.push({
+		tracks.push({
 	    	name: track.Name,
 	    	artist: track.Artist,
 	    	album: track.Album,
 	    	play_count: track['Play Count'] | 0,
 	    	duration: track['Total Time'] | 0
     	});
-    }
+	}
 });
 
 readStream.on('end', function() {

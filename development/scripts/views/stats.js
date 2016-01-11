@@ -122,7 +122,7 @@ module.exports = View.extend({
 			type: "attribute",
 			name: "data-title",
 			selector: "main"
-		},
+		}
 	},
 	render: function() {
 		this.renderWithTemplate(this);

@@ -85,17 +85,17 @@ function getCheckinsFor2015() {
 		});
 	}, () => !isDone, function (err) {
 	    
-	    if (err) {
-	        return console.error(err);
-	    }
+		if (err) {
+			return console.error(err);
+		}
 	    
-	    const checkins2015Array = Array.from(checkins2015Map.values());
-	    checkins2015Array.sort((a, b) => b.times - a.times);
+		const checkins2015Array = Array.from(checkins2015Map.values());
+		checkins2015Array.sort((a, b) => b.times - a.times);
 	    
-	    fs.writeFile(checkinsWritePath, JSON.stringify(checkins2015Array, null, '\t'), function(err) {
-	        console.log(err || "done writing");
-	    });
-	});	
+		fs.writeFile(checkinsWritePath, JSON.stringify(checkins2015Array, null, '\t'), function(err) {
+			console.log(err || "done writing");
+		});
+	});
 }
 
 getCheckinsFor2015();

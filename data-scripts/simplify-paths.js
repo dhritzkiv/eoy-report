@@ -18,7 +18,7 @@ fs.readFile(inPath, "utf8", function(err, src) {
 	
 	const startTime = Date.now();
 	
-	paths = paths.map(function(ride) {		
+	paths = paths.map(function(ride) {
 		ride.points = simplify(ride.points, tolerance);
 		return ride;
 	});

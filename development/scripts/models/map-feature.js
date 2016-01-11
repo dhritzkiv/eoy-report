@@ -9,7 +9,7 @@ const addPointsToPathOrShape = require("../utils/add-points-to-path-or-shape");
 
 const consts = require("../consts");
 
-function reduceGeometry(merged, current) {	
+function reduceGeometry(merged, current) {
 	merged.merge(current);
 	return merged;
 }

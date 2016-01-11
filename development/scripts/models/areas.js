@@ -11,7 +11,7 @@ module.exports = {
 	to: {
 		name: "Toronto",
 		projection: consts.PROJECTION_MTM10,
-		bounds: [	
+		bounds: [
 			[-81, 42],
 			[-78, 45]
 		],
@@ -181,7 +181,7 @@ module.exports = {
 	lv: {
 		name: "Las Vegas",
 		projection: consts.PROJECTION_NEVADA_WEST,
-		bounds: [	
+		bounds: [
 			[-115.25, 35.5],
 			[-114.75, 36.5]
 		],
@@ -244,7 +244,7 @@ module.exports = {
 	nyc: {
 		name: "New York City",
 		projection: consts.PROJECTION_NEW_YORK_ISLAND,
-		bounds: [	
+		bounds: [
 			[-74.25, 40.5],
 			[-73.25, 41]
 		],
@@ -261,7 +261,7 @@ module.exports = {
 			new MapFeature({
 				name: "New York Airport Features",
 				geojson_uri: "/data/newark-airport-grounds.geojson",
-				color: consts.COLOR_AIRPORT_GROUNDS,
+				color: consts.COLOR_AIRPORT_GROUNDS
 			}),
 			new MapFeature({
 				name: "New York Airport Features",
@@ -352,7 +352,7 @@ module.exports = {
 	pdx: {
 		name: "Portland",
 		projection: consts.PROJECTION_OREGON_NORTH,
-		bounds: [	
+		bounds: [
 			[-123, 45],
 			[-122, 46]
 		],
@@ -367,7 +367,7 @@ module.exports = {
 			}),
 			new MapFeature({
 				geojson_uri: "/data/portland-airport-grounds.geojson",
-				color: consts.COLOR_AIRPORT_GROUNDS,
+				color: consts.COLOR_AIRPORT_GROUNDS
 			}),
 			new MapFeature({
 				geojson_uri: "/data/portland-airport-features.geojson",
@@ -389,7 +389,7 @@ module.exports = {
 				name: "Portland",
 				points: [[-122.681944, 45.52]],
 				z_position: 20,
-				size: consts.LABEL_SIZE_METRO,
+				size: consts.LABEL_SIZE_METRO
 			}),
 			new LabelMapFeature({
 				name: "PDX",

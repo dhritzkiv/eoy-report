@@ -35,8 +35,8 @@ const Router = AmpersandRouter.extend({
 			this.trigger("newMode", new MapsPage({
 				area_name: area_name
 			}));
-		}		
-		
+		}
+
 		app.view.mode = "maps";
 	},
 	stats: function(type) {
@@ -53,8 +53,8 @@ const Router = AmpersandRouter.extend({
 			this.trigger("newMode", new StatsPage({
 				type: type
 			}));
-		}		
-		
+		}
+
 		app.view.mode = "stats";
 	}
 });
