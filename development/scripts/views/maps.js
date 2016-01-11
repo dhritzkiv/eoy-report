@@ -336,7 +336,6 @@ module.exports = View.extend({
 	},
 	keydownHandler: function(event) {
 		
-		const camera = this.camera;
 		const code = event.keyCode || event.which;
 		
 		if (code < 37 || code > 40) {
@@ -345,24 +344,28 @@ module.exports = View.extend({
 		
 		let changeX = 0;
 		let changeY = 0;
+		const dist = 20;
 		
 		switch (code) {
 			case 40://down
-				changeY = -10;
+				changeY = -dist;
 				break;
 			case 38://up
-				changeY = 10;
+				changeY = dist;
 				break;
 			case 37://left
-				changeX = 10;
+				changeX = dist;
 				break;
 			case 39://right
-				changeX = -10;
+				changeX = -dist;
 				break;
 		}
 		
-		camera.position.x -= changeX * (0.0033 / (1 / camera.position.z));
-		camera.position.y += changeY * (0.0033 / (1 / camera.position.z));
+		this.translationVelocityX = -changeX;//negative left
+		this.translationVelocityY = changeY;//negative up
+
+		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
+		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
 		
 		this.needsRender = true;
 		
