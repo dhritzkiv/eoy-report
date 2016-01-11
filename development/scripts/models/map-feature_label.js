@@ -3,6 +3,7 @@
 const THREE = require("three.js");
 const MapFeature = require("./map-feature");
 const consts = require("../consts");
+const proj4 = require("proj4");
 
 module.exports = MapFeature.extend({
 	props: {
@@ -12,16 +13,16 @@ module.exports = MapFeature.extend({
 		},
 		z_position: {
 			type: "number",
-			default: 0.005
-		},
-		position: {
-			type: "object",
-			default: () => new THREE.Vector3(0, 0, 0.01)
+			default: 10
 		},
 		size: {
 			type: "number",
 			default: 0.5
 		}
+	},
+	convertPointsForProjection: function(projection) {
+		const applyProjectionToPoint = (point) => proj4(consts.PROJECTION_WGS84, projection, point);
+		this.projected_points = this.points.map(applyProjectionToPoint);
 	},
 	getMesh: function() {
 		
@@ -30,7 +31,7 @@ module.exports = MapFeature.extend({
 		const fontFamily = `"Futura PT", Futura, sans-serif`;
 		
 		let labelText = this.name;
-		const position = this.position;
+		const point = this.projected_points[0];
 		const size = this.size;
 		
 		if (size >= 0.65) {
@@ -79,10 +80,9 @@ module.exports = MapFeature.extend({
 		const sprite = new THREE.Sprite(labelMaterial);
 		sprite.renderOrder = consts.RENDER_ORDER_LABELS;
 		
-		sprite.position.set(position.x, position.y, position.z * size);
+		sprite.position.set(point[0], point[1], this.z_position * size);
 		sprite.userData.hide_at_z = this.hide_at_z;
-		
-		//labelSprites.push(sprite);
+		sprite.name = this.name;
 		
 		console.timeEnd(this.name);
 		

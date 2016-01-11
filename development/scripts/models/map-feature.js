@@ -1,11 +1,13 @@
 "use strict";
 
-const consts = require("../consts");
 const Model = require("ampersand-model");
 const THREE = require("three.js");
+const proj4 = require("proj4");
 
 const polyToShapeGeometry = require("../utils/poly-to-shape-geometry");
 const addPointsToPathOrShape = require("../utils/add-points-to-path-or-shape");
+
+const consts = require("../consts");
 
 function reduceGeometry(merged, current) {	
 	merged.merge(current);
@@ -21,7 +23,12 @@ module.exports = Model.extend({
 			type: "string"
 		},
 		points: {
-			type: "array"
+			type: "array",
+			default: () => []
+		},
+		projected_points: {
+			type: "array",
+			default: () => []
 		},
 		color: {
 			type: "string",
@@ -29,10 +36,6 @@ module.exports = Model.extend({
 		},
 		geojson_uri: {
 			type: "string"
-		},
-		geometry_type: {
-			type: "string",
-			default: "MultiPolygon"
 		},
 		z_position: {
 			type: "number",
@@ -64,8 +67,32 @@ module.exports = Model.extend({
 			}
 		}
 	},
+	convertPointsForProjection: function(projection) {
+		
+		function applyProjectionToPoint(point) {
+			return proj4(consts.PROJECTION_WGS84, projection, point);
+		}
+		
+		this.projected_points = this.points
+		.map(feature => {
+			feature.geometry.coordinates = feature.geometry.coordinates
+			.map(poly => {
+				
+				if (feature.geometry.type === "MultiPolygon") {
+					poly = poly.map(part => part.map(applyProjectionToPoint));
+				} else {
+					poly = poly.map(applyProjectionToPoint);
+				}
+				
+				return poly;
+			});
+			
+			return feature;
+		});
+	},
 	polyToShapeGeometry: function() {
-		return this.points
+		
+		return this.projected_points
 		.map(feature => {
 			return feature.geometry.coordinates
 			.map(poly => {
@@ -87,6 +114,7 @@ module.exports = Model.extend({
 		console.time(this.name);
 		const geometry = this.polyToShapeGeometry();
 		const plane = new THREE.Mesh(geometry, this.material);
+		plane.name = this.name;
 		plane.renderOrder = this.renderOrder;
 		plane.position.z = this.z_position;
 		plane.matrixAutoUpdate = false;

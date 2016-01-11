@@ -15,7 +15,7 @@ module.exports = MapFeature.extend({
 		},
 		z_position: {
 			type: "number",
-			default: 0.0000001
+			default: 1
 		}
 	},
 	getMesh: function() {
@@ -44,10 +44,6 @@ module.exports = MapFeature.extend({
 					newFeature.geometry.coordinates = coords;
 					return newFeature;
 				});
-				
-				expandedFeature.sort((a, b) => b.geometry.coordinates.length - a.geometry.coordinates.length);
-				
-				//expandedFeature = expandedFeature.splice(0,12);//remove this
 			} else {
 				expandedFeature.push(feature);
 			}
@@ -95,7 +91,7 @@ module.exports = MapFeature.extend({
 				
 				if (!material) {
 					material = new MeshLineMaterial({
-						lineWidth: 0.0001 * width,//size of individual street
+						lineWidth: 10 * width,//size of individual street
 						sizeAttenuation: 1,
 						opacity: tunnel ? 0.1 : 1,
 						depthTest: tunnel ? false : true,

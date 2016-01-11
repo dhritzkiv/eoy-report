@@ -24,6 +24,7 @@
     "node-foursquare": "^0.3.0",
     "numeral": "^1.5.3",
     "polyline": "^0.2.0",
+    "proj4": "^2.3.12",
     "simplify-js": "^1.2.1",
     "simplify-path": "^1.1.0",
     "strava-v3": "^1.8.1",
