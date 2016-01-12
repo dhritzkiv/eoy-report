@@ -21,6 +21,8 @@ const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAcceler
 
 const consts = require("../consts");
 
+const CAMERA_NEAR = 500;
+
 var curve = new THREE.CubicBezierCurve(
 	new THREE.Vector3(0, 0, 0),
 	new THREE.Vector3(0.165, 0.84, 0),
@@ -137,7 +139,7 @@ module.exports = View.extend({
 		
 		const scene = this.scene = new THREE.Scene();
 		const aspectRatio = canvas.clientWidth / canvas.clientHeight;
-		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, 500, 25000);
+		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 50000);
 		
 		requestAnimationFrame(() => this.windowResize());
 		
@@ -234,12 +236,12 @@ module.exports = View.extend({
 		
 		const projectPointsFunc = convertPointForProjection(this.area.projection);
 		
+		this.max_camera_z = camera.far - 1;
+		
 		if (this.area) {
 			const bounds = this.area.bounds.map(projectPointsFunc);
 			const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]);
-			this.max_camera_z = (size / 4) / camera.aspect;
-		} else {
-			this.max_camera_z = camera.far;
+			this.max_camera_z = Math.min((size / 4) / camera.aspect, this.max_camera_z);
 		}
 	},
 	mousewheelHandler: function(event) {
@@ -250,7 +252,7 @@ module.exports = View.extend({
 		
 		camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 		
-		const minCameraZ = this.camera.near + 1;
+		const minCameraZ = CAMERA_NEAR + 1;
 		const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 1);
 		
 		if (camera.position.z < minCameraZ) {
@@ -518,9 +520,7 @@ module.exports = View.extend({
 			const screenAspectRatio = canvas.clientWidth / canvas.clientHeight;
 			
 			const dimension = Math.max(size.x, size.y) / 2;
-			const cameraZPosition = Math.max(Math.min((dimension / screenAspectRatio) * 1.2, camera.far / 2), camera.far / 4);
-			
-			console.log("cameraZPosition", cameraZPosition);
+			const cameraZPosition = Math.max(Math.min((dimension / screenAspectRatio), camera.far / 2), self.max_camera_z / 2);
 			
 			camera.position.set(centroid.x, centroid.y, cameraZPosition);
 		}
