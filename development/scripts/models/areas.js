@@ -99,7 +99,7 @@ module.exports = {
 				size: consts.LABEL_SIZE_MEDIUM
 			}),
 			new LabelMapFeature({
-				name: "Missisauga",
+				name: "Mississauga",
 				points: [[-79.65, 43.6]],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
@@ -117,7 +117,7 @@ module.exports = {
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
-				name: "Vaughn",
+				name: "Vaughan",
 				points: [[-79.5, 43.83333]],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
