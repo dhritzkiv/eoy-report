@@ -533,7 +533,7 @@ module.exports = View.extend({
 			depthTest: true,
 			transparent: false,
 			color: new THREE.Color(0xf35c20),
-			blending: THREE.AdditiveBlending
+			//blending: THREE.AdditiveBlending
 		});
 		
 		const walkLineMaterial = new MeshLineMaterial({
@@ -542,7 +542,7 @@ module.exports = View.extend({
 			depthTest: true,
 			transparent: false,
 			color: new THREE.Color(0x22d670),
-			blending: THREE.AdditiveBlending
+			//blending: THREE.AdditiveBlending
 		});
 		
 		const filterActivities = filterActivitiesToBounds(area.bounds);

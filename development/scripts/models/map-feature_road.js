@@ -98,7 +98,7 @@ module.exports = MapFeature.extend({
 						depthTest: tunnel ? false : true,
 						transparent: tunnel ? true : false,
 						color: new THREE.Color(color),
-						blending: tunnel ? THREE.AdditiveAlphaBlending : THREE.AdditiveBlending
+						blending: tunnel ? THREE.AdditiveAlphaBlending : THREE.NormalBlending
 					});
 					
 					materials[materialKey] = material;
