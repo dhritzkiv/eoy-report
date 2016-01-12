@@ -228,7 +228,7 @@ body > main > section#stats {
 		}
 	}
 	
-	@each $type in "cycling", "walking", "food\\+liquor", "audio\\+video", "miscelleneous" {
+	@each $type in "cycling", "walking", "food\\+liquor", "audio\\+video", "miscellaneous" {
 		&[data-type=#{$type}] nav a[href*=#{$type}] {
 			color: $colorBackground;
 		}
