@@ -58,6 +58,16 @@ module.exports = {
 				color: consts.COLOR_PARKS,
 				renderOrder: 0.02
 			}),
+			new RoadMapFeature({
+				name: "TTC Subways",
+				geojson_uri: "/data/toronto-subway.geojson",
+				renderOrder: 0.02
+			}),
+			new RoadMapFeature({
+				name: "TTC RT",
+				geojson_uri: "/data/toronto-rt.geojson",
+				renderOrder: 0.02
+			}),
 			new LabelMapFeature({
 				name: "Toronto",
 				points: [[-79.4, 43.7]],

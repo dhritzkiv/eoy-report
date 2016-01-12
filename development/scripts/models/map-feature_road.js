@@ -62,7 +62,8 @@ module.exports = MapFeature.extend({
 				"sc",
 				"max",
 				"at",
-				"subway"
+				"subway",
+				"rt"
 			].indexOf(feature.properties.type) !== -1;
 		})
 		.map(function(feature) {
@@ -79,7 +80,7 @@ module.exports = MapFeature.extend({
 				width = 2;
 			}
 			
-			if (["bus", "sc", "max", "at", "subway"].indexOf(feature.properties.type) !== -1) {
+			if (["bus", "sc", "max", "at", "subway", "rt"].indexOf(feature.properties.type) !== -1) {
 				color = consts.COLOR_ROADS_TRANSIT;
 			}
 			
