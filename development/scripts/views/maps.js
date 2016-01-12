@@ -84,6 +84,9 @@ module.exports = View.extend({
 		area_name: {
 			type: "string",
 			default: "to"
+		},
+		area_title: {
+			type: "string"
 		}
 	},
 	template: `
@@ -113,6 +116,11 @@ module.exports = View.extend({
 		"area_name": {
 			type: "attribute",
 			name: "data-area",
+			selector: "section"
+		},
+		"area_title": {
+			type: "attribute",
+			name: "data-title",
 			selector: "section"
 		}
 	},
@@ -155,6 +163,7 @@ module.exports = View.extend({
 		this.listenToAndRun(this, "change:area_name", () => {
 			removeRecursive(scene);
 			const area = this.area = new MapArea(areas[this.area_name]);
+			this.area_title = area.name;
 			requestAnimationFrame(() => this.setUpArea(area));
 		});
 		

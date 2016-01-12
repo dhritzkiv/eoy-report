@@ -96,7 +96,7 @@ body > nav {
 	flex: 0 1 auto;
 	
 	h1 {
-		font-size: 28px;
+		font-size: 24px;
 		margin: 0;
 		line-height: 58px;
 		letter-spacing: 0.015em;
@@ -174,7 +174,7 @@ body > main > section > nav {
 	flex: 0 0 auto;
 	height: 32px;
 	width: 100%;
-	background-color: lighten($colorDark2, 5%);
+	background-color: $colorDark2;
 	text-align: center;
 	
 	a[href] {
@@ -185,18 +185,48 @@ body > main > section > nav {
 		vertical-align: middle;
 		letter-spacing: 0.08em;
 		margin: 0 ($gutter / 2);
+		text-shadow: 0px 1px 2px rgba(darken($colorDark2, 10%), 0.5);
 	
 		&:hover {
 			color: $colorBackground;
+			text-shadow: 0px 1px 8px rgba($colorDark1, 0.5);
 		}
 	}
 }
 
 body > main > section#maps {
+	position: relative;
+	
+	&:before {
+		$fontSize: 320px;
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		position: fixed;
+		left: 0;
+		bottom: - ($fontSize / 10);
+		//top: calc(100vh - $fontSize);
+		z-index: 0;
+		content: attr(data-title);
+		white-space: nowrap;
+		font-size: $fontSize;
+		font-weight: 600;
+		margin: 0;
+		line-height: 1em;
+		vertical-align: baseline;
+		color: rgba($colorBackground, 0.5);
+		text-transform: uppercase;
+	}
+	
+	main {
+		mix-blend-mode: multiply;
+	}
+
 	
 	@each $area in to, lv, nyc, pdx, surrey {
-		&[data-area=#{$area}] nav a[href*=#{$area}] {
+		&[data-area=#{$area}] > nav a[href*=#{$area}] {
 			color: $colorBackground;
+			text-shadow: 0px 1px 8px rgba($colorDark1, 0.5);
 		}
 	}
 }
@@ -223,7 +253,7 @@ body > main > section#stats {
 			margin: 0;
 			line-height: 1em;
 			vertical-align: baseline;
-			color: $colorBackground;
+			color: rgba($colorBackground, 0.5);
 			text-transform: uppercase;
 		}
 	}
@@ -231,6 +261,7 @@ body > main > section#stats {
 	@each $type in "cycling", "walking", "food\\+liquor", "audio\\+video", "miscellaneous" {
 		&[data-type=#{$type}] nav a[href*=#{$type}] {
 			color: $colorBackground;
+			text-shadow: 0px 1px 8px rgba($colorDark1, 0.5);
 		}
 	}
 	
