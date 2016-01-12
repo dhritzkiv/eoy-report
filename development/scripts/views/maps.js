@@ -21,6 +21,13 @@ const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAcceler
 
 const consts = require("../consts");
 
+var curve = new THREE.CubicBezierCurve(
+	new THREE.Vector3(0, 0, 0),
+	new THREE.Vector3(0.165, 0.84, 0),
+	new THREE.Vector3(0.44, 1, 0),
+	new THREE.Vector3(1, 1, 0)
+);
+
 function removeRecursive(parent) {
 	parent.children
 	.filter(child => !(child instanceof THREE.Scene))
@@ -373,6 +380,8 @@ module.exports = View.extend({
 	},
 	updateForCameraZ: function() {
 		
+		const self = this;
+		
 		const camera = this.camera;
 		const scene = this.scene;
 		
@@ -382,7 +391,61 @@ module.exports = View.extend({
 		scene.children
 		.filter(child => child.userData && child.userData.hide_at_z)
 		.forEach(child => {
-			child.visible = cameraZPosition < child.userData.hide_at_z;
+			const visible = cameraZPosition < child.userData.hide_at_z;
+			
+			if (!child.material) {
+				child.visible = visible;
+				return;
+			}
+			
+			if (child.visible === visible || child.transitionOpacityDirection === visible) {
+				return;
+			}
+			
+			cancelAnimationFrame(child.transitionOpacityRAF);
+			
+			const startTime = Date.now();
+			const duration = 200;
+			const startOpacity = child.material.opacity;
+			const endOpacity = visible ? 1 : 0;
+			child.transitionOpacityDirection = visible;
+			
+			const previousBlending = child.material.blending;
+			const previousTransparency = child.material.transparent;
+			
+			function doneTransition() {
+				child.material.blending = previousBlending;
+				child.material.transparent = previousTransparency;
+				child.material.opacity = endOpacity;
+				child.visible = visible;
+				
+				child.material.needsUpdate = true;
+				cancelAnimationFrame(child.transitionOpacityRAF);
+				child.rAFOpacity = null;
+				self.needsRender = true;
+			}
+			
+			child.visible = true;
+			child.material.transparent = true;
+			child.material.blending = THREE.NormalBlending;
+			
+			requestAnimationFrame(function nextFrame() {
+				const currentTime = Date.now();
+				const alpha = (currentTime - startTime) / duration;
+	
+				if (alpha >= 1) {
+					return doneTransition();
+				}
+	
+				const adjustedAlpha = curve.getPoint(alpha).x;
+	
+				const currentOpacity = startOpacity + (adjustedAlpha * (endOpacity - startOpacity));
+				child.material.opacity = currentOpacity;
+	
+				child.material.needsUpdate = true;
+				self.needsRender = true;
+				child.transitionOpacityRAF = requestAnimationFrame(nextFrame);
+			});
 		});
 		
 		scene.children
@@ -592,12 +655,14 @@ module.exports = View.extend({
 		checkinParticles.position.z = 0.0001;
 		checkinParticles.renderOrder = consts.RENDER_ORDER_PLACES;
 		checkinParticles.userData.hide_at_z = 6500;
+		checkinParticles.visible = false;
+		checkinParticles.material.transparent = true;
+		checkinParticles.material.opacity = 0;
 		
 		scene.add(checkinParticles);
+		this.updateForCameraZ();
 		
 		this.needsRender = true;
-		
-		this.updateForCameraZ();
 		
 		console.timeEnd(area.name);
 		
