@@ -132,6 +132,7 @@ module.exports = View.extend({
 	translationVelocityY: 0,
 	translationAccelerationX: 0,
 	translationAccelerationY: 0,
+	touchesCount: 0,
 	render: function() {
 		this.renderWithTemplate(this);
 		
@@ -187,7 +188,7 @@ module.exports = View.extend({
 		let xTranslationUnits;
 		let yTranslationUnits;
 		
-		if (!this.mouseDown /*&& !view.numFingersTouching*/)	{
+		if (!this.mouseDown || !view.touchesCount)	{
 			xTranslationUnits = this.translationAccelerationX;
 			yTranslationUnits = this.translationAccelerationY;
 		} else {
@@ -317,6 +318,17 @@ module.exports = View.extend({
 		this.mouseDown = true;
 		this.mouseDownX = event.touches[0].clientX;
 		this.mouseDownY = event.touches[0].clientY;
+		this.touchesCount = event.touches.length;
+		
+		if (this.touchesCount === 2) {
+			const touch1 = event.touches[0];
+			const touch2 = event.touches[1];
+
+			const dx = touch1.clientX - touch2.clientX;
+			const dy = touch1.clientY - touch2.clientY;
+
+			this.touchPreviousDistance = Math.sqrt((dx * dx) + (dy * dy));
+		}
 		
 		this.rotationAccelerationY = 0;
 		this.rotationAccelerationX = 0;
@@ -326,22 +338,56 @@ module.exports = View.extend({
 		event.preventDefault();
 	},
 	touchmoveHandler: function(event) {
+		
+		const camera = this.camera;
+		
+		//previous touchesCount; might minimize situations where pan mode is triggered when releasing fingers not at the same time 
+		const touchesCount = this.touchesCount;
+		
+		if (touchesCount === 1) {
+			
+			const touch = event.touches[0];
+		
+			const changeX = touch.clientX - this.mouseDownX;
+			const changeY = touch.clientY - this.mouseDownY;
+			
+			this.mouseDownX = touch.clientX;
+			this.mouseDownY = touch.clientY;
+			
+			this.translationVelocityX = -changeX; //negative left
+			this.translationVelocityY = changeY; //negative up
 	
-		if (!this.mouseDown) {
-			return;
+			this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
+			this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
+			
+		} else if (touchesCount === 2) {
+			
+			const touch1 = event.touches[0];
+			const touch2 = event.touches[1] || touch1;
+			
+			const dx = touch1.clientX - touch2.clientX;
+			const dy = touch1.clientY - touch2.clientY;
+			
+			const distance = Math.sqrt((dx * dx) + (dy * dy));
+			const deltaDistance = this.touchPreviousDistance - distance;
+			
+			camera.position.z += (deltaDistance * 0.0025) * (camera.position.z / 1.5);
+		
+			const minCameraZ = CAMERA_NEAR + 1;
+			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 1);
+			
+			if (camera.position.z < minCameraZ) {
+				camera.position.z = minCameraZ;
+			} else if (camera.position.z > maxCameraZ) {
+				camera.position.z = maxCameraZ;
+			}
+			
+			this.updateForCameraZ();
+			this.touchPreviousDistance = distance;
+			
 		}
 		
-		const changeX = event.touches[0].clientX - this.mouseDownX;
-		const changeY = event.touches[0].clientY - this.mouseDownY;
-		
-		this.mouseDownX = event.touches[0].clientX;
-		this.mouseDownY = event.touches[0].clientY;
-		
-		this.translationVelocityX = -changeX; //negative left
-		this.translationVelocityY = changeY; //negative up
-
-		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
-		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
+		this.touchesCount = event.touches.length;
 		
 		this.needsRender = true;
 		
@@ -349,6 +395,7 @@ module.exports = View.extend({
 	},
 	touchendHandler: function(event) {
 		this.mouseDown = false;
+		this.touchesCount = 0;
 	
 		event.preventDefault();
 	},
