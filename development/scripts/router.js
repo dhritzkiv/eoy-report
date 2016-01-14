@@ -3,6 +3,7 @@
 const app = require("ampersand-app");
 const AmpersandRouter = require("ampersand-router");
 
+const StartPage = require("./views/start");
 const StatsPage = require("./views/stats");
 const MapsPage = require("./views/maps");
 
@@ -11,15 +12,17 @@ const Router = AmpersandRouter.extend({
 		this.on("newMode", view => this.currentModeView = view);
 	},
 	routes: {
-		"": "root",
+		"": "start",
 		"maps": "maps",
 		"maps/:area_name": "maps",
 		"stats": "stats",
 		"stats/:type": "stats"
 	},
 	currentModeView: null,
-	root: function() {
-		this.navigate("/stats");
+	start: function() {
+		
+		this.trigger("newOverlay", new StartPage());
+		
 	},
 	maps: function(area_name) {
 		

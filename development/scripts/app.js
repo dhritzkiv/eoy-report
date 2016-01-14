@@ -10,6 +10,7 @@ const MainView = View.extend({
 		<body>
 			<main></main>
 			<nav id="main-nav">
+				<a href="/">Home</a>
 				<h1>Daniel's Twenty Fifteen</h1>
 				<a data-hook="switch-modes">Switch</a>
 			</nav>
@@ -52,16 +53,23 @@ const MainView = View.extend({
 	},
 	setMode: function(view) {
 		this.pageContainer.innerHTML = "";
-		this.pageSwitcher.set(view);
+		this.modeSwitcher.set(view);
+	},
+	setOverlay: function(view) {
+		//this.pageContainer.parentNode.innerHTML = "";
+		//this.pageSwitcher.set(view);
+		view.el = document.createElement("section");
+		view.render();
+		
+		this.pageContainer.parentNode.insertBefore(view.el, this.pageContainer);
 	},
 	render: function() {
 		this.renderWithTemplate();
 		
 		this.pageContainer = this.query('main');
 
-		this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
+		this.modeSwitcher = new ViewSwitcher(this.pageContainer, {
 			show: function() {
-				
 				//document.title = result(newView, "pageTitle");
 				window.scrollTo(0, 0);
 			}
@@ -89,6 +97,7 @@ app.extend({
 		
 		this.router = new Router();
 		this.router.on('newMode', view.setMode, view);
+		this.router.on('newOverlay', view.setOverlay, view);
 		this.router.history.start({pushState: false, root: "/"});
 	}
 });
