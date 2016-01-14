@@ -33,7 +33,16 @@ module.exports = View.extend({
 	render: function() {
 		this.renderWithTemplate(this);
 		
+		const choiceEls = this.queryAll(".choices a");
+		const defaultClassName = "default";
 		
+		choiceEls.forEach(el => el.classList.add(defaultClassName));
+		
+		setTimeout(() => {
+			requestAnimationFrame(() => choiceEls.forEach(
+				el => el.classList.remove(defaultClassName)
+			));
+		}, 400);
 		
 		return this;
 	},

@@ -139,10 +139,16 @@ canvas {
 			flex: 0 1 auto;
 			padding: 0 $gutter;
 			z-index: 1;
+			transition: transform 400ms ease-in-out;
 			
 			& > * {
 				position: relative;
 				z-index: 1;
+				transition: opacity 400ms ease-in-out;
+			}
+			
+			&.default > * {
+				opacity: 0;
 			}
 			
 			&:before {
@@ -172,6 +178,14 @@ canvas {
 			}
 			&[href*=stats]:before {
 				background-image: url("/img/mode_stats.svg");
+			}
+			
+			&.default:first-child {
+				transform: translateX(50%);
+			}
+			
+			&.default:last-child {
+				transform: translateX(-50%);
 			}
 		}
 	}
