@@ -92,6 +92,7 @@ canvas {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-height: 480px;
 	
 	main {
 		width: 100%;
@@ -128,15 +129,55 @@ canvas {
 		justify-content: space-between;
 		align-items: space-between;
 		flex-direction: row;
-		padding: $gutter;
+		padding: $gutter * 2 $gutter;
 		width: 100%;
 		max-width: 640px;
 		
 		a {
+			position: relative;
 			width: 50%;
 			flex: 0 1 auto;
-			margin: 0 $gutter;
+			padding: 0 $gutter;
+			z-index: 1;
+			
+			& > * {
+				position: relative;
+				z-index: 1;
+			}
+			
+			&:before {
+				$dimension: 96px;
+				position: absolute;
+				content: "";
+				display: block;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				width: $dimension;
+				height: $dimension;
+				top: calc(50% - #{$dimension / 2});
+				left: calc(50% - #{$dimension / 2});
+				filter: invert(1);
+				z-index: 0;
+				opacity: 0.1;
+				transition: opacity 200ms ease-in-out;
+			}
+			
+			&:hover:before {
+				opacity: 0.25;
+			}
+		
+			&[href*=maps]:before {
+				background-image: url("/img/mode_maps.svg");
+			}
+			&[href*=stats]:before {
+				background-image: url("/img/mode_stats.svg");
+			}
 		}
+	}
+	
+	& + * {
+		position: fixed;
 	}
 }
 
