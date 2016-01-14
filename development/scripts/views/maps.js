@@ -133,6 +133,7 @@ module.exports = View.extend({
 	translationAccelerationX: 0,
 	translationAccelerationY: 0,
 	touchesCount: 0,
+	lastInteractionTime: 0,
 	render: function() {
 		this.renderWithTemplate(this);
 		
@@ -285,6 +286,9 @@ module.exports = View.extend({
 		this.translationVelocityX = 0;
 		this.translationVelocityY = 0;
 		
+		this.lastInteractionTime = Date.now();
+		this.needsRender = true;
+		
 		event.preventDefault();
 	},
 	mousemoveHandler: function(event) {
@@ -307,10 +311,13 @@ module.exports = View.extend({
 		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
 		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
 		
+		this.lastInteractionTime = Date.now();
 		this.needsRender = true;
 	},
 	mouseupHandler: function(event) {
 		this.mouseDown = false;
+		this.lastInteractionTime = Date.now();
+		this.needsRender = true;
 		
 		event.preventDefault();
 	},
@@ -334,6 +341,9 @@ module.exports = View.extend({
 		this.rotationAccelerationX = 0;
 		this.rotationVelocityX = 0;
 		this.rotationVelocityY = 0;
+		
+		this.lastInteractionTime = Date.now();
+		this.needsRender = true;
 		
 		event.preventDefault();
 	},
@@ -371,10 +381,10 @@ module.exports = View.extend({
 			const distance = Math.sqrt((dx * dx) + (dy * dy));
 			const deltaDistance = this.touchPreviousDistance - distance;
 			
-			camera.position.z += (deltaDistance * 0.0025) * (camera.position.z / 1.5);
+			camera.position.z += (deltaDistance * 0.005) * (camera.position.z / 1.5);
 		
-			const minCameraZ = CAMERA_NEAR + 1;
-			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 1);
+			const minCameraZ = CAMERA_NEAR + 100;
+			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 100);
 			
 			if (camera.position.z < minCameraZ) {
 				camera.position.z = minCameraZ;
@@ -388,7 +398,8 @@ module.exports = View.extend({
 		}
 		
 		this.touchesCount = event.touches.length;
-		
+
+		this.lastInteractionTime = Date.now();
 		this.needsRender = true;
 		
 		event.preventDefault();
@@ -396,6 +407,17 @@ module.exports = View.extend({
 	touchendHandler: function(event) {
 		this.mouseDown = false;
 		this.touchesCount = 0;
+		
+		const lastInteractionTime = this.lastInteractionTime;
+		const timeSinceLastInteractionTime = Date.now() - lastInteractionTime;
+		
+		for (let i = 0; i < Math.ceil(timeSinceLastInteractionTime / 16); i++) {
+			this.translationAccelerationX * DECELERATION_RATE;
+			this.translationAccelerationY * DECELERATION_RATE;
+		}
+		
+		this.lastInteractionTime = Date.now();
+		this.needsRender = true;
 	
 		event.preventDefault();
 	},
