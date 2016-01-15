@@ -70,12 +70,12 @@ module.exports = {
 			new RoadMapFeature({
 				name: "TTC Subways",
 				geojson_uri: "/data/toronto-subway.geojson",
-				renderOrder: 0.02
+				renderOrder: 0.025
 			}),
 			new RoadMapFeature({
 				name: "TTC RT",
 				geojson_uri: "/data/toronto-rt.geojson",
-				renderOrder: 0.02
+				renderOrder: 0.025
 			}),
 			new LabelMapFeature({
 				name: "Toronto",
@@ -407,7 +407,7 @@ module.exports = {
 			new LabelMapFeature({
 				name: "Portland",
 				points: [[-122.681944, 45.52]],
-				z_position: 20,
+				z_position: 500,
 				size: consts.LABEL_SIZE_METRO
 			}),
 			new LabelMapFeature({
