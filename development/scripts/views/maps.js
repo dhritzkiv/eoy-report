@@ -75,6 +75,7 @@ module.exports = View.extend({
 		<section id="maps">
 			<main>
 				<canvas></canvas>
+				<a data-hook="legend">Legend</a>
 			</main>
 			<nav>
 				<a href="/maps/to">Toronto</a>
@@ -86,6 +87,7 @@ module.exports = View.extend({
 		</section>
 	`,
 	events: {
+		"click [data-hook=legend]": "showLegend",
 		"mousewheel canvas": "mousewheelHandler",
 		"mousedown canvas": "mousedownHandler",
 		"mousemove canvas": "mousemoveHandler",
@@ -437,6 +439,12 @@ module.exports = View.extend({
 		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
 		
 		this.needsRender = true;
+		
+		event.preventDefault();
+	},
+	showLegend: function(event) {
+		
+		app.router.navigate(`/maps/${this.area_name}/legend`);
 		
 		event.preventDefault();
 	},

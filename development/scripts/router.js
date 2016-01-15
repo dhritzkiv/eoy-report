@@ -6,6 +6,9 @@ const AmpersandRouter = require("ampersand-router");
 const StartPage = require("./views/start");
 const StatsPage = require("./views/stats");
 const MapsPage = require("./views/maps");
+const MapsLegendPage = require("./views/maps-legend");
+
+const DEFAULT_TITLE = "Danie's Twenty Fifteen";
 
 const Router = AmpersandRouter.extend({
 	initialize: function() {
@@ -15,6 +18,7 @@ const Router = AmpersandRouter.extend({
 		"": "start",
 		"maps": "maps",
 		"maps/:area_name": "maps",
+		"maps/:area_name/legend": "mapsLegend",
 		"stats": "stats",
 		"stats/:type": "stats"
 	},
@@ -23,6 +27,26 @@ const Router = AmpersandRouter.extend({
 		
 		this.trigger("newOverlay", new StartPage());
 		
+		document.title = DEFAULT_TITLE;
+		
+	},
+	_mapsBase: function(area_name) {
+		
+		let currentModeView = this.currentModeView;
+		
+		if (currentModeView instanceof MapsPage) {
+			currentModeView.area_name = area_name;
+		} else {
+			currentModeView = new MapsPage({
+				area_name: area_name
+			});
+			
+			this.trigger("newMode", currentModeView);
+		}
+		
+		app.view.mode = "maps";
+		
+		return currentModeView;
 	},
 	maps: function(area_name) {
 		
@@ -30,17 +54,29 @@ const Router = AmpersandRouter.extend({
 			return this.redirectTo("/maps/to");
 		}
 		
-		const currentModeView = this.currentModeView;
+		this._mapsBase(area_name);
 		
-		if (currentModeView instanceof MapsPage) {
-			currentModeView.area_name = area_name;
-		} else {
-			this.trigger("newMode", new MapsPage({
-				area_name: area_name
-			}));
+		document.title = `${DEFAULT_TITLE} – ${this.currentModeView.area.name}`;
+	},
+	mapsLegend: function(area_name) {
+		
+		const self = this;
+		const currentModeView = this._mapsBase(area_name);
+		
+		function showOverlay() {			
+			const legendPage = new MapsLegendPage({
+				area_name: area_name,
+				parent: currentModeView
+			});
+			
+			self.trigger("newOverlay", legendPage, currentModeView.query("canvas"));
 		}
-
-		app.view.mode = "maps";
+		
+		if (currentModeView.rendered) {
+			showOverlay();
+		} else {
+			currentModeView.once("change:rendered", showOverlay);
+		}
 	},
 	stats: function(type) {
 		

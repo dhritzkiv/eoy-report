@@ -55,13 +55,14 @@ const MainView = View.extend({
 		this.pageContainer.innerHTML = "";
 		this.modeSwitcher.set(view);
 	},
-	setOverlay: function(view) {
+	setOverlay: function(view, insertBefore) {
 		//this.pageContainer.parentNode.innerHTML = "";
 		//this.pageSwitcher.set(view);
 		view.el = document.createElement("section");
 		view.render();
 		
-		this.pageContainer.parentNode.insertBefore(view.el, this.pageContainer);
+		const insertBeforeEl = insertBefore || this.pageContainer;
+		insertBeforeEl.parentNode.insertBefore(view.el, insertBeforeEl);
 	},
 	render: function() {
 		this.renderWithTemplate();
