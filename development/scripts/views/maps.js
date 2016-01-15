@@ -8,6 +8,7 @@ const THREE = require("three.js");
 const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
 
+const MapArea = require("../models/map-area");
 const areas = require("../models/areas");
 
 const checkins = require("../../../data/2015_foursquare-checkins.json");
@@ -59,25 +60,6 @@ function filterActivitiesToBounds(bounds) {
 		);
 	};
 }
-
-const MapArea = State.extend({
-	props: {
-		name: {
-			type: "string"
-		},
-		projection: {
-			type: "string"
-		},
-		bounds: {
-			type: "array",
-			default: () => []
-		},
-		features: {
-			type: "array",
-			default: () => []
-		}
-	}
-});
 
 module.exports = View.extend({
 	props: {
