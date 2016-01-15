@@ -596,7 +596,7 @@ module.exports = View.extend({
 		/* Line */
 		
 		const rideLineMaterial = new MeshLineMaterial({
-			lineWidth: 10,//size of individual street
+			lineWidth: 16,//size of individual street
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
@@ -605,7 +605,7 @@ module.exports = View.extend({
 		});
 		
 		const walkLineMaterial = new MeshLineMaterial({
-			lineWidth: 7.5,//half size of individual street
+			lineWidth: 10,//half size of individual street
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
@@ -662,7 +662,7 @@ module.exports = View.extend({
 		function makeCheckinDot(color) {
 			const pointCanvas = document.createElement("canvas");
 			const context = pointCanvas.getContext("2d");
-			const pointDimension = 16 * window.devicePixelRatio;
+			const pointDimension = 24 * window.devicePixelRatio;
 			const pointRadius = pointDimension / 2;
 			const pointLineWidth = pointDimension / 4;
 			const fullCircle = 2 * Math.PI;
