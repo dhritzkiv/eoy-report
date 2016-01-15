@@ -610,7 +610,7 @@ module.exports = View.extend({
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
-			color: new THREE.Color(0xf35c20),
+			color: new THREE.Color(consts.COLOR_LINES_RIDES),
 			//blending: THREE.AdditiveBlending
 		});
 		
@@ -619,7 +619,7 @@ module.exports = View.extend({
 			sizeAttenuation: 1,
 			depthTest: true,
 			transparent: false,
-			color: new THREE.Color(0x22d670),
+			color: new THREE.Color(consts.COLOR_LINES_WALKS),
 			//blending: THREE.AdditiveBlending
 		});
 		
@@ -687,7 +687,7 @@ module.exports = View.extend({
 			context.closePath();
 			context.beginPath();
 			context.arc(pointRadius, pointRadius, pointRadius - pointLineWidth, 0, fullCircle);
-			context.fillStyle = color || consts.COLOR_TEXT;
+			context.fillStyle = color || consts.COLOR_CHECKIN_POINT;
 			context.fill();
 			context.closePath();
 			

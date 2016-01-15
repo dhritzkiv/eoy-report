@@ -203,7 +203,7 @@ module.exports = {
 			}),
 			new MapFeature({
 				geojson_uri: "/data/lv-commercial.geojson",
-				color: "#eeddba"
+				color: consts.COLOR_BUILDINGS
 			}),
 			new MapFeature({
 				geojson_uri: "/data/lv-parks.geojson",

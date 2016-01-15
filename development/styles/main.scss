@@ -1,9 +1,16 @@
 $colorDark1: #4C77A6;
-$colorDark2: #3f444e;
+$colorDark2: #353a3d;
+$colorDark3: #282c2e;
 
-$colorBackground: #f2f7f6;
-$colorBackgroundDarker: #e6edec;
-$colorText: $colorDark2;
+$colorBackground: #f0e6d8;
+$colorBackgroundDarker: #f7ddb7;
+
+$colorText: saturate(darken($colorDark1, 25%), 25%);
+$colorTextLight: #a38c72;
+
+$colorAccent: #A6D7F5;
+
+$colorDull1: #353a3d;
 
 $colorCycling: #ec5f30;
 $colorWalking: #24d672;
@@ -14,6 +21,8 @@ $colorMisc: #71616a;
 $ffSans: "Futura PT", Futura, sans-serif;
 $ffSerif: "Adobe Caslon Pro", "Baskerville", serif;
 
+$backgroundGradient: linear-gradient(to bottom, $colorBackgroundDarker, $colorBackground);
+
 $gutter: 15px;
 
 * {
@@ -21,7 +30,7 @@ $gutter: 15px;
 }
 
 ::selection {
-	background-color: $colorText;
+	background-color: $colorDull1;
 	color: $colorBackground;
 }
 
@@ -29,7 +38,7 @@ body {
 	margin: 0;
 	color: $colorText;
 	background-color: $colorBackground;
-	background-image: linear-gradient(to bottom, $colorBackground, $colorBackgroundDarker);
+	background-image: $backgroundGradient;
 	background-attachment: fixed;
 	font-family: $ffSans;
 	display: flex;
@@ -42,7 +51,7 @@ body {
 }
 
 p {
-	font-size: 17px;
+	font-size: 15px;
 	line-height: 21px;
 	font-family: $ffSerif;
 	margin: ($gutter / 2) 0;
@@ -50,7 +59,7 @@ p {
 
 p.sources {
 	margin-top: $gutter;
-	color: rgba($colorText, 0.5);
+	color: $colorTextLight;
 	font-size: 10px;
 	line-height: 14px;
 	text-transform: uppercase;
@@ -77,17 +86,24 @@ canvas {
 	}
 }
 
-#start {
-	text-align: center;
+.overlay {
 	position: absolute;
 	z-index: 100;
 	top: 0;
 	left: 0;
+}
+
+#maps-legend {
+	background-image: linear-gradient(to bottom, rgba($colorBackgroundDarker, 0.9), rgba($colorBackground, 0.9));
+	width: 100vw;
+	height: 100%;
+}
+
+#start {
 	width: 100vw;
 	height: 100vh;
-	background-color: $colorDark2;
-	background-image: linear-gradient(to bottom, $colorDark2, $colorDark1);
-	color: $colorBackground;
+	text-align: center;
+	background-image: $backgroundGradient;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -100,10 +116,6 @@ canvas {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-	}
-	
-	a[href] {
-		color: lighten($colorDark1, 25%);
 	}
 	
 	h1 {
@@ -125,30 +137,46 @@ canvas {
 	}
 	
 	.choices {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: space-between;
 		flex-direction: row;
-		padding: $gutter * 2 $gutter;
+		margin: $gutter * 2 0;
+		padding: $gutter * 4 $gutter;
 		width: 100%;
 		max-width: 640px;
+		
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 25%;
+			content: "";
+			display: block;
+			margin: 0 auto;
+			height: 2px;
+			width: 50%;
+			background-color: rgba($colorTextLight, 0.25);
+		}
 		
 		a {
 			position: relative;
 			width: 50%;
+			color: darken($colorDark1, 25%);
 			flex: 0 1 auto;
 			padding: 0 $gutter;
 			z-index: 1;
 			transition: transform 400ms ease-in-out;
 			
+			h3 {
+				font-size: 24px;
+				margin: 24px 0 4px 0;
+			}
+			
 			& > * {
 				position: relative;
 				z-index: 1;
-				transition: opacity 400ms ease-in-out;
-			}
-			
-			&.default > * {
-				opacity: 0;
+				transition: opacity 400ms ease-in-out 50ms;
 			}
 			
 			&:before {
@@ -163,14 +191,13 @@ canvas {
 				height: $dimension;
 				top: calc(50% - #{$dimension / 2});
 				left: calc(50% - #{$dimension / 2});
-				filter: invert(1);
 				z-index: 0;
-				opacity: 0.1;
+				opacity: 0.065;
 				transition: opacity 200ms ease-in-out;
 			}
 			
 			&:hover:before {
-				opacity: 0.25;
+				opacity: 0.125;
 			}
 		
 			&[href*=maps]:before {
@@ -178,6 +205,14 @@ canvas {
 			}
 			&[href*=stats]:before {
 				background-image: url("/img/mode_stats.svg");
+			}
+			
+			&.default {
+				pointer-events: none;
+			}
+			
+			&.default > * {
+				opacity: 0;
 			}
 			
 			&.default:first-child {
@@ -210,8 +245,10 @@ body > nav {
 	width: 100%;
 	height: 58px;
 	text-align: center;
-	background-color: $colorBackgroundDarker;
+	background-color: $colorDark3;
 	flex: 0 1 auto;
+	overflow: hidden;
+	color: white;
 	
 	h1 {
 		font-size: 24px;
@@ -219,6 +256,34 @@ body > nav {
 		line-height: 58px;
 		letter-spacing: 0.015em;
 		text-transform: uppercase;
+	}
+	
+	a[href=\/] {
+		margin-top: 6px;
+		font-weight: 600;
+		position: absolute;
+		top: 0;
+		left: $gutter;
+		display: inline-block;
+		font-size: 8px;
+		text-align: center;
+		text-transform: uppercase;
+		color: $colorText;
+		
+		&:before {
+			width: 32px;
+			height: 32px;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 4px;
+			position: relative;
+			content: "";
+			background-size: 100% 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			background-color: white;	
+		}
 	}
 	
 	[data-hook=switch-modes] {
@@ -240,8 +305,6 @@ body > nav {
 			margin: 0 auto;
 			margin-bottom: 4px;
 			position: relative;
-			//top: 0;
-			//left: 0;
 			content: "";
 			background-size: 100% 100%;
 			background-position: center center;
@@ -278,16 +341,6 @@ body > main > section > main {
 	//max-height: calc(100vh - 128px);
 }
 
-body > main > section.maps > main {
-	position: relative;
-	overflow: hidden;
-}
-
-body > main > section#maps canvas {
-	//flex: 0 1 auto;
-	//width: 100vw;
-}
-
 body > main > section > nav {
 	flex: 0 0 auto;
 	height: 32px;
@@ -296,7 +349,7 @@ body > main > section > nav {
 	text-align: center;
 	
 	a[href] {
-		color: rgba(darken($colorBackgroundDarker, 20%), 0.8);
+		color: rgba(darken($colorAccent, 0%), 0.8);
 		line-height: 32px;
 		font-size: 14px;
 		font-weight: 600;
@@ -315,31 +368,29 @@ body > main > section > nav {
 body > main > section#maps {
 	position: relative;
 	
-	&:before {
-		$fontSize: 320px;
+	[data-hook=legend] {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: $gutter;
 		display: inline-block;
-		width: 100%;
-		text-align: center;
-		position: fixed;
-		left: 0;
-		bottom: - ($fontSize / 10);
-		//top: calc(100vh - $fontSize);
-		z-index: 0;
-		content: attr(data-title);
-		white-space: nowrap;
-		font-size: $fontSize;
+		font-size: 8px;
 		font-weight: 600;
-		margin: 0;
-		line-height: 1em;
-		vertical-align: baseline;
-		color: rgba($colorBackground, 0.5);
+		text-align: center;
 		text-transform: uppercase;
+		color: $colorText;
+		
+		&:before {
+			content: "";
+			display: block;
+			margin: 0 auto;
+			width: 32px;
+			height: 32px;
+			margin-bottom: 4px;
+			background-color: red;
+		}
 	}
-	
-	main {
-		mix-blend-mode: multiply;
-	}
-
 	
 	@each $area in to, lv, nyc, pdx, surrey {
 		&[data-area=#{$area}] > nav a[href*=#{$area}] {
@@ -350,31 +401,7 @@ body > main > section#maps {
 }
 
 body > main > section#stats {
-	
-	main {
-		position: relative;
-		
-		&:before {
-			$fontSize: 320px;
-			display: inline-block;
-			width: 100%;
-			text-align: center;
-			position: fixed;
-			left: 0;
-			bottom: - ($fontSize / 10);
-			//top: calc(100vh - $fontSize);
-			z-index: 0;
-			content: attr(data-title);
-			white-space: nowrap;
-			font-size: $fontSize;
-			font-weight: 600;
-			margin: 0;
-			line-height: 1em;
-			vertical-align: baseline;
-			color: rgba($colorBackground, 0.5);
-			text-transform: uppercase;
-		}
-	}
+	position: relative;
 	
 	@each $type in "cycling", "walking", "food\\+liquor", "audio\\+video", "miscellaneous" {
 		&[data-type=#{$type}] nav a[href*=#{$type}] {
@@ -397,11 +424,11 @@ body > main > section#stats {
 		}
 	}
 	
-	@include sectionColor("cycling", $colorCycling);
+	/*@include sectionColor("cycling", $colorCycling);
 	@include sectionColor("walking", $colorWalking);
 	@include sectionColor("food\\+liquor", $colorFandL);
 	@include sectionColor("audio\\+video", $colorAandV);
-	@include sectionColor("miscellaneous", $colorMisc);
+	@include sectionColor("miscellaneous", $colorMisc);*/
 }
 
 body > main > section > main > section {
@@ -436,9 +463,10 @@ body > main > section > main > section {
 		position: relative;
 		
 		h2 {
-			font-size: 36px;
+			font-size: 32px;
 			margin: $gutter * 1.5 0;
 			z-index: 1;
+			color: $colorText;
 			
 			&:after {
 				content: "";
@@ -491,15 +519,15 @@ body > main > section > main > section {
 			justify-content: center;
 			align-content: center;
 			width: 220px;
-			height: 165px;
+			height: 145px;
 			margin: 2px;
 			//background-color: red;
-			box-shadow: inset 0px 0px 0px 1px rgba($colorText, 0.15);
+			box-shadow: inset 0px 0px 0px 1px rgba($colorTextLight, 0.25);
 			
 			h3 {
 				font-weight: 100;
-				font-size: 52px;
-				line-height: 64px;
+				font-size: 42px;
+				line-height: 58px;
 				margin: 0;
 				margin-top: $gutter/2;
 				margin-bottom: $gutter/2;
@@ -512,18 +540,19 @@ body > main > section > main > section {
 				font-weight: 600;
 				text-transform: uppercase;
 				margin: 0;
-				margin-top: $gutter / 2;
+				color: rgba($colorDull1, 0.65);
+				margin-top: 4px;
 			}
 			
 			h5 {
 				margin: 0;
 				font-size: 12px;
-				line-height: 1em;
+				line-height: 8px;
 				font-weight: 100;
-				color: mix($colorText, $colorBackground, 50%);
+				color: $colorTextLight;
 				
 				&:not(:empty) {
-					margin-bottom: -12px;
+					margin-bottom: -8px;
 				}
 			}
 		}

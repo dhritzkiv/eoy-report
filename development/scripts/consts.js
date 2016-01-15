@@ -14,15 +14,19 @@ consts.LABEL_SIZE_MEDIUM = 0.8;
 consts.LABEL_SIZE_SMALL = 0.7;
 consts.LABEL_SIZE_NANO = 0.55;
 
-consts.COLOR_LAND = "#f5faf9";
+consts.COLOR_LAND = "#f4e1c7";
 consts.COLOR_ROADS_MINOR = "#ebe8e6";
 consts.COLOR_ROADS_MAJOR = "#e5e3e1";
-consts.COLOR_ROADS_TRANSIT = "#ebd1e2";//not really roads
-consts.COLOR_PARKS = "#d1ebc7";
-consts.COLOR_WATER = "#a4d0de";
-consts.COLOR_TEXT = "#3f444e";
-consts.COLOR_AIRPORT_GROUNDS = "#d9cfe5";
-consts.COLOR_AIRPORT_FEATURES = "#ccbcdd";
+consts.COLOR_ROADS_TRANSIT = "#e2ccaf";//not really roads
+consts.COLOR_PARKS = "#f0cf99";
+consts.COLOR_WATER = "#afafb3";
+consts.COLOR_TEXT = "#16385d";
+consts.COLOR_AIRPORT_GROUNDS = "#f0d9b9";
+consts.COLOR_AIRPORT_FEATURES = "#dbc5a7";
+consts.COLOR_BUILDINGS = "#dbc5a7";
+consts.COLOR_CHECKIN_POINT = "#16385d";
+consts.COLOR_LINES_WALKS = "#44c0c2";
+consts.COLOR_LINES_RIDES = "#d1368e";
 
 consts.PROJECTION_WGS84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 consts.PROJECTION_MTM10 = "+proj=tmerc +lat_0=0 +lon_0=-79.5 +k=0.9999 +x_0=304800 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";
