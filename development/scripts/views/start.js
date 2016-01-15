@@ -5,7 +5,7 @@ const View = require("ampersand-view");
 
 module.exports = View.extend({
 	template: `
-		<section id="start">
+		<section id="start" class="overlay">
 			<main>
 				<header>
 					<h1>Daniel's Twenty Fifteen</h1>
@@ -17,7 +17,7 @@ module.exports = View.extend({
 				<div class="choices">
 					<a href="/maps">
 						<h3>Maps</h3>
-						<p>A few of the cities I visited</p>
+						<p>A few of the cities I've visited</p>
 					</a>
 					<a href="/stats">
 						<h3>Stats</h3>

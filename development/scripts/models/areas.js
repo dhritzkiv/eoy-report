@@ -10,6 +10,15 @@ const consts = require("../consts");
 module.exports = {
 	to: {
 		name: "Toronto",
+		text: "Home",
+		sources: [
+			"Open Street Maps",
+			"City of Toronto",
+			"Statistics Canada",//http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2011-eng.cfm
+			"Strava",
+			"Moves",
+			"Foursquare"
+		],
 		projection: consts.PROJECTION_MTM10,
 		bounds: [
 			[-81, 42],
