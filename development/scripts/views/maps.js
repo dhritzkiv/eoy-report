@@ -148,6 +148,8 @@ module.exports = View.extend({
 		
 		this.listenToAndRun(this, "change:area_name", () => {
 			removeRecursive(scene);
+			this.needsRender = true;
+			
 			const area = this.area = new MapArea(areas[this.area_name]);
 			this.area_title = area.name;
 			requestAnimationFrame(() => this.setUpArea(area));
