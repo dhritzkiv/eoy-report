@@ -53,7 +53,7 @@ const Router = AmpersandRouter.extend({
 		
 		if (!area_name) {
 			if (this.currentModeView instanceof MapsPage) {
-				area_name = this.currentModeView.area_name;	
+				area_name = this.currentModeView.area_name;
 			} else {
 				area_name = "to";
 			}
@@ -68,7 +68,7 @@ const Router = AmpersandRouter.extend({
 		const self = this;
 		const currentModeView = this._mapsBase(area_name);
 		
-		function showOverlay() {			
+		function showOverlay() {
 			const legendPage = new MapsLegendPage({
 				area_name: area_name,
 				parent: currentModeView

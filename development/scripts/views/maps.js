@@ -449,7 +449,7 @@ module.exports = View.extend({
 		
 		const camera = this.camera;
 		
-		//previous touchesCount; might minimize situations where pan mode is triggered when releasing fingers not at the same time 
+		//previous touchesCount; might minimize situations where pan mode is triggered when releasing fingers not at the same time
 		const touchesCount = this.touchesCount;
 		
 		if (touchesCount === 1) {

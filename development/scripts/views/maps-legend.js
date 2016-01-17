@@ -90,7 +90,7 @@ module.exports = View.extend({
 		
 		return this;
 	},*/
-	initialize: function() {		
+	initialize: function() {
 		this.model = this.parent.area;
 		
 		this.listenTo(this.parent, "remove", this.close);
