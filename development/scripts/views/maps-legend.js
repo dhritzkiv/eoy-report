@@ -44,7 +44,13 @@ module.exports = View.extend({
 		sourcesHTML: {
 			deps: ["model.sources"],
 			fn: function() {
-				return this.model.sources.join(", ");
+				return this.model.sources.map(source => {
+					if (Array.isArray(source)) {
+						return `<a href="${source[1]}">${source[0]}</a>`;
+					}
+					
+					return source;
+				}).join(", ");
 			}
 		}
 	},
@@ -62,7 +68,7 @@ module.exports = View.extend({
 			selector: "p.sources"
 		},
 		"sourcesHTML": {
-			type: "text",
+			type: "innerHTML",
 			selector: "p.sources span"
 		}
 	},

@@ -12,9 +12,9 @@ module.exports = {
 		name: "Toronto",
 		text: "\"Quietly slipping out of the shadow of Montreal and Vancouver\" &ndash; The New York Times.",
 		sources: [
-			"Open Street Maps",
-			"City of Toronto",
-			"Statistics Canada",//http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2011-eng.cfm
+			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
+			["City of Toronto", "http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD"],
+			["Statistics Canada", "http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2011-eng.cfm"],
 			"Strava",
 			"Moves",
 			"Foursquare"
@@ -201,7 +201,7 @@ module.exports = {
 		name: "Las Vegas",
 		text: "Travelled to Vegas in January for CES.\n\nAt least I got <a href=\"http://vsco.co/dhritzkiv/journal/las-vegas\">a photo series</a> out of it.",
 		sources: [
-			"Open Street Maps",
+			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Moves",
 			"Foursquare"
 		],
@@ -263,11 +263,11 @@ module.exports = {
 	nyc: {
 		name: "New York City",
 		sources: [
-			"Open Street Maps",
+			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Strava",
 			"Moves",
 			"Foursquare",
-			"Center for Urban Research at the Graduate Center/CUNY"//http://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Center-for-Urban-Research/CUNY-Mapping-Service/Projects/NYC-Subway-GIS-update-Hudson-Yards,-7-Line-Extension
+			["Center for Urban Research at the Graduate Center/CUNY", "http://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Center-for-Urban-Research/CUNY-Mapping-Service/Projects/NYC-Subway-GIS-update-Hudson-Yards,-7-Line-Extension"]
 		],
 		projection: consts.PROJECTION_NEW_YORK_ISLAND,
 		bounds: [
@@ -381,9 +381,10 @@ module.exports = {
 		
 		Portland's a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike (How does Portland not have a bike share??!).`,
 		sources: [
-			"Open Street Maps",
+			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Moves",
-			"Foursquare"
+			"Foursquare",
+			["Oregon Geospatial Enterprise Office", "http://www.oregon.gov/DAS/CIO/GEO/pages/alphalist.aspx"]
 		],
 		projection: consts.PROJECTION_OREGON_NORTH,
 		bounds: [
