@@ -93,12 +93,6 @@ canvas {
 	left: 0;
 }
 
-#maps-legend {
-	background-image: linear-gradient(to bottom, rgba($colorBackgroundDarker, 0.9), rgba($colorBackground, 0.9));
-	width: 100vw;
-	height: 100%;
-}
-
 #start {
 	width: 100vw;
 	height: 100vh;
@@ -396,6 +390,196 @@ body > main > section#maps {
 		&[data-area=#{$area}] > nav a[href*=#{$area}] {
 			color: $colorBackground;
 			text-shadow: 0px 1px 8px rgba($colorDark1, 0.5);
+#maps-legend {
+	background-image: linear-gradient(to bottom, rgba($colorBackgroundDarker, 0.8), $colorBackground);
+	width: 100vw;
+	height: 100%;
+	
+	main {
+		position: relative;
+		width: 100%;
+		max-width: 1080px;
+		flex: 0 1 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		box-sizing: border-box;
+	}
+	
+	[data-hook=close] {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 0;
+		margin: $gutter;
+		display: inline-block;
+		font-size: 8px;
+		font-weight: 600;
+		text-align: center;
+		text-transform: uppercase;
+		color: $colorText;
+		
+		&:before {
+			content: "";
+			display: block;
+			margin: 0 auto;
+			width: 32px;
+			height: 32px;
+			margin-bottom: 4px;
+			background-color: red;
+		}
+		
+	}
+	
+	.text-holder {
+		$width: 480px;
+		flex: 0 1 $width;
+		max-width: $width * 2;
+		max-height: 80vh;
+		padding: $gutter;
+		box-sizing: border-box;
+		margin: $gutter;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: flex-start;
+		position: sticky;
+		top: 0;
+	}
+	
+	.legend-holder {
+		$width: 260px;
+		flex: 0 1 $width;
+		min-width: $width;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: flex-start;
+		position: relative;
+		box-sizing: border-box;
+		margin: $gutter;
+	}
+	
+	.legend {
+		padding: $gutter;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: flex-start;
+		box-sizing: border-box;
+		
+		border: 1px solid rgba($colorTextLight, 0.25);
+		
+		h3 {
+			margin: $gutter / 2 0;
+		}
+		
+		.features {
+			border-top: 1px solid rgba($colorTextLight, 0.25);
+			padding-top: $gutter;
+			
+			hr {
+				border: none;
+				height: 1px;
+				margin: 4px 0;
+				box-shadow: inset 0px 0px 0px 1px rgba($colorTextLight, 0.25);
+			}
+			
+			article {
+				$dimension: 32px;
+				line-height: $dimension;
+				font-size: 16px;
+				margin-bottom: $gutter / 4;
+			
+				.icon {
+					position: relative;
+					width: $dimension;
+					height: $dimension;
+					display: inline-block;
+					background-color: mix($colorBackground, $colorBackgroundDarker, 50%);
+					vertical-align: bottom;
+					margin-right: $gutter;
+					text-align: center;
+				}
+				
+				&[data-feature=cycling] .icon {
+					background-image: linear-gradient(to bottom right,
+						rgba(#d1368e, 0) 45%,
+						rgba(#d1368e, 1) 45%,
+						rgba(#d1368e, 1) 55%,
+						rgba(#d1368e, 0) 55%
+					);
+				}
+				
+				&[data-feature=walking] .icon {
+					background-image: linear-gradient(to bottom right, 
+						rgba(#44c0c2, 0) 45%,
+						rgba(#44c0c2, 1) 45%,
+						rgba(#44c0c2, 1) 55%,
+						rgba(#44c0c2, 0) 55%
+					);
+				}
+				
+				&[data-feature=checkins] .icon:before {
+					content: "";
+					position: relative;
+					display: inline-block;
+					width: $dimension / 4;
+					height: $dimension / 4;
+					top: 50%;
+					margin-top: -$dimension / 8;
+					border-radius: 50% 50%;
+					background-color: #16385d;
+					box-shadow: 0px 0px 0px 4px $colorBackground;
+				}
+				
+				&[data-feature=parks] .icon {
+					background-color: #f0cf99;
+				}
+				
+				&[data-feature=water] .icon {
+					background-color: #afafb3;
+				}
+				
+				&[data-feature=buildings] .icon {
+					background-color: #dbc5a7;
+				}
+				
+				&[data-feature=airport] .icon {
+					background-color: #f0d9b9;
+					
+					&:before {
+						width: 100%;
+						height: 100%;
+						content: "";
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						background-image: linear-gradient(to bottom right, 
+							rgba(#dbc5a7, 0) 30%,
+							rgba(#dbc5a7, 1) 30%,
+							rgba(#dbc5a7, 1) 40%,
+							rgba(#dbc5a7, 0) 40%,
+							rgba(#dbc5a7, 0) 60%,
+							rgba(#dbc5a7, 1) 60%,
+							rgba(#dbc5a7, 1) 70%,
+							rgba(#dbc5a7, 0) 70%
+						);
+					}
+				}
+				
+				&[data-feature=transit] .icon {
+					background-image: linear-gradient(to bottom right, 
+						rgba(#e2ccaf, 0) 45%,
+						rgba(#e2ccaf, 1) 45%,
+						rgba(#e2ccaf, 1) 55%,
+						rgba(#e2ccaf, 0) 55%
+					);
+				}
+			}
 		}
 	}
 }

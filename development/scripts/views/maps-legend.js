@@ -12,16 +12,31 @@ module.exports = View.extend({
 	},
 	template: `
 		<section id="maps-legend" class="overlay">
+			<a href="#" data-hook="close">Close</a>
 			<main>
-				<a href="#" data-hook="close">Close</a>
 				<div class="text-holder">
 					<div class="text">
 						<h2></h2>
 						<p data-hook="body"></p>
-						<p class="sources">Sources: <span></span></p>
+						<p class="sources">Data sources: <span></span></p>
 					</div>
 				</div>
-				<div class="legend"></div>
+				<div class="legend-holder">
+					<div class="legend">
+						<h3>Legend</h3>
+						<div class="features">
+							<article data-feature="cycling"><div class="icon"></div>Cycling</article>
+							<article data-feature="walking"><div class="icon"></div>Walking</article>
+							<article data-feature="checkins"><div class="icon"></div>Checkins</article>
+							<hr/>
+							<article data-feature="water"><div class="icon"></div>Water</article>
+							<article data-feature="parks"><div class="icon"></div>Parks</article>
+							<article data-feature="airport"><div class="icon"></div>Airports</article>
+							<article data-feature="transit"><div class="icon"></div>Transit Lines</article>
+							<article data-feature="buildings"><div class="icon"></div>Buildings</article>
+						</div>				
+					</div>
+				</div>
 			</main>
 		</section>
 	`,
@@ -39,7 +54,7 @@ module.exports = View.extend({
 			selector: "h2"
 		},
 		"model.text": {
-			type: "text",
+			type: "innerHTML",
 			hook: "body"
 		},
 		"model.sources.length": {
