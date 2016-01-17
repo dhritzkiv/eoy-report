@@ -390,6 +390,37 @@ body > main > section#maps {
 		&[data-area=#{$area}] > nav a[href*=#{$area}] {
 			color: $colorBackground;
 			text-shadow: 0px 1px 8px rgba($colorDark1, 0.5);
+#loading-holder {
+	background-image: $backgroundGradient;
+	width: 100vw;
+	height: 100%;
+	padding: $gutter;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	
+	.progress-holder {
+		width: 100%;
+		max-width: 480px;
+		height: 2px;
+		margin: $gutter 0;
+		background-color: rgba($colorTextLight, 0.5);
+		
+		.progress {
+			background-color: $colorText;
+			height: 2px;
+			//transition: width 50ms ease-in-out;
+		}
+	}
+	
+	p {
+		color: $colorTextLight;
+	}
+}
+
 #maps-legend {
 	background-image: linear-gradient(to bottom, rgba($colorBackgroundDarker, 0.8), $colorBackground);
 	width: 100vw;

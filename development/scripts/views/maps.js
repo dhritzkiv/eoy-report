@@ -5,6 +5,7 @@ const State = require("ampersand-state");
 const proj4 = require("proj4");
 const THREE = require("three.js");
 const TWEEN = require("tween.js");
+const async = require("async");
 
 const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
@@ -64,11 +65,36 @@ module.exports = View.extend({
 		},
 		area_title: {
 			type: "string"
+		},
+		progress: {
+			type: "number",
+			default: 0
+		},
+		is_touch: {
+			type: "boolean",
+			default: () => {
+				return ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+			}
+		}
+	},
+	derived: {
+		loaded: {
+			deps: ["progress"],
+			fn: function() {
+				return this.progress === 1;
+			}
 		}
 	},
 	template: `
 		<section id="maps">
 			<main>
+				<div id="loading-holder" class="overlay">
+					<h3>Loading <span data-hook="area_name"></span> Map&hellip;</h3>
+					<div class="progress-holder">
+						<div class="progress"></div>
+					</div>
+					<p>Tip: <span data-hook="is_touch">Tap</span><span data-hook="isnt_touch">Click</span> and drag the map to pan the map and <br/><span data-hook="is_touch">pinch</span data-hook="isnt_touch">scroll<span> to zoom in and out.</p>
+				</div>
 				<canvas></canvas>
 				<a data-hook="legend">Legend</a>
 			</main>
@@ -92,15 +118,37 @@ module.exports = View.extend({
 		"touchend canvas": "touchendHandler"
 	},
 	bindings: {
-		"area_name": {
+		area_name: {
 			type: "attribute",
 			name: "data-area",
 			selector: "section"
 		},
-		"area_title": {
-			type: "attribute",
-			name: "data-title",
-			selector: "section"
+		area_title: [
+			{
+				type: "attribute",
+				name: "data-title",
+				selector: "section"
+			},
+			{
+				type: "text",
+				selector: "#loading-holder [data-hook=area_name]"
+			}
+		],
+		is_touch: {
+			type: "toggle",
+			yes: "[data-hook=is_touch]",
+			no: "[data-hook=isnt_touch]"
+		},
+		loaded: {
+			type: "toggle",
+			no: "#loading-holder"
+		},
+		progress: {
+			type: (el, val) => {
+				console.log("progress", val);
+				el.style.width = (val * 100) + "%";
+			},
+			selector: "#loading-holder .progress"
 		}
 	},
 	needsRender: true,
@@ -572,27 +620,35 @@ module.exports = View.extend({
 		
 		this.updateMaxCameraZ();
 		
+		//mark progress of features loaded in. Start with 1 each, to give the illusion of progress
+		const featuresToAdd = area.features.length + 1;
+		let featuresAdded = 1;
+		const updateProgress = () => self.progress = featuresAdded / featuresToAdd;
+		
 		const projectPointsFunc = convertPointForProjection(area.projection);
 		
-		area.features.forEach((feature, index) => {
+		let firstGeometry = null;
+		
+		updateProgress();
+		
+		async.forEachOfSeries(area.features, function(feature, index, callback) {
 			
 			function addFeatureToScene() {
-				requestAnimationFrame(() => {
-					
-					if (!feature.projected_points.length) {
-						feature.convertPointsForProjection(area.projection);
-					}
-					
-					const mesh = feature.getMesh();
-					scene.add(mesh);
-					
-					if (index === 0) {
-						cameraToMeshGeometryCentroid(mesh.geometry);
-						requestAnimationFrame(() => self.updateForCameraZ());
-					}
-					
-					self.needsRender = true;
-				});
+				featuresAdded++;
+				updateProgress();
+				
+				if (!feature.projected_points.length) {
+					feature.convertPointsForProjection(area.projection);
+				}
+				
+				const mesh = feature.getMesh();
+				scene.add(mesh);
+				
+				if (index === 0) {
+					firstGeometry = mesh.geometry;
+				}
+				
+				requestAnimationFrame(() => callback());
 			}
 			
 			if (feature.geojson_uri && (feature.points && !feature.points.length)) {
@@ -601,6 +657,10 @@ module.exports = View.extend({
 			} else {
 				addFeatureToScene();
 			}
+			
+		}, function() {
+			cameraToMeshGeometryCentroid(firstGeometry);
+			self.animateIntoArea();
 		});
 		
 		function cameraToMeshGeometryCentroid(geometry) {
