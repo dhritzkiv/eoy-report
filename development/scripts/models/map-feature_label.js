@@ -28,7 +28,7 @@ module.exports = MapFeature.extend({
 		
 		console.time(this.name);
 		
-		const fontFamily = `"Futura PT", Futura, sans-serif`;
+		const fontFamily = `"futura-pt", "Futura PT", Futura, sans-serif`;
 		
 		let labelText = this.name;
 		const point = this.projected_points[0];
@@ -48,7 +48,7 @@ module.exports = MapFeature.extend({
 		context.textBaseline = "middle";
 		const fontSize = canvas.width / 8 * size;
 		const fontWeight = size > 0.75 ? 700 : 400;
-		context.font = `${fontWeight} ${fontSize}px ${fontFamily}, sans-serif`;
+		context.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
 		
 		context.strokeStyle = consts.COLOR_LAND;
 		context.lineWidth = (Math.floor(Math.sqrt(canvas.width)) * 0.5) * (size / 0.5);

@@ -18,8 +18,8 @@ $colorFandL: #cb9625;
 $colorAandV: #5360e1;
 $colorMisc: #71616a;
 
-$ffSans: "Futura PT", Futura, sans-serif;
-$ffSerif: "Adobe Caslon Pro", "Baskerville", serif;
+$ffSans: "futura-pt", "Futura PT", Futura, sans-serif;
+$ffSerif: "adobe-caslon-pro", "Adobe Caslon Pro", "Baskerville", serif;
 
 $backgroundGradient: linear-gradient(to bottom, $colorBackgroundDarker, $colorBackground);
 
@@ -490,7 +490,7 @@ body > main > section > main > section {
 				display: inline-block;
 				font-family: $ffSans;
 				vertical-align: bottom;
-				font-weight: 200;
+				font-weight: 400;
 				//font-size: 17px;
 				vertical-align: middle;
 				//margin: 0px 2px;
@@ -525,7 +525,7 @@ body > main > section > main > section {
 			box-shadow: inset 0px 0px 0px 1px rgba($colorTextLight, 0.25);
 			
 			h3 {
-				font-weight: 100;
+				font-weight: 400;
 				font-size: 42px;
 				line-height: 58px;
 				margin: 0;
@@ -548,7 +548,7 @@ body > main > section > main > section {
 				margin: 0;
 				font-size: 12px;
 				line-height: 8px;
-				font-weight: 100;
+				font-weight: 400;
 				color: $colorTextLight;
 				
 				&:not(:empty) {
