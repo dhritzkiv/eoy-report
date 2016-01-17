@@ -4,6 +4,7 @@ const View = require("ampersand-view");
 const State = require("ampersand-state");
 const proj4 = require("proj4");
 const THREE = require("three.js");
+const TWEEN = require("tween.js");
 
 const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
@@ -24,12 +25,6 @@ const consts = require("../consts");
 
 const CAMERA_NEAR = 500;
 
-var curve = new THREE.CubicBezierCurve(
-	new THREE.Vector3(0, 0, 0),
-	new THREE.Vector3(0.165, 0.84, 0),
-	new THREE.Vector3(0.44, 1, 0),
-	new THREE.Vector3(1, 1, 0)
-);
 
 function removeRecursive(parent) {
 	parent.children
@@ -164,6 +159,8 @@ module.exports = View.extend({
 	canvasRender: function () {
 		
 		requestAnimationFrame(() => this.canvasRender());
+		
+		TWEEN.update();
 		
 		if (!this.needsRender) {
 			return;
@@ -474,16 +471,22 @@ module.exports = View.extend({
 				return;
 			}
 			
-			cancelAnimationFrame(child.transitionOpacityRAF);
+			if (child.transitionOpacityRAF) {
+				child.transitionOpacityRAF.stop();
+			}
 			
-			const startTime = Date.now();
-			const duration = 200;
+			const duration = 250;
 			const startOpacity = child.material.opacity;
 			const endOpacity = visible ? 1 : 0;
 			child.transitionOpacityDirection = visible;
-			
 			const previousBlending = child.material.blending;
 			const previousTransparency = child.material.transparent;
+			
+			var position = child.material;
+			var target = {opacity: endOpacity};
+			var tween = new TWEEN.Tween(position).to(target, duration);
+			
+			child.transitionOpacityRAF = tween;
 			
 			function doneTransition() {
 				child.material.blending = previousBlending;
@@ -497,27 +500,18 @@ module.exports = View.extend({
 				self.needsRender = true;
 			}
 			
-			child.visible = true;
-			child.material.transparent = true;
-			child.material.blending = THREE.NormalBlending;
+			tween.onUpdate(() => self.needsRender = true);
+			tween.onComplete(doneTransition);
+			tween.onStop(doneTransition);
 			
-			requestAnimationFrame(function nextFrame() {
-				const currentTime = Date.now();
-				const alpha = (currentTime - startTime) / duration;
-	
-				if (alpha >= 1) {
-					return doneTransition();
-				}
-	
-				const adjustedAlpha = curve.getPoint(alpha).x;
-	
-				const currentOpacity = startOpacity + (adjustedAlpha * (endOpacity - startOpacity));
-				child.material.opacity = currentOpacity;
-	
-				child.material.needsUpdate = true;
-				self.needsRender = true;
-				child.transitionOpacityRAF = requestAnimationFrame(nextFrame);
+			tween.onStart(() => {
+				child.visible = true;
+				child.material.transparent = true;
+				child.material.blending = THREE.NormalBlending;
 			});
+			
+			tween.easing(TWEEN.Easing.Quartic.Out);
+			tween.start();
 		});
 		
 		scene.children
@@ -535,6 +529,38 @@ module.exports = View.extend({
 		});
 		
 		this.needsRender = true;
+	},
+	animateIntoArea: function() {
+		const self = this;
+		const camera = this.camera;
+		
+		const duration = 1800;
+		const endZ = camera.position.z;
+		const startZ = endZ * 2;
+		camera.position.z = startZ;
+		this.needsRender = true;
+		
+		var position = camera.position;
+		
+		var target = {
+			z: endZ
+		};
+		
+		var tween = new TWEEN.Tween(position).to(target, duration);
+		
+		function doneTransition() {
+			camera.position.z = endZ;
+			self.updateForCameraZ();
+			self.needsRender = true;
+		}
+		
+		tween.onStart(() => self.needsRender = true);
+		tween.onUpdate(() => self.updateForCameraZ());
+		tween.onComplete(doneTransition);
+		tween.onStop(doneTransition);
+		
+		tween.easing(TWEEN.Easing.Quartic.InOut);
+		tween.delay(200).start();
 	},
 	setUpArea: function(area) {
 		
