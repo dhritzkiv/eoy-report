@@ -1,7 +1,7 @@
 "use strict";
 
 const View = require("ampersand-view");
-
+const app = require("ampersand-app");
 
 module.exports = View.extend({
 	template: `
@@ -27,9 +27,6 @@ module.exports = View.extend({
 			</main>
 		</section>
 	`,
-	events: {
-		"click .choices a": "clickChoice"
-	},
 	render: function() {
 		this.renderWithTemplate(this);
 		
@@ -44,9 +41,15 @@ module.exports = View.extend({
 			));
 		}, 400);
 		
+		this.once("change:rendered", function() {
+			setTimeout(() => {
+				this.listenTo(app.router, "route", this.close);
+			}, 0);
+		});
+		
 		return this;
 	},
-	clickChoice: function(event) {
+	close: function() {
 		
 		this.el.parentNode.removeChild(this.el);
 		this.remove();

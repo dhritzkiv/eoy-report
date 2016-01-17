@@ -44,6 +44,7 @@ const Router = AmpersandRouter.extend({
 			this.trigger("newMode", currentModeView);
 		}
 		
+		document.title = `${DEFAULT_TITLE} – ${currentModeView.area.name}`;
 		app.view.mode = "maps";
 		
 		return currentModeView;
@@ -51,12 +52,16 @@ const Router = AmpersandRouter.extend({
 	maps: function(area_name) {
 		
 		if (!area_name) {
-			return this.redirectTo("/maps/to");
+			if (this.currentModeView instanceof MapsPage) {
+				area_name = this.currentModeView.area_name;	
+			} else {
+				area_name = "to";
+			}
+			
+			return this.redirectTo(`/maps/${area_name}`);
 		}
 		
 		this._mapsBase(area_name);
-		
-		document.title = `${DEFAULT_TITLE} – ${this.currentModeView.area.name}`;
 	},
 	mapsLegend: function(area_name) {
 		
