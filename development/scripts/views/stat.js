@@ -72,7 +72,7 @@ module.exports = View.extend({
 		full_title: {
 			deps: ["model.title", "model.value_type"],
 			fn: function() {
-				 
+				
 				let string = `${this.model.title}`;
 				
 				if (this.model.value_type) {

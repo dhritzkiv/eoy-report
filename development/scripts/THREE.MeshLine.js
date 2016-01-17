@@ -33,10 +33,6 @@ THREE.MeshLine.prototype.setGeometry = function(g, c) {
 		}
 	}
 
-	if (g instanceof THREE.BufferGeometry) {
-		// read attribute positions ?
-	}
-
 	if (g instanceof Float32Array || g instanceof Array) {
 		for (let j = 0; j < g.length; j += 3) {
 			this.positions.push(g[ j ], g[ j + 1 ], g[ j + 2 ]);
@@ -190,7 +186,7 @@ THREE.MeshLineMaterial = function (parameters) {
 'void main() {',
 '',
 '    float aspect = resolution.x / resolution.y;',
-'	 float pixelWidthRatio = 1. / (resolution.x * projectionMatrix[0][0]);',
+'    float pixelWidthRatio = 1. / (resolution.x * projectionMatrix[0][0]);',
 '',
 '    vColor = vec4( color, opacity );',
 '    vUV = uv;',
@@ -204,7 +200,7 @@ THREE.MeshLineMaterial = function (parameters) {
 '    vec2 prevP = fix( prevPos, aspect );',
 '    vec2 nextP = fix( nextPos, aspect );',
 '',
-'	 float pixelWidth = finalPosition.w * pixelWidthRatio;',
+'    float pixelWidth = finalPosition.w * pixelWidthRatio;',
 '    float w = 1.8 * pixelWidth * lineWidth * width;',
 '',
 '    if( sizeAttenuation == 1. ) {',
@@ -233,7 +229,7 @@ THREE.MeshLineMaterial = function (parameters) {
 '    vec4 offset = vec4( normal * side, 0.0, 1.0 );',
 '    finalPosition.xy += offset.xy;',
 '',
-'	 vPosition = ( modelViewMatrix * vec4( position, 1. ) ).xyz;',
+'    vPosition = ( modelViewMatrix * vec4( position, 1. ) ).xyz;',
 '    gl_Position = finalPosition;',
 '',
 '}'];
@@ -255,9 +251,9 @@ THREE.MeshLineMaterial = function (parameters) {
 '',
 '    vec4 c = vColor;',
 '    if( useMap == 1. ) c *= texture2D( map, vUV );',
-'	 if( useDash == 1. ){',
-'	 	 ',
-'	 }',
+'    if( useDash == 1. ){',
+'        ',
+'    }',
 '    gl_FragColor = c;',
 '',
 '}'];

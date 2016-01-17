@@ -9,36 +9,34 @@ module.exports = View.extend({
 			type: "string"
 		}
 	},
-	template: `
-		<section id="maps-legend" class="overlay">
-			<a href="#" data-hook="close">Close</a>
-			<main>
-				<div class="text-holder">
-					<div class="text">
-						<h2></h2>
-						<p data-hook="body"></p>
-						<p class="sources">Data sources: <span></span></p>
+	template: `<section id="maps-legend" class="overlay">
+		<a href="#" data-hook="close">Close</a>
+		<main>
+			<div class="text-holder">
+				<div class="text">
+					<h2></h2>
+					<p data-hook="body"></p>
+					<p class="sources">Data sources: <span></span></p>
+				</div>
+			</div>
+			<div class="legend-holder">
+				<div class="legend">
+					<h3>Legend</h3>
+					<div class="features">
+						<article data-feature="cycling"><div class="icon"></div>Cycling</article>
+						<article data-feature="walking"><div class="icon"></div>Walking</article>
+						<article data-feature="checkins"><div class="icon"></div>Checkin</article>
+						<hr/>
+						<article data-feature="water"><div class="icon"></div>Water</article>
+						<article data-feature="parks"><div class="icon"></div>Park</article>
+						<article data-feature="airport"><div class="icon"></div>Airport</article>
+						<article data-feature="transit"><div class="icon"></div>Transit Line</article>
+						<article data-feature="buildings"><div class="icon"></div>Building</article>
 					</div>
 				</div>
-				<div class="legend-holder">
-					<div class="legend">
-						<h3>Legend</h3>
-						<div class="features">
-							<article data-feature="cycling"><div class="icon"></div>Cycling</article>
-							<article data-feature="walking"><div class="icon"></div>Walking</article>
-							<article data-feature="checkins"><div class="icon"></div>Checkin</article>
-							<hr/>
-							<article data-feature="water"><div class="icon"></div>Water</article>
-							<article data-feature="parks"><div class="icon"></div>Park</article>
-							<article data-feature="airport"><div class="icon"></div>Airport</article>
-							<article data-feature="transit"><div class="icon"></div>Transit Line</article>
-							<article data-feature="buildings"><div class="icon"></div>Building</article>
-						</div>				
-					</div>
-				</div>
-			</main>
-		</section>
-	`,
+			</div>
+		</main>
+	</section>`,
 	derived: {
 		sourcesHTML: {
 			deps: ["model.sources"],

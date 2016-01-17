@@ -145,35 +145,26 @@ module.exports = View.extend({
 			}
 		}
 	},
-	template: `
-		<section id="maps">
-			<main>
-				<div id="loading-holder" class="overlay">
-					<h3>Loading <span data-hook="area_name"></span> Map&hellip;</h3>
-					<div class="progress-holder">
-						<div class="progress"></div>
-					</div>
-					<p>Tip: 
-					<span data-hook="is_touch">tap</span>
-					<span data-hook="isnt_touch">click</span>
-					 and drag the map to pan the map and 
-					<br/>
-					<span data-hook="is_touch">pinch</span>
-					<span data-hook="isnt_touch">scroll</span>
-					 to zoom in and out.</p>
+	template: `<section id="maps">
+		<main>
+			<div id="loading-holder" class="overlay">
+				<h3>Loading <span data-hook="area_name"></span> Map&hellip;</h3>
+				<div class="progress-holder">
+					<div class="progress"></div>
 				</div>
-				<canvas></canvas>
-				<a data-hook="legend">Legend</a>
-			</main>
-			<nav>
-				<a href="/maps/to">Toronto</a>
-				<a href="/maps/lv">Las Vegas</a>
-				<a href="/maps/nyc">New York City</a>
-				<a href="/maps/pdx">Portland</a>
-				<!--<a href="/maps/surrey">Surrey</a>-->
-			</nav>
-		</section>
-	`,
+				<p>Tip: <span data-hook="is_touch">tap</span><span data-hook="isnt_touch">click</span> and drag the map to pan the map <br/>and <span data-hook="is_touch">pinch</span><span data-hook="isnt_touch">scroll</span> to zoom in and out.</p>
+			</div>
+			<canvas></canvas>
+			<a data-hook="legend">Legend</a>
+		</main>
+		<nav>
+			<a href="/maps/to">Toronto</a>
+			<a href="/maps/lv">Las Vegas</a>
+			<a href="/maps/nyc">New York City</a>
+			<a href="/maps/pdx">Portland</a>
+			<!--<a href="/maps/surrey">Surrey</a>-->
+		</nav>
+	</section>`,
 	events: {
 		"click [data-hook=legend]": "showLegend",
 		"mousewheel canvas": "mousewheelHandler",

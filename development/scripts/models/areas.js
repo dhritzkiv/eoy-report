@@ -330,7 +330,7 @@ module.exports = {
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 6500
-			}),
+			})
 			/*new LabelMapFeature({
 				name: "WTC",
 				position: new THREE.Vector3(-74.0125, 40.711667, 0.001),
