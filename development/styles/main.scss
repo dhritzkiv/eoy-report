@@ -63,6 +63,10 @@ p.sources {
 	font-size: 10px;
 	line-height: 14px;
 	text-transform: uppercase;
+	
+	a[href] {
+		text-decoration: underline;
+	}
 }
 
 a[href] {
@@ -523,7 +527,7 @@ body > main > section#maps {
 			hr {
 				border: none;
 				height: 1px;
-				margin: 4px 0;
+				margin: 8px 0;
 				box-shadow: inset 0px 0px 0px 1px rgba($colorTextLight, 0.25);
 			}
 			
@@ -656,6 +660,8 @@ body > main > section#stats {
 
 body > main > section > main > section {
 	width: 1080px;
+	padding: $gutter;
+	box-sizing: border-box;
 	flex: 0 1 auto;
 	display: flex;
 	flex-direction: row;
