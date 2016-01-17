@@ -26,6 +26,66 @@ const consts = require("../consts");
 
 const CAMERA_NEAR = 500;
 
+function getCheckinPointMaterial() {
+	const pointCanvas = document.createElement("canvas");
+	const context = pointCanvas.getContext("2d");
+	const pointDimension = 24 * window.devicePixelRatio;
+	const pointRadius = pointDimension / 2;
+	const pointLineWidth = pointDimension / 4;
+	const fullCircle = 2 * Math.PI;
+	
+	pointCanvas.width = pointDimension;
+	pointCanvas.height = pointDimension;
+	
+	context.beginPath();
+	context.arc(pointRadius, pointRadius, pointRadius, 0, fullCircle);
+	context.fillStyle = consts.COLOR_LAND;
+	context.fill();
+	context.closePath();
+	context.beginPath();
+	context.arc(pointRadius, pointRadius, pointRadius - pointLineWidth, 0, fullCircle);
+	context.fillStyle = consts.COLOR_CHECKIN_POINT;
+	context.fill();
+	context.closePath();
+
+	const pointTexture = new THREE.Texture(pointCanvas);
+	pointTexture.premultiplyAlpha = true;
+	pointTexture.needsUpdate = true;
+	pointTexture.magFilter = THREE.LinearFilter;
+	pointTexture.minFilter = THREE.LinearFilter;
+	
+	const pointMaterial = new THREE.PointsMaterial({
+		size: pointCanvas.width / 2,
+		map: pointTexture,
+		transparent: true,
+		sizeAttenuation: false
+	});
+		
+	pointMaterial.blending = THREE.CustomBlending;
+	pointMaterial.blendSrc = THREE.OneFactor;
+	
+	pointMaterial.depthWrite = false;
+	
+	return pointMaterial;
+}
+
+const pointMaterial = getCheckinPointMaterial();
+
+const rideLineMaterial = new MeshLineMaterial({
+	lineWidth: 16,//size of individual street
+	sizeAttenuation: 1,
+	depthTest: true,
+	transparent: false,
+	color: new THREE.Color(consts.COLOR_LINES_RIDES)
+});
+
+const walkLineMaterial = new MeshLineMaterial({
+	lineWidth: 10,//half size of individual street
+	sizeAttenuation: 1,
+	depthTest: true,
+	transparent: false,
+	color: new THREE.Color(consts.COLOR_LINES_WALKS)
+});
 
 function removeRecursive(parent) {
 	parent.children
@@ -93,7 +153,14 @@ module.exports = View.extend({
 					<div class="progress-holder">
 						<div class="progress"></div>
 					</div>
-					<p>Tip: <span data-hook="is_touch">Tap</span><span data-hook="isnt_touch">Click</span> and drag the map to pan the map and <br/><span data-hook="is_touch">pinch</span data-hook="isnt_touch">scroll<span> to zoom in and out.</p>
+					<p>Tip: 
+					<span data-hook="is_touch">tap</span>
+					<span data-hook="isnt_touch">click</span>
+					 and drag the map to pan the map and 
+					<br/>
+					<span data-hook="is_touch">pinch</span>
+					<span data-hook="isnt_touch">scroll</span>
+					 to zoom in and out.</p>
 				</div>
 				<canvas></canvas>
 				<a data-hook="legend">Legend</a>
@@ -620,9 +687,10 @@ module.exports = View.extend({
 		
 		this.updateMaxCameraZ();
 		
-		//mark progress of features loaded in. Start with 1 each, to give the illusion of progress
-		const featuresToAdd = area.features.length + 1;
-		let featuresAdded = 1;
+		//mark progress of features loaded in. Start with 3 each, for each of: cycle line, walk line, checkin points – give the illusion of progress
+		const otherFeatures = 3;
+		const featuresToAdd = area.features.length + otherFeatures;
+		let featuresAdded = otherFeatures;
 		const updateProgress = () => self.progress = featuresAdded / featuresToAdd;
 		
 		const projectPointsFunc = convertPointForProjection(area.projection);
@@ -683,24 +751,6 @@ module.exports = View.extend({
 		
 		/* Line */
 		
-		const rideLineMaterial = new MeshLineMaterial({
-			lineWidth: 16,//size of individual street
-			sizeAttenuation: 1,
-			depthTest: true,
-			transparent: false,
-			color: new THREE.Color(consts.COLOR_LINES_RIDES),
-			//blending: THREE.AdditiveBlending
-		});
-		
-		const walkLineMaterial = new MeshLineMaterial({
-			lineWidth: 10,//half size of individual street
-			sizeAttenuation: 1,
-			depthTest: true,
-			transparent: false,
-			color: new THREE.Color(consts.COLOR_LINES_WALKS),
-			//blending: THREE.AdditiveBlending
-		});
-		
 		const filterActivities = filterActivitiesToBounds(area.bounds);
 		
 		const pointsToGeometry = points => {
@@ -747,51 +797,6 @@ module.exports = View.extend({
 		
 		/* Points (checkins) */
 		
-		function makeCheckinDot(color) {
-			const pointCanvas = document.createElement("canvas");
-			const context = pointCanvas.getContext("2d");
-			const pointDimension = 24 * window.devicePixelRatio;
-			const pointRadius = pointDimension / 2;
-			const pointLineWidth = pointDimension / 4;
-			const fullCircle = 2 * Math.PI;
-			
-			pointCanvas.width = pointDimension;
-			pointCanvas.height = pointDimension;
-			
-			context.beginPath();
-			context.arc(pointRadius, pointRadius, pointRadius, 0, fullCircle);
-			context.fillStyle = consts.COLOR_LAND;
-			context.fill();
-			context.closePath();
-			context.beginPath();
-			context.arc(pointRadius, pointRadius, pointRadius - pointLineWidth, 0, fullCircle);
-			context.fillStyle = color || consts.COLOR_CHECKIN_POINT;
-			context.fill();
-			context.closePath();
-			
-			return pointCanvas;
-		}
-
-		const pointCanvas = makeCheckinDot();
-		const pointTexture = new THREE.Texture(pointCanvas);
-		pointTexture.premultiplyAlpha = true;
-		pointTexture.needsUpdate = true;
-		pointTexture.anisotropy = self.renderer.getMaxAnisotropy();
-		pointTexture.magFilter = THREE.LinearFilter;
-		pointTexture.minFilter = THREE.LinearFilter;
-		
-		const pointMaterial = new THREE.PointsMaterial({
-			size: pointCanvas.width / 2,
-			map: pointTexture,
-			transparent: true,
-			sizeAttenuation: false//true
-		});
-		
-		pointMaterial.blending = THREE.CustomBlending;
-		pointMaterial.blendSrc = THREE.OneFactor;
-		
-		pointMaterial.depthWrite = false;
-		
 		const checkinGeometry = new THREE.BufferGeometry();
 		const checkinVertices = new Float32Array(checkins.length * 3);
 		
@@ -808,6 +813,7 @@ module.exports = View.extend({
 		checkinGeometry.addAttribute('position', new THREE.BufferAttribute(checkinVertices, 3));
 		
 		const checkinParticles = new THREE.Points(checkinGeometry, pointMaterial);
+		
 		checkinParticles.position.z = 0.0001;
 		checkinParticles.renderOrder = consts.RENDER_ORDER_PLACES;
 		checkinParticles.userData.hide_at_z = 6500;
@@ -816,9 +822,6 @@ module.exports = View.extend({
 		checkinParticles.material.opacity = 0;
 		
 		scene.add(checkinParticles);
-		this.updateForCameraZ();
-		
-		this.needsRender = true;
 		
 		console.timeEnd(area.name);
 		
