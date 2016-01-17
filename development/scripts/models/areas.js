@@ -235,21 +235,15 @@ module.exports = {
 				color: consts.COLOR_AIRPORT_GROUNDS,
 				renderOrder: 0.001
 			}),
-			new RoadMapFeature({
+			/*new RoadMapFeature({
 				name: "Roads",
 				geojson_uri: "/data/lv-roads.geojson"
-			}),
+			}),*/
 			new LabelMapFeature({
 				name: "Las Vegas",
 				points: [[-115.136389, 36.175]],
 				z_position: 500,
 				size: consts.LABEL_SIZE_METRO
-			}),
-			new LabelMapFeature({
-				name: "Las Vegas Strip",
-				points: [[-115.172222, 36.120833]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Las Vegas Strip",
