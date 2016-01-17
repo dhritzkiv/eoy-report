@@ -27,13 +27,13 @@ module.exports = View.extend({
 						<div class="features">
 							<article data-feature="cycling"><div class="icon"></div>Cycling</article>
 							<article data-feature="walking"><div class="icon"></div>Walking</article>
-							<article data-feature="checkins"><div class="icon"></div>Checkins</article>
+							<article data-feature="checkins"><div class="icon"></div>Checkin</article>
 							<hr/>
 							<article data-feature="water"><div class="icon"></div>Water</article>
-							<article data-feature="parks"><div class="icon"></div>Parks</article>
-							<article data-feature="airport"><div class="icon"></div>Airports</article>
-							<article data-feature="transit"><div class="icon"></div>Transit Lines</article>
-							<article data-feature="buildings"><div class="icon"></div>Buildings</article>
+							<article data-feature="parks"><div class="icon"></div>Park</article>
+							<article data-feature="airport"><div class="icon"></div>Airport</article>
+							<article data-feature="transit"><div class="icon"></div>Transit Line</article>
+							<article data-feature="buildings"><div class="icon"></div>Building</article>
 						</div>				
 					</div>
 				</div>
