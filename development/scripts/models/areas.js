@@ -10,7 +10,7 @@ const consts = require("../consts");
 module.exports = {
 	to: {
 		name: "Toronto",
-		text: "Home",
+		text: "\"Quietly slipping out of the shadow of Montreal and Vancouver\" &ndash; The New York Times.",
 		sources: [
 			"Open Street Maps",
 			"City of Toronto",
@@ -199,6 +199,12 @@ module.exports = {
 	},
 	lv: {
 		name: "Las Vegas",
+		text: "Travelled to Vegas in January for CES.\n\nAt least I got <a href=\"http://vsco.co/dhritzkiv/journal/las-vegas\">a photo series</a> out of it.",
+		sources: [
+			"Open Street Maps",
+			"Moves",
+			"Foursquare"
+		],
 		projection: consts.PROJECTION_NEVADA_WEST,
 		bounds: [
 			[-115.25, 35.5],
@@ -262,6 +268,13 @@ module.exports = {
 	},
 	nyc: {
 		name: "New York City",
+		sources: [
+			"Open Street Maps",
+			"Strava",
+			"Moves",
+			"Foursquare",
+			"Center for Urban Research at the Graduate Center/CUNY"//http://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Center-for-Urban-Research/CUNY-Mapping-Service/Projects/NYC-Subway-GIS-update-Hudson-Yards,-7-Line-Extension
+		],
 		projection: consts.PROJECTION_NEW_YORK_ISLAND,
 		bounds: [
 			[-74.25, 40.5],
@@ -370,6 +383,14 @@ module.exports = {
 	},
 	pdx: {
 		name: "Portland",
+		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including some from Toronto) and got to experience lots of different projects.
+		
+		Portland's a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike (How does Portland not have a bike share??!).`,
+		sources: [
+			"Open Street Maps",
+			"Moves",
+			"Foursquare"
+		],
 		projection: consts.PROJECTION_OREGON_NORTH,
 		bounds: [
 			[-123, 45],

@@ -30,9 +30,13 @@
 			"title": "Times in a car",
 			"value": 21
 		},
-		{
+		/*{
 			"title": "Times in a plane",
-			"value": 15
+			"value": 8
+		},*/
+		{
+			"title": "Times in an airport",
+			"value": 14
 		},
 		{
 			"title": "Instagram Posts",
