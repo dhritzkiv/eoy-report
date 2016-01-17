@@ -1,8 +1,7 @@
 "use strict";
 
+const app = require("ampersand-app");
 const View = require("ampersand-view");
-
-const MapArea = require("../models/map-area");
 
 module.exports = View.extend({
 	props: {

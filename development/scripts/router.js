@@ -44,7 +44,7 @@ const Router = AmpersandRouter.extend({
 			this.trigger("newMode", currentModeView);
 		}
 		
-		document.title = `${DEFAULT_TITLE} – ${currentModeView.area.name}`;
+		document.title = `${DEFAULT_TITLE} - ${currentModeView.area.name}`;
 		app.view.mode = "maps";
 		
 		return currentModeView;

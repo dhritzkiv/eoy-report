@@ -1,7 +1,7 @@
 "use strict";
 
+const app = require("ampersand-app");
 const View = require("ampersand-view");
-const State = require("ampersand-state");
 const proj4 = require("proj4");
 const THREE = require("three.js");
 const TWEEN = require("tween.js");
@@ -133,7 +133,7 @@ module.exports = View.extend({
 		is_touch: {
 			type: "boolean",
 			default: () => {
-				return ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+				return ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch;
 			}
 		}
 	},
@@ -510,8 +510,8 @@ module.exports = View.extend({
 		const timeSinceLastInteractionTime = Date.now() - lastInteractionTime;
 		
 		for (let i = 0; i < Math.ceil(timeSinceLastInteractionTime / 16); i++) {
-			this.translationAccelerationX * DECELERATION_RATE;
-			this.translationAccelerationY * DECELERATION_RATE;
+			this.translationAccelerationX *= DECELERATION_RATE;
+			this.translationAccelerationY *= DECELERATION_RATE;
 		}
 		
 		this.lastInteractionTime = Date.now();
@@ -591,7 +591,6 @@ module.exports = View.extend({
 			}
 			
 			const duration = 250;
-			const startOpacity = child.material.opacity;
 			const endOpacity = visible ? 1 : 0;
 			child.transitionOpacityDirection = visible;
 			const previousBlending = child.material.blending;
