@@ -110,14 +110,18 @@ canvas {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 480px;
+	padding: $gutter 0;
+	box-sizing: border-box;
 	
 	main {
 		width: 100%;
+		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding: $gutter;
+		box-sizing: border-box;
 	}
 	
 	h1 {
@@ -134,6 +138,12 @@ canvas {
 		margin: 4px 0;
 	}
 	
+	.body {
+		text-align: left;
+		width: 100%;
+		max-width: 400px;
+	}
+	
 	header {
 		margin-bottom: $gutter * 2;
 	}
@@ -144,8 +154,8 @@ canvas {
 		justify-content: space-between;
 		align-items: space-between;
 		flex-direction: row;
-		margin: $gutter * 2 0;
-		padding: $gutter * 4 $gutter;
+		margin: $gutter * 2 0 0 0;
+		padding: $gutter * 4 $gutter 0 $gutter;
 		width: 100%;
 		max-width: 640px;
 		
