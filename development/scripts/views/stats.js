@@ -132,13 +132,13 @@ module.exports = View.extend({
 		
 		this.listenToAndRun(this, "change:type", () => {
 			
-			let model = new TypeModel(modelDatas[this.type]);
+			this.model = new TypeModel(modelDatas[this.type]);
 			
 			const view = new TypeView({
-				model: model
+				model: this.model
 			});
 			
-			this.title = model.title;
+			this.title = this.model.title;
 			
 			this.pageSwitcher.set(view);
 		});

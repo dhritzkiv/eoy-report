@@ -44,7 +44,7 @@ const Router = AmpersandRouter.extend({
 			this.trigger("newMode", currentModeView);
 		}
 		
-		document.title = `${DEFAULT_TITLE} - ${currentModeView.area.name}`;
+		document.title = `Map of ${currentModeView.area.name} - ${DEFAULT_TITLE}`;
 		app.view.mode = "maps";
 		
 		return currentModeView;
@@ -89,15 +89,19 @@ const Router = AmpersandRouter.extend({
 			return this.redirectTo("/stats/cycling");
 		}
 		
-		const currentModeView = this.currentModeView;
+		let currentModeView = this.currentModeView;
 		
 		if (currentModeView instanceof StatsPage) {
 			currentModeView.type = type;
 		} else {
-			this.trigger("newMode", new StatsPage({
+			currentModeView = new StatsPage({
 				type: type
-			}));
+			});
+			
+			this.trigger("newMode", currentModeView);
 		}
+		
+		document.title = `${currentModeView.model.title} stats - ${DEFAULT_TITLE}`;
 
 		app.view.mode = "stats";
 	}
