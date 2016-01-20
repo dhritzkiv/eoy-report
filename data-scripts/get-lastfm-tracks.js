@@ -3,49 +3,78 @@
 const fs = require("fs");
 const path = require("path");
 
-const itunes = require("itunes-data");
-const parser = itunes.parser();
+const async = require("async");
+const LastfmAPI = require("lastfmapi");
+const config = require(path.join(process.cwd(), "data", "lastfm_config.json"));
 
-const libraryPath = path.join(process.env.HOME, "Music/iTunes/iTunes Music Library.xml");
-const readStream = fs.createReadStream(libraryPath);
+const lastfm = new LastfmAPI(config);
 
-const tracks = [];
+const writePath = path.join(process.cwd(), "data", "lastfm_tracks.json");
 
-parser.on("track", function(track) {
-	if (track.Year === 2015) {
-		tracks.push({
-	    	name: track.Name,
-	    	artist: track.Artist,
-	    	album: track.Album,
-	    	play_count: track['Play Count'] | 0,
-	    	duration: track['Total Time'] | 0
-    	});
+lastfm.user.getWeeklyTrackChart({
+	user: "kmkldude",
+	from: new Date(2015,0,1).getTime() / 1000,
+	//to: new Date(2015,1,1).getTime()/1000,
+	to: new Date(2015,11,31,23,59,59).getTime() / 1000
+}, function (err, weeklyTrackChart) {
+	
+	if (err) {
+		return console.error(err);
 	}
+	
+	const tracks = weeklyTrackChart.track.map(item => ({
+		name: item.name,
+		playcount: item.playcount | 0,
+		mbid: item.mbid,
+		artist: item.artist['#text']
+	}));
+	
+	const totalPlayCount = tracks.reduce((total, track) => total + track.playcount, 0);
+	console.log("totalPlayCount", totalPlayCount);
+	
+	console.time("get info");
+	
+	async.mapSeries(tracks, function(track, callback) {
+		
+		const params = {};
+		
+		if (track.mbid) {
+			params.mbid = track.mbid;
+		} else {
+			params.track = track.name;
+			params.artist = track.artist;
+		}
+		
+		lastfm.track.getInfo(params, function(err, trackInfo) {
+			
+			if (err) {
+				err.message += `: ${track.artist} – ${track.name} (${track.mbid})`;
+				console.error(err);
+				return callback(null, track);
+			}
+			
+			track.duration = trackInfo.duration | 0;//in ms
+			track.album = trackInfo.album && trackInfo.album.title ? trackInfo.album.title : null;
+			callback(null, track);
+		});
+		
+	}, function(err, tracks) {
+		
+		console.timeEnd("get info");
+		
+		if (err) {
+			return console.error(err);
+		}
+		
+		fs.writeFileSync(writePath, JSON.stringify(tracks, null, "\t"), "utf8");
+	});
+	
+	 /*{ artist: [Object],
+       name: 'In the Hospital',
+       mbid: '36ad073b-3131-4a76-b4a7-ff8882620aba',
+       playcount: '1',
+       image: [Object],
+       url: 'http://www.last.fm/music/Friendly+Fires/_/In+the+Hospital',
+       '@attr': [Object] }*/
+	
 });
-
-readStream.on('end', function() {
-	tracks.sort((a, b) => b.play_count - a.play_count);
-	console.log("top 10 tracks by play count:", tracks.slice(0, 10));
-	
-	const albumMap = tracks.reduce((map, track) => {
-		
-		const keyName = `${track.artist} - ${track.album}`;
-		
-		const prevCount = map.get(keyName) || 0;
-		const count = prevCount + track.play_count;
-		
-		map.set(keyName, count);
-		
-		return map;
-	}, new Map());
-	
-	console.log(Array.from(albumMap).sort((a, b) => b[1] - a[1]));
-	
-	const totalDuration = tracks
-	.map(track => track.duration * track.play_count)
-	.reduce((total, duration) => total + duration)
-	
-	console.log("total listening time", totalDuration);
-});
-
-readStream.pipe(parser);
