@@ -1,6 +1,6 @@
 {
 	"title": "Miscellaneous",
-	"text": "Everything else. Many are not even numbers.",
+	"text": "Everything else. Many stats here are not even numbers.",
 	"sources": ["Instagram", "Twitter"],
 	"stats": [
 		{
@@ -27,16 +27,24 @@
 			"value": 4
 		},
 		{
+			"title": "X-Rays",
+			"value": 4
+		},
+		{
 			"title": "Times in a car",
 			"value": 21
 		},
-		/*{
-			"title": "Times in a plane",
+		{
+			"title": "Times on a plane",
 			"value": 8
-		},*/
+		},/*
 		{
 			"title": "Times in an airport",
 			"value": 14
+		},*/
+		{
+			"title": "Times on a boat",
+			"value": 4
 		},
 		{
 			"title": "Instagram Posts",
@@ -45,10 +53,6 @@
 		{
 			"title": "Tweets",
 			"value": 1331
-		},
-		{
-			"title": "X-Rays",
-			"value": "4"
 		},
 		{
 			"title": "Last place in 2015",

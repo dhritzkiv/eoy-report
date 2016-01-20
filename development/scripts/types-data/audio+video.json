@@ -1,7 +1,7 @@
 {
 	"title": "Audio & Video",
-	"text": "Tunez",
-	"sources": ["iTunes Library", "Last.fm", "Netflix", "The X-Files Skippable Guide"],
+	"text": "There w",
+	"sources": ["iTunes Library", "Last.fm", "Netflix", "The X-Files Skippable Guide", "Scene"],
 	"stats": [
 		{
 			"title": "Top album play count",
@@ -22,6 +22,10 @@
 			"title": "Movies seen in theatres",
 			"value": 8
 		},
+		/*{
+			"title": "Episodes of The Daily Show watched",
+			"value": 141
+		},*/
 		{
 			"title": "SCENE points redeemed",
 			"value": 19000

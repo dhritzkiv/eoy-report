@@ -10,7 +10,7 @@ const consts = require("../consts");
 module.exports = {
 	to: {
 		name: "Toronto",
-		text: "\"Quietly slipping out of the shadow of Montreal and Vancouver\" &ndash; The New York Times.",
+		text: "\"Quietly slipping out of the shadow of Montreal and Vancouver\"\n&ndash; The New York Times.",
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			["City of Toronto", "http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD"],
@@ -262,6 +262,7 @@ module.exports = {
 	},
 	nyc: {
 		name: "New York City",
+		text: "Manhattan is perhaps the most accessible area of the world I've visited so far.",
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Strava",
@@ -379,7 +380,7 @@ module.exports = {
 		name: "Portland",
 		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including some from Toronto) and got to experience lots of different projects.
 		
-		Portland's a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike (How does Portland not have a bike share??!).`,
+		Portland is a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike to get around quicker (how does Portland not have a bike share??!).`,
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Moves",

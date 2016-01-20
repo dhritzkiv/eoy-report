@@ -12,7 +12,11 @@ module.exports = View.extend({
 					<h2>An annual report</h2>
 				</header>
 				
-				<p>Blah blah blah blah</p>
+				<div class="body">
+					<p>Something something inspired by Nicholas Felton's Annual Reports, this report is an excercise in data collection and reflection.</p>
+				
+					<p>In 2016, my goals are to travel more –in Toronto and abroad– and be more meticulous in my data gathering.</p>
+				</div>
 				
 				<div class="choices">
 					<a href="/maps">
