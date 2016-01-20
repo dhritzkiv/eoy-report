@@ -3,7 +3,7 @@
 const app = require("ampersand-app");
 const View = require("ampersand-view");
 const proj4 = require("proj4");
-const THREE = require("three.js");
+const THREE = require("three");
 const TWEEN = require("tween.js");
 const async = require("async");
 

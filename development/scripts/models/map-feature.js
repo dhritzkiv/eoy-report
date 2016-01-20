@@ -1,7 +1,7 @@
 "use strict";
 
 const Model = require("ampersand-model");
-const THREE = require("three.js");
+const THREE = require("three");
 const proj4 = require("proj4");
 
 const polyToShapeGeometry = require("../utils/poly-to-shape-geometry");

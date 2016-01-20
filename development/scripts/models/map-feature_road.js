@@ -1,6 +1,6 @@
 "use strict";
 
-const THREE = require("three.js");
+const THREE = require("three");
 const MapFeature = require("./map-feature");
 const consts = require("../consts");
 

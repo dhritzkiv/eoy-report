@@ -28,7 +28,7 @@
     "simplify-js": "^1.2.1",
     "simplify-path": "^1.1.0",
     "strava-v3": "^1.9.0",
-    "three.js": "^0.73.2",
+    "three": "^0.73.1",
     "tween.js": "^16.3.4",
     "xhr": "^2.2.0"
   },

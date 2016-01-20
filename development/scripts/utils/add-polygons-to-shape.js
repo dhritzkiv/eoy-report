@@ -1,6 +1,6 @@
 "use strict";
 
-const THREE = require("three.js");
+const THREE = require("three");
 
 const addPointsToPathOrShape = require("./add-points-to-path-or-shape.js");
 
