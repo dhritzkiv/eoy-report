@@ -55,7 +55,7 @@ module.exports = View.extend({
 		
 		return this;
 	},
-	close: function() {		
+	close: function() {
 		this.el.classList.add("hiding");
 		
 		setTimeout(() => {

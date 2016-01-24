@@ -641,7 +641,6 @@ module.exports = View.extend({
 		
 		const duration = 1800;
 		const endZ = camera.position.z;
-		const startZ = endZ * 2;
 		camera.position.z = this.max_camera_z;
 		this.needsRender = true;
 		
