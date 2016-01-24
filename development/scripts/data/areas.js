@@ -437,7 +437,7 @@ module.exports = {
 			}),
 			new RoadMapFeature({
 				name: "Trimet",
-				geojson_uri: "/data/portland-bus-routes-merged-joined_fixed.geojson",
+				geojson_uri: "/data/portland-bus-routes.geojson",
 				renderOrder: 0.02,
 				hide_at_z: 6500
 			}),
