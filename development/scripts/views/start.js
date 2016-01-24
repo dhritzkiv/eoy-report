@@ -45,7 +45,7 @@ module.exports = View.extend({
 			requestAnimationFrame(() => choiceEls.forEach(
 				el => el.classList.remove(defaultClassName)
 			));
-		}, 400);
+		}, 600);
 		
 		this.once("change:rendered", function() {
 			setTimeout(() => {
