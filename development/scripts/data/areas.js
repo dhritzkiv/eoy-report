@@ -462,30 +462,5 @@ module.exports = {
 				hide_at_z: 6500
 			})
 		]
-	},
-	surrey: {
-		name: "Surrey",
-		bounds: [
-			[-122.95, 48.75],
-			[-122.25, 49.25]
-		],
-		features: [
-			new MapFeature({
-				geojson_uri: "/data/surrey-box.geojson",
-				renderOrder: -0.02,
-				visible: false
-			}),
-			new LakeMapFeature({
-				geojson_uri: "/data/surrey-coastline.geojson"
-			}),
-			new MapFeature({
-				geojson_uri: "/data/surrey-parks.geojson",
-				color: consts.COLOR_PARKS
-			}),
-			new RoadMapFeature({
-				name: "Roads",
-				geojson_uri: "/data/surrey-roads.geojson"
-			})
-		]
 	}
 };

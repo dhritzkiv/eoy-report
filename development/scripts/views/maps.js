@@ -160,7 +160,6 @@ module.exports = View.extend({
 			<a href="/maps/lv">Las Vegas</a>
 			<a href="/maps/nyc">New York City</a>
 			<a href="/maps/pdx">Portland</a>
-			<!--<a href="/maps/surrey">Surrey</a>-->
 		</nav>
 	</section>`,
 	events: {
