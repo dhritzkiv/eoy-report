@@ -29,3 +29,4 @@ public/js
 public/css
 
 .DS_Store
+config-production.json

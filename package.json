@@ -15,6 +15,7 @@
     "ampersand-view": "^9.0.2",
     "ampersand-view-switcher": "^2.0.0",
     "async": "^1.5.2",
+    "express": "^4.13.4",
     "itunes-data": "^0.1.1",
     "lastfmapi": "0.0.6",
     "line-interpolate-points": "^1.0.5",

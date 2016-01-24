@@ -104,7 +104,10 @@ app.extend({
 		this.router = new Router();
 		this.router.on('newMode', view.setMode, view);
 		this.router.on('newOverlay', view.setOverlay, view);
-		this.router.history.start({pushState: false, root: "/"});
+		this.router.history.start({
+			pushState: true,
+			root: "/"
+		});
 	}
 });
 
