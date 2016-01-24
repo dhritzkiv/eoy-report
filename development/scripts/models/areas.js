@@ -199,7 +199,13 @@ module.exports = {
 	},
 	lv: {
 		name: "Las Vegas",
-		text: "Travelled to Vegas in January for CES.\n\nAt least I got <a href=\"http://vsco.co/dhritzkiv/journal/las-vegas\">a photo series</a> out of it.",
+		text: (
+			`Travelled to Vegas in January for CES with Matter and Form.
+			
+			Unless you like gaudery, taking chances with the quality of your food, or riding escalators for days, do not come here. It is not a good place.
+			
+			At least I got <a href="http://vsco.co/dhritzkiv/journal/las-vegas" target="_blank">a photo series</a> out of it.`
+		),
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Moves",
@@ -256,7 +262,21 @@ module.exports = {
 				points: [[-115.152222, 36.08]],
 				z_position: 500,
 				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
+				hide_at_z: 8000
+			}),
+			new LabelMapFeature({
+				name: "Sands Expo",
+				points: [[-115.165833, 36.121667]],
+				z_position: 50,
+				size: consts.LABEL_SIZE_NANO,
+				hide_at_z: 2000
+			}),
+			new LabelMapFeature({
+				name: "The Mirage",
+				points: [[-115.175278, 36.121111]],
+				z_position: 50,
+				size: consts.LABEL_SIZE_NANO,
+				hide_at_z: 2000
 			})
 		]
 	},

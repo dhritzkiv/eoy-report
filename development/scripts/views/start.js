@@ -13,19 +13,21 @@ module.exports = View.extend({
 				</header>
 				
 				<div class="body">
-					<p>Something something inspired by Nicholas Felton's Annual Reports, this report is an excercise in data collection and reflection.</p>
+					<p>Lightly inspired by Nicholas Felton's decade-long <a target="_blank" href="http://feltron.com">Annual Report series,</a> <em>Daniel's Twenty Fifteen</em> is an excercise in personal data collection and reflection. Metrics collected include location, movement, and consumption.</p>
+					
+					<p>A trend I noticed in <span class="digit">2015</span> was myself making as many opportunities as possible to move around using only human power. As such, only walking and cycling are included on the maps in this report.</p>
 				
-					<p>In 2016, my goals are to travel more –in Toronto and abroad– and be more meticulous in my data gathering.</p>
+					<p>My goals for <span class="digit">2016</span> are to travel and move more &ndash;within Southern Ontario and abroad&ndash; while being extra meticulous in my data gathering.</p>
 				</div>
 				
 				<div class="choices">
 					<a href="/maps">
 						<h3>Maps</h3>
-						<p>A few of the cities I've visited</p>
+						<p>A few of the cities visited &#x25B8;</p>
 					</a>
 					<a href="/stats">
 						<h3>Stats</h3>
-						<p>A by-the-numbers breakdown</p>
+						<p>A by-the-numbers breakdown &#x25B8;</p>
 					</a>
 				</div>
 			</main>
