@@ -25,6 +25,20 @@ $backgroundGradient: linear-gradient(to bottom, $colorBackgroundDarker, $colorBa
 
 $gutter: 15px;
 
+$ipadPortrait: 768px;
+$ipadLandscape: 1024px;
+$iphoneLandscape: 578px;
+$iphonePortrait: 320px;
+
+// Quart
+$easeInQuart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$easeOutQuart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+%icon-button {
+	user-select: none;
+}
+
 * {
 	z-index: 1;
 }
@@ -46,8 +60,6 @@ body {
 	align-items: stretch;
 	align-content: space-between;
 	justify-content: center;
-	//max-height: 100vh;
-	//overflow: hidden;
 }
 
 p {
@@ -69,12 +81,23 @@ p.sources {
 	}
 }
 
+p .digit {
+	display: inline-block;
+	font-family: $ffSans;
+	vertical-align: bottom;
+	font-weight: 400;
+	//font-size: 17px;
+	vertical-align: middle;
+	//margin: 0px 2px;
+	margin-top: -3px; 
+}
+
 a[href] {
 	text-decoration: none;
 }
 
 p a[href] {
-	color: $colorTextLight;
+	color: darken($colorTextLight, 10%);
 }
 				
 .si-unit {
@@ -103,18 +126,25 @@ canvas {
 
 #start {
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	text-align: center;
-	background-image: $backgroundGradient;
+	background-image: url("/img/dh-logo.svg"), $backgroundGradient;
+	background-blend-mode: screen;
+	background-size: contain, contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed, fixed;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: $gutter 0;
 	box-sizing: border-box;
+	transition: transform 600ms $easeInQuart, opacity 600ms $easeInQuart;
 	
 	main {
 		width: 100%;
+		min-height: 100%;
 		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
@@ -141,7 +171,7 @@ canvas {
 	.body {
 		text-align: left;
 		width: 100%;
-		max-width: 400px;
+		max-width: 480px;
 	}
 	
 	header {
@@ -154,12 +184,12 @@ canvas {
 		justify-content: space-between;
 		align-items: space-between;
 		flex-direction: row;
-		margin: $gutter * 2 0 0 0;
-		padding: $gutter * 4 $gutter 0 $gutter;
+		margin: $gutter 0 0 0;
+		padding: $gutter * 2 $gutter 0 $gutter;
 		width: 100%;
 		max-width: 640px;
 		
-		&:before {
+		/*&:before {
 			position: absolute;
 			top: 0;
 			left: 25%;
@@ -169,7 +199,7 @@ canvas {
 			height: 1px;
 			width: 50%;
 			background-color: rgba($colorTextLight, 0.25);
-		}
+		}*/
 		
 		a {
 			position: relative;
@@ -178,7 +208,7 @@ canvas {
 			flex: 0 1 auto;
 			padding: 0 $gutter;
 			z-index: 1;
-			transition: transform 400ms ease-in-out;
+			transition: transform 600ms $easeInOutQuart;
 			
 			h3 {
 				font-size: 24px;
@@ -188,7 +218,7 @@ canvas {
 			& > * {
 				position: relative;
 				z-index: 1;
-				transition: opacity 400ms ease-in-out 50ms;
+				transition: opacity 600ms $easeInOutQuart 100ms;
 			}
 			
 			&:before {
@@ -204,12 +234,14 @@ canvas {
 				top: calc(50% - #{$dimension / 2});
 				left: calc(50% - #{$dimension / 2});
 				z-index: 0;
-				opacity: 0.065;
-				transition: opacity 200ms ease-in-out;
+				opacity: 0.1;
+				filter: hue-rotate(180deg) brightness(2) saturate(500%);
+				transition: opacity 200ms $easeInOutQuart;
 			}
 			
-			&:hover:before {
-				opacity: 0.125;
+			&:hover:before,
+			&.default:before {
+				opacity: 0.2;
 			}
 		
 			&[href*=maps]:before {
@@ -237,8 +269,23 @@ canvas {
 		}
 	}
 	
+	&.hiding {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translateY(-100vh);
+		opacity: 0;
+		
+		& + * {
+			position: relative;
+			opacity: 1;
+		}
+	}
+	
 	& + * {
+		transition: opacity 600ms $easeOutQuart 300ms;
 		position: fixed;
+		opacity: 0;
 	}
 }
 
@@ -260,7 +307,6 @@ body > nav {
 	background-color: $colorDark2;
 	flex: 0 1 auto;
 	overflow: hidden;
-	color: $colorBackground;
 	
 	h1 {
 		font-size: 24px;
@@ -268,9 +314,23 @@ body > nav {
 		line-height: 58px;
 		letter-spacing: 0.015em;
 		text-transform: uppercase;
+		color: $colorBackground;
+		padding: 0 $gutter;
+		
+		&:hover {
+			color: lighten($colorBackground, 10%);
+		}
 	}
 	
-	a {
+	@media (max-width: $iphoneLandscape) {
+		text-align: left;
+		
+		h1 {
+			font-size: 18px;
+		}
+	}
+	
+	%icon-button {
 		display: inline-block;
 		font-size: 8px;
 		text-align: center;
@@ -285,7 +345,7 @@ body > nav {
 		}
 	}
 	
-	a[href=\/] {
+	/*a[href=\/] {
 		position: absolute;
 		top: 0;
 		left: $gutter;
@@ -304,12 +364,13 @@ body > nav {
 			vertical-align: middle;
 			background-image: url("/img/mode_start_light.svg");
 		}
-	}
+	}*/
 	
 	[data-hook=switch-modes] {
+		@extend %icon-button;
 		position: absolute;
 		top: 0;
-		right: $gutter;
+		left: $gutter;
 		
 		&:before {
 			width: 32px;
@@ -351,15 +412,15 @@ body > main > section > main {
 	align-items: center;
 	align-content: space-between;
 	justify-content: center;
-	//max-height: calc(100vh - 128px);
 }
 
 body > main > section > nav {
 	flex: 0 0 auto;
-	height: 32px;
+	min-height: 32px;
 	width: 100%;
 	background-color: $colorAccent;
 	text-align: center;
+	width: 100%;
 	
 	a[href] {
 		color: rgba(darken($colorAccent, 35%), 0.8);
@@ -384,6 +445,7 @@ body > main > section#maps {
 	}
 	
 	[data-hook=legend] {
+		@extend %icon-button;
 		cursor: pointer;
 		position: absolute;
 		top: 0;
@@ -395,6 +457,12 @@ body > main > section#maps {
 		text-align: center;
 		text-transform: uppercase;
 		color: $colorText;
+		opacity: 0.35;
+		transition: opacity 200ms $easeOutQuart;
+		
+		&:hover {
+			opacity: 1;
+		}
 		
 		&:before {
 			content: "";
@@ -422,26 +490,6 @@ body > main > section#stats {
 			color: $colorDark2;
 		}
 	}
-	
-	@mixin sectionColor($section, $color) {
-		&[data-type=#{$section}] {
-			& > main {
-				::selection {
-					background-color: $color;
-				}
-			
-				h3 {
-					color: $color;
-				}
-			}
-		}
-	}
-	
-	/*@include sectionColor("cycling", $colorCycling);
-	@include sectionColor("walking", $colorWalking);
-	@include sectionColor("food\\+liquor", $colorFandL);
-	@include sectionColor("audio\\+video", $colorAandV);
-	@include sectionColor("miscellaneous", $colorMisc);*/
 }
 
 body > main > section > main > section {
@@ -454,6 +502,11 @@ body > main > section > main > section {
 	justify-content: center;
 	align-content: center;
 	position: relative;
+	overflow: scroll;
+	
+	@media (max-width: $ipadPortrait) {
+		flex-direction: column;
+	}
 	
 	& > * {
 		z-index: 1;
@@ -463,14 +516,20 @@ body > main > section > main > section {
 		$width: 260px;
 		flex: 1 1 $width;
 		min-width: $width;
-		max-height: 80vh;
-		padding: $gutter;
+		//padding: $gutter;
+		margin-right: $gutter;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-content: flex-start;
 		position: sticky;
 		top: 0;
+		
+		@media (max-width: $ipadPortrait) {
+			margin-right: 0;
+			margin-bottom: $gutter;
+			flex-basis: auto;
+		}
 	}
 	
 	.text {
@@ -500,17 +559,6 @@ body > main > section > main > section {
 			
 		p {
 			white-space: pre-line;
-			
-			.digit {
-				display: inline-block;
-				font-family: $ffSans;
-				vertical-align: bottom;
-				font-weight: 400;
-				//font-size: 17px;
-				vertical-align: middle;
-				//margin: 0px 2px;
-				margin-top: -3px; 
-			}
 		}
 	}
 	
@@ -538,6 +586,14 @@ body > main > section > main > section {
 			margin: 2px;
 			//background-color: red;
 			box-shadow: inset 0px 0px 0px 1px rgba($colorTextLight, 0.25);
+			
+			@media (max-width: $ipadPortrait) {
+				width: calc(33% - 4px);
+			}
+			
+			@media (max-width: $iphoneLandscape) {
+				width: calc(50% - 4px);
+			}
 			
 			h3 {
 				font-weight: 400;
@@ -612,6 +668,7 @@ body > main > section > main > section {
 	
 	main {
 		position: relative;
+		min-height: 100%;
 		width: 100%;
 		max-width: 1080px;
 		flex: 0 1 auto;
@@ -624,6 +681,7 @@ body > main > section > main > section {
 	}
 	
 	[data-hook=close] {
+		@extend %icon-button;
 		position: absolute;
 		z-index: 100;
 		top: 0;
@@ -674,7 +732,7 @@ body > main > section > main > section {
 		align-content: flex-start;
 		position: relative;
 		box-sizing: border-box;
-		margin: $gutter;
+		padding: $gutter;
 	}
 	
 	.legend {
@@ -795,6 +853,25 @@ body > main > section > main > section {
 					);
 				}
 			}
+		}
+	}
+	
+	@media (max-width: $ipadPortrait) {
+		main {
+			flex-direction: column;
+		}
+		
+		.text-holder {
+			position: relative;
+			width: 100%;
+			flex-shrink: 0;
+			flex-basis: auto;
+		}
+		
+		.legend-holder {
+			width: 100%;
+			flex-shrink: 0;
+			flex-basis: auto;
 		}
 	}
 }

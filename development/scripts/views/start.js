@@ -55,10 +55,13 @@ module.exports = View.extend({
 		
 		return this;
 	},
-	close: function() {
+	close: function() {		
+		this.el.classList.add("hiding");
 		
-		this.el.parentNode.removeChild(this.el);
-		this.remove();
+		setTimeout(() => {
+			this.el.parentNode.removeChild(this.el);
+			this.remove();
+		}, 900);
 		
 	}
 });
