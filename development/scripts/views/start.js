@@ -49,7 +49,7 @@ module.exports = View.extend({
 		
 		this.once("change:rendered", function() {
 			setTimeout(() => {
-				this.listenTo(app.router, "route", this.close);
+				this.listenToOnce(app.router, "route", this.close);
 			}, 0);
 		});
 		
