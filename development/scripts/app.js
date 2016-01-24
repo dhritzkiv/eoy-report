@@ -80,6 +80,11 @@ const MainView = View.extend({
 	},
 	linkClick: function(event) {
 		const target = event.delegateTarget;
+		
+		if (target.host !== window.location.host) {
+			return true;
+		}
+		
 		app.router.navigate(target.pathname + target.search);
 		event.preventDefault();
 	}
