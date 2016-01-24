@@ -398,9 +398,9 @@ module.exports = {
 	},
 	pdx: {
 		name: "Portland",
-		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including some from Toronto) and got to experience lots of different projects.
+		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including some from Toronto) and got to experience a myriad of different projects and ideas.
 		
-		Portland is a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike to get around quicker (how does Portland not have a bike share??!).`,
+		Portland is a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike to get around quicker and see more of the city (how does Portland not have a bike share??!).`,
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Moves",
