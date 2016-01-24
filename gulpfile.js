@@ -13,6 +13,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const nano = require("gulp-cssnano");
+const assets = require('postcss-assets');
 
 const developmentDir = path.join(__dirname, 'development');
 const publicDir = path.join(__dirname, 'public');
@@ -20,6 +21,11 @@ const sourceStylesDir = path.join(developmentDir, "styles");
 const outputStylesDir = path.join(publicDir, "css");
 const sourceScriptsDir = path.join(developmentDir, "scripts");
 const outputScriptsDir = path.join(publicDir, "js");
+
+const assetsOptions = {
+	cachebuster: true,
+	loadPaths: ["./public"]
+};
 
 const uglifyOptions = {
 	mangle: true,
@@ -127,7 +133,7 @@ gulp.task('sass', function() {
 	//.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(postcss([
-		//assets(assetsOptions),
+		assets(assetsOptions),
 		autoprefixer({
 			browsers: browserSupport
 		})

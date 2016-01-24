@@ -128,7 +128,7 @@ canvas {
 	width: 100vw;
 	min-height: 100vh;
 	text-align: center;
-	background-image: url("/img/dh-logo.svg"), $backgroundGradient;
+	background-image: inline("/img/dh-logo.svg"), $backgroundGradient;
 	background-blend-mode: screen;
 	background-size: contain, contain;
 	background-position: center center;
@@ -245,10 +245,10 @@ canvas {
 			}
 		
 			&[href*=maps]:before {
-				background-image: url("/img/mode_maps.svg");
+				background-image: inline("/img/mode_maps.svg");
 			}
 			&[href*=stats]:before {
-				background-image: url("/img/mode_stats.svg");
+				background-image: inline("/img/mode_stats.svg");
 			}
 			
 			&.default {
@@ -362,7 +362,7 @@ body > nav {
 			background-position: center center;
 			background-repeat: no-repeat;
 			vertical-align: middle;
-			background-image: url("/img/mode_start_light.svg");
+			background-image: inline("/img/mode_start_light.svg");
 		}
 	}*/
 	
@@ -387,10 +387,10 @@ body > nav {
 		}
 		
 		&[href*=maps]:before {
-			background-image: url("/img/mode_maps_light.svg");
+			background-image: inline("/img/mode_maps_light.svg");
 		}
 		&[href*=stats]:before {
-			background-image: url("/img/mode_stats_light.svg");
+			background-image: inline("/img/mode_stats_light.svg");
 		}
 	}
 }
@@ -471,7 +471,7 @@ body > main > section#maps {
 			width: 32px;
 			height: 32px;
 			margin-bottom: 4px;
-			background-image: url("/img/mode_legend.svg");
+			background-image: inline("/img/mode_legend.svg");
 		}
 	}
 	
@@ -701,7 +701,7 @@ body > main > section > main > section {
 			width: 32px;
 			height: 32px;
 			margin-bottom: 4px;
-			background-image: url("/img/mode_legend-close.svg");
+			background-image: inline("/img/mode_legend-close.svg");
 		}
 		
 	}
