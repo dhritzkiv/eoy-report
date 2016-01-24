@@ -11,20 +11,18 @@ const MeshLine = require("../THREE.MeshLine").MeshLine;
 const MeshLineMaterial = require("../THREE.MeshLine").MeshLineMaterial;
 
 const MapArea = require("../models/map-area");
-const areas = require("../models/areas");
 
-const checkins = require("../../../data/2015_foursquare-checkins.json");
-const rides = require("../../../data/2015_rides_deduped_simplified.json");
-const walks = require("../../../data/2015_walks_deduped_simplified.json");
+const consts = require("../consts");
+
+const areas = require("../data/areas");
+const checkins = require("../data/2015_foursquare-checkins.json");
+const rides = require("../data/2015_rides.json");
+const walks = require("../data/2015_walks.json");
 
 const DECELERATION_RATE = 0.91;
 const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) * 2;
 const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
 const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAccelerationY"];
-
-const consts = require("../consts");
-
-const CAMERA_NEAR = 500;
 
 function getCheckinPointMaterial() {
 	const pointCanvas = document.createElement("canvas");
@@ -352,7 +350,7 @@ module.exports = View.extend({
 		
 		camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 		
-		const minCameraZ = CAMERA_NEAR + 1;
+		const minCameraZ = consts.CAMERA_NEAR + 1;
 		const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 1);
 		
 		if (camera.position.z < minCameraZ) {
@@ -472,7 +470,7 @@ module.exports = View.extend({
 			
 			camera.position.z += (deltaDistance * 0.005) * (camera.position.z / 1.5);
 		
-			const minCameraZ = CAMERA_NEAR + 100;
+			const minCameraZ = cosnts.CAMERA_NEAR + 100;
 			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 100);
 			
 			if (camera.position.z < minCameraZ) {

@@ -1,5 +1,7 @@
 const consts = module.exports = {};
 
+consts.CAMERA_NEAR = 500;
+
 consts.RENDER_ORDER_FEATURES = 0;
 consts.RENDER_ORDER_FEATURE_MAP = 0.1;
 consts.RENDER_ORDER_TEXT = 0.2;

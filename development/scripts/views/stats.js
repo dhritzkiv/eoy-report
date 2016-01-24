@@ -8,14 +8,12 @@ const StatsCollection = require("../models/stats");
 const StatView = require("./stat");
 
 const modelDatas = {
-	cycling: require(`../types-data/cycling.json`),
-	walking: require(`../types-data/walking.json`),
-	"food+liquor": require(`../types-data/food+liquor.json`),
-	"audio+video": require(`../types-data/audio+video.json`),
-	"miscellaneous": require(`../types-data/miscellaneous.json`)
+	cycling: require(`../data/cycling.json`),
+	walking: require(`../data/walking.json`),
+	"food+liquor": require(`../data/food+liquor.json`),
+	"audio+video": require(`../data/audio+video.json`),
+	miscellaneous: require(`../data/miscellaneous.json`)
 };
-
-//["cycling"].forEach(type => modelDatas[type] = require(`${__dirname}/types-data/${type}.json`));
 
 const TypeModel = State.extend({
 	props: {
