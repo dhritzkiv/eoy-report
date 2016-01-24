@@ -26,7 +26,7 @@ consts.COLOR_TEXT = "#16385d";
 consts.COLOR_AIRPORT_GROUNDS = "#ebd3b2";
 consts.COLOR_AIRPORT_FEATURES = "#dbc5a7";
 consts.COLOR_BUILDINGS = "#dbc5a7";
-consts.COLOR_CHECKIN_POINT = "#16385d";
+consts.COLOR_CHECKIN_POINT = "#353a3d";
 consts.COLOR_LINES_WALKS = "#44c0c2";
 consts.COLOR_LINES_RIDES = "#d1368e";
 
