@@ -12,7 +12,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 
-
 const developmentDir = path.join(__dirname, 'development');
 const publicDir = path.join(__dirname, 'public');
 const sourceStylesDir = path.join(developmentDir, "styles");
@@ -42,10 +41,6 @@ function makeBundler(src) {
 		filter: /app_.+\.js$/
 	});*/
 
-	//bundler.transform('debowerify');
-	//bundler.transform('html-browserify');
-	//bundler.transform('glslify');
-
 	return bundler;
 }
 
@@ -69,7 +64,7 @@ function makeBundle(bundler, targetFile) {
 const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "app.js"));
 const clientAppBundle = makeBundle(clientAppBundler, "moves-gl-2015.min.js");
 
-gulp.task('build', clientAppBundle);
+gulp.task('app-bundle', clientAppBundle);
 
 gulp.task('sass', function() {
 	//const startTime = process.hrtime();
@@ -91,19 +86,17 @@ gulp.task('sass', function() {
 		autoprefixer({
 			browsers: browserSupport
 		})
-	]))/*
-	.pipe(rename({
-		basename: "matterandform",
-		suffix: ".min"
-	}))*/
+	]))
 	//.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest(outputStylesDir))
 	//.pipe(notifyOnDone(startTime));
 });
 
-gulp.task('browserify', ['build'], function() {
+gulp.task('browserify', ['app-bundle'], function() {
 	clientAppBundler.on('update', clientAppBundle);
 });
+
+gulp.task('build', ['app-bundle', 'sass']);
 
 gulp.task('watch', ["browserify"], function() {
 	gulp.watch(path.join(sourceStylesDir, "*.scss"), ["sass"]);
