@@ -57,6 +57,7 @@ module.exports = View.extend({
 	},
 	close: function() {
 		this.el.classList.add("hiding");
+		this.el.style.top = -window.pageYOffset + "px";
 		
 		setTimeout(() => {
 			this.el.parentNode.removeChild(this.el);
