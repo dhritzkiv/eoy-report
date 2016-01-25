@@ -72,13 +72,14 @@ const uglifyOptions = {
 
 function makeBundler(src) {
 
-	const bundler = watchify(browserify(src, {
+	const bundler = browserify(src, {
 		cache: {},
 		packageCache: {},
 		fullPaths: false,
 		debug: true
-	}));
+	});
 	
+	bundler.plugin('watchify');
 	bundler.transform('babelify');
 
 	/*bundler.transform('browserify-versionify', {
@@ -97,7 +98,6 @@ function makeBundler(src) {
 
 function makeBundle(bundler, targetFile) {
 	return function bundle() {
-		const startTime = process.hrtime();
 		return bundler.bundle()
 		.on('error', err => console.error(err.message))
 		.pipe(source(targetFile))
@@ -108,7 +108,6 @@ function makeBundle(bundler, targetFile) {
 			sourceRoot: "./"//source map points to files relative to the root of this repo.
 		}))
 		.pipe(gulp.dest(outputScriptsDir))
-		//.pipe(notifyOnDone(startTime));
 	};
 }
 
@@ -118,7 +117,6 @@ const clientAppBundle = makeBundle(clientAppBundler, "moves-gl-2015.min.js");
 gulp.task('app-bundle', clientAppBundle);
 
 gulp.task('sass', function() {
-	//const startTime = process.hrtime();
 	
 	const browserSupport = [
 		'last 1 versions',
@@ -140,7 +138,6 @@ gulp.task('sass', function() {
 	]))
 	//.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest(outputStylesDir))
-	//.pipe(notifyOnDone(startTime));
 });
 
 gulp.task('browserify', ['app-bundle'], function() {
@@ -176,7 +173,9 @@ gulp.task('minify-css', function() {
 	.pipe(gulp.dest(outputStylesDir))
 });
 
-gulp.task('build', ['app-bundle', 'sass']);
+gulp.task('build', ['app-bundle', 'sass'], function() {
+	clientAppBundler.close();
+});
 
 gulp.task('release', ['minify-css', 'uglify-js-clients']);
 
