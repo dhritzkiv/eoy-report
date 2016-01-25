@@ -469,7 +469,7 @@ module.exports = View.extend({
 			
 			camera.position.z += (deltaDistance * 0.005) * (camera.position.z / 1.5);
 		
-			const minCameraZ = cosnts.CAMERA_NEAR + 100;
+			const minCameraZ = consts.CAMERA_NEAR + 100;
 			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 100);
 			
 			if (camera.position.z < minCameraZ) {
