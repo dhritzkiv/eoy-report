@@ -1,10 +1,9 @@
 {
 	"title": "Food & Liquor",
-	"text": "If you saw me pulling out my phone anytime we walked into a building, this is why: my Swarm checkins.\n\
-	\n\
-	\"Do you ever eat at home?\" No.\n\
-	\n\
-	Live two blocks from Bellwoods Brewery",
+	"text": (
+		`More often than not, I don't eat at home. A small part of the reason is that it's easier to not have to manage groceries. But mostly it's because of the countless amazing food options near where I live and work.
+		`
+	),
 	"sources": ["Untappd", "Foursquare"],
 	"stats": [
 		{

@@ -24,10 +24,11 @@
 		},
 		{
 			"title": "Pants ripped",
-			"value": 4
+			"value": 4,
+			"secondary_value": "50% decrease from 2014"
 		},
 		{
-			"title": "X-Rays",
+			"title": "X-Ray Sessions",
 			"value": 4
 		},
 		{

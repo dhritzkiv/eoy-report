@@ -13,7 +13,7 @@ module.exports = View.extend({
 				</header>
 				
 				<div class="body">
-					<p>Lightly inspired by Nicholas Felton's decade-long <a target="_blank" href="http://feltron.com">Annual Report series,</a> <em>Daniel's Twenty Fifteen</em> is an excercise in personal data collection and reflection. Metrics collected include location, movement, and consumption.</p>
+					<p>Lightly inspired by Nicholas Felton's decade-long <a target="_blank" href="http://feltron.com">Annual Report series,</a> <em>Daniel's Twenty Fifteen</em> is an excercise in personal data collection and reflection. Metrics include location, movement, and consumption.</p>
 					
 					<p>A trend I noticed in <span class="digit">2015</span> was myself making as many opportunities as possible to move around using only human power. As such, only walking and cycling are included on the maps in this report.</p>
 				

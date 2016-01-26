@@ -10,7 +10,11 @@ const consts = require("../consts");
 module.exports = {
 	to: {
 		name: "Toronto",
-		text: "\"Quietly slipping out of the shadow of Montreal and Vancouver\"\n&ndash; The New York Times.",
+		text: (
+			`"Quietly slipping out of the shadow of Montreal and Vancouver"
+			&ndash; The New York Times.
+			`
+		),
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			["City of Toronto", "http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD"],
@@ -202,7 +206,7 @@ module.exports = {
 		text: (
 			`Travelled to Vegas in January for CES with Matter and Form.
 			
-			Unless you like gaudery, taking chances with the quality of your food, or riding escalators for days, do not come here. It is not a good place.
+			My opinion is that unless you enjoy gaudery, gambling with the quality of your food, or riding escalators for days, do not come here. It is not a good place.
 			
 			At least I got <a href="http://vsco.co/dhritzkiv/journal/las-vegas" target="_blank">a photo series</a> out of it.`
 		),
@@ -254,13 +258,13 @@ module.exports = {
 			new LabelMapFeature({
 				name: "Las Vegas Strip",
 				points: [[-115.172222, 36.120833]],
-				z_position: 500,
+				z_position: 200,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "LAS",
 				points: [[-115.152222, 36.08]],
-				z_position: 500,
+				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 8000
 			}),
@@ -282,7 +286,10 @@ module.exports = {
 	},
 	nyc: {
 		name: "New York City",
-		text: "Manhattan is perhaps the most accessible area of the world I've visited so far.",
+		text: (
+			`I had a chance to visit New York City on two short trips in 2015: once in early-April, and once in mid-May. Both times I managed a decent amount of walking and cycling, so much so that, so far, I consider Manhattan as perhaps the most accessible area of the world I've stayed in. The only thing I see sorely lacking is green space.
+			`
+		),
 		sources: [
 			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
 			"Strava",
@@ -342,7 +349,7 @@ module.exports = {
 			new LabelMapFeature({
 				name: "Newark",
 				points: [[-74.172367, 40.735657]],
-				z_position: 20,
+				z_position: 100,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
@@ -398,7 +405,7 @@ module.exports = {
 	},
 	pdx: {
 		name: "Portland",
-		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including some from Toronto) and got to experience a myriad of different projects and ideas.
+		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including what felt like a majority from Toronto) and got to experience a myriad of different projects and ideas.
 		
 		Portland is a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike to get around quicker and see more of the city (how does Portland not have a bike share??!).`,
 		sources: [
