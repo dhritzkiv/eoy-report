@@ -1,3 +1,5 @@
+"use strict";
+
 const consts = module.exports = {};
 
 consts.CAMERA_NEAR = 500;

@@ -684,6 +684,24 @@ module.exports = View.extend({
 		let firstGeometry = null;
 		
 		updateProgress();
+
+		function cameraToMeshGeometryCentroid(geometry) {
+			
+			const centroid = new THREE.Vector3();
+			
+			geometry.computeBoundingBox();
+			centroid.addVectors(geometry.boundingBox.min, geometry.boundingBox.max);
+			centroid.divideScalar(2);
+			
+			const size = geometry.boundingBox.size();
+			const canvas = self.query("canvas");
+			const screenAspectRatio = canvas.clientWidth / canvas.clientHeight;
+			
+			const dimension = Math.max(size.x, size.y) / 2;
+			const cameraZPosition = Math.max(Math.min((dimension / screenAspectRatio), camera.far / 2), self.max_camera_z / 2);
+			
+			camera.position.set(centroid.x, centroid.y, cameraZPosition);
+		}
 		
 		async.forEachOfSeries(area.features, function(feature, index, callback) {
 			
@@ -716,24 +734,6 @@ module.exports = View.extend({
 			cameraToMeshGeometryCentroid(firstGeometry);
 			self.animateIntoArea();
 		});
-		
-		function cameraToMeshGeometryCentroid(geometry) {
-			
-			const centroid = new THREE.Vector3();
-			
-			geometry.computeBoundingBox();
-			centroid.addVectors(geometry.boundingBox.min, geometry.boundingBox.max);
-			centroid.divideScalar(2);
-			
-			const size = geometry.boundingBox.size();
-			const canvas = self.query("canvas");
-			const screenAspectRatio = canvas.clientWidth / canvas.clientHeight;
-			
-			const dimension = Math.max(size.x, size.y) / 2;
-			const cameraZPosition = Math.max(Math.min((dimension / screenAspectRatio), camera.far / 2), self.max_camera_z / 2);
-			
-			camera.position.set(centroid.x, centroid.y, cameraZPosition);
-		}
 		
 		/* Line */
 		
