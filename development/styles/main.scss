@@ -65,10 +65,8 @@ body {
 	align-items: stretch;
 	align-content: space-between;
 	justify-content: center;
-	min-height: 100%;
-	width: 100%;
-	min-height: 100vh;
 	width: 100vw;
+	min-height: 100vh;
 }
 
 p {
@@ -511,7 +509,7 @@ body > main > section > main > section {
 	justify-content: center;
 	align-content: center;
 	position: relative;
-	overflow: scroll;
+	overflow: auto;
 	
 	@media (max-width: $ipadPortrait) {
 		flex-direction: column;
