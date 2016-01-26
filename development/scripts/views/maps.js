@@ -231,7 +231,7 @@ module.exports = View.extend({
 		
 		const scene = this.scene = new THREE.Scene();
 		const aspectRatio = canvas.clientWidth / canvas.clientHeight;
-		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, 0.1, 50000);
+		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, consts.CAMERA_NEAR, 40000);
 		
 		requestAnimationFrame(() => this.windowResize());
 		
@@ -349,8 +349,8 @@ module.exports = View.extend({
 		
 		camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
 		
-		const minCameraZ = consts.CAMERA_NEAR + 1;
-		const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 1);
+		const minCameraZ = consts.CAMERA_NEAR * 2;
+		const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 10);
 		
 		if (camera.position.z < minCameraZ) {
 			camera.position.z = minCameraZ;
@@ -469,7 +469,7 @@ module.exports = View.extend({
 			
 			camera.position.z += (deltaDistance * 0.005) * (camera.position.z / 1.5);
 		
-			const minCameraZ = consts.CAMERA_NEAR + 100;
+			const minCameraZ = consts.CAMERA_NEAR * 2;
 			const maxCameraZ = Math.min(this.max_camera_z, this.camera.far - 100);
 			
 			if (camera.position.z < minCameraZ) {
