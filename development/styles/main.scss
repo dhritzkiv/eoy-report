@@ -810,8 +810,10 @@ body > main > section > main > section {
 					display: inline-block;
 					width: $dimension / 4;
 					height: $dimension / 4;
+					/*//not needed anymore
 					top: 50%;
 					margin-top: -$dimension / 8;
+					*/
 					border-radius: 50% 50%;
 					background-color: #16385d;
 					box-shadow: 0px 0px 0px 4px $colorBackground;
