@@ -30,7 +30,7 @@ gulp release
 
 ### Serve
 
-Run `node index` to start the Express-based static server. Alternatively, serve this up as static files with Nginx or similar.
+Run `node index` to start the Express-based static server. Alternatively, serve the contents of `public/` up as static files with Nginx or similar.
 
 ## Credits
 
@@ -66,8 +66,7 @@ This repo includes scripts for:
 - simplifying it
 	- some data can be duplicates that can't be displayed well in 2D (subsequent checkins to a venue, commutes rides and walks)
 	
-Note: a lot of the scripts have hardcoded values specific to me. As well, they come without documentation at this time.
-    
+Note: a lot of the scripts in the `data-scripts/` directory contain or rely on hardcoded values specific to me. As well, these scripts come without documentation at this time.
     
 ## Not implemented
 
