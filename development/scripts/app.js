@@ -92,6 +92,11 @@ const MainView = View.extend({
 
 app.extend({
 	initialize: function () {
+		
+		ga('create', "UA-47020641-4", {
+			'siteSpeedSampleRate': 50
+		});
+		
 		this.render();
 	},
 	render: function() {
@@ -104,6 +109,17 @@ app.extend({
 		this.router = new Router();
 		this.router.on('newMode', view.setMode, view);
 		this.router.on('newOverlay', view.setOverlay, view);
+		
+		this.router.on('navigation', function() {
+			const path = window.location.pathname + window.location.search + window.location.hash;
+			
+			ga('set', 'page', path);
+			ga('send', 'pageview', {
+				page: path,
+				title: document.title
+			});
+		});
+		
 		this.router.history.start({
 			pushState: true,
 			root: "/"
@@ -111,8 +127,27 @@ app.extend({
 	}
 });
 
-app.initialize();
+/* Google Analytics */
+(function() {
+	window.GoogleAnalyticsObject = 'ga';
+	var sciptTagName = 'script';
+
+	window.ga = function() {
+		(ga.q = ga.q || []).push(arguments);
+	};
+
+	ga.l = (new Date()).getTime();
+
+	var script = document.createElement(sciptTagName);
+	script.async = true;
+	script.src = 'https://www.google-analytics.com/analytics.js';
+
+	var prevScript = document.getElementsByTagName(sciptTagName)[0];
+	prevScript.parentNode.insertBefore(script, prevScript);
+})();
 
 window.app = app;
+
+app.initialize();
 
 module.exports = app;
