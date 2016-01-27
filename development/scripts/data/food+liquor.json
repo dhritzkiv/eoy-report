@@ -1,9 +1,6 @@
 {
 	"title": "Food & Liquor",
-	"text": (
-		`More often than not, I don't eat at home. A small part of the reason is that it's easier to not have to manage groceries. But mostly it's because of the countless amazing food options near where I live and work.
-		`
-	),
+	"text": "The numbers show that, more often than not, I don't eat at home. A small part of the reason is that it's simply easier to not have to manage groceries when living alone. But mostly it's because of the countless amazing food options near where I live and work.",
 	"sources": ["Untappd", "Foursquare"],
 	"stats": [
 		{

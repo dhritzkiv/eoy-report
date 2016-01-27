@@ -6,7 +6,7 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-const watchify = require('watchify');
+//const watchify = require('watchify');
 const browserify = require('browserify');
 const sass = require("gulp-sass");
 const sourcemaps = require('gulp-sourcemaps');
@@ -101,7 +101,7 @@ function makeBundle(bundler, targetFile) {
 			addComment: true,
 			sourceRoot: "./"//source map points to files relative to the root of this repo.
 		}))
-		.pipe(gulp.dest(outputScriptsDir))
+		.pipe(gulp.dest(outputScriptsDir));
 	};
 }
 
@@ -131,7 +131,7 @@ gulp.task('sass', function() {
 		})
 	]))
 	//.pipe(sourcemaps.write('./maps'))
-	.pipe(gulp.dest(outputStylesDir))
+	.pipe(gulp.dest(outputStylesDir));
 });
 
 gulp.task('browserify', ['app-bundle'], function() {
@@ -147,12 +147,12 @@ gulp.task('uglify-js-clients', function() {
 	.pipe(sourcemaps.init({
 		loadMaps: true
 	}))
-	.pipe(uglify(uglifyOptions))
+	.pipe(uglify(uglifyOptions).on("error", err => console.error(err)))
 	.pipe(sourcemaps.write("./", {
 		addComment: true,
 		sourceRoot: "./"
 	}))
-	.pipe(gulp.dest(outputScriptsDir))
+	.pipe(gulp.dest(outputScriptsDir));
 });
 
 gulp.task('minify-css', function() {
@@ -164,7 +164,7 @@ gulp.task('minify-css', function() {
 	.pipe(nano({
 		autoprefixer: false
 	}))
-	.pipe(gulp.dest(outputStylesDir))
+	.pipe(gulp.dest(outputStylesDir));
 });
 
 gulp.task('build', ['app-bundle', 'sass'], function() {

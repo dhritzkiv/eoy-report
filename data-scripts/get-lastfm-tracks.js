@@ -48,7 +48,7 @@ lastfm.user.getWeeklyTrackChart({
 		lastfm.track.getInfo(params, function(err, trackInfo) {
 			
 			if (err) {
-				err.message += `: ${track.artist} – ${track.name} (${track.mbid})`;
+				err.message += `: ${track.artist} - ${track.name} (${track.mbid})`;
 				console.error(err);
 				return callback(null, track);
 			}

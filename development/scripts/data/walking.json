@@ -1,8 +1,6 @@
 {
 	"title": "Walking",
-	"text": (
-		`After a <span title="Broke my wrist on my way to WayHome">certain cycling mishap</span> in late July, I was required to walk everywhere for five weeks. While the downsides included extending my commute time by six times, I did manage to double my daily step count.`
-	),
+	"text": "After a <span title=\"Broke my wrist on my way to WayHome\">certain cycling mishap</span> in late July, I was required to walk everywhere for five weeks. While the downsides included extending my commute time by six times, I did manage to double my daily step count.",
 	"sources": ["Apple Health", "Moves"],
 	"stats": [
 		{

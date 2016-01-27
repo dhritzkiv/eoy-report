@@ -29,13 +29,13 @@ app.use(express.static(publicFileDirectory, {
 
 app
 .route("*")
-.get((req, res, next) => {
+.get((req, res) => {
 	res.setHeader("content-type", "text/html; charset=utf-8");
 	res.send(indexFileContents);
 });
 
 app.listen(app.get("port"), () => {
-	console.log(new Date())
+	console.log(new Date());
 	console.log((
 		`Server for ${app.get('title')} v.${app.get('version')} ${app.settings.env} running and listening at port ${app.get('port')}`
 	));

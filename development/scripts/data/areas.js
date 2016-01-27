@@ -287,7 +287,7 @@ module.exports = {
 	nyc: {
 		name: "New York City",
 		text: (
-			`I had a chance to visit New York City on two short trips in 2015: once in early-April, and once in mid-May. Both times I managed a decent amount of walking and cycling, so much so that, so far, I consider Manhattan as perhaps the most accessible area of the world I've stayed in. The only thing I see sorely lacking is green space.
+			`I had a chance to visit New York City on two short trips in 2015: once in early-April, and once in mid-May. Both times I managed a decent amount of walking and cycling, so much so that, so far, I consider Manhattan as perhaps the most accessible area of the world I've stayed in. The only thing I feel it sorely lacks is green space.
 			`
 		),
 		sources: [

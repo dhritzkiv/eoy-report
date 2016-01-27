@@ -24,11 +24,11 @@ const Router = AmpersandRouter.extend({
 	},
 	currentModeView: null,
 	start: function() {
-		
 		this.trigger("newOverlay", new StartPage());
 		
 		document.title = DEFAULT_TITLE;
 		
+		this.trigger("navigation");		
 	},
 	_mapsBase: function(area_name) {
 		
@@ -62,6 +62,8 @@ const Router = AmpersandRouter.extend({
 		}
 		
 		this._mapsBase(area_name);
+		
+		this.trigger("navigation");
 	},
 	mapsLegend: function(area_name) {
 		
@@ -82,6 +84,8 @@ const Router = AmpersandRouter.extend({
 		} else {
 			currentModeView.once("change:rendered", showOverlay);
 		}
+		
+		this.trigger("navigation");
 	},
 	stats: function(type) {
 		
@@ -102,8 +106,9 @@ const Router = AmpersandRouter.extend({
 		}
 		
 		document.title = `${currentModeView.model.title} stats - ${DEFAULT_TITLE}`;
-
 		app.view.mode = "stats";
+		
+		this.trigger("navigation");
 	}
 });
 

@@ -19,7 +19,7 @@ const getDistanceBetweenPoints = (a, b) => {
 	const y2 = b[1];
 	
 	return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-}
+};
 
 fs.readFile(inPath, "utf8", function(err, src) {
 	
@@ -34,6 +34,8 @@ fs.readFile(inPath, "utf8", function(err, src) {
 		
 		//const newCoordinates = [];
 		const coordinates = feature.geometry.coordinates;
+			
+		const pushPoint = (point, i) => coordinates[i - 1].push(point);
 		
 		for (let i = 0; i < coordinates.length; i++) {
 			
@@ -47,8 +49,7 @@ fs.readFile(inPath, "utf8", function(err, src) {
 			let dist = getDistanceBetweenPoints(coord[0], coord2[coord2.length - 1]);
 			
 			if (dist < diffTolerance) {
-				
-				coord.forEach(point => coordinates[i - 1].push(point));
+				coord.forEach(point => pushPoint(point, i));
 				coordinates.splice(i, 1);
 				i--;
 				
@@ -60,9 +61,9 @@ fs.readFile(inPath, "utf8", function(err, src) {
 		.map(coord => coord.length)
 		.reduce((a, b) => a + b);
 		
-		console.log("before", countPoints(coordinates))
+		console.log("before", countPoints(coordinates));
 		feature.geometry.coordinates = coordinates.map(coord => simplify(coord, tolerance));
-		console.log("after", countPoints(feature.geometry.coordinates))
+		console.log("after", countPoints(feature.geometry.coordinates));
 
 		return feature;
 	});

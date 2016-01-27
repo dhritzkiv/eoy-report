@@ -43,7 +43,7 @@ readStream.on('end', function() {
 	
 	const totalDuration = tracks
 	.map(track => track.duration * track.play_count)
-	.reduce((total, duration) => total + duration)
+	.reduce((total, duration) => total + duration);
 	
 	console.log("total listening time", totalDuration);
 });
