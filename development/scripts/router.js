@@ -47,8 +47,6 @@ const Router = AmpersandRouter.extend({
 		document.title = `Map of ${currentModeView.area.name} - ${DEFAULT_TITLE}`;
 		app.view.mode = "maps";
 		
-		this.trigger("navigation");
-		
 		return currentModeView;
 	},
 	maps: function(area_name) {
@@ -64,6 +62,8 @@ const Router = AmpersandRouter.extend({
 		}
 		
 		this._mapsBase(area_name);
+		
+		this.trigger("navigation");
 	},
 	mapsLegend: function(area_name) {
 		
