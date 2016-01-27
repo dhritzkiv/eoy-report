@@ -200,7 +200,6 @@ module.exports = View.extend({
 		},
 		progress: {
 			type: (el, val) => {
-				console.log("progress", val);
 				el.style.width = (val * 100) + "%";
 			},
 			selector: "#loading-holder .progress"
