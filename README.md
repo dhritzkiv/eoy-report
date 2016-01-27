@@ -1,19 +1,83 @@
 # moves-gl-2015
 
-A development workspace for getting and displaying personal movement and location data to create a end-of-year movement report à la Nicholas Felton's Annual Report (but light). The data will be displayed on a HTML page using WebGL (via Three.js).
+A development workspace for retrieving and displaying personal movement, location data, and miscellaneous to create a end-of-year report displayable in a web browser.
 
-The data sources include:
-- Strava for past rides and planned routes.
-- Moves for walking
+## Development
+
+### Clone and install
+
+```sh
+git clone
+cd twenty-fifteen
+npm install
+```
+
+### Build
+
+```sh
+gulp build
+#or
+gulp watch
+```
+
+To compile the JS (using Browserify and Babel) and CSS (using Sass and PostCSS)
+
+### Release
+
+```sh
+gulp release
+```
+
+### Serve
+
+Run `node index` to start the Express-based static server. Alternatively, serve this up as static files with Nginx or similar.
+
+## Credits
+
+### Code
+
+- [@mrdoob](https://github.com/mrdoob) for three.js
+- [@spite](https://github.com/spite) for THREE.MeshLine
+- [@AmpersandJS](https://github.com/Ampersand) for the AmpersandJS framework and suite of modules
+- and lots more. See `package.json` for the modules used.
+
+### Personal data sources
+
+- Strava for past rides geometric.
+- Moves for walking geometric data
 - Foursquare/Swarm for checkins
-- Instagram for photos
+- iTunes, last.fm, Apple Health, Untappd, and more.
+
+### Map data sources
+
+- OpenStreetMaps / Mapzen
+- Toronto OpenData
+- Statistics Canada
+- Center for Urban Research at the Graduate Center @ CUNY
+- Oregon Geospatial Enterprise Office
+
+### Making it your own
 
 This repo includes scripts for:
+
 - querying and fetching data from the source
 - filtering it
 	- to only include data from 2015, data only for Ontario, etc.
 - simplifying it
 	- some data can be duplicates that can't be displayed well in 2D (subsequent checkins to a venue, commutes rides and walks)
+	
+Note: a lot of the scripts have hardcoded values specific to me. As well, they come without documentation at this time.
     
     
-It's currently messy, but the hope is that once finished, I can clean up the repo so that anyone can shape it to their own needs.
+## Not implemented
+
+- Instagram photos displayed on the map
+- Interactive Swarm checkins
+
+## To do
+
+- Reorganize the code. Unlikely to happen unless someone is interested in repurposing this.
+
+## Contact
+
+I'm [@dhritzkiv on Twitter](https://twitter.com/dhritzkiv)
