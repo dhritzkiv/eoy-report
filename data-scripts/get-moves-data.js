@@ -44,7 +44,7 @@ function getTotalSteps() {
 				)
 			)
 			//flatten array
-			.reduce((a, b) => a.concat(b), [])
+			.reduce((a, b) => a.concat(b), []);
 			
 			next(null, walks);
 		});

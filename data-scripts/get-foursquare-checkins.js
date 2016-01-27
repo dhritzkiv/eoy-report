@@ -41,7 +41,7 @@ function getCheckinsFor2015() {
 			date: new Date(checkin.createdAt * 1000),//first date
 			point: [checkin.venue.location.lng, checkin.venue.location.lat],
 			times: 1
-		}
+		};
 	}
 
 	async.doWhilst(function (callback) {

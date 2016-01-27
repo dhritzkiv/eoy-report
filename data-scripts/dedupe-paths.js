@@ -27,7 +27,7 @@ fs.readFile(inPath, "utf8", function(err, src) {
 			} else {
 				return index > paths.indexOf(rideA);
 			}
-		}
+		};
 	}
 	
 	paths = paths.filter(path => path.points.length > 2);
