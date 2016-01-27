@@ -30,6 +30,8 @@ module.exports = View.extend({
 						<p>A by-the-numbers breakdown &#x25B8;</p>
 					</a>
 				</div>
+				
+				<footer><a href="https://github.com/dhritzkiv/twenty-fifteen" target="_blank">Source & Credits</a></footer>
 			</main>
 		</section>
 	`,

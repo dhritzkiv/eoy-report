@@ -192,7 +192,7 @@ canvas {
 		align-items: space-between;
 		flex-direction: row;
 		margin: $gutter 0 0 0;
-		padding: $gutter * 2 $gutter 0 $gutter;
+		padding: $gutter * 2 $gutter;
 		width: 100%;
 		max-width: 640px;
 		
@@ -274,6 +274,15 @@ canvas {
 				transform: translateX(-50%);
 			}
 		}
+	}
+	
+	footer {
+		margin-top: $gutter;
+	}
+	
+	footer a {
+		font-size: 10px;
+		color: $colorTextLight;
 	}
 	
 	&.hiding {
