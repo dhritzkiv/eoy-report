@@ -73,7 +73,7 @@ module.exports = State.extend({
 					return "";
 				}
 				
-				const date = moment(value);
+				const date = moment(new Date(value));
 				
 				if (date.isValid()) {
 					return date.format("LL");
