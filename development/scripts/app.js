@@ -2,8 +2,14 @@
 
 const app = require('ampersand-app');
 const View = require("ampersand-view");
-const Router = require("./router");
 const ViewSwitcher = require('ampersand-view-switcher');
+const Raven = require("raven-js");
+const Router = require("./router");
+
+Raven.config("https://b2558f5fcd4342118dfb18e1dc0883e5@app.getsentry.com/64892", {
+	release: "__VERSION__",
+	maxMessageLength: 512
+}).install();
 
 const MainView = View.extend({
 	template: `

@@ -82,16 +82,10 @@ function makeBundler(src) {
 	bundler.plugin('watchify');
 	bundler.transform('babelify');
 
-	/*bundler.transform('browserify-versionify', {
-		filter: /app_.+\.js$/,
+	bundler.transform('browserify-versionify', {
+		filter: /app\.js$/,
 		version: require("./package.json").version
 	});
-
-	bundler.transform('browserify-versionify', {
-		placeholder: '__BUILDDATE__',
-		version: (new Date()).toISOString(),
-		filter: /app_.+\.js$/
-	});*/
 
 	return bundler;
 }
