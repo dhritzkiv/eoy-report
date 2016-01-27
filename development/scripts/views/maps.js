@@ -20,7 +20,7 @@ const rides = require("../data/2015_rides.json");
 const walks = require("../data/2015_walks.json");
 
 const DECELERATION_RATE = 0.91;
-const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) * 2;
+const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) / DECELERATION_RATE;
 const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
 const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAccelerationY"];
 
@@ -391,8 +391,8 @@ module.exports = View.extend({
 		this.mouseDownX = event.clientX;
 		this.mouseDownY = event.clientY;
 		
-		this.translationVelocityX = -changeX; //negative left
-		this.translationVelocityY = changeY; //negative up
+		this.translationVelocityX = -changeX / 2; //negative left
+		this.translationVelocityY = changeY / 2; //negative up
 
 		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
 		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
