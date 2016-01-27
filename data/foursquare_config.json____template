@@ -1,0 +1,11 @@
+{
+	"foursquare": {
+		"mode": "swarm"
+	},
+	"secrets" : {
+		"clientId" : "XXX",
+		"clientSecret" : "XXX",
+		"redirectUrl" : "http://localhost:20150/foursquare/callback",
+		"accessToken": "XXX"
+	}
+}

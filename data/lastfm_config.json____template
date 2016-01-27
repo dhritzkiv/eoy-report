@@ -1,0 +1,5 @@
+{
+    "api_key":"XXX",
+    "secret":"XXX",
+    "redirectUri":"http://localhost:20150/lastfm"
+}

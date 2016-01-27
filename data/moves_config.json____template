@@ -1,0 +1,6 @@
+{
+    "clientId":"XXX",
+    "clientSecret":"XXX",
+    "redirectUri":"http://localhost:20150/moves/callback",
+    "accessToken":"XXX"
+}

@@ -1,0 +1,7 @@
+
+{
+    "access_token"    :"XXX"
+    , "client_id"     :"XXX"
+    , "client_secret" :"XXX"
+    , "redirect_uri"  :"http://localhost:20150/strava/callback"
+}
