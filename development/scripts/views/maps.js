@@ -390,8 +390,8 @@ module.exports = View.extend({
 		this.mouseDownX = event.clientX;
 		this.mouseDownY = event.clientY;
 		
-		this.translationVelocityX = -changeX / 2; //negative left
-		this.translationVelocityY = changeY / 2; //negative up
+		this.translationVelocityX = -changeX; //negative left
+		this.translationVelocityY = changeY; //negative up
 
 		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
 		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
