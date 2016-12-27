@@ -78,7 +78,7 @@ function makeBundler(src) {
 		fullPaths: false,
 		debug: true
 	});
-	
+
 	bundler.plugin('watchify');
 	bundler.transform('babelify');
 
@@ -106,12 +106,12 @@ function makeBundle(bundler, targetFile) {
 }
 
 const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "app.js"));
-const clientAppBundle = makeBundle(clientAppBundler, "moves-gl-2015.min.js");
+const clientAppBundle = makeBundle(clientAppBundler, "2016.min.js");
 
 gulp.task('app-bundle', clientAppBundle);
 
 gulp.task('sass', function() {
-	
+
 	const browserSupport = [
 		'last 1 versions',
 		'last 2 Chrome versions',
