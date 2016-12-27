@@ -16,100 +16,100 @@ const Router = AmpersandRouter.extend({
 	},
 	routes: {
 		"": "start",
-		"maps": "maps",
+		/*"maps": "maps",
 		"maps/:area_name": "maps",
 		"maps/:area_name/legend": "mapsLegend",
 		"stats": "stats",
-		"stats/:type": "stats"
+		"stats/:type": "stats"*/
 	},
 	currentModeView: null,
 	start: function() {
 		this.trigger("newOverlay", new StartPage());
-		
+
 		document.title = DEFAULT_TITLE;
-		
-		this.trigger("navigation");		
+
+		this.trigger("navigation");
 	},
-	_mapsBase: function(area_name) {
-		
+	/*_mapsBase: function(area_name) {
+
 		let currentModeView = this.currentModeView;
-		
+
 		if (currentModeView instanceof MapsPage) {
 			currentModeView.area_name = area_name;
 		} else {
 			currentModeView = new MapsPage({
 				area_name: area_name
 			});
-			
+
 			this.trigger("newMode", currentModeView);
 		}
-		
+
 		document.title = `Map of ${currentModeView.area.name} - ${DEFAULT_TITLE}`;
 		app.view.mode = "maps";
-		
+
 		return currentModeView;
 	},
 	maps: function(area_name) {
-		
+
 		if (!area_name) {
 			if (this.currentModeView instanceof MapsPage) {
 				area_name = this.currentModeView.area_name;
 			} else {
 				area_name = "to";
 			}
-			
+
 			return this.redirectTo(`/maps/${area_name}`);
 		}
-		
+
 		this._mapsBase(area_name);
-		
+
 		this.trigger("navigation");
 	},
 	mapsLegend: function(area_name) {
-		
+
 		const self = this;
 		const currentModeView = this._mapsBase(area_name);
-		
+
 		function showOverlay() {
 			const legendPage = new MapsLegendPage({
 				area_name: area_name,
 				parent: currentModeView
 			});
-			
+
 			self.trigger("newOverlay", legendPage, currentModeView.query("canvas"));
 		}
-		
+
 		if (currentModeView.rendered) {
 			showOverlay();
 		} else {
 			currentModeView.once("change:rendered", showOverlay);
 		}
-		
+
 		this.trigger("navigation");
 	},
 	stats: function(type) {
-		
+
 		if (!type) {
 			return this.redirectTo("/stats/cycling");
 		}
-		
+
 		let currentModeView = this.currentModeView;
-		
+
 		if (currentModeView instanceof StatsPage) {
 			currentModeView.type = type;
 		} else {
 			currentModeView = new StatsPage({
 				type: type
 			});
-			
+
 			this.trigger("newMode", currentModeView);
 		}
-		
+
 		document.title = `${currentModeView.model.title} stats - ${DEFAULT_TITLE}`;
 		app.view.mode = "stats";
-		
+
 		this.trigger("navigation");
-	}
+	}*/
 });
 
 module.exports = Router;
