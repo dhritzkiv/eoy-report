@@ -22,7 +22,7 @@ const Router = AmpersandRouter.extend({
 		"cycling": "cycling",
 		"walking": "walking",
 		"audio-video": "av",
-		"beer": "beer",
+		"beer": "beer"
 		//"maps": "maps",
 		//"maps/:area_name": "maps",
 		/*"maps/:area_name/legend": "mapsLegend",

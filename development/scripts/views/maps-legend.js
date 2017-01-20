@@ -45,7 +45,7 @@ module.exports = View.extend({
 					if (Array.isArray(source)) {
 						return `<a href="${source[1]}">${source[0]}</a>`;
 					}
-					
+
 					return source;
 				}).join(", ");
 			}
@@ -74,34 +74,34 @@ module.exports = View.extend({
 	},
 	/*render: function() {
 		this.renderWithTemplate(this);
-		
+
 		const choiceEls = this.queryAll(".choices a");
 		const defaultClassName = "default";
-		
+
 		choiceEls.forEach(el => el.classList.add(defaultClassName));
-		
+
 		setTimeout(() => {
 			requestAnimationFrame(() => choiceEls.forEach(
 				el => el.classList.remove(defaultClassName)
 			));
 		}, 400);
-		
+
 		return this;
 	},*/
 	initialize: function() {
 		this.model = this.parent.area;
-		
+
 		this.listenTo(this.parent, "remove", this.close);
 		this.listenTo(this.parent, "change:area_name", this.close);
 	},
 	closeHandler: function(event) {
 		this.close();
-		
+
 		app.router.navigate(`/maps/${this.area_name}`, {
 			replace: false,
 			trigger: false
 		});
-		
+
 		event.preventDefault();
 		event.stopImmediatePropagation();
 	},

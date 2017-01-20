@@ -2,6 +2,7 @@
 
 const State = require("ampersand-state");
 const moment = require("moment");
+
 require("moment-duration-format");
 const numeral = require("numeral");
 
@@ -27,15 +28,15 @@ module.exports = State.extend({
 		value_formatted: {
 			deps: ["value", "value_type"],
 			fn: function() {
-				
+
 				let formattedValue = this.value;
 				let duration = null;
-				
+
 				switch (this.value_type) {
 					case "m":
 					case "km":
 						//formattedValue = this.value;
-						formattedValue = numeral(this.value).format('0,0[.]00');
+						formattedValue = numeral(this.value).format("0,0[.]00");
 						break;
 					case "min":
 					case "mins":
@@ -52,29 +53,29 @@ module.exports = State.extend({
 						formattedValue = duration.format("h:mm");
 						break;
 					default:
-					
+
 						if (!isNaN(this.value)) {
-							formattedValue = numeral(this.value).format('0,0[.]00');
+							formattedValue = numeral(this.value).format("0,0[.]00");
 						} else {
 							formattedValue = formattedValue.toString();
 						}
 				}
-				
+
 				return formattedValue;
 			}
 		},
 		secondary_value_formatted: {
 			deps: ["secondary_value"],
 			fn: function() {
-				
+
 				const value = this.secondary_value;
-				
+
 				if (!value) {
 					return "";
 				}
-				
+
 				const date = moment(new Date(value));
-				
+
 				if (date.isValid()) {
 					return date.format("LL");
 				} else {

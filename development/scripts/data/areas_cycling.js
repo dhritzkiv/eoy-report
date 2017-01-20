@@ -2,7 +2,7 @@
 
 const MapFeature = require("../models/map-feature");
 const LakeMapFeature = require("../models/map-feature_lake");
-const RoadMapFeature = require("../models/map-feature_road");
+//const RoadMapFeature = require("../models/map-feature_road");
 const LabelMapFeature = require("../models/map-feature_label");
 
 const consts = require("../consts");
@@ -71,87 +71,87 @@ module.exports = {
 			}),
 			new LabelMapFeature({
 				name: "Toronto",
-				points: [[-79.4, 43.7]],
+				points: [ [-79.4, 43.7] ],
 				z_position: 1000,
 				size: consts.LABEL_SIZE_METRO
 			}),
 			new LabelMapFeature({
 				name: "Hamilton",
-				points: [[-79.866091, 43.250021]],
+				points: [ [-79.866091, 43.250021] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_MEDIUM
 			}),
 			new LabelMapFeature({
 				name: "Guelph",
-				points: [[-80.248167, 43.544805]],
+				points: [ [-80.248167, 43.544805] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_MEDIUM
 			}),
 			new LabelMapFeature({
 				name: "Oakville",
-				points: [[-79.687666, 43.467517]],
+				points: [ [-79.687666, 43.467517] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Mississauga",
-				points: [[-79.65, 43.6]],
+				points: [ [-79.65, 43.6] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Oro-Medonte",
-				points: [[-79.523333, 44.5]],
+				points: [ [-79.523333, 44.5] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Burlington",
-				points: [[-79.8, 43.316667]],
+				points: [ [-79.8, 43.316667] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Vaughan",
-				points: [[-79.5, 43.83333]],
+				points: [ [-79.5, 43.83333] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "King",
-				points: [[-79.6044, 44.0463]],
+				points: [ [-79.6044, 44.0463] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Pickering",
-				points: [[-79.089, 43.8354]],
+				points: [ [-79.089, 43.8354] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Newmarket",
-				points: [[-79.466667, 44.05]],
+				points: [ [-79.466667, 44.05] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "WayHome",
-				points: [[-79.520159, 44.479942]],
+				points: [ [-79.520159, 44.479942] ],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 6500
 			}),
 			new LabelMapFeature({
 				name: "YTZ",
-				points: [[-79.396111, 43.6275]],
+				points: [ [-79.396111, 43.6275] ],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 6500
 			}),
 			new LabelMapFeature({
 				name: "YYZ",
-				points: [[-79.630556, 43.676667]],
+				points: [ [-79.630556, 43.676667] ],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 6500

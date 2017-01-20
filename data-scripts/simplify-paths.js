@@ -13,7 +13,7 @@ const reducePoints = (total, {points}) => total + points.length;
 
 const src = fs.readFileSync(inPath, "utf8");
 
-let paths = JSON.parse(src);//json string to JS object
+const paths = JSON.parse(src);//json string to JS object
 const originalPointCount = paths.reduce(reducePoints, 0);
 
 const startTime = Date.now();

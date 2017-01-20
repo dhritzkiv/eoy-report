@@ -7,7 +7,7 @@ const async = require("async");
 const request = require("request");
 
 const [method, _year] = process.argv.slice(2);
-const year = parseInt(_year) || new Date().getFullYear();
+const year = parseInt(_year, 10) || new Date().getFullYear();
 
 const configPath = path.join(process.cwd(), "./data/moves_config.json");
 
@@ -66,7 +66,7 @@ const getTotalSteps = (year) => {
 
 		fs.writeFileSync(walkingDaysPath, walksJSON);
 	});
-}
+};
 
 const reduceTotalSteps = (year) => {
 	const walkingDaysPath = path.join(process.cwd(), "data", `${year}_walking-days.json`);
@@ -98,7 +98,7 @@ const reduceTotalSteps = (year) => {
 	.entries(walkingDaysSummary)
 	.map(([k, v]) => [k, (v / daysInYear).toFixed(2)])
 	.forEach(([k, v]) => console.log(`average daily ${k}: ${v}`));
-}
+};
 
 const getWalks = (year) => {
 
@@ -159,7 +159,7 @@ const getWalks = (year) => {
 
 		fs.writeFileSync(path.join(process.cwd(), "data", `${year}_walks.json`), walksJSON);
 	});
-}
+};
 
 
 switch (method) {
@@ -189,7 +189,7 @@ switch (method) {
 
 			console.log(body);
 		});
-		break
+		break;
 	default: {
 		const instructions = (
 		`

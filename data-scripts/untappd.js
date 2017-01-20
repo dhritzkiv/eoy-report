@@ -32,7 +32,7 @@ const [dataFile] = args;
  }
 */
 
-const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
+//const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
 const DAYS_IN_2016 = 366;
 
 const leftPad = (digit, length) => {
@@ -44,14 +44,14 @@ const leftPad = (digit, length) => {
 const consoleOutListRow = (key, value, array) => {
 	const leftPaddedValue = leftPad(value, array[0][1].toString().length);
 
-	console.log(`${leftPaddedValue} - ${key}`)
+	console.log(`${leftPaddedValue} - ${key}`);
 };
 
 const topTenFromTallyMap = (tallyMap) => [...tallyMap]
 .sort(([, a], [, b]) => b - a)
 .slice(0, 10);
 
-const startOfDayDate = (date_string) => moment(date_string).startOf('day').toDate();
+const startOfDayDate = (date_string) => moment(date_string).startOf("day").toDate();
 
 const data = fs.readFileSync(path.join(process.cwd(), dataFile), "utf8");
 
@@ -194,11 +194,11 @@ console.log("# of Canadian breweries", canadianBreweries.length);
 
 //top ten beers
 console.log("\ntop ten beers");
-topTenBeers.forEach(([{beer_name}, count]) => consoleOutListRow(beer_name, count, topTenBeers));
+topTenBeers.forEach(([ {beer_name}, count]) => consoleOutListRow(beer_name, count, topTenBeers));
 
 //top ten breweries
 console.log("\ntop ten breweries");
-topTenBreweries.forEach(([{brewery_name}, count]) => consoleOutListRow(brewery_name, count, topTenBreweries));
+topTenBreweries.forEach(([ {brewery_name}, count]) => consoleOutListRow(brewery_name, count, topTenBreweries));
 
 //top ten countries
 console.log("\ntop ten countries");

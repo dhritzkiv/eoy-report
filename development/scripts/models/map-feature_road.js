@@ -41,6 +41,7 @@ module.exports = MapFeature.extend({
 					newFeature.properties = feature.properties;
 					newFeature.geometry.type = "LineString";
 					newFeature.geometry.coordinates = coords;
+
 					return newFeature;
 				});
 			} else {
@@ -51,21 +52,19 @@ module.exports = MapFeature.extend({
 		}).reduce((a, b) => a.concat(b));
 
 		const lines = this.points
-		.filter(feature => {
-			return [
-				"motorway",
-				"primary",
-				"secondary",
-				"trail",
-				"bus",
-				"sc",
-				"max",
-				"at",
-				"subway",
-				"rt"
-			].indexOf(feature.properties.type) !== -1;
-		})
-		.map(function(feature) {
+		.filter(feature => [
+			"motorway",
+			"primary",
+			"secondary",
+			"trail",
+			"bus",
+			"sc",
+			"max",
+			"at",
+			"subway",
+			"rt"
+		].indexOf(feature.properties.type) !== -1)
+		.map((feature) => {
 
 			let width = 1;
 			let color = consts.COLOR_ROADS_MINOR;
@@ -94,8 +93,8 @@ module.exports = MapFeature.extend({
 						lineWidth: 10 * width,//size of individual street
 						sizeAttenuation: 1,
 						opacity: tunnel ? 0.1 : 1,
-						depthTest: tunnel ? false : true,
-						transparent: tunnel ? true : false,
+						depthTest: !tunnel,
+						transparent: Boolean(tunnel),
 						color: new THREE.Color(color),
 						blending: tunnel ? THREE.AdditiveAlphaBlending : THREE.NormalBlending
 					});
@@ -117,9 +116,11 @@ module.exports = MapFeature.extend({
 			});
 
 			const line = new MeshLine();
+
 			line.setGeometry(lineGeometry);
 
 			const mesh = new THREE.Mesh(line.geometry, getMaterial());
+
 			mesh.renderOrder = self.renderOrder;
 			mesh.position.z = self.z_position;
 			mesh.matrixAutoUpdate = false;
@@ -133,6 +134,7 @@ module.exports = MapFeature.extend({
 		plane.renderOrder = this.renderOrder;
 		plane.userData.hide_at_z = self.hide_at_z;
 		console.timeEnd(this.name);
+
 		return plane;
 	}
 });

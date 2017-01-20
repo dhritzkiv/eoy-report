@@ -1,22 +1,22 @@
 "use strict";
 
-const path = require('path');
+const path = require("path");
 const fs = require("fs");
-const gulp = require('gulp');
-const uglify = require('gulp-uglify');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
+const gulp = require("gulp");
+const uglify = require("gulp-uglify");
+const source = require("vinyl-source-stream");
+const buffer = require("vinyl-buffer");
 //const watchify = require('watchify');
-const browserify = require('browserify');
+const browserify = require("browserify");
 const sass = require("gulp-sass");
-const sourcemaps = require('gulp-sourcemaps');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
+const sourcemaps = require("gulp-sourcemaps");
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
 const nano = require("gulp-cssnano");
-const assets = require('postcss-assets');
+const assets = require("postcss-assets");
 
-const developmentDir = path.join(__dirname, 'development');
-const publicDir = path.join(__dirname, 'public');
+const developmentDir = path.join(__dirname, "development");
+const publicDir = path.join(__dirname, "public");
 const sourceStylesDir = path.join(developmentDir, "styles");
 const outputStylesDir = path.join(publicDir, "css");
 const sourceScriptsDir = path.join(developmentDir, "scripts");
@@ -79,10 +79,10 @@ function makeBundler(src) {
 		debug: true
 	});
 
-	bundler.plugin('watchify');
-	bundler.transform('babelify');
+	bundler.plugin("watchify");
+	bundler.transform("babelify");
 
-	bundler.transform('browserify-versionify', {
+	bundler.transform("browserify-versionify", {
 		filter: /app\.js$/,
 		version: require("./package.json").version
 	});
@@ -93,7 +93,7 @@ function makeBundler(src) {
 function makeBundle(bundler, targetFile) {
 	return function bundle() {
 		return bundler.bundle()
-		.on('error', err => console.error(err.message))
+		.on("error", err => console.error(err.message))
 		.pipe(source(targetFile))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
@@ -108,22 +108,22 @@ function makeBundle(bundler, targetFile) {
 const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "app.js"));
 const clientAppBundle = makeBundle(clientAppBundler, "2016.min.js");
 
-gulp.task('app-bundle', clientAppBundle);
+gulp.task("app-bundle", clientAppBundle);
 
-gulp.task('sass', function() {
+gulp.task("sass", () => {
 
 	const browserSupport = [
-		'last 1 versions',
-		'last 2 Chrome versions',
-		'last 2 Firefox versions',
-		'Safari >=8',
-		'iOS >= 8',
-		'Explorer >= 11'
+		"last 1 versions",
+		"last 2 Chrome versions",
+		"last 2 Firefox versions",
+		"Safari >=8",
+		"iOS >= 8",
+		"Explorer >= 11"
 	];
 
 	return gulp.src(path.join(sourceStylesDir, "main.scss"))
 	//.pipe(sourcemaps.init())
-	.pipe(sass().on('error', sass.logError))
+	.pipe(sass().on("error", sass.logError))
 	.pipe(postcss([
 		assets(assetsOptions),
 		autoprefixer({
@@ -134,11 +134,11 @@ gulp.task('sass', function() {
 	.pipe(gulp.dest(outputStylesDir));
 });
 
-gulp.task('browserify', ['app-bundle'], function() {
-	clientAppBundler.on('update', clientAppBundle);
+gulp.task("browserify", ["app-bundle"], () => {
+	clientAppBundler.on("update", clientAppBundle);
 });
 
-gulp.task('uglify-js-clients', function() {
+gulp.task("uglify-js-clients", () => {
 	const scriptFiles = fs.readdirSync(outputScriptsDir)
 	.filter(name => /\.js$/.test(name))
 	.map(name => path.join(outputScriptsDir, name));
@@ -155,7 +155,7 @@ gulp.task('uglify-js-clients', function() {
 	.pipe(gulp.dest(outputScriptsDir));
 });
 
-gulp.task('minify-css', function() {
+gulp.task("minify-css", () => {
 	const styleFiles = fs.readdirSync(outputStylesDir)
 	.filter(name => /\.css$/.test(name))
 	.map(name => path.join(outputStylesDir, name));
@@ -167,13 +167,13 @@ gulp.task('minify-css', function() {
 	.pipe(gulp.dest(outputStylesDir));
 });
 
-gulp.task('build', ['app-bundle', 'sass'], function() {
+gulp.task("build", ["app-bundle", "sass"], () => {
 	clientAppBundler.close();
 });
 
-gulp.task('release', ['minify-css', 'uglify-js-clients']);
+gulp.task("release", ["minify-css", "uglify-js-clients"]);
 
-gulp.task('watch', ["browserify"], function() {
+gulp.task("watch", ["browserify"], () => {
 	gulp.watch(path.join(sourceStylesDir, "*.scss"), ["sass"]);
 	//gulp.start("browserify");
 });

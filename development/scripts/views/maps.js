@@ -46,6 +46,7 @@ function getCheckinPointMaterial() {
 	context.closePath();
 
 	const pointTexture = new THREE.Texture(pointCanvas);
+
 	pointTexture.premultiplyAlpha = true;
 	pointTexture.needsUpdate = true;
 	pointTexture.magFilter = THREE.LinearFilter;
@@ -95,7 +96,7 @@ function removeRecursive(parent) {
 
 const convertPointForProjection = (toProjection) => (point) => proj4(consts.PROJECTION_WGS84, toProjection, point);
 
-const filterActivitiesToBounds = ([[minx, miny], [maxx,maxy]]) => (activity) => {
+const filterActivitiesToBounds = ([ [minx, miny], [maxx,maxy] ]) => (activity) => {
 
 	let pointOrPoints = activity.points;
 
@@ -121,9 +122,7 @@ module.exports = View.extend({
 		},
 		is_touch: {
 			type: "boolean",
-			default: () => {
-				return ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch;
-			}
+			default: () => ("ontouchstart" in window) || window.DocumentTouch && document instanceof window.DocumentTouch
 		}
 	},
 	derived: {
@@ -191,7 +190,7 @@ module.exports = View.extend({
 		},
 		progress: {
 			type: (el, val) => {
-				el.style.width = (val * 100) + "%";
+				el.style.width = `${val * 100 }%`;
 			},
 			selector: "#loading-holder .progress"
 		}
@@ -221,6 +220,7 @@ module.exports = View.extend({
 
 		const scene = this.scene = new THREE.Scene();
 		const aspectRatio = canvas.clientWidth / canvas.clientHeight;
+
 		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, consts.CAMERA_NEAR, 40000);
 
 		requestAnimationFrame(() => this.windowResize());
@@ -239,6 +239,7 @@ module.exports = View.extend({
 			this.needsRender = true;
 
 			const area = this.area = new MapArea(areas[this.area_name]);
+
 			this.area_title = area.name;
 			requestAnimationFrame(() => this.setUpArea(area));
 		});
@@ -249,7 +250,7 @@ module.exports = View.extend({
 
 		return this;
 	},
-	canvasRender: function () {
+	canvasRender: function() {
 
 		requestAnimationFrame(() => this.canvasRender());
 
@@ -328,6 +329,7 @@ module.exports = View.extend({
 		if (this.area) {
 			const bounds = this.area.bounds.map(projectPointsFunc);
 			const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]);
+
 			this.max_camera_z = Math.min((size / 4) / camera.aspect, this.max_camera_z);
 		}
 	},
@@ -557,6 +559,7 @@ module.exports = View.extend({
 
 			if (!child.material) {
 				child.visible = visible;
+
 				return;
 			}
 
@@ -570,13 +573,14 @@ module.exports = View.extend({
 
 			const duration = 250;
 			const endOpacity = visible ? 1 : 0;
+
 			child.transitionOpacityDirection = visible;
 			const previousBlending = child.material.blending;
 			const previousTransparency = child.material.transparent;
 
-			var position = child.material;
-			var target = {opacity: endOpacity};
-			var tween = new TWEEN.Tween(position).to(target, duration);
+			const position = child.material;
+			const target = {opacity: endOpacity};
+			const tween = new TWEEN.Tween(position).to(target, duration);
 
 			child.transitionOpacityRAF = tween;
 
@@ -617,6 +621,7 @@ module.exports = View.extend({
 			.applyMatrix4(cameraMatrixWorldInverse);
 
 			const scale = ((v.z - cameraZPosition) / virtual_z);
+
 			sprite.scale.set(scale, scale, scale);
 		});
 
@@ -628,16 +633,17 @@ module.exports = View.extend({
 
 		const duration = 1800;
 		const endZ = camera.position.z;
+
 		camera.position.z = this.max_camera_z;
 		this.needsRender = true;
 
-		var position = camera.position;
+		const position = camera.position;
 
-		var target = {
+		const target = {
 			z: endZ
 		};
 
-		var tween = new TWEEN.Tween(position).to(target, duration);
+		const tween = new TWEEN.Tween(position).to(target, duration);
 
 		function doneTransition() {
 			camera.position.z = endZ;
@@ -693,7 +699,7 @@ module.exports = View.extend({
 			camera.position.set(centroid.x, centroid.y, cameraZPosition);
 		}
 
-		async.forEachOfSeries(area.features, function(feature, index, callback) {
+		async.forEachOfSeries(area.features, (feature, index, callback) => {
 
 			function addFeatureToScene() {
 				featuresAdded++;
@@ -704,6 +710,7 @@ module.exports = View.extend({
 				}
 
 				const mesh = feature.getMesh();
+
 				scene.add(mesh);
 
 				if (index === 0) {
@@ -720,7 +727,7 @@ module.exports = View.extend({
 				addFeatureToScene();
 			}
 
-		}, function() {
+		}, () => {
 			cameraToMeshGeometryCentroid(firstGeometry);
 			self.animateIntoArea();
 		});
@@ -752,8 +759,9 @@ module.exports = View.extend({
 		.map(walk => walk.points)
 		.map(points => points.map(projectPointsFunc))
 		.map(pointsToGeometry)
-		.forEach(function(geometry) {
+		.forEach((geometry) => {
 			const mesh = new THREE.Mesh(geometry, rideLineMaterial);
+
 			mesh.position.z = lineZPosition;
 			mesh.matrixAutoUpdate = false;
 			mesh.renderOrder = consts.RENDER_ORDER_LINES_RIDES;

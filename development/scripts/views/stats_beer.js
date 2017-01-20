@@ -43,11 +43,11 @@ module.exports = View.extend({
 				<div class="list full">
 					<h3>Top 5 Most Frequent Beers</h3>
 					<ol>
-						<li>(11) Octopus Wants to Fight – Great Lakes Brewery</li>
-						<li>(06) Goose IPA – Goose Island</li>
-						<li>(06) WitchShark – Bellwoods Brewery</li>
-						<li>(05) Instigator IPA – Indie Ale House</li>
-						<li>(05) Naughty Neighbour – Nickelbrook</li>
+						<li>(11) Octopus Wants to Fight - Great Lakes Brewery</li>
+						<li>(06) Goose IPA - Goose Island</li>
+						<li>(06) WitchShark - Bellwoods Brewery</li>
+						<li>(05) Instigator IPA - Indie Ale House</li>
+						<li>(05) Naughty Neighbour - Nickelbrook</li>
 					</ol>
 				</div>
 

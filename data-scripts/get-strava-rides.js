@@ -2,9 +2,9 @@
 
 const fs = require("fs");
 
-const strava = require('strava-v3');
-const async = require('async');
-const polyline = require('polyline');
+const strava = require("strava-v3");
+const async = require("async");
+const polyline = require("polyline");
 
 const rideIdsFilePath = "./data/2016_ride_ids.json";
 const ridesFilePath = "./data/2016_rides.json";
@@ -56,16 +56,16 @@ const getRideIdsForYear = (year) => {
 			return console.error(err);
 		}
 
-		const data = JSON.stringify(ride_ids, null, '\t');
+		const data = JSON.stringify(ride_ids, null, "\t");
 
 		fs.writeFile(rideIdsFilePath, data, (err) => console.log(err || "done writing"));
-    });
-}
+	});
+};
 
 const simplifyRideData = (ride) => {
 	const simple = {};
 
-	targetRideKeys.forEach(key => simple[key] = ride[key]);
+	targetRideKeys.forEach(key => (simple[key] = ride[key]));
 
 	if (ride.map && ride.map.polyline) {
 		simple.points = polyline.decode(ride.map.polyline);
@@ -74,7 +74,7 @@ const simplifyRideData = (ride) => {
 	}
 
 	return simple;
-}
+};
 
 const getRideById = (id, callback) => strava.activities.get({id}, (err, ride) => {
 
@@ -131,7 +131,7 @@ const getRidesForYear = (offset = 0) => fs.readFile(rideIdsFilePath, "utf8", (er
 			console.error(err);
 		}
 
-		const ridesJSON = JSON.stringify(rides, null, '\t');
+		const ridesJSON = JSON.stringify(rides, null, "\t");
 
 		fs.writeFile(ridesFilePath, ridesJSON, "utf8", (err) => console.log(err || "Done writing"));
 	});

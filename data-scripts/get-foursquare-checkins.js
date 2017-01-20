@@ -6,7 +6,7 @@ const fs = require("fs");
 const config = require(path.join(process.cwd(), "data", "foursquare_config.json"));
 const checkinsWritePath = path.join(process.cwd(), "data", "2015_foursquare-checkins.json");
 
-const foursquare = require('node-foursquare')(config);
+const foursquare = require("node-foursquare")(config);
 const async = require("async");
 
 //console.log(foursquare.getAuthClientRedirectUrl());
@@ -24,15 +24,15 @@ else {
 });*/
 
 function getCheckinsFor2015() {
-	
+
 	const lastDateIn2015 = new Date(2015, 11, 31, 23, 59, 59);
-	
+
 	const limit = 250;//maximum;
 	let offset = 0;
 	let isDone = false;
-	
+
 	const checkins2015Map = new Map();
-	
+
 	function formatCheckinVenue(checkin) {
 		return {
 			id: checkin.venue.id,
@@ -44,55 +44,57 @@ function getCheckinsFor2015() {
 		};
 	}
 
-	async.doWhilst(function (callback) {
-		
+	async.doWhilst((callback) => {
+
 		foursquare.Users.getCheckins(null, {
 			limit: limit,
 			offset: offset,
 			sort: "oldestfirst",
 			afterTimestamp: 1420088400//Jan 1, 2015
-		}, config.secrets.accessToken, function(err, data) {
-			
+		}, config.secrets.accessToken, (err, data) => {
+
 			if (err) {
 				return callback(err);
 			}
-			
+
 			const checkins = data.checkins.items
 			.map(formatCheckinVenue)
 			.filter(checkin => checkin.date < lastDateIn2015);
-			
+
 			console.log(`got ${checkins.length} checkins. offset is ${offset}`);
-			
+
 			offset += limit;
-			
+
 			if (!checkins.length) {
 				isDone = true;
+
 				return callback();
 			}
-			
+
 			checkins.forEach(checkin => {
-				
+
 				const existingCheckin = checkins2015Map.get(checkin.id);
-				
+
 				if (existingCheckin) {
 					existingCheckin.times++;
 				}
-				
+
 				checkins2015Map.set(checkin.id, existingCheckin || checkin);
 			});
-			
+
 			callback();
 		});
-	}, () => !isDone, function (err) {
-	    
+	}, () => !isDone, (err) => {
+
 		if (err) {
 			return console.error(err);
 		}
-	    
+
 		const checkins2015Array = Array.from(checkins2015Map.values());
+
 		checkins2015Array.sort((a, b) => b.times - a.times);
-	    
-		fs.writeFile(checkinsWritePath, JSON.stringify(checkins2015Array, null, '\t'), function(err) {
+
+		fs.writeFile(checkinsWritePath, JSON.stringify(checkins2015Array, null, "\t"), (err) => {
 			console.log(err || "done writing");
 		});
 	});

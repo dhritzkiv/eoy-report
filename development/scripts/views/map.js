@@ -42,6 +42,7 @@ const getCheckinPointMaterial = () => {
 	context.closePath();
 
 	const pointTexture = new THREE.Texture(pointCanvas);
+
 	pointTexture.premultiplyAlpha = true;
 	pointTexture.needsUpdate = true;
 	pointTexture.magFilter = THREE.LinearFilter;
@@ -60,7 +61,7 @@ const getCheckinPointMaterial = () => {
 	pointMaterial.depthWrite = false;
 
 	return pointMaterial;
-}
+};
 
 const pointMaterial = getCheckinPointMaterial();
 
@@ -91,7 +92,7 @@ const removeRecursive = (parent) => parent.children
 
 const convertPointForProjection = (toProjection) => (point) => proj4(consts.PROJECTION_WGS84, toProjection, point);
 
-const filterActivitiesToBounds = ([[minx, miny], [maxx, maxy]]) => (activity) => {
+const filterActivitiesToBounds = ([ [minx, miny], [maxx, maxy] ]) => (activity) => {
 	let pointOrPoints = activity.points;
 
 	if (!pointOrPoints) {
@@ -109,7 +110,7 @@ module.exports = View.extend({
 		},
 		is_touch: {
 			type: "boolean",
-			default: () => (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch)
+			default: () => (("ontouchstart" in window) || window.DocumentTouch && document instanceof window.DocumentTouch)
 		},
 		data: {
 			type: "array"
@@ -164,7 +165,7 @@ module.exports = View.extend({
 			no: "#loading-holder"
 		},
 		progress: {
-			type: (el, val) => (el.style.width = (val * 100) + "%"),
+			type: (el, val) => (el.style.width = `${val * 100 }%`),
 			selector: "#loading-holder .progress"
 		}
 	},
@@ -195,6 +196,7 @@ module.exports = View.extend({
 
 		const scene = this.scene = new THREE.Scene();
 		const aspectRatio = canvas.clientWidth / canvas.clientHeight;
+
 		this.camera = new THREE.PerspectiveCamera(90, aspectRatio, consts.CAMERA_NEAR, 40000);
 
 		requestAnimationFrame(() => this.windowResize());
@@ -225,7 +227,7 @@ module.exports = View.extend({
 
 		return this;
 	},
-	canvasRender: function () {
+	canvasRender: function() {
 		this._rAF = requestAnimationFrame(() => this.canvasRender());
 
 		TWEEN.update();
@@ -502,8 +504,9 @@ module.exports = View.extend({
 		this.max_camera_z = camera.far - 1;
 
 		if (this.area) {
-			const [[x1, y1], [x2, y2]] = this.area.bounds.map(projectPointsFunc);
+			const [ [x1, y1], [x2, y2] ] = this.area.bounds.map(projectPointsFunc);
 			const size = Math.max(x2 - x1, y2 - y1);
+
 			this.max_camera_z = Math.min((size / 4) / camera.aspect, this.max_camera_z);
 		}
 	},
@@ -520,6 +523,7 @@ module.exports = View.extend({
 
 			if (!child.material) {
 				child.visible = visible;
+
 				return;
 			}
 
@@ -539,9 +543,9 @@ module.exports = View.extend({
 			const previousBlending = child.material.blending;
 			const previousTransparency = child.material.transparent;
 
-			var position = child.material;
-			var target = {opacity: endOpacity};
-			var tween = new TWEEN.Tween(position).to(target, duration);
+			const position = child.material;
+			const target = {opacity: endOpacity};
+			const tween = new TWEEN.Tween(position).to(target, duration);
 
 			child.transitionOpacityRAF = tween;
 
@@ -582,6 +586,7 @@ module.exports = View.extend({
 			.applyMatrix4(cameraMatrixWorldInverse);
 
 			const scale = ((v.z - cameraZPosition) / virtual_z);
+
 			sprite.scale.set(scale, scale, scale);
 		});
 
@@ -593,16 +598,17 @@ module.exports = View.extend({
 
 		const duration = 1800;
 		const endZ = camera.position.z;
+
 		camera.position.z = this.max_camera_z;
 		this.needsRender = true;
 
-		var position = camera.position;
+		const position = camera.position;
 
-		var target = {
+		const target = {
 			z: endZ
 		};
 
-		var tween = new TWEEN.Tween(position).to(target, duration);
+		const tween = new TWEEN.Tween(position).to(target, duration);
 
 		function doneTransition() {
 			camera.position.z = endZ;
@@ -656,7 +662,7 @@ module.exports = View.extend({
 			camera.position.set(centroid.x, centroid.y, cameraZPosition);
 		}
 
-		async.forEachOfSeries(area.features, function(feature, index, callback) {
+		async.forEachOfSeries(area.features, (feature, index, callback) => {
 
 			function addFeatureToScene() {
 				featuresAdded++;
@@ -667,6 +673,7 @@ module.exports = View.extend({
 				}
 
 				const mesh = feature.getMesh();
+
 				scene.add(mesh);
 
 				if (index === 0) {
@@ -683,7 +690,7 @@ module.exports = View.extend({
 				addFeatureToScene();
 			}
 
-		}, function() {
+		}, () => {
 			cameraToMeshGeometryCentroid(firstGeometry);
 			self.animateIntoArea();
 		});

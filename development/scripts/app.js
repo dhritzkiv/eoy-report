@@ -1,8 +1,8 @@
 "use strict";
 
-const app = require('ampersand-app');
+const app = require("ampersand-app");
 const View = require("ampersand-view");
-const ViewSwitcher = require('ampersand-view-switcher');
+const ViewSwitcher = require("ampersand-view-switcher");
 //const Raven = require("raven-js");
 const Router = require("./router");
 
@@ -25,12 +25,13 @@ const MainView = View.extend({
 		view.render();
 
 		const insertBeforeEl = insertBefore || this.pageContainer;
+
 		insertBeforeEl.parentNode.insertBefore(view.el, insertBeforeEl);
 	},
 	render: function() {
 		this.renderWithTemplate();
 
-		this.pageContainer = this.query('body');
+		this.pageContainer = this.query("body");
 
 		this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
 			show: () => {
@@ -53,7 +54,7 @@ const MainView = View.extend({
 });
 
 app.extend({
-	initialize: function () {
+	initialize: function() {
 
 		/*ga('create', "UA-47020641-4", {
 			'siteSpeedSampleRate': 50
@@ -69,10 +70,10 @@ app.extend({
 		view.render();
 
 		this.router = new Router();
-		this.router.on('newPage', view.pageSwitcher.set, view.pageSwitcher);
+		this.router.on("newPage", view.pageSwitcher.set, view.pageSwitcher);
 
-		this.router.on('navigation', function() {
-			const path = window.location.pathname + window.location.search + window.location.hash;
+		this.router.on("navigation", () => {
+			//const path = window.location.pathname + window.location.search + window.location.hash;
 
 			/*ga('set', 'page', path);
 			ga('send', 'pageview', {

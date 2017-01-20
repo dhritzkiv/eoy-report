@@ -11,6 +11,7 @@ const consts = require("../consts");
 
 function reduceGeometry(merged, current) {
 	merged.merge(current);
+
 	return merged;
 }
 
@@ -60,60 +61,61 @@ module.exports = Model.extend({
 				const material = new THREE.MeshBasicMaterial({
 					color: this.color
 				});
-				
+
 				material.depthWrite = false;
-				
+
 				return material;
 			}
 		}
 	},
 	convertPointsForProjection: function(projection) {
-		
+
 		function applyProjectionToPoint(point) {
 			return proj4(consts.PROJECTION_WGS84, projection, point);
 		}
-		
+
 		this.projected_points = this.points
 		.map(feature => {
 			feature.geometry.coordinates = feature.geometry.coordinates
 			.map(poly => {
-				
+
 				if (feature.geometry.type === "MultiPolygon") {
 					poly = poly.map(part => part.map(applyProjectionToPoint));
 				} else {
 					poly = poly.map(applyProjectionToPoint);
 				}
-				
+
 				return poly;
 			});
-			
+
 			return feature;
 		});
 	},
 	polyToShapeGeometry: function() {
-		
+
 		return this.projected_points
-		.map(feature => {
-			return feature.geometry.coordinates
+		.map(feature => feature.geometry.coordinates
 			.map(poly => {
-				
+
 				if (feature.geometry.type === "MultiPolygon") {
 					return polyToShapeGeometry(poly);
 				}
-				
+
 				const shape = new THREE.Shape();
+
 				poly.forEach(addPointsToPathOrShape(shape));
+
 				return new THREE.ShapeGeometry(shape);
-				
+
 			})
-			.reduce(reduceGeometry);
-		})
+			.reduce(reduceGeometry))
 		.reduce(reduceGeometry);
 	},
 	getMesh: function() {
 		console.time(this.name);
 		const geometry = this.polyToShapeGeometry();
 		const plane = new THREE.Mesh(geometry, this.material);
+
 		plane.name = this.name;
 		plane.renderOrder = this.renderOrder;
 		plane.position.z = this.z_position;
@@ -121,11 +123,12 @@ module.exports = Model.extend({
 		plane.userData = this.hide_at_z;
 		plane.visible = this.visible;
 		console.timeEnd(this.name);
+
 		return plane;
 	},
 	fetchGeoJSON: function() {
 		const self = this;
-		
+
 		this.fetch({
 			uri: this.geojson_uri,
 			always: function(err, res, body) {

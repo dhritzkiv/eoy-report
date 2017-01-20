@@ -68,14 +68,14 @@ class SvgTextLetters extends SvgShape {
 			size: opts.size || 16,
 			fill: opts.fill || "black",
 			family: "AvenirNextCondensed-Bold",
-			anchor: 'middle',
-			leading: '1em'
+			anchor: "middle",
+			leading: "1em"
 		});
 
 		if (opts.transform !== undefined) {
 			text.transform({
 				rotation: -44
-			})
+			});
 		}
 
 		//group.add(text);
@@ -286,7 +286,7 @@ module.exports = View.extend({
 		World.add(engine.world, [ppath.body, ppath2.body, rect.body, rect2.body, rect3.body, rect4.body]);
 
 		//requestAnimationFrame(() => {
-			text.makeBody();
+		text.makeBody();
 
 			/*const body = Bodies.rectangle(0, 0, 32, 54);
 
@@ -298,8 +298,8 @@ module.exports = View.extend({
 
 			Matter.Body.setPosition(textBody, {x: text.x, y: text.y});*/
 
-			Matter.Body.setStatic(text.body, true);
-			World.add(engine.world, [text.body]);
+		Matter.Body.setStatic(text.body, true);
+		World.add(engine.world, [text.body]);
 		//});
 
 		// run the engine
@@ -330,7 +330,7 @@ module.exports = View.extend({
 				showBounds: true,
 				//showBroadphase: true,
 				showPositions: true,
-				hasBounds: true,
+				hasBounds: true
 			}
 		});
 

@@ -4,16 +4,16 @@ const path = require("path");
 const fs = require("fs");
 const express = require("express");
 const packageInfo = require(path.join(process.cwd(), "package.json"));
-const publicFileDirectory = path.join(process.cwd(), 'public');
+const publicFileDirectory = path.join(process.cwd(), "public");
 const indexFileContents = fs.readFileSync(path.join(publicFileDirectory, "index.html"), "utf8");
 
 const config = (env => {
 	let configPath = path.join(process.cwd(), "config.json");
-	
+
 	if (env === "production") {
 		configPath = path.join(process.cwd(), "config-production.json");
 	}
-	
+
 	return require(configPath);
 })(process.env.NODE_ENV);
 
@@ -37,6 +37,6 @@ app
 app.listen(app.get("port"), () => {
 	console.log(new Date());
 	console.log((
-		`Server for ${app.get('title')} v.${app.get('version')} ${app.settings.env} running and listening at port ${app.get('port')}`
+		`Server for ${app.get("title")} v.${app.get("version")} ${app.settings.env} running and listening at port ${app.get("port")}`
 	));
 });

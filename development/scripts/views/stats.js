@@ -2,7 +2,7 @@
 
 const View = require("ampersand-view");
 const State = require("ampersand-state");
-const ViewSwitcher = require('ampersand-view-switcher');
+const ViewSwitcher = require("ampersand-view-switcher");
 
 const StatsCollection = require("../models/stats");
 const StatView = require("./stat");
@@ -81,9 +81,9 @@ const TypeView = View.extend({
 	},
 	render: function() {
 		this.renderWithTemplate(this);
-		
+
 		this.renderCollection(this.model.stats, StatView, this.query(".stats"));
-		
+
 		return this;
 	}
 });
@@ -124,23 +124,23 @@ module.exports = View.extend({
 	},
 	render: function() {
 		this.renderWithTemplate(this);
-		
-		this.pageContainer = this.query('main');
+
+		this.pageContainer = this.query("main");
 		this.pageSwitcher = new ViewSwitcher(this.pageContainer);
-		
+
 		this.listenToAndRun(this, "change:type", () => {
-			
+
 			this.model = new TypeModel(modelDatas[this.type]);
-			
+
 			const view = new TypeView({
 				model: this.model
 			});
-			
+
 			this.title = this.model.title;
-			
+
 			this.pageSwitcher.set(view);
 		});
-		
+
 		return this;
 	}
 });
