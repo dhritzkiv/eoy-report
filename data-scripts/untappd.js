@@ -60,6 +60,7 @@ const currentYearCheckins = checkins.filter(({created_at}) => startOfDayDate(cre
 
 const uniqueBeers = new Map();
 const uniqueBreweries = new Map();
+const tallyStyles = new Map();
 const tallyBeers = new Map();
 const tallyBreweries = new Map();
 const tallyCountries = new Map();
@@ -136,31 +137,36 @@ currentYearCheckins
 		uniqueBreweries.set(breweryId, breweryInUniqueMap);
 	}
 
-	const breweryCountInTallyMap = tallyBreweries.get(breweryInUniqueMap);
+	const breweryCountInTallyMap = tallyBreweries.get(breweryInUniqueMap) || 0;
 
-	tallyBreweries.set(breweryInUniqueMap, (breweryCountInTallyMap || 0) + 1);
+	tallyBreweries.set(breweryInUniqueMap, breweryCountInTallyMap + 1);
 
-	const countryCountInTallyMap = tallyCountries.get(checkin.brewery_country);
+	const countryCountInTallyMap = tallyCountries.get(checkin.brewery_country) || 0;
 
-	tallyCountries.set(checkin.brewery_country, (countryCountInTallyMap || 0) + 1);
+	tallyCountries.set(checkin.brewery_country, countryCountInTallyMap + 1);
 
 	const cityKey = [checkin.brewery_city, checkin.brewery_state].filter(e => e).join(" ");
-	const cityCountInTallyMap = tallyCities.get(cityKey);
+	const cityCountInTallyMap = tallyCities.get(cityKey) || 0;
 
-	tallyCities.set(cityKey, (cityCountInTallyMap || 0) + 1);
+	tallyCities.set(cityKey, cityCountInTallyMap + 1);
 
 	if (typeof checkin.venue_name === "string") {
-		const venueCountInTallyMap = tallyVenues.get(checkin.venue_name);
+		const venueCountInTallyMap = tallyVenues.get(checkin.venue_name) || 0;
 
-		tallyVenues.set(checkin.venue_name, (venueCountInTallyMap || 0) + 1);
+		tallyVenues.set(checkin.venue_name, venueCountInTallyMap + 1);
 	}
+
+	const styleCountInTallyMap = tallyStyles.get(checkin.beer_type) || 0;
+
+	tallyStyles.set(checkin.beer_type, styleCountInTallyMap + 1);
 });
 
 const topTenBeers = topTenFromTallyMap(tallyBeers);
 const topTenBreweries = topTenFromTallyMap(tallyBreweries);
 const topTenCountries = topTenFromTallyMap(tallyCountries);
 const topTenCities = topTenFromTallyMap(tallyCities);
-const topTenVenues = topTenFromTallyMap(tallyVenues)
+const topTenVenues = topTenFromTallyMap(tallyVenues);
+const topTenStyles = topTenFromTallyMap(tallyStyles);
 
 const canadianBreweries = [...uniqueBreweries.values()]
 .filter(({brewery_country}) => brewery_country.toLowerCase() === "canada");
@@ -202,6 +208,10 @@ topTenCountries.forEach(([country_name, count]) => consoleOutListRow(country_nam
 console.log("\ntop ten cities");
 topTenCities.forEach(([key, count]) => consoleOutListRow(key, count, topTenCities));
 
-//top ten countries
+//top ten venues
 console.log("\ntop ten venues");
 topTenVenues.forEach(([key, count]) => consoleOutListRow(key, count, topTenVenues));
+
+//top ten styles
+console.log("\ntop ten styles");
+topTenStyles.forEach(([key, count]) => consoleOutListRow(key, count, topTenStyles));
