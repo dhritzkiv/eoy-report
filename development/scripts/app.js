@@ -12,9 +12,7 @@ const Router = require("./router");
 }).install();*/
 
 const MainView = View.extend({
-	template: `
-		<body></body>
-	`,
+	template: `<body></body>`,
 	events: {
 		"click a[href]": "linkClick"
 	},
@@ -34,8 +32,8 @@ const MainView = View.extend({
 
 		this.pageContainer = this.query('body');
 
-		this.modeSwitcher = new ViewSwitcher(this.pageContainer, {
-			show: function() {
+		this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
+			show: () => {
 				window.scrollTo(0, 0);
 			}
 		});
@@ -43,13 +41,13 @@ const MainView = View.extend({
 		return this;
 	},
 	linkClick: function(event) {
-		const target = event.delegateTarget;
+		const {delegateTarget: {host, pathname, search}} = event;
 
-		if (target.host !== window.location.host) {
+		if (host !== window.location.host) {
 			return true;
 		}
 
-		app.router.navigate(target.pathname + target.search);
+		app.router.navigate(`${pathname}${search}`);
 		event.preventDefault();
 	}
 });
@@ -71,8 +69,7 @@ app.extend({
 		view.render();
 
 		this.router = new Router();
-		//this.router.on('newMode', view.setMode, view);
-		this.router.on('newOverlay', view.setOverlay, view);
+		this.router.on('newPage', view.pageSwitcher.set, view.pageSwitcher);
 
 		this.router.on('navigation', function() {
 			const path = window.location.pathname + window.location.search + window.location.hash;

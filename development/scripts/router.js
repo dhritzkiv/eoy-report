@@ -8,6 +8,9 @@ const StatsPage = require("./views/stats");
 const MapsPage = require("./views/maps");
 const MapsLegendPage = require("./views/maps-legend");
 
+const CyclingStatsPage = require("./views/stats_cycling");
+const BeerStatsPage = require("./views/stats_beer");
+
 const DEFAULT_TITLE = "Daniel's Twenty Fifteen";
 
 const Router = AmpersandRouter.extend({
@@ -16,21 +19,26 @@ const Router = AmpersandRouter.extend({
 	},
 	routes: {
 		"": "start",
-		/*"maps": "maps",
-		"maps/:area_name": "maps",
-		"maps/:area_name/legend": "mapsLegend",
+		"cycling": "cycling",
+		"walking": "walking",
+		"audio-video": "av",
+		"beer": "beer",
+		//"maps": "maps",
+		//"maps/:area_name": "maps",
+		/*"maps/:area_name/legend": "mapsLegend",
 		"stats": "stats",
 		"stats/:type": "stats"*/
 	},
 	currentModeView: null,
 	start: function() {
-		this.trigger("newOverlay", new StartPage());
-
-		document.title = DEFAULT_TITLE;
-
+		this.trigger("newPage", new BeerStatsPage());
 		this.trigger("navigation");
 	},
-	/*_mapsBase: function(area_name) {
+	cycling() {
+		this.trigger("newPage", new CyclingStatsPage());
+		this.trigger("navigation");
+	},
+	_mapsBase: function(area_name) {
 
 		let currentModeView = this.currentModeView;
 
@@ -41,10 +49,11 @@ const Router = AmpersandRouter.extend({
 				area_name: area_name
 			});
 
-			this.trigger("newMode", currentModeView);
+			//this.trigger("newMode", currentModeView);
+			this.trigger("newPage", currentModeView);
 		}
 
-		document.title = `Map of ${currentModeView.area.name} - ${DEFAULT_TITLE}`;
+		//document.title = `Map of ${currentModeView.area.name} - ${DEFAULT_TITLE}`;
 		app.view.mode = "maps";
 
 		return currentModeView;
@@ -65,7 +74,7 @@ const Router = AmpersandRouter.extend({
 
 		this.trigger("navigation");
 	},
-	mapsLegend: function(area_name) {
+	/*mapsLegend: function(area_name) {
 
 		const self = this;
 		const currentModeView = this._mapsBase(area_name);
@@ -110,6 +119,12 @@ const Router = AmpersandRouter.extend({
 
 		this.trigger("navigation");
 	}*/
+	beer() {
+		const view = new BeerStatsPage({});
+
+		this.trigger("newPage", view);
+		this.trigger("navigation");
+	}
 });
 
 module.exports = Router;

@@ -30,7 +30,7 @@ consts.COLOR_AIRPORT_FEATURES = "#dbc5a7";
 consts.COLOR_BUILDINGS = "#dbc5a7";
 consts.COLOR_CHECKIN_POINT = "#353a3d";
 consts.COLOR_LINES_WALKS = "#44c0c2";
-consts.COLOR_LINES_RIDES = "#d1368e";
+consts.COLOR_LINES_RIDES = "#0f9e5b";//"#d1368e";
 
 consts.PROJECTION_WGS84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
 consts.PROJECTION_MTM10 = "+proj=tmerc +lat_0=0 +lon_0=-79.5 +k=0.9999 +x_0=304800 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";

@@ -21,7 +21,10 @@ $colorMisc: #71616a;
 $ffSans: "futura-pt", "Futura PT", Futura, sans-serif;
 $ffSerif: "adobe-caslon-pro", "Adobe Caslon Pro", "Baskerville", serif;
 
-$gutter: 15px;
+$ffHeading1: "Knockout-HTF33-JuniorHeviwt";
+$ffHeading2: "Knockout-HTF52-Cruiserweight";
+
+$gutter: 16px;
 
 $ipadPortrait: 768px;
 $ipadLandscape: 1024px;
@@ -39,11 +42,16 @@ $easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
 * {
 	z-index: 1;
+	box-sizing: border-box;
 }
 
 ::selection {
 	background-color: $colorDull1;
 	color: $colorBackground;
+}
+
+html {
+	font-size: calc(112.5% + 4 * (100vw - #{$ipadPortrait}) / 400);
 }
 
 :root {
@@ -67,7 +75,7 @@ body {
 }
 
 p {
-	font-size: 15px;
+	font-size: 1em;
 	line-height: 21px;
 	font-family: $ffSerif;
 	margin: ($gutter / 2) 0;
@@ -78,8 +86,9 @@ body > main {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 main > svg {
@@ -87,4 +96,127 @@ main > svg {
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+section {
+	min-height: 100vh;
+	color: #223bb9;
+
+	h3 {
+		color: #e36e5f;
+	}
+}
+
+.cycling {
+	background-color: #f7d6cd;
+	color: #0f9e5b;
+
+	h3 {
+		color: #e36e5f;
+	}
+}
+
+.stats {
+
+	.stat {
+		padding: $gutter / 2 $gutter / 4;
+	}
+
+	h3 {
+		font-size: 1.1em;
+		font-family: $ffHeading1;
+		letter-spacing: 0.1em;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 2.5em;
+		font-family: $ffHeading2;
+		letter-spacing: 0.05em;
+		margin: 0;
+	}
+
+	.graph {
+		background-color: red;
+
+		&.full {
+			width: 100%;
+		}
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: $gutter;
+
+		&.full {
+			width: 100%;
+		}
+
+		li {
+			font-size: 1.5em;
+		}
+	}
+
+	.stats-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
+		max-width: $ipadLandscape;
+		margin: 0 auto;
+
+		& > * {
+			width: 33%;
+		}
+	}
+}
+
+.map-holder {
+	$ratio: 1.6;
+	position: relative;
+	width: 100%;
+	height: calc(100vh / #{$ratio});
+	max-width: $ipadLandscape;
+	padding: 0 $gutter;
+	margin: $gutter auto;
+	box-sizing: border-box;
+	//background-color: rgba(white, 0.065);
+	//overflow: hidden;
+
+	.divider {
+		$dividerHeight: $gutter * 2;
+		position: relative;
+		background-image: url("/img/map-divider-squiggle.svg");
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: $dividerHeight;
+		margin-bottom: -$dividerHeight / 2;
+		z-index: 10;
+		filter: hue-rotate(2deg) brightness(3) saturate(22%);
+
+		&:last-child {
+			margin-bottom: 0;
+			margin-top: -$dividerHeight / 2;
+		}
+	}
+
+	.map-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	canvas {
+		position: relative;
+		z-index: 5;
+		//position: absolute;
+		//top: 0;
+		//left: 0;
+	}
 }
