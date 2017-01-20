@@ -37,10 +37,10 @@ module.exports = {
 				name: "Lake Ontario",
 				geojson_uri: "/data/lake-ontario-coastline.geojson"
 			}),
-			new LakeMapFeature({
+			/*new LakeMapFeature({
 				name: "Lake Simcoe",
 				geojson_uri: "/data/lake-simcoe-coastline.geojson"
-			}),
+			}),*/
 			new MapFeature({
 				name: "Billy Bishop Grounds",
 				geojson_uri: "/data/ytz-airport-grounds.geojson",
@@ -65,22 +65,22 @@ module.exports = {
 				color: consts.COLOR_AIRPORT_FEATURES,
 				renderOrder: 0.01
 			}),
-			new MapFeature({
+			/*new MapFeature({
 				name: "Toronto Parks",
 				geojson_uri: "/data/toronto-parks.geojson",
 				color: consts.COLOR_PARKS,
 				renderOrder: 0.02
-			}),
-			new RoadMapFeature({
+			}),*/
+			/*new RoadMapFeature({
 				name: "TTC Subways",
 				geojson_uri: "/data/toronto-subway.geojson",
 				renderOrder: 0.025
-			}),
-			new RoadMapFeature({
+			}),*/
+			/*new RoadMapFeature({
 				name: "TTC RT",
 				geojson_uri: "/data/toronto-rt.geojson",
 				renderOrder: 0.025
-			}),
+			}),*/
 			new LabelMapFeature({
 				name: "Toronto",
 				points: [[-79.4, 43.7]],
@@ -165,12 +165,6 @@ module.exports = {
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
-			/*new LabelMapFeature({
-				name: "Aurora",
-				points: [[-79.466667, 44]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_SMALL
-			}),*/
 			new LabelMapFeature({
 				name: "Broke Wrist Here",
 				points: [[-79.545822, 44.112856]],
@@ -195,275 +189,6 @@ module.exports = {
 			new LabelMapFeature({
 				name: "YYZ",
 				points: [[-79.630556, 43.676667]],
-				z_position: 20,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
-			})
-		]
-	},
-	lv: {
-		name: "Las Vegas",
-		text: (
-			`Travelled to Vegas in January for CES with Matter and Form.
-			
-			My opinion is that unless you enjoy gaudery, gambling with the quality of your food, or riding escalators for days, do not come here. It is not a good place.
-			
-			At least I got <a href="http://vsco.co/dhritzkiv/journal/las-vegas" target="_blank">a photo series</a> out of it.`
-		),
-		sources: [
-			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
-			"Moves",
-			"Foursquare"
-		],
-		projection: consts.PROJECTION_NEVADA_WEST,
-		bounds: [
-			[-115.25, 35.5],
-			[-114.75, 36.5]
-		],
-		features: [
-			new MapFeature({
-				geojson_uri: "/data/lv-box.geojson",
-				renderOrder: -0.1,
-				visible: false
-			}),
-			new MapFeature({
-				geojson_uri: "/data/lv-commercial.geojson",
-				color: consts.COLOR_BUILDINGS
-			}),
-			new MapFeature({
-				geojson_uri: "/data/lv-parks.geojson",
-				color: consts.COLOR_PARKS,
-				renderOrder: 0
-			}),
-			new MapFeature({
-				geojson_uri: "/data/lv-airport-features.geojson",
-				color: consts.COLOR_AIRPORT_FEATURES,
-				renderOrder: 0.01
-			}),
-			new MapFeature({
-				geojson_uri: "/data/lv-airport-grounds.geojson",
-				color: consts.COLOR_AIRPORT_GROUNDS,
-				renderOrder: 0.001
-			}),
-			/*new RoadMapFeature({
-				name: "Roads",
-				geojson_uri: "/data/lv-roads.geojson"
-			}),*/
-			new LabelMapFeature({
-				name: "Las Vegas",
-				points: [[-115.136389, 36.175]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_METRO
-			}),
-			new LabelMapFeature({
-				name: "Las Vegas Strip",
-				points: [[-115.172222, 36.120833]],
-				z_position: 200,
-				size: consts.LABEL_SIZE_SMALL
-			}),
-			new LabelMapFeature({
-				name: "LAS",
-				points: [[-115.152222, 36.08]],
-				z_position: 20,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 8000
-			}),
-			new LabelMapFeature({
-				name: "Sands Expo",
-				points: [[-115.165833, 36.121667]],
-				z_position: 50,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 2000
-			}),
-			new LabelMapFeature({
-				name: "The Mirage",
-				points: [[-115.175278, 36.121111]],
-				z_position: 50,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 2000
-			})
-		]
-	},
-	nyc: {
-		name: "New York City",
-		text: (
-			`I had a chance to visit New York City on two short trips in 2015: once in early-April, and once in mid-May. Both times I managed a decent amount of walking and cycling, so much so that, so far, I consider Manhattan as perhaps the most accessible area of the world I've stayed in. The only thing I feel it sorely lacks is green space.
-			`
-		),
-		sources: [
-			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
-			"Strava",
-			"Moves",
-			"Foursquare",
-			["Center for Urban Research at the Graduate Center/CUNY", "http://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Center-for-Urban-Research/CUNY-Mapping-Service/Projects/NYC-Subway-GIS-update-Hudson-Yards,-7-Line-Extension"]
-		],
-		projection: consts.PROJECTION_NEW_YORK_ISLAND,
-		bounds: [
-			[-74.25, 40.5],
-			[-73.25, 41]
-		],
-		features: [
-			new MapFeature({
-				geojson_uri: "/data/new-york-city-admin.geojson",
-				renderOrder: -0.02,
-				visible: false
-			}),
-			new LakeMapFeature({
-				name: "New York Coastline",
-				geojson_uri: "/data/new-york-coastline.geojson"
-			}),
-			new MapFeature({
-				name: "New York Airport Features",
-				geojson_uri: "/data/newark-airport-grounds.geojson",
-				color: consts.COLOR_AIRPORT_GROUNDS
-			}),
-			new MapFeature({
-				name: "New York Airport Features",
-				geojson_uri: "/data/newark-airport-features.geojson",
-				color: consts.COLOR_AIRPORT_FEATURES,
-				renderOrder: 0.01
-			}),
-			new MapFeature({
-				name: "New York Parks",
-				geojson_uri: "/data/new-york-parks.geojson",
-				color: consts.COLOR_PARKS,
-				renderOrder: 0.015
-			}),
-			new RoadMapFeature({
-				name: "MTA",
-				geojson_uri: "/data/new-york-subway.geojson",
-				renderOrder: 0.02
-			}),
-			new LabelMapFeature({
-				name: "Manhattan",
-				points: [[-73.959722, 40.790278]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_METRO
-			}),
-			new LabelMapFeature({
-				name: "Brooklyn",
-				points: [[-73.990278, 40.692778]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_METRO
-			}),
-			new LabelMapFeature({
-				name: "Newark",
-				points: [[-74.172367, 40.735657]],
-				z_position: 100,
-				size: consts.LABEL_SIZE_SMALL
-			}),
-			new LabelMapFeature({
-				name: "EWR",
-				points: [[-74.168611, 40.6925]],
-				z_position: 20,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
-			})
-			/*new LabelMapFeature({
-				name: "WTC",
-				position: new THREE.Vector3(-74.0125, 40.711667, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "High Line",
-				position: new THREE.Vector3(-74.005, 40.748333, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "UN Building",
-				position: new THREE.Vector3(-73.968056, 40.749444, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "Flatiron Building",
-				position: new THREE.Vector3(-73.989722, 40.741111, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "Williamsburg",
-				position: new THREE.Vector3(-73.95333, 40.713333, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "Chinatown",
-				position: new THREE.Vector3(-73.997222, 40.714722, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			}),
-			new LabelMapFeature({
-				name: "SoHo",
-				position: new THREE.Vector3(-74.000833, 40.723056, 0.001),
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 0.05
-			})*/
-		]
-	},
-	pdx: {
-		name: "Portland",
-		text: `I visited Portland for XOXO Festival. At XOXO, I met lots of new people (including what felt like a majority from Toronto) and got to experience a myriad of different projects and ideas.
-		
-		Portland is a super cool city. Lots to see, do, and eat. My only regret was not having access to a bike to get around quicker and see more of the city (how does Portland not have a bike share??!).`,
-		sources: [
-			["Open Street Maps via Mapzen", "https://mapzen.com/data/metro-extracts"],
-			"Moves",
-			"Foursquare",
-			["Oregon Geospatial Enterprise Office", "http://www.oregon.gov/DAS/CIO/GEO/pages/alphalist.aspx"]
-		],
-		projection: consts.PROJECTION_OREGON_NORTH,
-		bounds: [
-			[-123, 45],
-			[-122, 46]
-		],
-		features: [
-			new MapFeature({
-				geojson_uri: "/data/portland-boundaries.geojson",
-				renderOrder: -0.02,
-				visible: false
-			}),
-			new LakeMapFeature({
-				geojson_uri: "/data/portland-river-coasts.geojson"
-			}),
-			new MapFeature({
-				geojson_uri: "/data/portland-airport-grounds.geojson",
-				color: consts.COLOR_AIRPORT_GROUNDS
-			}),
-			new MapFeature({
-				geojson_uri: "/data/portland-airport-features.geojson",
-				color: consts.COLOR_AIRPORT_FEATURES,
-				renderOrder: 0.01
-			}),
-			new MapFeature({
-				geojson_uri: "/data/portland-parks.geojson",
-				color: consts.COLOR_PARKS,
-				renderOrder: 0.01
-			}),
-			new RoadMapFeature({
-				name: "Trimet",
-				geojson_uri: "/data/portland-bus-routes.geojson",
-				renderOrder: 0.02,
-				hide_at_z: 6500
-			}),
-			new LabelMapFeature({
-				name: "Portland",
-				points: [[-122.681944, 45.52]],
-				z_position: 500,
-				size: consts.LABEL_SIZE_METRO
-			}),
-			new LabelMapFeature({
-				name: "PDX",
-				points: [[-122.5975, 45.588611]],
-				z_position: 20,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
-			}),
-			new LabelMapFeature({
-				name: "XOXO",
-				points: [[-122.652, 45.518972]],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
 				hide_at_z: 6500
