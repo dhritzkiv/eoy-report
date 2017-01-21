@@ -14,9 +14,17 @@ const consts = require("../consts");
 
 const performance = window.performance || Date;
 
+
+const TARGET_FPS = 60;
+const TIMESTEP = 1000 / TARGET_FPS;
+const MAX_UPDATES_PER_FRAME = 4000 / TIMESTEP;//4 seconds worth of updates
+const FRICTION_ON_MOUSE_UP = 0.89;
+const ACCELERATION_TO_VELOCITY_PER_TIMESTEP = 1.5 / TIMESTEP;//~0.09 * 16 (timestep)
+const ACCELERATION_CAP_MIN = 0.15;
+
 const DECELERATION_RATE = 0.91;
 const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) / DECELERATION_RATE;
-const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
+//const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
 const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAccelerationY"];
 
 const getCheckinPointMaterial = () => {
@@ -179,6 +187,8 @@ module.exports = View.extend({
 	translationAccelerationY: 0,
 	touchesCount: 0,
 	lastInteractionTime: 0,
+	frameDeltaTime: 0,
+	lastFrameTimestamp: 0,
 	_rAF: null,
 	render: function() {
 		this.renderWithTemplate(this);
@@ -221,14 +231,14 @@ module.exports = View.extend({
 
 		this.setUpArea(this.area);
 
-		this.canvasRender();
+		this.canvasRender(performance.now());
 
 		this.once("remove", () => cancelAnimationFrame(this._rAF));
 
 		return this;
 	},
-	canvasRender: function() {
-		this._rAF = requestAnimationFrame(() => this.canvasRender());
+	canvasRender: function(timestamp) {
+		this._rAF = requestAnimationFrame(() => this.canvasRender(performance.now()));
 
 		TWEEN.update();
 
@@ -237,42 +247,71 @@ module.exports = View.extend({
 		}
 
 		const view = this;
-		const camera = this.camera;
+		const {camera} = this;
 
+		this.frameDeltaTime += timestamp - this.lastFrameTimestamp;
+		this.lastFrameTimestamp = timestamp;
+
+		if (!this.needsRender) {
+			//if we're not rendering this frame,
+			// nil the accumulated framedelta,
+			// as we're not running behind schedule.
+			this.frameDeltaTime = TIMESTEP;
+
+			//arguably, this `needsRender` check could be done after
+			// the "physics" simulation while loop/ before any of the actual
+			// actual drawing calls happen.
+			return;
+		}
+
+		let numUpdateSteps = 0;
 		let xTranslationUnits;
 		let yTranslationUnits;
 
-		if (!this.mouseDown || !view.touchesCount)	{
-			xTranslationUnits = this.translationAccelerationX;
-			yTranslationUnits = this.translationAccelerationY;
-		} else {
-			xTranslationUnits = this.translationVelocityX;
-			yTranslationUnits = this.translationVelocityY;
-		}
+		while (this.frameDeltaTime >= TIMESTEP) {
 
-		const distanceDampening = 100 * (0.75 / camera.position.z);
-
-		xTranslationUnits /= distanceDampening;
-		yTranslationUnits /= distanceDampening;
-		xTranslationUnits /= 4;
-		yTranslationUnits /= 4;
-
-		camera.position.x += xTranslationUnits;
-		camera.position.y += yTranslationUnits;
-
-		view.translationVelocityX = 0;
-		view.translationVelocityY = 0;
-
-		ACCELERATION_PROPERTIES.forEach(prop => {
-
-			//Slow the spinning down every frame
-			view[prop] *= DECELERATION_RATE;
-
-			//make sure we're not spinning forever
-			if (Math.abs(view[prop]) < ACCELERATION_MIN_CAP) {
-				view[prop] = 0;
+			if (!this.mouseDown || !view.touchesCount)	{
+				xTranslationUnits = this.translationAccelerationX;
+				yTranslationUnits = this.translationAccelerationY;
+			} else {
+				xTranslationUnits = this.translationVelocityX;
+				yTranslationUnits = this.translationVelocityY;
 			}
-		});
+
+			const distanceDampening = 100 / (0.75 * camera.position.z);
+
+			xTranslationUnits /= distanceDampening;
+			yTranslationUnits /= distanceDampening;
+
+			xTranslationUnits *= 1;
+			yTranslationUnits *= 1;
+
+			camera.position.x += xTranslationUnits;
+			camera.position.y += yTranslationUnits;
+
+			view.translationVelocityX = 0;
+			view.translationVelocityY = 0;
+
+			ACCELERATION_PROPERTIES.forEach(prop => {
+
+				//Slow the spinning down every frame
+				view[prop] *= FRICTION_ON_MOUSE_UP;
+
+				//make sure we're not spinning forever
+				if (Math.abs(view[prop]) < ACCELERATION_CAP_MIN) {
+					view[prop] = 0;
+				}
+			});
+
+			this.frameDeltaTime -= TIMESTEP;
+			numUpdateSteps++;
+
+			if (numUpdateSteps >= MAX_UPDATES_PER_FRAME) {
+				this.frameDeltaTime = TIMESTEP;
+
+				break;
+			}
+		}
 
 		view.needsRender = ACCELERATION_PROPERTIES.some(prop => Boolean(view[prop]));
 
@@ -346,8 +385,8 @@ module.exports = View.extend({
 		this.translationVelocityX = -changeX; //negative left
 		this.translationVelocityY = changeY; //negative up
 
-		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
-		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
+		this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
+		this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
 
 		this.lastInteractionTime = Date.now();
 		this.needsRender = true;
@@ -405,8 +444,8 @@ module.exports = View.extend({
 			this.translationVelocityX = -changeX; //negative left
 			this.translationVelocityY = changeY; //negative up
 
-			this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY;
-			this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY;
+			this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
+			this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
 
 		} else if (touchesCount === 2) {
 
