@@ -629,6 +629,15 @@ module.exports = View.extend({
 			sprite.scale.set(scale, scale, scale);
 		});
 
+		const minCameraZ = consts.CAMERA_NEAR * 2;
+
+		const maxWidth = 512;
+		const minWidth = 16;
+		const alpha = (camera.position.z - minCameraZ) / (this.camera.far - minCameraZ);
+		const lineWidth = ((alpha * ((maxWidth - minWidth) * alpha))) + minWidth;
+
+		rideLineMaterial.uniforms.lineWidth.value = lineWidth;
+
 		this.needsRender = true;
 	},
 	animateIntoArea: function() {
