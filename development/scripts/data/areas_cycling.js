@@ -76,32 +76,14 @@ module.exports = {
 				size: consts.LABEL_SIZE_METRO
 			}),
 			new LabelMapFeature({
-				name: "Hamilton",
-				points: [ [-79.866091, 43.250021] ],
-				z_position: 500,
-				size: consts.LABEL_SIZE_MEDIUM
-			}),
-			new LabelMapFeature({
 				name: "Guelph",
 				points: [ [-80.248167, 43.544805] ],
-				z_position: 500,
-				size: consts.LABEL_SIZE_MEDIUM
-			}),
-			new LabelMapFeature({
-				name: "Oakville",
-				points: [ [-79.687666, 43.467517] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "Mississauga",
 				points: [ [-79.65, 43.6] ],
-				z_position: 500,
-				size: consts.LABEL_SIZE_SMALL
-			}),
-			new LabelMapFeature({
-				name: "Oro-Medonte",
-				points: [ [-79.523333, 44.5] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
@@ -118,43 +100,36 @@ module.exports = {
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
-				name: "King",
-				points: [ [-79.6044, 44.0463] ],
-				z_position: 500,
-				size: consts.LABEL_SIZE_SMALL
-			}),
-			new LabelMapFeature({
 				name: "Pickering",
 				points: [ [-79.089, 43.8354] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
-				name: "Newmarket",
-				points: [ [-79.466667, 44.05] ],
+				name: "Oshawa",
+				points: [ [-78.885556, 43.870556] ],
 				z_position: 500,
 				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
-				name: "WayHome",
-				points: [ [-79.520159, 44.479942] ],
-				z_position: 20,
-				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
+				name: "Bowmanville",
+				points: [ [-78.6875, 43.911389] ],
+				z_position: 501,
+				size: consts.LABEL_SIZE_SMALL
 			}),
 			new LabelMapFeature({
 				name: "YTZ",
 				points: [ [-79.396111, 43.6275] ],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
+				hide_at_z: 4000
 			}),
 			new LabelMapFeature({
 				name: "YYZ",
 				points: [ [-79.630556, 43.676667] ],
 				z_position: 20,
 				size: consts.LABEL_SIZE_NANO,
-				hide_at_z: 6500
+				hide_at_z: 4000
 			})
 		]
 	}
