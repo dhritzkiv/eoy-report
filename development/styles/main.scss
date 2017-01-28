@@ -137,7 +137,15 @@ section.cycling {
 
 	.tip {
 		fill: $colorText;
-		text-shadow: -2px -2px 0px $colorBackground, 2px 2px 0px $colorBackground, -2px 2px 0px $colorBackground, 2px -2px 0px $colorBackground;
+		text-shadow:
+			-1px -1px 1px $colorBackground,
+			1px 1px 1px $colorBackground,
+			-1px 1px 1px $colorBackground,
+			1px -1px 1px $colorBackground,
+			-2px -2px 0px $colorBackground,
+			2px 2px 0px $colorBackground,
+			-2px 2px 0px $colorBackground,
+			2px -2px 0px $colorBackground;
 		z-index: 10;
 	}
 }
@@ -200,19 +208,18 @@ section.cycling {
 			margin: $gutter auto;
 		}
 
+		g rect.hover-bar {
+			fill: transparent;
+		}
+
 		.tip {
 			font-size: 0.75em;
 			text-anchor: middle;
-			opacity: 0;
 			pointer-events: none;
 
 			text {
 				text-anchor: middle;
 			}
-		}
-
-		.text-bar:hover .tip {
-			opacity: 1;
 		}
 	}
 
@@ -239,12 +246,17 @@ section.cycling {
 		align-items: flex-start;
 		flex-wrap: wrap;
 		width: 100%;
-		max-width: $ipadLandscape;
+		max-width: $ipadLandscape + ($gutter * 2);
+		padding: 0 $gutter;
 		margin: 0 auto;
 
 		& > *.stat {
 			flex: 0 1 auto;
 			width: 33%;
+
+			@media screen and (max-width: 414px) {
+				width: 50%;
+			}
 		}
 	}
 }
