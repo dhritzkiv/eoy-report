@@ -29,7 +29,7 @@ module.exports = MapFeature.extend({
 
 		console.time(this.name);
 
-		const fontFamily = `"futura-pt", "Futura PT", Futura, sans-serif`;
+		const fontFamily = `Knockout-HTF52-Cruiserweight`;//`"futura-pt", "Futura PT", Futura, sans-serif`;
 
 		let labelText = this.name;
 		const point = this.projected_points[0];
@@ -48,8 +48,8 @@ module.exports = MapFeature.extend({
 
 		context.textAlign = "center";
 		context.textBaseline = "middle";
-		const fontSize = canvas.width / 8 * size;
-		const fontWeight = size > 0.75 ? 700 : 400;
+		const fontSize = dimension / 4 * size;
+		const fontWeight = 700;
 
 		context.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
 
