@@ -103,6 +103,28 @@ module.exports = View.extend({
 		let width = parentEl.clientWidth - margin.left - margin.right;
 		let barWidth = width / data.length;
 		let barWidthWithSpace = Math.min(barWidth - spaceBetween, 9);
+		let xOffset = (barWidth - barWidthWithSpace) / 2;
+
+		const visibleBarY = (d) => {
+			const v = y(d);
+			const h = height - v;
+
+			if (h < barWidthWithSpace) {
+				return height - barWidthWithSpace;
+			}
+
+			return v;
+		};
+
+		const visibleBarHeight = (d) => {
+			const h = height - y(d);
+
+			if (d === 0) {
+				return h
+			}
+
+			return Math.max(h, barWidthWithSpace)
+		};
 
 		const y = d3.scaleLinear().range([height, 0]);
 
@@ -117,9 +139,7 @@ module.exports = View.extend({
 		.append("g")
 		.attr("class", "bar");
 
-		const barText = svgG.selectAll(".text-bar")
-		.data(data)
-		.enter()
+		const barText = svgG
 		.append("g")
 		.attr("class", "text-bar");
 
@@ -127,18 +147,42 @@ module.exports = View.extend({
 		.append("g")
 		.attr("class", "tip");
 
-		const text = tip
-		.append("text")
-		.text((d) => (d / 1000).toFixed(2));
+		const text = tip.append("text");
 
+		const hoverBar = bar.append("rect").attr("class", "hover-bar");
 		const visibleBar = bar.append("rect");
-		const hoverBar = barText.append("rect");
+
+		hoverBar
+		.attr("height", height)
+		.attr("width", barWidth);
+
+		bar
+		.on("mouseover", (d, i) => {
+			const transitionDuration = 150;
+			const easingFunction = d3.easeSinOut;
+
+			barText
+			.transition()
+			.ease(easingFunction)
+		    .duration(transitionDuration)
+		    .attr("transform", () => `translate(${i * barWidth}, 0)`);
+
+		    const translateY = -(margin.top / 2) + visibleBarY(d);
+
+			tip
+			.transition()
+			.ease(easingFunction)
+		    .duration(transitionDuration)
+		    .attr("transform", `translate(${xOffset}, ${translateY})`);
+
+			text.text((d / 1000).toFixed(2));
+		});
 
 		const resize = () => {
 			width = parentEl.clientWidth - margin.left - margin.right;
 			barWidth = width / data.length;
 			barWidthWithSpace = Math.min(barWidth - spaceBetween, 9);
-			const xOffset = (barWidth - barWidthWithSpace) / 2;
+			xOffset = (barWidth - barWidthWithSpace) / 2;
 
 			svg
 			.attr("width", width + margin.left + margin.right)
@@ -147,28 +191,7 @@ module.exports = View.extend({
 			svgG.attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 			bar.attr("transform", (d, i) => `translate(${i * barWidth}, 0)`);
-			barText.attr("transform", (d, i) => `translate(${i * barWidth}, 0)`)
-
-			const visibleBarY = (d) => {
-				const v = y(d);
-				const h = height - v;
-
-				if (h < barWidthWithSpace) {
-					return height - barWidthWithSpace;
-				}
-
-				return v;
-			};
-
-			const visibleBarHeight = (d) => {
-				const h = height - y(d);
-
-				if (d === 0) {
-					return h
-				}
-
-				return Math.max(h, barWidthWithSpace)
-			};
+			barText.attr("transform", (d, i) => `translate(${i * barWidth}, 0)`);
 
 			visibleBar
 			.attr("y", height)
@@ -187,12 +210,6 @@ module.exports = View.extend({
 			.attr("height", visibleBarHeight);
 
 			tip.attr("transform", `translate(${xOffset}, -${margin.top / 2})`);
-
-			hoverBar
-			.attr("height", height)
-			.attr("width", barWidth)
-
-			text.attr("y", visibleBarY)
 		};
 
 		resize();
