@@ -1,8 +1,7 @@
 "use strict";
 
-const View = require("ampersand-view");
-const d3 = require("d3");
-d3.tip = require("d3-tip");
+const StatsView = require("./stats");
+const xhr = require("xhr");
 
 const MapView = require("./map");
 const MapAreaModel = require("../models/map-area");
@@ -10,9 +9,7 @@ const MapAreaModel = require("../models/map-area");
 const areas = require("../data/areas_cycling");
 const rides = require("../data/2016_rides.json");
 
-const weeklyRideData = [50302.50000000001,33559.5,23099,50388.00000000001,73886,24898.5,58426.99999999999,18232.3,0,138869.69999999998,59372.8,81800.50000000001,36854.100000000006,28328.5,82869.6,79874.89999999998,174719.29999999996,49683.4,91547.5,132622.30000000002,145844.3,24098,131533.6,44963.4,206832.70000000004,130593.99999999999,144519.90000000002,0,45542.7,101783,169681.9,91808.49999999999,159448.1,138288.7,83222.1,156814.4,63459.299999999996,131488.7,58651.100000000006,56126.299999999996,20427.699999999997,76170.00000000001,113194.20000000003,108305.1,41366.30000000001,63098.49999999999,78047.90000000001,55881.200000000004,54006.79999999999,60308.7,20276.899999999998,12493.6,9922.2]
-
-module.exports = View.extend({
+module.exports = StatsView.extend({
 	template: `
 		<section class="cycling">
 			<header>
@@ -89,139 +86,24 @@ module.exports = View.extend({
 	render() {
 		this.renderWithTemplate();
 
-		requestAnimationFrame(() => this.buildChart(weeklyRideData));
+		const graphContainer = this.query(".graph-holder");
+
+		xhr({
+			method: "GET",
+			uri: "/data/weekly-cycling-data.json",
+			json: true
+		}, (err, response, data) => {
+
+			if (err) {
+				return console.error(err);
+			}
+
+			requestAnimationFrame(() => this.buildChart(graphContainer, data));
+		});
 
 		return this;
 	},
-	buildChart(data) {
-		const parentEl = this.query(".graph-holder");
-		const parent = d3.select(parentEl);
-		const margin = {top: 30, right: 30, bottom: 0, left: 30};
-		const spaceBetween = 3;
-
-		const height = 172 - margin.top - margin.bottom;
-		let width = parentEl.clientWidth - margin.left - margin.right;
-		let barWidth = width / data.length;
-		let barWidthWithSpace = Math.min(barWidth - spaceBetween, 9);
-		let xOffset = (barWidth - barWidthWithSpace) / 2;
-
-		const visibleBarY = (d) => {
-			const v = y(d);
-			const h = height - v;
-
-			if (h < barWidthWithSpace) {
-				return height - barWidthWithSpace;
-			}
-
-			return v;
-		};
-
-		const visibleBarHeight = (d) => {
-			const h = height - y(d);
-
-			if (d === 0) {
-				return h
-			}
-
-			return Math.max(h, barWidthWithSpace)
-		};
-
-		const y = d3.scaleLinear().range([height, 0]);
-
-		y.domain([0, d3.max(data, (d) => d)]);
-
-		const svg = parent.select("svg");
-		const svgG = svg.append("g");
-
-		const bar = svgG.selectAll(".bar")
-		.data(data)
-		.enter()
-		.append("g")
-		.attr("class", "bar");
-
-		const barText = svgG
-		.append("g")
-		.attr("class", "text-bar");
-
-		const tip = barText
-		.append("g")
-		.attr("class", "tip");
-
-		const text = tip.append("text");
-
-		const hoverBar = bar.append("rect").attr("class", "hover-bar");
-		const visibleBar = bar.append("rect");
-
-		hoverBar
-		.attr("height", height)
-		.attr("width", barWidth);
-
-		bar
-		.on("mouseover", (d, i) => {
-			const transitionDuration = 150;
-			const easingFunction = d3.easeSinOut;
-
-			barText
-			.transition()
-			.ease(easingFunction)
-		    .duration(transitionDuration)
-		    .attr("transform", () => `translate(${i * barWidth}, 0)`);
-
-		    const translateY = -(margin.top / 2) + visibleBarY(d);
-
-			tip
-			.transition()
-			.ease(easingFunction)
-		    .duration(transitionDuration)
-		    .attr("transform", `translate(${xOffset}, ${translateY})`);
-
-			text.text((d / 1000).toFixed(2));
-		});
-
-		const resize = () => {
-			width = parentEl.clientWidth - margin.left - margin.right;
-			barWidth = width / data.length;
-			barWidthWithSpace = Math.min(barWidth - spaceBetween, 9);
-			xOffset = (barWidth - barWidthWithSpace) / 2;
-
-			svg
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom);
-
-			svgG.attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-			bar.attr("transform", (d, i) => `translate(${i * barWidth}, 0)`);
-			barText.attr("transform", (d, i) => `translate(${i * barWidth}, 0)`);
-
-			visibleBar
-			.attr("y", height)
-			.attr("x", xOffset)
-			.attr("width", barWidthWithSpace)
-			//.attr("height", barWidthWithSpace)
-			.attr("rx", (barWidthWithSpace / 2))
-			.attr("ry", (barWidthWithSpace / 2))
-
-			visibleBar
-			.transition()
-			.ease(d3.easeQuadInOut)
-		    .duration(400)
-		    .delay((d, i) => i * 8)
-			.attr("y", visibleBarY)
-			.attr("height", visibleBarHeight);
-
-			tip.attr("transform", `translate(${xOffset}, -${margin.top / 2})`);
-		};
-
-		resize();
-		d3.select(window).on("resize", resize);
-
-		/*bar.append("text")
-		.attr("x", barWidth / 2)
-		.attr("y", (d) => y(d) + 3)
-		.attr("dy", ".75em")
-		.text((d) => (d / 1000).toFixed(2));*/
-	},
-	/*subviews: {
+	subviews: {
 		map: {
 			selector: ".map",
 			prepareView(el) {
@@ -237,5 +119,5 @@ module.exports = View.extend({
 
 			}
 		}
-	}*/
+	}
 });
