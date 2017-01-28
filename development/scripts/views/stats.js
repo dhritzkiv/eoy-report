@@ -122,7 +122,14 @@ module.exports = View.extend({
 		};
 
 		resize();
-		d3.select(window).on("resize", resize);
+
+		d3.select(window).on("resize", () => {
+			const newWidth = el.clientWidth - margin.left - margin.right;
+
+			if (Math.floor(width) !== Math.floor(newWidth)) {
+				resize();
+			}
+		});
 
 		this.once("remove", () => d3.select(window).on("resize", null));
 	}
