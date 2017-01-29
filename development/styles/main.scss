@@ -129,9 +129,36 @@ section.cycling {
 		.bar rect {
 			fill: $colorText;
 		}
+	}
 
-		.text-bar rect {
-			fill: transparent;
+	.tip {
+		fill: $colorText;
+		text-shadow:
+			-1px -1px 1px $colorBackground,
+			1px 1px 1px $colorBackground,
+			-1px 1px 1px $colorBackground,
+			1px -1px 1px $colorBackground,
+			-2px -2px 0px $colorBackground,
+			2px 2px 0px $colorBackground,
+			-2px 2px 0px $colorBackground,
+			2px -2px 0px $colorBackground;
+		z-index: 10;
+	}
+}
+
+section.beer {
+	$colorBackground: #d0d0bc;
+	$colorText: #223bb9;
+	background-color: $colorBackground;
+	color: $colorText;
+
+	h3 {
+		color: #e36e5f;
+	}
+
+	.graph-holder {
+		.bar rect {
+			fill: $colorText;
 		}
 	}
 
@@ -209,6 +236,10 @@ section.cycling {
 		}
 
 		g rect.hover-bar {
+			fill: transparent;
+		}
+
+		.text-bar rect {
 			fill: transparent;
 		}
 

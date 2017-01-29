@@ -7,7 +7,7 @@ module.exports = View.extend({
 	buildChart(el, data) {
 		const parent = d3.select(el);
 		const margin = {top: 30, right: 30, bottom: 0, left: 30};
-		const spaceBetween = 3;
+		const spaceBetween = 9;
 
 		const height = 172 - margin.top - margin.bottom;
 		let width = el.clientWidth - margin.left - margin.right;
@@ -85,15 +85,16 @@ module.exports = View.extend({
 		    .duration(transitionDuration)
 		    .attr("transform", `translate(${xOffset}, ${translateY})`);
 
-			text.text((d / 1000).toFixed(2));
+			text.text(parseFloat(d.toFixed(2)));
 		});
 
 		const resize = () => {
 			width = el.clientWidth - margin.left - margin.right;
 			barWidth = width / data.length;
-			barWidthWithSpace = Math.min(barWidth - spaceBetween, 9);
+			barWidthWithSpace = barWidth - spaceBetween;
+			barWidthWithSpace = Math.min(barWidthWithSpace > 1 ? barWidthWithSpace : barWidth, 15);
 			xOffset = (barWidth - barWidthWithSpace) / 2;
-			const borderRadius = (barWidthWithSpace / 2);
+			const borderRadius = Math.max((barWidthWithSpace / 2), 0);
 			const barPosition = (i) => `translate(${i * barWidth}, 0)`;
 
 			svg

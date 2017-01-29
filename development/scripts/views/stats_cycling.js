@@ -37,7 +37,7 @@ module.exports = StatsView.extend({
 
 					<div class="graph-holder full">
 						<div class="divider"></div>
-						<h3>Weekly Distances (km)</h3>
+						<h3>Distance Cycled by Week (km)</h3>
 						<svg></svg>
 						<div class="divider"></div>
 					</div>
@@ -97,6 +97,9 @@ module.exports = StatsView.extend({
 			if (err) {
 				return console.error(err);
 			}
+
+			//meters to kms
+			data = data.map(d => d / 1000);
 
 			requestAnimationFrame(() => this.buildChart(graphContainer, data));
 		});
