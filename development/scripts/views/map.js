@@ -14,7 +14,6 @@ const consts = require("../consts");
 
 const performance = window.performance || Date;
 
-
 const TARGET_FPS = 60;
 const TIMESTEP = 1000 / TARGET_FPS;
 const MAX_UPDATES_PER_FRAME = 4000 / TIMESTEP;//4 seconds worth of updates
@@ -26,6 +25,8 @@ const DECELERATION_RATE = 0.91;
 const ACCELERATION_TO_VELOCITY = (1 - DECELERATION_RATE) / DECELERATION_RATE;
 //const ACCELERATION_MIN_CAP = 1 - DECELERATION_RATE;
 const ACCELERATION_PROPERTIES = ["translationAccelerationX", "translationAccelerationY"];
+
+const DEFAULT_LINE_WIDTH = 14.6;//Average Toronto road width
 
 const getCheckinPointMaterial = () => {
 	const pointCanvas = document.createElement("canvas");
@@ -74,7 +75,7 @@ const getCheckinPointMaterial = () => {
 const pointMaterial = getCheckinPointMaterial();
 
 const rideLineMaterial = new MeshLineMaterial({
-	lineWidth: 16,//size of individual street
+	lineWidth: DEFAULT_LINE_WIDTH,//size of individual street
 	sizeAttenuation: 1,
 	depthTest: true,
 	transparent: false,
@@ -202,7 +203,7 @@ module.exports = View.extend({
 		});
 
 		// auto?
-		//renderer.setPixelRatio(window.devicePixelRatio || 1);
+		renderer.setPixelRatio(window.devicePixelRatio || 1);
 
 		const scene = this.scene = new THREE.Scene();
 		const aspectRatio = canvas.clientWidth / canvas.clientHeight;
@@ -319,7 +320,8 @@ module.exports = View.extend({
 	},
 	windowResize: function() {
 		const {renderer, camera} = this;
-		const {clientWidth: width, clientHeight: height} = this.canvas.parentNode;
+		const parentEl = this.canvas.parentNode
+		const {clientWidth: width, clientHeight: height} = parentEl;
 
 		renderer.setSize(width, height);
 
@@ -334,8 +336,6 @@ module.exports = View.extend({
 	},
 	mousewheelHandler: function(event) {
 
-		event.preventDefault();
-
 		const camera = this.camera;
 
 		camera.position.z += (event.deltaY * 0.0025) * (camera.position.z / 1.5);
@@ -347,6 +347,8 @@ module.exports = View.extend({
 			camera.position.z = minCameraZ;
 		} else if (camera.position.z > maxCameraZ) {
 			camera.position.z = maxCameraZ;
+		} else {
+			event.preventDefault();
 		}
 
 		this.updateForCameraZ();
@@ -399,19 +401,19 @@ module.exports = View.extend({
 		event.preventDefault();
 	},
 	touchstartHandler: function(event) {
+		const touches = Array.from(event.touches);
 		this.mouseDown = true;
-		this.mouseDownX = event.touches[0].clientX;
-		this.mouseDownY = event.touches[0].clientY;
-		this.touchesCount = event.touches.length;
+		this.mouseDownX = touches[0].clientX;
+		this.mouseDownY = touches[0].clientY;
+		this.touchesCount = touches.length;
 
 		if (this.touchesCount === 2) {
-			const touch1 = event.touches[0];
-			const touch2 = event.touches[1];
+			const [touch1, touch2] = touches;
 
 			const dx = touch1.clientX - touch2.clientX;
 			const dy = touch1.clientY - touch2.clientY;
 
-			this.touchPreviousDistance = Math.sqrt((dx * dx) + (dy * dy));
+			this.touchPreviousDistance = Math.hypot(dx, dy);
 		}
 
 		this.rotationAccelerationY = 0;
@@ -430,10 +432,10 @@ module.exports = View.extend({
 
 		//previous touchesCount; might minimize situations where pan mode is triggered when releasing fingers not at the same time
 		const touchesCount = this.touchesCount;
+		const touches = Array.from(event.touches);
 
 		if (touchesCount === 1) {
-
-			const touch = event.touches[0];
+			const [touch] = touches;
 
 			const changeX = touch.clientX - this.mouseDownX;
 			const changeY = touch.clientY - this.mouseDownY;
@@ -444,18 +446,18 @@ module.exports = View.extend({
 			this.translationVelocityX = -changeX; //negative left
 			this.translationVelocityY = changeY; //negative up
 
-			this.translationAccelerationX += this.translationVelocityX * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
-			this.translationAccelerationY += this.translationVelocityY * ACCELERATION_TO_VELOCITY_PER_TIMESTEP;
+			this.translationAccelerationX += this.translationVelocityX * (ACCELERATION_TO_VELOCITY_PER_TIMESTEP * 2);
+			this.translationAccelerationY += this.translationVelocityY * (ACCELERATION_TO_VELOCITY_PER_TIMESTEP * 2);
+
+			event.preventDefault();
 
 		} else if (touchesCount === 2) {
-
-			const touch1 = event.touches[0];
-			const touch2 = event.touches[1] || touch1;
+			const [touch1, touch2 = touch1] = touches;
 
 			const dx = touch1.clientX - touch2.clientX;
 			const dy = touch1.clientY - touch2.clientY;
 
-			const distance = Math.sqrt((dx * dx) + (dy * dy));
+			const distance = Math.hypot(dx, dy);
 			const deltaDistance = this.touchPreviousDistance - distance;
 
 			camera.position.z += (deltaDistance * 0.005) * (camera.position.z / 1.5);
@@ -467,19 +469,19 @@ module.exports = View.extend({
 				camera.position.z = minCameraZ;
 			} else if (camera.position.z > maxCameraZ) {
 				camera.position.z = maxCameraZ;
+			} else {
+				event.preventDefault();
 			}
 
 			this.updateForCameraZ();
-			this.touchPreviousDistance = distance;
 
+			this.touchPreviousDistance = distance;
 		}
 
-		this.touchesCount = event.touches.length;
+		this.touchesCount = touches.length;
 
 		this.lastInteractionTime = Date.now();
 		this.needsRender = true;
-
-		event.preventDefault();
 	},
 	touchendHandler: function(event) {
 		this.mouseDown = false;
@@ -631,8 +633,8 @@ module.exports = View.extend({
 
 		const minCameraZ = consts.CAMERA_NEAR * 2;
 
-		const maxWidth = 512;
-		const minWidth = 16;
+		const maxWidth = 400;
+		const minWidth = DEFAULT_LINE_WIDTH;
 		const alpha = (camera.position.z - minCameraZ) / (this.camera.far - minCameraZ);
 		const lineWidth = ((alpha * ((maxWidth - minWidth) * alpha))) + minWidth;
 
@@ -712,7 +714,7 @@ module.exports = View.extend({
 
 		async.forEachOfSeries(area.features, (feature, index, callback) => {
 
-			function addFeatureToScene() {
+			const addFeatureToScene = () => {
 				featuresAdded++;
 				updateProgress();
 
@@ -726,6 +728,7 @@ module.exports = View.extend({
 
 				if (index === 0) {
 					firstGeometry = mesh.geometry;
+					cameraToMeshGeometryCentroid(firstGeometry);
 				}
 
 				requestAnimationFrame(() => callback());
@@ -747,12 +750,12 @@ module.exports = View.extend({
 
 		const filterActivities = filterActivitiesToBounds(area.bounds);
 
-		const pointsToGeometry = points => {
+		const pointsToGeometry = (points) => {
 			const lineGeometry = new Float32Array(points.length * 3);
 
-			points.forEach((point, index) => {
-				lineGeometry[index * 3 + 0] = point[0];
-				lineGeometry[index * 3 + 1] = point[1];
+			points.forEach(([x, y], index) => {
+				lineGeometry[index * 3 + 0] = x;
+				lineGeometry[index * 3 + 1] = y;
 				lineGeometry[index * 3 + 2] = 0;
 			});
 
