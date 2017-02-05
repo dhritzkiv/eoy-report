@@ -11,7 +11,7 @@ const rides = require("../data/2016_rides.json");
 
 module.exports = StatsView.extend({
 	template: `
-		<section class="cycling">
+		<section class="category cycling">
 			<header>
 				<div class="art"></div>
 				<div class="copy">

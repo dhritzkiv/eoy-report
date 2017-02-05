@@ -5,7 +5,7 @@ const xhr = require("xhr");
 
 module.exports = StatsView.extend({
 	template: `
-		<section class="beer">
+		<section class="category beer">
 			<header>
 				<div class="art"></div>
 				<div class="copy">
