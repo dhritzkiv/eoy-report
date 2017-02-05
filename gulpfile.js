@@ -81,6 +81,7 @@ function makeBundler(src) {
 
 	bundler.plugin("watchify");
 	bundler.transform("babelify");
+	bundler.transform("brfs");
 
 	bundler.transform("browserify-versionify", {
 		filter: /app\.js$/,
