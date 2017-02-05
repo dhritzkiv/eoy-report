@@ -11,7 +11,7 @@ const MapsLegendPage = require("./views/maps-legend");
 const CyclingStatsPage = require("./views/stats_cycling");
 const BeerStatsPage = require("./views/stats_beer");
 
-const DEFAULT_TITLE = "Daniel's Twenty Fifteen";
+const DEFAULT_TITLE = "Daniel's Twenty Sixteen";
 
 const Router = AmpersandRouter.extend({
 	initialize: function() {
