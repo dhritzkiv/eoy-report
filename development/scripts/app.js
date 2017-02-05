@@ -1,57 +1,15 @@
 "use strict";
 
 const app = require("ampersand-app");
-const View = require("ampersand-view");
 const ViewSwitcher = require("ampersand-view-switcher");
 //const Raven = require("raven-js");
 const Router = require("./router");
+const MainView = require("./views/main");
 
 /*Raven.config("https://b2558f5fcd4342118dfb18e1dc0883e5@app.getsentry.com/64892", {
 	release: "__VERSION__",
 	maxMessageLength: 512
 }).install();*/
-
-const MainView = View.extend({
-	template: `<body></body>`,
-	events: {
-		"click a[href]": "linkClick"
-	},
-	setMode: function(view) {
-		this.pageContainer.innerHTML = "";
-		this.modeSwitcher.set(view);
-	},
-	setOverlay: function(view, insertBefore) {
-		view.el = document.createElement("section");
-		view.render();
-
-		const insertBeforeEl = insertBefore || this.pageContainer;
-
-		insertBeforeEl.parentNode.insertBefore(view.el, insertBeforeEl);
-	},
-	render: function() {
-		this.renderWithTemplate();
-
-		this.pageContainer = this.query("body");
-
-		this.pageSwitcher = new ViewSwitcher(this.pageContainer, {
-			show: () => {
-				window.scrollTo(0, 0);
-			}
-		});
-
-		return this;
-	},
-	linkClick: function(event) {
-		const {delegateTarget: {host, pathname, search}} = event;
-
-		if (host !== window.location.host) {
-			return true;
-		}
-
-		app.router.navigate(`${pathname}${search}`);
-		event.preventDefault();
-	}
-});
 
 app.extend({
 	initialize: function() {
