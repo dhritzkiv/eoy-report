@@ -59,7 +59,7 @@ module.exports = MapFeature.extend({
 		context.lineJoin = "round";
 		context.strokeText(labelText, canvas.width / 2, canvas.height / 2);
 
-		context.fillStyle = consts.COLOR_TEXT;
+		context.fillStyle = "#e36e5f";//consts.COLOR_TEXT;
 		context.fillText(labelText, canvas.width / 2, canvas.height / 2);
 
 		const textLabelMap = new THREE.Texture(canvas);
