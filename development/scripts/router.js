@@ -11,7 +11,7 @@ const MapsLegendPage = require("./views/maps-legend");
 const CoffeeStatsPage = require("./views/stats_coffee");
 const CyclingStatsPage = require("./views/stats_cycling");
 const BeerStatsPage = require("./views/stats_beer");
-const SleepStatsPage = require("./views/stats_sleep");
+const HealthStatsPage = require("./views/stats_health");
 
 const DEFAULT_TITLE = "Daniel's Twenty Sixteen";
 
@@ -47,8 +47,8 @@ const Router = AmpersandRouter.extend({
 		this.trigger("newPage", view);
 		this.trigger("navigation");
 	},
-	sleep() {
-		const view = new SleepStatsPage({});
+	health() {
+		const view = new HealthStatsPage({});
 
 		this.trigger("newPage", view);
 		this.trigger("navigation");

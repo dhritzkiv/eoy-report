@@ -8,6 +8,7 @@ const ViewSwitcher = require("ampersand-view-switcher");
 const svg_coffee = fs.readFileSync(`${__dirname}/../../img/category-icon_coffee.svg`, "utf8");
 const svg_beer = fs.readFileSync(`${__dirname}/../../img/category-icon_beer.svg`, "utf8");
 const svg_cycling = fs.readFileSync(`${__dirname}/../../img/category-icon_cycling.svg`, "utf8");
+const svg_health = fs.readFileSync(`${__dirname}/../../img/category-icon_health.svg`, "utf8");
 
 const MainView = View.extend({
 	template: (
@@ -34,7 +35,11 @@ const MainView = View.extend({
 					</a>
 				</article>
 				<article class="category-icon walking"></article>
-				<article class="category-icon health"></article>
+				<article class="category-icon health">
+					<a href="/health">
+						${svg_health}
+					</a>
+				</article>
 				<article class="category-icon coding"></article>
 			</div>
 		</header>
