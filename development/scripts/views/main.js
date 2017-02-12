@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require("fs");
+const shuffle = require("lodash/shuffle");
 
 const View = require("ampersand-view");
 const ViewSwitcher = require("ampersand-view-switcher");
@@ -63,6 +64,18 @@ const MainView = View.extend({
 			show: () => {
 				window.scrollTo(0, 0);
 			}
+		});
+
+		const categoryIconsExtrasHolders = this.queryAll(".category-icon svg .extras");
+
+		categoryIconsExtrasHolders.forEach(holder => {
+			const children = shuffle(Array.from(holder.children));
+
+			children.forEach((extra, index) => {
+				const delay = 50 + (index * 25);
+
+				extra.style.transitionDelay = `${delay}ms`;
+			})
 		});
 
 		return this;
