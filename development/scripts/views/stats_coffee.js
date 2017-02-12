@@ -39,7 +39,7 @@ module.exports = StatsView.extend({
 						<h2>73</h2>
 					</div>
 					<div class="stat">
-						<h3>Est. Days with More than Usual</h3>
+						<h3>Est. Days with More than Median</h3>
 						<h2>51</h2>
 					</div>
 					<div class="stat">
