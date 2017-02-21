@@ -39,6 +39,31 @@ module.exports = StatsView.extend({
 						<h2>326</h2>
 					</div>
 				</div>
+
+				<div class="divider"></div>
+
+				<div class="stats-container">
+					<div class="stat">
+						<h3>Avg. weight (lbs)</h3>
+						<h2>159.99</h2>
+					</div>
+					<div class="stat">
+						<h3>Greatest weight (lbs)</h3>
+						<h2>168.70</h2>
+					</div>
+					<div class="stat">
+						<h3>Lowest weight (lbs)</h3>
+						<h2>159.80</h2>
+					</div>
+					<div class="stat">
+						<h3>Weighings recorded</h3>
+						<h2>74</h2>
+					</div>
+					<div class="stat">
+						<h3>Greatest rate of change (lbs/hr)</h3>
+						<h2>0.59</h2>
+					</div>
+				</div>
 			</main>
 		</section>
 	`
