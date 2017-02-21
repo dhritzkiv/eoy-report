@@ -28,9 +28,7 @@
 			<use xlink:href="#SVGID_7_"  overflow="visible"/>
 		</clipPath>
 		<g id="DsD5mp_1_" clip-path="url(#SVGID_4_)">
-
-				<image overflow="visible" width="826" height="662" id="DsD5mp_4_" xlink:href="/img/texture_paint.jpg"  transform="matrix(1.2783 0 0 1.2783 -23.2422 92.8877)">
-			</image>
+			<image overflow="visible" width="826" height="662" id="DsD5mp_4_" xlink:href="/img/texture_paint.jpg"  transform="matrix(1.2783 0 0 1.2783 -23.2422 92.8877)"></image>
 		</g>
 	</g>
 </g>
