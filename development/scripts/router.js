@@ -23,7 +23,7 @@ const Router = AmpersandRouter.extend({
 		"walking": "walking",
 		"audio-video": "av",
 		"beer": "beer",
-		"sleep": "sleep"
+		"health": "health"
 	},
 	start: function() {
 
