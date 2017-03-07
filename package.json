@@ -29,6 +29,7 @@
     "polyline": "^0.2.0",
     "proj4": "^2.3.17",
     "raven-js": "^3.9.2",
+    "sax": "^1.2.2",
     "simplify-js": "^1.2.1",
     "simplify-path": "^1.1.0",
     "strava-v3": "^1.12.1",
