@@ -15,15 +15,15 @@ module.exports = StatsView.extend({
 			<main class="stats">
 				<div class="stats-container">
 					<div class="stat">
-						<h3>Avg. Sleep Duration (hrs)</h3>
+						<h3>Avg. Sleep (hrs)</h3>
 						<h2>6:39:11</h2>
 					</div>
 					<div class="stat">
-						<h3>Avg. Weekday Sleep Duration (hrs)</h3>
+						<h3>Avg. Weekday Sleep (hrs)</h3>
 						<h2>6:20:16</h2>
 					</div>
 					<div class="stat">
-						<h3>Avg. Weekend Sleep Duration (hrs)</h3>
+						<h3>Avg. Weekend Sleep (hrs)</h3>
 						<h2>7:31:57</h2>
 					</div>
 					<div class="stat">
@@ -56,13 +56,13 @@ module.exports = StatsView.extend({
 						<h2>150.80</h2>
 					</div>
 					<div class="stat">
-						<h3>Weighings recorded</h3>
+						<h3>Weigh-ins recorded</h3>
 						<h2>74</h2>
 					</div>
-					<div class="stat">
+					<!--<div class="stat">
 						<h3>Greatest rate of change (lbs/hr)</h3>
 						<h2>0.59</h2>
-					</div>
+					</div>-->
 				</div>
 			</main>
 		</section>
