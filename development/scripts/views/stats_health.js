@@ -53,7 +53,7 @@ module.exports = StatsView.extend({
 					</div>
 					<div class="stat">
 						<h3>Lowest weight (lbs)</h3>
-						<h2>159.80</h2>
+						<h2>150.80</h2>
 					</div>
 					<div class="stat">
 						<h3>Weighings recorded</h3>
