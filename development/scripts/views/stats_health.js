@@ -5,7 +5,7 @@ const xhr = require("xhr");
 
 module.exports = StatsView.extend({
 	template: `
-		<section class="category sleep">
+		<section class="category health">
 			<header>
 				<div class="art"></div>
 				<div class="copy">
@@ -14,28 +14,47 @@ module.exports = StatsView.extend({
 			</header>
 			<main class="stats">
 				<div class="stats-container">
+					<header>
+						<h2>Sleep</h2>
+					</header>
 					<div class="stat">
-						<h3>Avg. Sleep (hrs)</h3>
+						<h3>Average duration (hrs)</h3>
 						<h2>6:39:11</h2>
 					</div>
 					<div class="stat">
-						<h3>Avg. Weekday Sleep (hrs)</h3>
+						<h3>Average weekday duration (hrs)</h3>
 						<h2>6:20:16</h2>
 					</div>
 					<div class="stat">
-						<h3>Avg. Weekend Sleep (hrs)</h3>
+						<h3>Average weekend duration (hrs)</h3>
 						<h2>7:31:57</h2>
 					</div>
 					<div class="stat">
-						<h3>Longest Sleep (hrs)</h3>
+						<h3>Longest duration (hrs)</h3>
 						<h2>10:53:38</h2>
 					</div>
 					<div class="stat">
-						<h3>Shortest Sleep (hrs)</h3>
-						<h2>1:24:34</h2>
+						<h3>Shortest duration (hrs)</h3>
+						<h2>3:04:37</h2>
 					</div>
 					<div class="stat">
-						<h3>Total Nights Recorded</h3>
+						<h3>Earliest bedtime</h3>
+						<h2>22:46:23</h2>
+					</div>
+					<div class="stat">
+						<h3>Latest bedtime</h3>
+						<h2>05:40:59</h2>
+					</div>
+					<div class="stat">
+						<h3>Earliest wake-up</h3>
+						<h2>05:50:16</h2>
+					</div>
+					<div class="stat">
+						<h3>Latest wake-up</h3>
+						<h2>14:00:21</h2>
+					</div>
+					<div class="stat">
+						<h3>Total nights recorded</h3>
 						<h2>326</h2>
 					</div>
 				</div>
@@ -43,8 +62,12 @@ module.exports = StatsView.extend({
 				<div class="divider"></div>
 
 				<div class="stats-container">
+					<header>
+						<h2>Weight</h2>
+					</header>
+
 					<div class="stat">
-						<h3>Avg. weight (lbs)</h3>
+						<h3>Average Weight (lbs)</h3>
 						<h2>159.99</h2>
 					</div>
 					<div class="stat">
