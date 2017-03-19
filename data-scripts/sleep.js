@@ -36,28 +36,54 @@ const raw = fs.readFileSync(process.argv[2], "utf8");
 
 const [/*header*/, ...lines] = raw.split("\n");
 
-const data = lines
+const DATE_FORMAT = "YYYY-MM-DD HH:mm:ss";
+
+const checkIfIceland = date => moment(date).isBetween("2016-06-16", "2016-06-22", null, "[]");
+
+let data = lines
 .map(line => line.split(";"))
 .map(([start, end, quality]) => ({
-	start_date: new Date(start),
-	end_date: new Date(end),
+	start_date: moment(start, DATE_FORMAT),
+	end_date: moment(end, DATE_FORMAT),
 	quality: parseInt(quality, 10)
 }))
-.filter(({start_date}) => start_date.getFullYear() === 2016)
+.filter(({start_date}) => start_date.year() === 2016)
 .sort(({start_date: a}, {start_date: b}) => a - b);
 
 data.forEach((night) => {
 	night.duration = night.end_date - night.start_date;
 });
 
+//because the app's data didn't think to export in UTC (or with TZ info)…
+data
+.forEach((night) => {
+	let tzOffset = -5;
+
+	if (night.start_date.isDST()) {
+		tzOffset += 1;
+	}
+
+	if (checkIfIceland(night.start_date)) {
+		tzOffset *= -1;
+
+		night.start_date.utcOffset(tzOffset, false);
+		night.end_date.utcOffset(tzOffset, false);
+
+		return;
+	}
+
+	//night.start_date.utcOffset(tzOffset, true);
+	//night.end_date.utcOffset(tzOffset, true);
+});
+
+data = data.filter(({duration}) => duration > 7200000);
+
 const [{start_date: firstDate}] = data;
 const [{end_date: lastDate}] = [...data].reverse();
-const dateAfterLast = new Date(lastDate);
-
-dateAfterLast.setDate(dateAfterLast.getDate() + 1);
+const dateAfterLast = moment(lastDate).add(1, "days");
 
 //is school night = woke up on a work day (monday - friday)
-const isSchoolNight = (date) => date.getDay() >= 1 && date.getDay() <= 5;
+const isSchoolNight = (date) => date.day() >= 1 && date.day() <= 5;
 
 const schoolNights = data.filter(({end_date}) => isSchoolNight(end_date));
 const weekendNights = data.filter(({end_date}) => !isSchoolNight(end_date));
@@ -72,47 +98,6 @@ const weekendNightsSortedByDuration = sortByDuration(weekendNights);
 const medianDuration = getMedian(nightsSortedByDuration);
 const medianSchoolNightDuration = getMedian(schoolNightsSortedByDuration);
 const medianWeekendNightDuration = getMedian(weekendNightsSortedByDuration);
-
-let maxStreakCoffees = 0;
-let maxDrySpell = 0;
-
-const calculateStreaksForData = (data) => {
-	let streakCoffees = 0;
-	let drySpell = 0;
-	maxStreakCoffees = 0;
-	maxDrySpell = 0;
-
-	data.forEach(({value}) => {
-		if (value) {
-			drySpell = 0;
-			streakCoffees++;
-			maxStreakCoffees = Math.max(maxStreakCoffees, streakCoffees);
-		} else {
-			streakCoffees = 0;
-			drySpell++;
-			maxDrySpell = Math.max(maxDrySpell, drySpell);
-		}
-	});
-};
-
-/*calculateStreaksForData(data);
-
-const totalMaxStreakCoffees = maxStreakCoffees;
-const totalMaxDrySpell = maxDrySpell;
-
-calculateStreaksForData(weekdayDays);
-
-const weekdayMaxStreakCoffees = maxStreakCoffees;
-const weekdayMaxDrySpell = maxDrySpell;
-
-calculateStreaksForData(weekendDays);
-
-const weekendMaxStreakCoffees = maxStreakCoffees;
-const weekendMaxDrySpell = maxDrySpell;*/
-
-/*for (let current = new Date(firstDate); current < dateAfterLast; current.setDate(current.getDate() + 1)) {
-	console.log(current.toISOString())
-}*/
 
 console.log("total nights recorded", data.length);
 console.log("school nights recorded", schoolNights.length);
@@ -135,4 +120,64 @@ console.log("longest weekend night (hours)", millisecondsAsReadableHourString(we
 console.log("shortest school night (hours)", millisecondsAsReadableHourString(schoolNightsSortedByDuration[schoolNightsSortedByDuration.length - 1]));
 console.log("shortest weekend night (hours)", millisecondsAsReadableHourString(weekendNightsSortedByDuration[weekendNightsSortedByDuration.length - 1]));
 
+const middayHour = 12;
+const midnightHour = 0;
+const timestampFormat = "HH:mm:ss";
 
+const sortedByStartTime = [...data].sort((a, b) => {
+	const aTime = moment(a.start_date).format(timestampFormat);
+	const bTime = moment(b.start_date).format(timestampFormat);
+
+	const aSplit = aTime.split(":").map(num => parseInt(num, 10));
+	const bSplit = bTime.split(":").map(num => parseInt(num, 10));
+
+	//midday = after noon, before midnight;
+	const aDateDay = aSplit[0] > middayHour ? 1 : 2;
+	const bDateDay = bSplit[0] > middayHour ? 1 : 2;
+
+	//normalize the dates for quick comparison
+	const aDate = new Date(2017, 0, aDateDay, ...aSplit);
+	const bDate = new Date(2017, 0, bDateDay, ...bSplit);
+
+	return aDate - bDate;
+}, {
+	start_date: new Date(2017, 0, 1, middayHour, 0, 0)
+});
+
+const sortedByEndTime = [...data].sort((a, b) => {
+	const aTime = moment(a.end_date).format(timestampFormat);
+	const bTime = moment(b.end_date).format(timestampFormat);
+
+	const aSplit = aTime.split(":").map(num => parseInt(num, 10));
+	const bSplit = bTime.split(":").map(num => parseInt(num, 10));
+
+	//midday = after noon, before midnight;
+	const aDateDay = aSplit[0] > midnightHour ? 1 : 2;
+	const bDateDay = bSplit[0] > midnightHour ? 1 : 2;
+
+	//normalize the dates for quick comparison
+	const aDate = new Date(2017, 0, aDateDay, ...aSplit);
+	const bDate = new Date(2017, 0, bDateDay, ...bSplit);
+
+	return aDate - bDate;
+}, {
+	start_date: new Date(2017, 0, 1, midnightHour, 0, 0)
+});
+
+const earliestStart = sortedByStartTime[0];
+const latestStart = [...sortedByStartTime].reverse()[0];
+
+console.log("\n");
+console.log(earliestStart);
+console.log("earliest start time", moment(earliestStart.start_date).format(timestampFormat));
+console.log(latestStart);
+console.log("latest start time", moment(latestStart.start_date).format(timestampFormat));
+
+const earliestEnd = sortedByEndTime[0];
+const latestEnd = [...sortedByEndTime].reverse()[0];
+
+console.log("\n");
+console.log(earliestEnd);
+console.log("earliest end time", moment(earliestEnd.end_date).format(timestampFormat));
+console.log(latestEnd);
+console.log("latest end time", moment(latestEnd.end_date).format(timestampFormat));
