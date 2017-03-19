@@ -1,3 +1,5 @@
+/*global __dirname, app*/
+
 "use strict";
 
 const fs = require("fs");
@@ -86,7 +88,7 @@ const MainView = View.extend({
 				const delay = 50 + (index * 25);
 
 				extra.style.transitionDelay = `${delay}ms`;
-			})
+			});
 		});
 
 		return this;
