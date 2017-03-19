@@ -14,6 +14,8 @@ const svg_coffee = fs.readFileSync(`${__dirname}/../../img/category-icon_coffee.
 const svg_beer = fs.readFileSync(`${__dirname}/../../img/category-icon_beer.svg`, "utf8");
 const svg_cycling = fs.readFileSync(`${__dirname}/../../img/category-icon_cycling.svg`, "utf8");
 const svg_health = fs.readFileSync(`${__dirname}/../../img/category-icon_health.svg`, "utf8");
+const svg_media = fs.readFileSync(`${__dirname}/../../img/category-icon_media.svg`, "utf8");
+const svg_walking = fs.readFileSync(`${__dirname}/../../img/category-icon_walking.svg`, "utf8");
 
 const MainView = View.extend({
 	template: (
@@ -39,10 +41,19 @@ const MainView = View.extend({
 						${svg_beer}
 					</a>
 				</article>
-				<article class="category-icon walking"></article>
 				<article class="category-icon health">
 					<a href="/health">
 						${svg_health}
+					</a>
+				</article>
+				<article class="category-icon media">
+					<a href="/media">
+						${svg_media}
+					</a>
+				</article>
+				<article class="category-icon walking">
+					<a href="/walking">
+						${svg_walking}
 					</a>
 				</article>
 				<article class="category-icon coding"></article>
