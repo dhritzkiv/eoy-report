@@ -2,6 +2,8 @@
 
 const fs = require("fs");
 const shuffle = require("lodash/shuffle");
+const scroll = require("scroll");
+const ease = require("ease-component");
 
 const View = require("ampersand-view");
 const ViewSwitcher = require("ampersand-view-switcher");
@@ -61,8 +63,17 @@ const MainView = View.extend({
 		const pageContainer = this.pageContainer = this.query(".page-container");
 
 		this.pageSwitcher = new ViewSwitcher(pageContainer, {
-			show: () => {
+			show: (newView) => {
 				window.scrollTo(0, 0);
+
+				if (!newView) {
+					return;
+				}
+
+				scroll.top(document.scrollingElement, pageContainer.offsetTop, {
+					duration: 500,
+					ease: ease.inOutQuart
+				});
 			}
 		});
 
