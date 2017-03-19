@@ -3,11 +3,9 @@
 const StatsView = require("./stats");
 const xhr = require("xhr");
 
-const MapView = require("./map");
-const MapAreaModel = require("../models/map-area");
-
 const areas = require("../data/areas_cycling");
 const rides = require("../data/2016_rides.json");
+const MapPickerView = require("./map-picker.js");
 
 module.exports = StatsView.extend({
 	template: `
@@ -75,9 +73,7 @@ module.exports = StatsView.extend({
 
 				<div class="map-holder">
 					<div class="divider"></div>
-					<div class="map-container">
-						<canvas class="map"></canvas>
-					</div>
+					<div data-hook="map-picker"></div>
 					<div class="divider"></div>
 				</div>
 			</main>
@@ -107,19 +103,17 @@ module.exports = StatsView.extend({
 		return this;
 	},
 	subviews: {
-		map: {
-			selector: ".map",
+		map_picker: {
+			hook: "map-picker",
 			prepareView(el) {
-				const area = areas.to;
 
-				const view = new MapView({
+				const view = new MapPickerView({
 					el,
-					area,
-					data: rides//make an array of layers
+					areas,
+					rides
 				});
 
 				return view;
-
 			}
 		}
 	}
