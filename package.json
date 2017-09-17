@@ -1,6 +1,6 @@
 {
-  "private": "true",
   "name": "year-in-review",
+  "private": true,
   "version": "1.0.2",
   "author": "Daniel Hritzkiv",
   "scripts": {
