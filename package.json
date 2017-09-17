@@ -1,6 +1,6 @@
 {
-  "name": "moves-gl-2015",
   "private": "true",
+  "name": "year-in-review",
   "version": "1.0.2",
   "author": "Daniel Hritzkiv",
   "scripts": {
