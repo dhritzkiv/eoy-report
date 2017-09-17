@@ -4,9 +4,11 @@
   "version": "1.0.2",
   "author": "Daniel Hritzkiv",
   "scripts": {
-    "serve": "node server"
+    "serve": "node server",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@types/node": "^8.0.28",
     "ampersand-app": "^2.0.0",
     "ampersand-collection": "^2.0.1",
     "ampersand-model": "^8.0.0",
@@ -31,13 +33,16 @@
     "raven-js": "^3.17.0",
     "sax": "^1.2.4",
     "scroll": "^2.0.0",
+    "simple-statistics": "^4.1.1",
     "simplify-js": "^1.2.1",
     "simplify-path": "^1.1.0",
     "strava-v3": "^1.14.0",
     "svg.js": "^2.6.3",
     "three": "^0.87.1",
     "three.meshline": "^1.0.3",
+    "tslint": "^5.7.0",
     "tween.js": "^16.6.0",
+    "typescript-eslint-parser": "^7.0.0",
     "xhr": "^2.4.0"
   },
   "devDependencies": {
@@ -64,6 +69,7 @@
     "postcss-assets": "^5.0.0",
     "request": "^2.81.0",
     "sass": "^0.5.0",
+    "typescript": "^2.5.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
