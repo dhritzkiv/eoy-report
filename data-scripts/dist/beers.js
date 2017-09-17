@@ -84,7 +84,7 @@ checkins
     .forEach(({ created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country }) => {
     const dayOfWeekKey = moment(created_at).format("dddd");
     const dateKey = created_at.toISOString().slice(0, 10);
-    const weekKey = moment(created_at).locale("fr").format("YYYY-W");
+    const weekKey = moment(created_at).format("YYYY-w");
     const monthKey = new Date(created_at).getMonth();
     const brewKey = `${beer_name}|${beer_id}`;
     const majorStyleKey = beer_type.split(" - ")[0];
@@ -128,9 +128,12 @@ checkins
 const sortTotalDesc = ([, a], [, b]) => b - a;
 const colonJoiner = arr => arr.join(": ");
 const logEachInOrderedList = (item, index) => console.log(`${index + 1}. ${item.join(": ")}`);
+const weeksSorted = Array.from(weeksMap).sort(sortTotalDesc);
 const [greatestDay] = Array.from(daysMap).sort(sortTotalDesc);
-const [greatestWeek] = Array.from(weeksMap).sort(sortTotalDesc);
-const [greatestMonth] = Array.from(monthsMap).sort(sortTotalDesc);
+const [greatestWeek] = weeksSorted;
+const dryestWeek = weeksSorted[weeksSorted.length - 1];
+const [greatestMonth, ...otherMonths] = Array.from(monthsMap).sort(sortTotalDesc);
+const dryestMonth = otherMonths[otherMonths.length - 1];
 console.log("\n");
 console.log("Beers by Day of Week");
 Array.from(dayOfWeekMap)
@@ -198,34 +201,36 @@ Array.from(majorStyleMap)
     .slice(0, 10)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Beers per Venue");
+console.log("Top 10 Venues by Checkins");
 Array.from(venueMap)
     .sort(sortTotalDesc)
     .slice(0, 10)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Beers per Venue Cities");
+console.log("Top 10 Venue Cities by Checkins");
 Array.from(venueCityMap)
     .sort(sortTotalDesc)
     .slice(0, 10)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Beers per Venue Region");
+console.log("Top 10 Venue Regions by Checkins");
 Array.from(venueStateMap)
     .sort(sortTotalDesc)
     .slice(0, 10)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Beers per Venue Countries");
+console.log("Top 10 Venue Countries by Checkins");
 Array.from(venueCountryMap)
     .sort(sortTotalDesc)
     .slice(0, 10)
     .forEach(logEachInOrderedList);
-const weekToDate = (week) => moment(week, "YYYY-W").toDate();
+const weekToDate = (week) => moment(week, "YYYY-w").toDate();
 console.log("\n");
 console.log("Greatest Day: %s (%d)", ...greatestDay);
 console.log("Greatest Week: %s (%d)", weekToDate(greatestWeek[0]).toDateString(), greatestWeek[1]); //todo: also implement as a rolling week
+console.log("Dryest Week: %s (%d)", weekToDate(dryestWeek[0]).toDateString(), dryestWeek[1]);
 console.log("Greatest Month: %s (%d)", moment().month(greatestMonth[0]).format("MMMM"), greatestMonth[1]);
+console.log("Dryest Month: %s (%d)", moment().month(dryestMonth[0]).format("MMMM"), dryestMonth[1]);
 const monthlyTotals = [];
 for (let d = new Date(startTime); d <= endTime; d.setMonth(d.getMonth() + 1)) {
     const monthKey = d.getMonth();
