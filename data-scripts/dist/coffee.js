@@ -48,7 +48,7 @@ const getCoffeesByDayOfWeek = (data) => {
     const days = new NumberMap(new NumberArray(7).fill(0).map((v, i) => [i, v]));
     data
         .map(({ date, value }) => [date.getUTCDay(), value])
-        .forEach(([day, value]) => days.set(day, days.get(day) + value));
+        .forEach(([day, value]) => days.set(day, (days.get(day) || 0) + value));
     return [...days.values()];
 };
 const [inFile] = process.argv.slice(2);

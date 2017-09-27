@@ -65,7 +65,7 @@ const getCoffeesByDayOfWeek = (data: CoffeeDays): number[] => {
 
 	data
 	.map(({date, value}) => [date.getUTCDay(), value])
-	.forEach(([day, value]) => days.set(day, days.get(day) + value));
+	.forEach(([day, value]) => days.set(day, (days.get(day) || 0) + value));
 
 	return [...days.values()];
 };
