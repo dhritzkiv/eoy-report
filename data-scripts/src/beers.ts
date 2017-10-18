@@ -118,6 +118,7 @@ const endTime = new Date(endYear, 0, 1, 5, 0, 0);
 const daysInYear = ((endTime.getTime() - startTime.getTime()) / 1000 / 60 / 60 / 24);
 
 const dayOfWeekMap = new IncrementalMap<string>();
+const beersPerDayOfWeekMap = new IncrementalMap<string>();
 const daysMap = new IncrementalMap<string>();
 const weeksMap = new IncrementalMap<string>();
 const monthsMap = new IncrementalMap<number>();
@@ -146,7 +147,7 @@ checkins
 	const brewKey = `${beer_name}|${beer_id}`;
 	const majorStyleKey = beer_type.split(" - ")[0];
 
-	dayOfWeekMap.increment(dayOfWeekKey);
+	beersPerDayOfWeekMap.increment(dayOfWeekKey);
 	daysMap.increment(dateKey);
 	weeksMap.increment(weekKey)
 	monthsMap.increment(monthKey);
@@ -204,12 +205,6 @@ const [greatestWeek] = weeksSorted;
 const dryestWeek = weeksSorted[weeksSorted.length - 1];
 const [greatestMonth, ...otherMonths] = Array.from(monthsMap).sort(sortTotalDesc);
 const dryestMonth = otherMonths[otherMonths.length - 1];
-
-console.log("\n");
-console.log("Beers by Day of Week");
-Array.from(dayOfWeekMap)
-.sort(sortTotalDesc)
-.forEach(entry => console.log(entry.join(": ")));
 
 console.log("\n");
 console.log("Top 10 Beers");
@@ -350,6 +345,10 @@ for (let d = new Date(startTime); d <= endTime; d.setDate(d.getDate() + 1)) {
 		break;
 	}
 
+	const dayOfWeekKey = moment(d).format("dddd");
+
+	dayOfWeekMap.increment(dayOfWeekKey);
+
 	const dateKey = d.toISOString().slice(0, 10);
 	const value = daysMap.get(dateKey) || 0;
 
@@ -369,6 +368,43 @@ for (let d = new Date(startTime); d <= endTime; d.setDate(d.getDate() + 1)) {
 
     dailyTotals.push(value);
 }
+
+console.log("\n");
+console.log("Beers by Day of Week");
+Array.from(beersPerDayOfWeekMap)
+.sort(sortTotalDesc)
+.forEach(entry => console.log(entry.join(": ")));
+
+console.log("\n");
+console.log("Average beers per day of week");
+Array.from(dayOfWeekMap)
+.map(([day, number]) => {
+	const numberOfBeersForDay = beersPerDayOfWeekMap.get(day) || 0;
+
+	return [day, numberOfBeersForDay / number];
+})
+.sort(sortTotalDesc)
+.forEach(entry => console.log(entry.join(": ")));
+
+console.log("\n");
+console.log("Average beers per part of week");
+Array.from(beersPerDayOfWeekMap)
+.reduce(([weekdays, weekends], [day, number]): number[][]=> {
+	const numberOfBeersForDay = beersPerDayOfWeekMap.get(day) || 0;
+	const numberOfDays = dayOfWeekMap.get(day) || 0;
+	const arr = ["Saturday", "Sunday"].includes(day) ? weekends : weekdays;
+
+	arr[0] += numberOfBeersForDay;
+	arr[1] += numberOfDays;
+
+	return [weekdays, weekends];
+}, [[0, 0], [0, 0]])
+.map(([a, b], index) => {
+	return [index === 1 ? "Weekend" : "Weekday", a / b];
+})
+.sort(sortTotalDesc)
+.forEach(entry => console.log(entry.join(": ")));
+
 
 const daysWithoutABeer = dailyTotals.filter(total => !total);
 const daysWithABeer = dailyTotals.filter(total => total > 0);
