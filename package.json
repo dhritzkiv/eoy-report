@@ -42,7 +42,6 @@
     "three.meshline": "^1.0.3",
     "tslint": "^5.7.0",
     "tween.js": "^16.6.0",
-    "typescript-eslint-parser": "^8.0.0",
     "xhr": "^2.4.0"
   },
   "devDependencies": {
@@ -70,6 +69,7 @@
     "request": "^2.83.0",
     "sass": "^0.5.0",
     "typescript": "^2.5.3",
+    "typescript-eslint-parser": "^8.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
