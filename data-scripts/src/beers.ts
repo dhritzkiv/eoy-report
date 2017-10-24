@@ -3,6 +3,7 @@
 import * as fs from "fs";
 import * as assert from "assert";
 import * as path from "path";
+import * as minimist from "minimist";
 import * as moment from "moment";
 import {median, max, sum, modeFast} from "simple-statistics";
 
@@ -98,12 +99,8 @@ class IncrementalMap<T> extends Map<T, number> {
 	}
 }
 
-const args = process.argv.slice(2);
-
-const argPairs = args.map(arg => arg.split("="));
-const inFile = argPairs.filter(arg => arg.length === 1).map(([val]) => val).find(v => Boolean(v));
-const yearKv = argPairs.filter(arg => arg.length > 1).find(([key]) => /year/.test(key));
-const year = yearKv ? parseInt(yearKv[1], 10) : null;
+const args = minimist(process.argv.slice(2));
+const {_: [inFile], year} = args;
 
 assert.ok(inFile, "Missing input file argument. Pass JSON history from Untappd as input file");
 

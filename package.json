@@ -65,6 +65,7 @@
     "gulp-uglify": "^3.0.0",
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
+    "minimist": "^1.2.0",
     "postcss-assets": "^5.0.0",
     "request": "^2.83.0",
     "sass": "^0.5.0",

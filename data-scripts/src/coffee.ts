@@ -1,4 +1,10 @@
 "use strict";
+import * as fs from "fs";
+import * as assert from "assert";
+import * as path from "path";
+import * as minimist from "minimist";
+import {median, max, sum, modeFast} from "simple-statistics";
+import * as moment from "moment";
 
 interface CoffeeDay {
 	date: Date;
@@ -16,12 +22,6 @@ class NumberMap extends Map<number, number> {
 		super(entries);
 	}
 }
-
-import * as fs from "fs";
-import * as assert from "assert";
-import * as path from "path";
-import {median, max, sum, modeFast} from "simple-statistics";
-import * as moment from "moment";
 
 const isWeekend = (date: Date) => date.getUTCDay() === 0 || date.getUTCDay() === 6;
 //const addValues = (a: number, b: number) => a + b;
@@ -70,7 +70,7 @@ const getCoffeesByDayOfWeek = (data: CoffeeDays): number[] => {
 	return [...days.values()];
 };
 
-const [inFile] = process.argv.slice(2);
+const {_: [inFile]} = minimist(process.argv.slice(2));
 
 assert.ok(inFile, "Missing input file argument");
 

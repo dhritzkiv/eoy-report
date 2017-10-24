@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const assert = require("assert");
+const minimist = require("minimist");
 const moment = require("moment");
 const simple_statistics_1 = require("simple-statistics");
 class Checkin {
@@ -47,11 +48,8 @@ class IncrementalMap extends Map {
         return this.set(key, (this.get(key) || 0) + count);
     }
 }
-const args = process.argv.slice(2);
-const argPairs = args.map(arg => arg.split("="));
-const inFile = argPairs.filter(arg => arg.length === 1).map(([val]) => val).find(v => Boolean(v));
-const yearKv = argPairs.filter(arg => arg.length > 1).find(([key]) => /year/.test(key));
-const year = yearKv ? parseInt(yearKv[1], 10) : null;
+const args = minimist(process.argv.slice(2));
+const { _: [inFile], year } = args;
 assert.ok(inFile, "Missing input file argument. Pass JSON history from Untappd as input file");
 const src = fs.readFileSync(inFile, "utf8");
 const data = JSON.parse(src);
@@ -322,4 +320,7 @@ console.log("\n");
 console.log("Longest streak (beers):", maxStreakBeers);
 console.log("Longest streak (days):", maxStreakDays);
 console.log("Longest dry spell (days):", maxDrought);
+//console.log("daily aggregates", dailyTotals);
+//console.log("weekly totals", weeklyTotals);
+//console.log("monthly totals", monthlyTotals);
 //# sourceMappingURL=beers.js.map

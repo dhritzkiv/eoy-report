@@ -1,5 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs");
+const assert = require("assert");
+const minimist = require("minimist");
+const simple_statistics_1 = require("simple-statistics");
+const moment = require("moment");
 class NumberArray extends Array {
 }
 class NumberMap extends Map {
@@ -7,10 +12,6 @@ class NumberMap extends Map {
         super(entries);
     }
 }
-const fs = require("fs");
-const assert = require("assert");
-const simple_statistics_1 = require("simple-statistics");
-const moment = require("moment");
 const isWeekend = (date) => date.getUTCDay() === 0 || date.getUTCDay() === 6;
 //const addValues = (a: number, b: number) => a + b;
 const mapToValue = (day) => day.value;
@@ -51,7 +52,7 @@ const getCoffeesByDayOfWeek = (data) => {
         .forEach(([day, value]) => days.set(day, (days.get(day) || 0) + value));
     return [...days.values()];
 };
-const [inFile] = process.argv.slice(2);
+const { _: [inFile] } = minimist(process.argv.slice(2));
 assert.ok(inFile, "Missing input file argument");
 const raw = fs.readFileSync(inFile, "utf8");
 const [/*header*/ , ...lines] = raw.split("\n");
