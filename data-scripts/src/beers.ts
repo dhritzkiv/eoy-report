@@ -364,7 +364,7 @@ Array.from(beersPerDayOfWeekMap)
 console.log("\n");
 console.log("Average beers per day of week");
 Array.from(dayOfWeekMap)
-.map(([day, number]) => {
+.map(([day, number]) : [string, number] => {
 	const numberOfBeersForDay = beersPerDayOfWeekMap.get(day) || 0;
 
 	return [day, numberOfBeersForDay / number];
@@ -385,7 +385,7 @@ Array.from(beersPerDayOfWeekMap)
 
 	return [weekdays, weekends];
 }, [[0, 0], [0, 0]])
-.map(([a, b], index) => {
+.map(([a, b], index)  : [string, number] => {
 	return [index === 1 ? "Weekend" : "Weekday", a / b];
 })
 .sort(sortTotalDesc)
