@@ -13,8 +13,8 @@
                 "src/types/*"
             ]
         },
-        "strictNullChecks": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "strict": true
 	},
 	"include": [
 		"./data-scripts/src"
