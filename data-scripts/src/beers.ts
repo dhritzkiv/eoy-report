@@ -4,6 +4,7 @@ import * as path from "path";
 import * as minimist from "minimist";
 import * as moment from "moment";
 import {median, max, sum, modeFast} from "simple-statistics";
+import {IncrementalMap} from "./utils";
 
 interface CheckinBase {
 	beer_name: string;
@@ -84,16 +85,6 @@ class Checkin implements Checkin {
 		}
 
 		return checkin;
-	}
-}
-
-class IncrementalMap<T> extends Map<T, number> {
-	constructor(...args) {
-		super(...args);
-	}
-
-	increment(key:T, count = 1) {
-		return this.set(key, (this.get(key) || 0) + count)
 	}
 }
 

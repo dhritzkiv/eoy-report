@@ -5,6 +5,7 @@ const assert = require("assert");
 const minimist = require("minimist");
 const moment = require("moment");
 const simple_statistics_1 = require("simple-statistics");
+const utils_1 = require("./utils");
 class Checkin {
 }
 Checkin.from = (input) => {
@@ -40,14 +41,6 @@ Checkin.from = (input) => {
     }
     return checkin;
 };
-class IncrementalMap extends Map {
-    constructor(...args) {
-        super(...args);
-    }
-    increment(key, count = 1) {
-        return this.set(key, (this.get(key) || 0) + count);
-    }
-}
 const args = minimist(process.argv.slice(2));
 const { _: [inFile], year } = args;
 assert.ok(inFile, "Missing input file argument. Pass JSON history from Untappd as input file");
@@ -59,25 +52,25 @@ const endYear = (year && year || checkins[checkins.length - 1].created_at.getFul
 const startTime = new Date(startYear, 0, 1, 5, 0, 0);
 const endTime = new Date(endYear, 0, 1, 5, 0, 0);
 const daysInYear = ((endTime.getTime() - startTime.getTime()) / 1000 / 60 / 60 / 24);
-const dayOfWeekMap = new IncrementalMap();
-const beersPerDayOfWeekMap = new IncrementalMap();
-const daysMap = new IncrementalMap();
-const weeksMap = new IncrementalMap();
-const monthsMap = new IncrementalMap();
-const brewMap = new IncrementalMap();
-const breweryMap = new IncrementalMap();
-const breweryCityMap = new IncrementalMap();
-const breweryStateMap = new IncrementalMap();
-const breweryCountryMap = new IncrementalMap();
-const breweryCityByBreweryMap = new IncrementalMap();
-const breweryStateByBreweryMap = new IncrementalMap();
-const breweryCountryByBreweryMap = new IncrementalMap();
-const styleMap = new IncrementalMap();
-const venueMap = new IncrementalMap();
-const venueCityMap = new IncrementalMap();
-const venueStateMap = new IncrementalMap();
-const venueCountryMap = new IncrementalMap();
-const majorStyleMap = new IncrementalMap();
+const dayOfWeekMap = new utils_1.IncrementalMap();
+const beersPerDayOfWeekMap = new utils_1.IncrementalMap();
+const daysMap = new utils_1.IncrementalMap();
+const weeksMap = new utils_1.IncrementalMap();
+const monthsMap = new utils_1.IncrementalMap();
+const brewMap = new utils_1.IncrementalMap();
+const breweryMap = new utils_1.IncrementalMap();
+const breweryCityMap = new utils_1.IncrementalMap();
+const breweryStateMap = new utils_1.IncrementalMap();
+const breweryCountryMap = new utils_1.IncrementalMap();
+const breweryCityByBreweryMap = new utils_1.IncrementalMap();
+const breweryStateByBreweryMap = new utils_1.IncrementalMap();
+const breweryCountryByBreweryMap = new utils_1.IncrementalMap();
+const styleMap = new utils_1.IncrementalMap();
+const venueMap = new utils_1.IncrementalMap();
+const venueCityMap = new utils_1.IncrementalMap();
+const venueStateMap = new utils_1.IncrementalMap();
+const venueCountryMap = new utils_1.IncrementalMap();
+const majorStyleMap = new utils_1.IncrementalMap();
 checkins
     .filter(({ created_at }) => created_at > startTime && created_at < endTime)
     .forEach(({ created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country }) => {
