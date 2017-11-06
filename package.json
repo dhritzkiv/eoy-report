@@ -38,7 +38,7 @@
     "simplify-path": "^1.1.0",
     "strava-v3": "^1.14.0",
     "svg.js": "^2.6.3",
-    "three": "^0.87.1",
+    "three": "^0.88.0",
     "three.meshline": "^1.0.3",
     "tslint": "^5.8.0",
     "tween.js": "^16.6.0",
