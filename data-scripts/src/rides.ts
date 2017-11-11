@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as assert from "assert";
 import * as path from "path";
 import * as minimist from "minimist";
-import {quantile, median, mean, max, min, sum, modeFast} from "simple-statistics";
+import {quantile, median, mean, max, min, sum, modeFast as mode} from "simple-statistics";
 import * as moment from "moment";
 import Ride from "./strava-activities";
 import {IncrementalMap} from "./utils";
@@ -121,9 +121,11 @@ rides.forEach(ride => {
 	dailyRidesMap.set(dayOfYear, rideDay);
 });
 
-const ridesByDayArray = [...dailyRidesMap.values()].map(({rides}) => rides).sort((a, b) => b.length - a.length);
-const dailyRideCounts = [...dailyRideCountsMap.values()];
-const dailyRideDistances = [...dailyRideDistancesMap.values()];
+const ridesByDayArray = [...dailyRidesMap.values()].map(({rides}) => rides).sort(({length: a}, {length: b}) => b - a);
+const dailyRideCounts = [...dailyRideCountsMap.values()].sort((a, b) => b - a);
+const dailyRideCountsDense = dailyRideCounts.filter(d => d);
+const dailyRideDistances = [...dailyRideDistancesMap.values()].sort((a, b) => b - a);
+const dailyRideDistancesDense = dailyRideDistances.filter(d => d);
 
 const weekdayRides = rides.filter(({start_date_local_date: date}) => !isWeekend(date));
 const weekendRides = rides.filter(({start_date_local_date: date}) => isWeekend(date));
@@ -131,8 +133,19 @@ const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
 const weekendValues = weekendRides.map(mapToValue)
 
-const totalCount = rides.length;
-const totalDistance = sum(dailyRideDistances);
+/*let maxStreakDays = 0;
+let maxStreakRides = 0;
+let maxDryStreak = 0;
+for (const dayRideCount of dailyRideCounts) {
+
+}*/
+
+const {
+	maxStreakDays: totalMaxStreakDays,
+	maxStreakRides: totalMaxStreakRides,
+	maxDrySpell: totalMaxDrySpell
+} = calculateStreaksForData([...dailyRideCountsMap.values()]);
+
 /*const totalCount = sum(dayValues);
 const weekdayCount = sum(weekdayValues);
 const weekendCount = sum(weekendValues);
@@ -175,47 +188,93 @@ const {
 	maxDrySpell: weekendMaxDrySpell
 } = calculateStreaksForData(weekendValues);*/
 
-console.log("\n** Stats **");
-console.log("total rides recorded: %d", totalCount);
+console.group("Basic stats by rides");
+console.log("total rides recorded: %d", rides.length);
 console.log("manually enterred rides: %d", rides.filter(({manual}) => manual).length);
-console.log("average rides per day: %f", totalCount / daysInYear);
-console.log("highest number of rides in a day: %d", ridesByDayArray[0].length);
-console.log("average number of rides per day: %d", mean(ridesByDayArray.map(({length}) => length)));
-console.log("median daily rides (sparse)", median(dailyRideCounts));
-console.log("median daily rides", median(dailyRideCounts.filter(count => count)));
-console.log("number of days without a ride: %d", dailyRideCounts.filter(count => !count).length);
-
-console.log("total distance: %fkm", sum(dailyRideDistances) / 1000);
+console.log("mean daily rides", mean(dailyRideCounts));
+console.log("mean daily rides (dense)", mean(dailyRideCountsDense));
+console.log("median daily rides", median(dailyRideCounts));
+console.log("median daily rides (dense)", median(dailyRideCountsDense));
+console.log("total distance: %fkm", sum(dailyRideCountsDense) / 1000);
 console.log("average daily distance (sparse): %fkm", mean(dailyRideDistances) / 1000);
-console.log("average daily distance: %fkm", mean(dailyRideDistances.filter(count => count)) / 1000);
-console.log("median daily distance (sparse): %fkm", median(dailyRideDistances) / 1000);
-console.log("median daily distance: %fkm", median(dailyRideDistances.filter(count => count)) / 1000);
+console.log("average daily distance: %fkm", mean(dailyRideCountsDense) / 1000);
+console.groupEnd();
 
+console.log();
+console.group("Basic stats by days");
+console.log("most number of rides in a day: %d", ridesByDayArray[0].length);
+console.log("number of days without a ride: %d", dailyRideCounts.filter(count => !count).length);
+console.log("most distance in one day: %fkm", dailyRideDistances[0] / 1000);
+console.log("least distance in one day (dense): %fkm", dailyRideDistancesDense.slice(-1).map(d => d / 1000)[0]);
+const modeDailyRides = mode(dailyRideCountsDense);
+console.log("mode rides by day: %d", modeDailyRides);
+console.log("days with more rides than usual: %d", dailyRideCounts.filter(count => count > modeDailyRides).length);
+console.groupEnd();
+
+console.log();
+console.group("Streaks");
+console.log("Most consectutive days with rides: %d", totalMaxStreakDays);
+console.log("Most consectutive rides without a break day: %d", totalMaxStreakRides);
+console.log("Longest no-ride streak in days: %d", totalMaxDrySpell);
+console.groupEnd();
+
+console.log();
+console.group("Ride stats limits");
 console.log("longest ride: %fkm", max(rides.map(ride => ride.distance)) / 1000);
 console.log("longest weekend ride: %fkm", max(weekendRides.map(r => r.distance)) / 1000);
 console.log("longest weekday ride: %fkm", max(weekdayRides.map(r => r.distance)) / 1000);
 console.log("shortest ride: %fkm", min(rides.map(ride => ride.distance)) / 1000);
 console.log("shortest weekend ride: %fkm", min(weekendRides.map(r => r.distance)) / 1000);
 console.log("shortest weekday ride: %fkm", min(weekdayRides.map(r => r.distance)) / 1000);
-console.log("average ride: %fkm", mean(rides.map(ride => ride.distance)) / 1000);
-console.log("average weekend ride: %fkm", mean(weekendRides.map(r => r.distance)) / 1000);
-console.log("average weekday ride: %fkm", mean(weekdayRides.map(r => r.distance)) / 1000);
+console.groupEnd();
 
+console.log();
+console.group("Days by percentile");
+console.log("median daily distance: %fkm", median(dailyRideDistances) / 1000);
+console.log("median daily distance (dense): %fkm", median(dailyRideDistancesDense) / 1000);
+console.log("75th percentile daily distance: %fkm", quantile(dailyRideDistances, 0.75) / 1000);
+console.log("75th percentile daily distance (dense): %fkm", quantile(dailyRideDistancesDense, 0.75) / 1000);
+console.log("90th percentile daily distance: %fkm", quantile(dailyRideDistances, 0.90) / 1000);
+console.log("90th percentile daily distance (dense): %fkm", quantile(dailyRideDistancesDense, 0.90) / 1000);
+console.log("95th percentile daily distance: %fkm", quantile(dailyRideDistances, 0.95) / 1000);
+console.log("95th percentile daily distance (dense): %fkm", quantile(dailyRideDistancesDense, 0.95) / 1000);
+console.log("99th percentile daily distance: %fkm", quantile(dailyRideDistances, 0.99) / 1000);
+console.log("99th percentile daily distance (dense): %fkm", quantile(dailyRideDistancesDense, 0.99) / 1000);
+console.groupEnd();
+
+console.log();
+console.group("Rides by percentile");
 console.log("median ride: %fkm", median(rides.map(ride => ride.distance)) / 1000);
 console.log("75th percentile ride length: %fkm", quantile(rides.map(ride => ride.distance), 0.75) / 1000);
 console.log("90th percentile ride length: %fkm", quantile(rides.map(ride => ride.distance), 0.90) / 1000);
 console.log("95th percentile ride length: %fkm", quantile(rides.map(ride => ride.distance), 0.95) / 1000);
 console.log("99th percentile ride length: %fkm", quantile(rides.map(ride => ride.distance), 0.99) / 1000);
+console.groupEnd();
 
 const rideDistancesInKilometres = rides.map(ride => ride.distance / 1000);
 const numberOfRidesOverXKilometres = (min: number) => rideDistancesInKilometres.filter(d => d > min).length;
 
+console.log();
+console.group("Rides by distance groups");
 console.log("# of rides over 5km: %d", numberOfRidesOverXKilometres(5));
 console.log("# of rides over 10km: %d", numberOfRidesOverXKilometres(10));
 console.log("# of rides over 25km: %d", numberOfRidesOverXKilometres(25));
 console.log("# of rides over 50km: %d", numberOfRidesOverXKilometres(50));
 console.log("# of rides over 75km: %d", numberOfRidesOverXKilometres(75));
 console.log("# of rides over 100km: %d", numberOfRidesOverXKilometres(100));
+console.groupEnd();
+
+const rideDaysInKilometres = dailyRideDistances.map(d => d / 1000);
+const numberOfDaysOverXKilometres = (min: number) => rideDaysInKilometres.filter(d => d > min).length;
+
+console.log();
+console.group("Days by distance groups");
+console.log("# of days over 5km: %d", numberOfDaysOverXKilometres(5));
+console.log("# of days over 10km: %d", numberOfDaysOverXKilometres(10));
+console.log("# of days over 25km: %d", numberOfDaysOverXKilometres(25));
+console.log("# of days over 50km: %d", numberOfDaysOverXKilometres(50));
+console.log("# of days over 75km: %d", numberOfDaysOverXKilometres(75));
+console.log("# of days over 100km: %d", numberOfDaysOverXKilometres(100));
 
 
 /*console.log("average", totalCount / data.length);
