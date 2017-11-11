@@ -50,6 +50,7 @@ const getRideIdsForYear = async (year: number) => {
 
 	while (!outOfBounds) {
 		let ridesRaw;
+
 		try {
 			ridesRaw = await asyncListActivities({
 				page: retrievalPage,
@@ -58,7 +59,7 @@ const getRideIdsForYear = async (year: number) => {
 			});
 		} catch (e) {
 			if (!(e instanceof Error)) {
-				e = new Error(e.message);
+				throw new Error(e.message);
 			}
 
 			throw e;
@@ -79,12 +80,11 @@ const getRideIdsForYear = async (year: number) => {
 				calories
 			};
 
-			return ride
+			return ride;
 		})
 		.filter(testForYear);
 
-		const ids = rides
-		.map(({id}) => id);
+		const ids = rides.map(({id}) => id);
 
 		ride_ids.push(...ids);
 
@@ -181,5 +181,5 @@ const simplifyRideData = (ride) => {
 
 getRideIdsForYear(year)
 .catch(err => {
-	throw err
+	throw err;
 });

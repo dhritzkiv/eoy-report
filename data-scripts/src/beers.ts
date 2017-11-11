@@ -1,9 +1,8 @@
 import * as fs from "fs";
 import * as assert from "assert";
-import * as path from "path";
 import * as minimist from "minimist";
 import * as moment from "moment";
-import {median, max, sum, modeFast} from "simple-statistics";
+import {median, sum, modeFast} from "simple-statistics";
 import {IncrementalMap} from "./utils";
 
 interface CheckinBase {
@@ -135,7 +134,7 @@ checkins
 
 	beersPerDayOfWeekMap.increment(dayOfWeekKey);
 	daysMap.increment(dateKey);
-	weeksMap.increment(weekKey)
+	weeksMap.increment(weekKey);
 	monthsMap.increment(monthKey);
 	brewMap.increment(brewKey);
 	breweryMap.increment(brewery_name);

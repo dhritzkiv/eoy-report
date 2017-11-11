@@ -12,7 +12,6 @@ var ActivityType;
     ActivityType["run"] = "run";
     ActivityType["swim"] = "swim";
 })(ActivityType || (ActivityType = {}));
-;
 /**
  * @enumerable decorator that sets the enumerable property of a class field to false.
  * @param value true|false

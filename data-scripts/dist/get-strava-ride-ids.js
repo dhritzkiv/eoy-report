@@ -33,7 +33,7 @@ const getRideIdsForYear = async (year) => {
         }
         catch (e) {
             if (!(e instanceof Error)) {
-                e = new Error(e.message);
+                throw new Error(e.message);
             }
             throw e;
         }
@@ -54,8 +54,7 @@ const getRideIdsForYear = async (year) => {
             return ride;
         })
             .filter(testForYear);
-        const ids = rides
-            .map(({ id }) => id);
+        const ids = rides.map(({ id }) => id);
         ride_ids.push(...ids);
         console.log("page %d; retrieved %d rides.", retrievalPage, ids.length);
         retrievalPage++;

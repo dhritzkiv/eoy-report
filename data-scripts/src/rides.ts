@@ -131,7 +131,7 @@ const weekdayRides = rides.filter(({start_date_local_date: date}) => !isWeekend(
 const weekendRides = rides.filter(({start_date_local_date: date}) => isWeekend(date));
 const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
-const weekendValues = weekendRides.map(mapToValue)
+const weekendValues = weekendRides.map(mapToValue);
 
 /*let maxStreakDays = 0;
 let maxStreakRides = 0;
@@ -207,6 +207,7 @@ console.log("number of days without a ride: %d", dailyRideCounts.filter(count =>
 console.log("most distance in one day: %fkm", dailyRideDistances[0] / 1000);
 console.log("least distance in one day (dense): %fkm", dailyRideDistancesDense.slice(-1).map(d => d / 1000)[0]);
 const modeDailyRides = mode(dailyRideCountsDense);
+
 console.log("mode rides by day: %d", modeDailyRides);
 console.log("days with more rides than usual: %d", dailyRideCounts.filter(count => count > modeDailyRides).length);
 console.groupEnd();

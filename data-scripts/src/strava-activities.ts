@@ -43,7 +43,7 @@ interface Activity {
 	calories: number;
 }
 
-interface Ride extends Activity {};
+interface Ride extends Activity {}
 
 /**
  * @enumerable decorator that sets the enumerable property of a class field to false.
@@ -103,7 +103,7 @@ class Ride implements Ride {
 			this.elev_low = data.elev_low;
 			this.timezone = data.timezone;
 			this.start_latlng = data.start_latlng;
-			this.end_latlng = data.end_latlng
+			this.end_latlng = data.end_latlng;
 			this.map = data.map;
 			this.max_speed = data.max_speed;//meters per seco
 			this.average_watts = data.average_watts;
