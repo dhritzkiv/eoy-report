@@ -1,6 +1,6 @@
 {
 	"parserOptions": {
-		"ecmaVersion": 6
+		"ecmaVersion": 2017
 	},
 	"env": {
 		"browser": true,
@@ -33,7 +33,8 @@
 			2,
 			"tab",
 			{
-				"SwitchCase": 1
+				"SwitchCase": 1,
+				"MemberExpression": 0
 			}
 		],
 		"no-use-before-define": 2,
@@ -69,7 +70,11 @@
 		"wrap-iife": 2,
 		"space-before-function-paren": [
 			2,
-			"never"
+			{
+				"anonymous": "never",
+				"named": "never",
+				"asyncArrow": "always"
+			}
 		],
 		"one-var": [
 			2,
@@ -169,7 +174,6 @@
 		"no-const-assign": 2,
 		"no-path-concat": 2,
 		"no-new-require": 2,
-		"no-use-before-define": 2,
 		"radix": 2,
 		"no-useless-escape": 1,
 		"no-useless-concat": 2,
@@ -180,7 +184,6 @@
 		"no-return-assign": 2,
 		"no-new-wrappers": 2,
 		"no-native-reassign": 2,
-		"no-multi-str": 2,
 		"no-loop-func": 2,
 		"no-implicit-coercion": 1,
 		"no-extend-native": 2,
@@ -205,10 +208,6 @@
 		"no-spaced-func": 2,
 		"no-unneeded-ternary": 2,
 		"one-var-declaration-per-line": 2,
-		"space-before-function-paren": [
-			2,
-			"never"
-		],
 		"space-infix-ops": [
 			2,
 			{
@@ -232,8 +231,6 @@
 				"allow": ["warn", "error"]
 			}
 		],
-		"radix": 2,
-		"no-new-require": 2,
 		"no-mixed-requires": [
 			2,
 			{
@@ -241,14 +238,9 @@
 				"allowCall": false
 			}
 		],
-		"callback-return": [
-			2,
-			["callback", "cb", "next", "done"]
-		],
 		"no-delete-var": 2,
 		"no-self-assign": 2,
 		"no-div-regex": 1,
-		"no-unexpected-multiline": 2,
 		"no-sparse-arrays": 1,
 		"no-octal-escape": 2,
 		"no-template-curly-in-string": 2,
@@ -260,6 +252,39 @@
 			"allowNamedFunctions": true
 		}],
 		"func-name-matching": 2,
-		"no-useless-return": 2
+		"no-useless-return": 2,
+		"padding-line-between-statements": [
+			"warn",
+			{
+				"blankLine": "always", "prev": "*", "next": ["return", "break", "continue", "cjs-export", "export", "throw"]
+			},
+			{
+				"blankLine": "any", "prev": ["cjs-export", "export"], "next": ["cjs-export", "export"]
+			},
+			{
+				"blankLine": "always", "prev": ["const", "let", "var", "cjs-import", "import"], "next": "*"
+			},
+   			{
+				"blankLine": "any", "prev": ["const", "let", "var", "cjs-import", "import"], "next": ["const", "let", "var", "cjs-import", "import"]
+			},
+			{
+				"blankLine": "any", "prev": ["cjs-import", "import"], "next": ["cjs-import", "import"]
+			},
+			{
+				"blankLine": "always", "prev": "directive", "next": "*"
+			},
+			{
+				"blankLine": "any", "prev": "directive", "next": "directive"
+			},
+			{
+				"blankLine": "always", "prev": "*", "next": ["block", "block-like", "class"]
+			},
+			{
+				"blankLine": "always", "prev": ["block", "block-like", "class"], "next": "*"
+			},
+			{
+				"blankLine": "any", "prev": "case", "next": "case"
+			}
+		]
 	}
 }

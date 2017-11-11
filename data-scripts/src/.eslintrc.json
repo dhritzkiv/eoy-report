@@ -1,0 +1,20 @@
+{
+	"extends": [
+		"../../.eslintrc.json"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2017,
+		"sourceType": "module"
+	},
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"parser": "typescript-eslint-parser",
+	"rules": {
+		"no-undef": "off",
+		"no-unused-vars": "off",
+		"no-useless-constructor": "off",
+		"space-infix-ops": "off"
+	}
+}
