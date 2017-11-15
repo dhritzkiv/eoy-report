@@ -6,6 +6,8 @@ import {quantile, median, mean, max, min, sum, modeFast as mode} from "simple-st
 import * as moment from "moment";
 import Ride from "./strava-activities";
 import {IncrementalMap} from "./utils";
+/// <reference path="./haversine.d.ts"/>
+import * as haversine from "haversine";
 
 interface RideDay {
 	date: Date;
@@ -132,6 +134,7 @@ const weekendRides = rides.filter(({start_date_local_date: date}) => isWeekend(d
 const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
 const weekendValues = weekendRides.map(mapToValue);
+const ridesWithMaps = rides.filter(({map}) => map);
 
 /*let maxStreakDays = 0;
 let maxStreakRides = 0;
@@ -139,6 +142,33 @@ let maxDryStreak = 0;
 for (const dayRideCount of dailyRideCounts) {
 
 }*/
+
+const peakDistanceMap = new Map<Ride, number>();
+
+ridesWithMaps.forEach(ride => {
+	let maxDistance = -Number.MAX_VALUE;
+	const startingPoint = ride.mapline[0];
+
+	ride.mapline
+	.slice(1)
+	.forEach((point) => {
+		const distance = haversine(startingPoint, point, {
+			format: "[lat,lon]",
+			unit: "km"
+		});
+
+		if (distance > maxDistance) {
+			maxDistance = distance;
+		}
+	});
+
+	peakDistanceMap.set(ride, maxDistance);
+});
+
+[...peakDistanceMap]
+.sort(([, a], [, b]) => b - a)
+.slice(0, 5)
+.forEach(([ride, distance], index) => console.log("%d. ride %s peak distance from start: %fkm", index + 1, ride.id, distance));
 
 const {
 	maxStreakDays: totalMaxStreakDays,
