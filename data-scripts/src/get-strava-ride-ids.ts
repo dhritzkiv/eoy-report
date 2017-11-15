@@ -4,8 +4,6 @@ import * as path from "path";
 import * as assert from "assert";
 import {promisify} from "util";
 import * as strava from "strava-v3";
-import * as async from "async";
-import * as polyline from "@mapbox/polyline";
 import * as minimist from "minimist";
 
 const args = minimist(process.argv.slice(2));
@@ -101,83 +99,6 @@ const getRideIdsForYear = async (year: number) => {
 
 	await asyncWriteFile(outFile, data);
 };
-
-/*
-const simplifyRideData = (ride) => {
-	const simple = {};
-
-	targetRideKeys.forEach(key => (simple[key] = ride[key]));
-
-	if (ride.map && ride.map.polyline) {
-		simple.points = polyline.decode(ride.map.polyline);
-		//reverse order of coords
-		simple.points = simple.points.map(point => point.reverse());
-	}
-
-	return simple;
-};
-*/
-
-/* const getRideById = (id, callback) => strava.activities.get({id}, (err, ride) => {
-
-	if (err) {
-		return callback(err);
-	}
-
-	if (ride.errors) {
-		return callback(new Error(ride.message));
-	}
-
-	callback(null, simplifyRideData(ride));
-}); */
-
-/* const getRidesForYear = (offset = 0) => fs.readFile(rideIdsFilePath, "utf8", (err, data) => {
-
-	if (err) {
-		throw err;
-	}
-
-	let lastFetch = Date.now();
-	const ride_ids = JSON.parse(data).slice(offset);
-	const rides = [];
-
-	async.eachOfLimit(ride_ids, 4, (ride_id, index, callback) => {
-		lastFetch = new Date();
-
-		getRideById(ride_id, (err, ride) => {
-
-			if (err) {
-				return callback(err);
-			}
-
-			index = padRec(index.toString(), "0", ride_ids.length.toString().length);
-
-			let logLine = `#${index} [${(new Date()).toLocaleTimeString()}]: `;
-
-			logLine += `Parsed "${ride.name}" (${(new Date(ride.start_date_local)).toLocaleDateString()})`;
-
-			if (ride.points) {
-				logLine += ` with ${ride.points.length} points`;
-			}
-
-			console.log(logLine);
-
-			rides.push(ride);
-
-			//wait at most 1s between fetches.
-			setTimeout(callback, Math.max((lastFetch + 250) - Date.now(), 0));
-		});
-	}, (err) => {
-
-		if (err) {
-			console.error(err);
-		}
-
-		const ridesJSON = JSON.stringify(rides, null, "\t");
-
-		fs.writeFile(ridesFilePath, ridesJSON, "utf8", (err) => console.log(err || "Done writing"));
-	});
-}); */
 
 getRideIdsForYear(year)
 .catch(err => {
