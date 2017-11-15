@@ -6,6 +6,9 @@ import {quantile, median, mean, max, min, sum, modeFast as mode} from "simple-st
 import * as moment from "moment";
 import {Ride} from "./strava-activities";
 import {IncrementalMap} from "./utils";
+/// <reference path="./polyline.d.ts" name="@mapbox/polyline"/>
+import * as polyline from "@mapbox/polyline";
+import * as interpolateLineRange from "line-interpolate-points";
 /// <reference path="./haversine.d.ts"/>
 import * as haversine from "haversine";
 
@@ -25,6 +28,31 @@ class NumberMap extends Map<number, number> {
 		super(entries);
 	}
 }
+
+const TOLERANCE = 0.0005;
+
+const filterByGreaterDateOrGreaterIndexPosition = (rideA: Ride, rides: Ride[]) => (rideB: Ride, index: number) => {
+	/*if (rideB.start_date_local_date) {
+		return rideB.start_date_local_date > rideA.start_date_local_date;
+	} else {*/
+		return index > rides.indexOf(rideA);
+	//}
+};
+
+const distanceDiffForTwoPaths = (a: polyline.LatLonTuple[], b: polyline.LatLonTuple[]) => a
+.map((aPoint, index) => [aPoint, b[index]])
+.map(([ [x1, y1], [x2, y2] ], index, array) => {
+	//calculate the difference between the points
+	let diff = Math.hypot(x1 - x2, y1 - y2);
+
+	//calculate the alpha along the line
+	let alpha = index / array.length;
+	//alpha is lower towards the ends of the line
+	alpha = Math.min(alpha, 1 - alpha);
+
+	return diff * (2 + alpha);
+})
+.reduce((total, distance) => total + distance, 0);
 
 const isWeekend = (date: Date) => date.getUTCDay() === 0 || date.getUTCDay() === 6;
 //const addValues = (a: number, b: number) => a + b;
@@ -169,6 +197,15 @@ ridesWithMaps.forEach(ride => {
 .sort(([, a], [, b]) => b - a)
 .slice(0, 5)
 .forEach(([ride, distance], index) => console.log("%d. ride %s peak distance from start: %fkm", index + 1, ride.id, distance));
+
+//find a median point count for use in interpolation
+const medianPointCount = median(ridesWithMaps.map(ride => ride.mapline.length));
+
+//interpolate maps to use same # of points
+ridesWithMaps.map((ride) => ride.mapline_interop = interpolateLineRange(ride.mapline, medianPointCount));
+
+const dupesSet = new Set<Ride>();
+const dupesMap = new Map<Ride, Set<Ride>>();
 
 const {
 	maxStreakDays: totalMaxStreakDays,

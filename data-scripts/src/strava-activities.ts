@@ -86,6 +86,14 @@ class Ride implements Ride {
 	@writable(true)
 	private _start_date_local_date: Date;
 
+	@enumerable(false)
+	@writable(true)
+	private _mapline: polyline.LatLonTuple[];
+
+	@enumerable(false)
+	@writable(true)
+	private _mapline_interop: polyline.LatLonTuple[];
+
 	constructor(data: Activity) {
 		this.id = data.id;
 		this.name = data.name;
@@ -117,6 +125,10 @@ class Ride implements Ride {
 
 		this._start_date_date = new Date(this.start_date);
 		this._start_date_local_date = new Date(this.start_date_local);
+
+		if (this.map) {
+			this._mapline = polyline.decode(this.map.polyline);
+		}
 	}
 
 	@enumerable(false)
@@ -127,6 +139,20 @@ class Ride implements Ride {
 	@enumerable(false)
 	get start_date_local_date() {
 		return this._start_date_local_date;
+	}
+
+	@enumerable(false)
+	get mapline() {
+		return this._mapline;
+	}
+
+	@enumerable(false)
+	get mapline_interop() {
+		return this._mapline_interop;
+	}
+
+	set mapline_interop(val) {
+		this._mapline_interop = val;
 	}
 }
 
