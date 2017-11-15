@@ -1,3 +1,7 @@
+
+/// <reference path="./polyline.d.ts" name="@mapbox/polyline"/>
+import * as polyline from "@mapbox/polyline";
+
 enum ActivityType {
 	ride = "ride",
 	run	 = "run",

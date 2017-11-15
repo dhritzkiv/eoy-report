@@ -8,6 +8,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@mapbox/polyline": "^0.2.0",
     "@types/node": "^8.0.51",
     "ampersand-app": "^2.0.0",
     "ampersand-collection": "^2.0.1",
@@ -29,7 +30,6 @@
     "moves-api": "0.0.5",
     "node-foursquare": "^0.3.0",
     "numeral": "^1.5.3",
-    "polyline": "^0.2.0",
     "proj4": "^2.4.4",
     "raven-js": "^3.19.1",
     "sax": "^1.2.4",

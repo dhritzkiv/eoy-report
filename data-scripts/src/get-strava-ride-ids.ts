@@ -5,7 +5,7 @@ import * as assert from "assert";
 import {promisify} from "util";
 import * as strava from "strava-v3";
 import * as async from "async";
-import * as polyline from "polyline";
+import * as polyline from "@mapbox/polyline";
 import * as minimist from "minimist";
 
 const args = minimist(process.argv.slice(2));
