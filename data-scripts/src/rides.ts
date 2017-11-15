@@ -307,6 +307,10 @@ console.log("# of days over 50km: %d", numberOfDaysOverXKilometres(50));
 console.log("# of days over 75km: %d", numberOfDaysOverXKilometres(75));
 console.log("# of days over 100km: %d", numberOfDaysOverXKilometres(100));
 
+console.log("Highest average speed: %fkm/h", max(rides.map(({average_speed}) => average_speed * 3600 / 1000)));
+console.log("Lowest average speed: %fkm/h", min(rides.map(({average_speed}) => average_speed * 3600 / 1000)));
+console.log("Median average speed: %fkm/h", median(rides.map(({average_speed}) => average_speed * 3600 / 1000)));
+
 
 /*console.log("average", totalCount / data.length);
 console.log("average (weekdays)", weekdayCount / weekdayDays.length);
