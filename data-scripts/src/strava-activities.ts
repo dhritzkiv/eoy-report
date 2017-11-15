@@ -132,4 +132,4 @@ class Ride implements Ride {
 
 export default Ride;
 
-export {Activity};
+export {Activity, ActivityWithMap, Ride};

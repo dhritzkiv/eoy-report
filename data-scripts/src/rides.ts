@@ -4,7 +4,7 @@ import * as path from "path";
 import * as minimist from "minimist";
 import {quantile, median, mean, max, min, sum, modeFast as mode} from "simple-statistics";
 import * as moment from "moment";
-import Ride from "./strava-activities";
+import {Ride} from "./strava-activities";
 import {IncrementalMap} from "./utils";
 /// <reference path="./haversine.d.ts"/>
 import * as haversine from "haversine";
