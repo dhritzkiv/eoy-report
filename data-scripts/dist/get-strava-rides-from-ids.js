@@ -30,21 +30,6 @@ const asyncGetActivity = (arg) => new Promise((resolve, reject) => {
     });
 });
 const padRec = (value, paddingNumber, length) => value.length >= length ? value : padRec(`${paddingNumber}${value}`, paddingNumber, length);
-/*
-const simplifyRideData = (ride) => {
-    const simple = {};
-
-    targetRideKeys.forEach(key => (simple[key] = ride[key]));
-
-    if (ride.map && ride.map.polyline) {
-        simple.points = polyline.decode(ride.map.polyline);
-        //reverse order of coords
-        simple.points = simple.points.map(point => point.reverse());
-    }
-
-    return simple;
-};
-*/
 const asyncReadFile = util_1.promisify(fs.readFile);
 const asyncWriteFile = util_1.promisify(fs.writeFile);
 const getRideById = async (id) => strava.activities.get({ id }, (err, rideData) => {

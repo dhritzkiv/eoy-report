@@ -7,6 +7,9 @@ const simple_statistics_1 = require("simple-statistics");
 const moment = require("moment");
 const strava_activities_1 = require("./strava-activities");
 const utils_1 = require("./utils");
+const interpolateLineRange = require("line-interpolate-points");
+/// <reference path="./haversine.d.ts"/>
+const haversine = require("haversine");
 class NumberArray extends Array {
 }
 class NumberMap extends Map {
@@ -14,6 +17,26 @@ class NumberMap extends Map {
         super(entries);
     }
 }
+const TOLERANCE = 0.0005;
+const filterByGreaterDateOrGreaterIndexPosition = (rideA, rides) => (rideB, index) => {
+    /*if (rideB.start_date_local_date) {
+        return rideB.start_date_local_date > rideA.start_date_local_date;
+    } else {*/
+    return index > rides.indexOf(rideA);
+    //}
+};
+const distanceDiffForTwoPaths = (a, b) => a
+    .map((aPoint, index) => [aPoint, b[index]])
+    .map(([[x1, y1], [x2, y2]], index, array) => {
+    //calculate the difference between the points
+    let diff = Math.hypot(x1 - x2, y1 - y2);
+    //calculate the alpha along the line
+    let alpha = index / array.length;
+    //alpha is lower towards the ends of the line
+    alpha = Math.min(alpha, 1 - alpha);
+    return diff * (2 + alpha);
+})
+    .reduce((total, distance) => total + distance, 0);
 const isWeekend = (date) => date.getUTCDay() === 0 || date.getUTCDay() === 6;
 //const addValues = (a: number, b: number) => a + b;
 const mapToValue = (ride) => ride.distance;
@@ -63,7 +86,7 @@ assert.ok(inFile, "Missing input file argument");
 const raw = fs.readFileSync(inFile, "utf8");
 const data = JSON.parse(raw);
 assert.ok(Array.isArray(data), "Data is not an array");
-const rides = data.map(d => new strava_activities_1.default(d));
+const rides = data.map(d => new strava_activities_1.Ride(d));
 rides.sort(({ start_date_local_date: a }, { start_date_local_date: b }) => Number(a) - Number(b));
 const startYear = rides[0].start_date_local_date.getFullYear();
 const endYear = rides[rides.length - 1].start_date_local_date.getFullYear() + 1;
@@ -101,12 +124,149 @@ const weekendRides = rides.filter(({ start_date_local_date: date }) => isWeekend
 const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
 const weekendValues = weekendRides.map(mapToValue);
+const ridesWithMaps = rides.filter(({ map }) => map);
 /*let maxStreakDays = 0;
 let maxStreakRides = 0;
 let maxDryStreak = 0;
 for (const dayRideCount of dailyRideCounts) {
 
 }*/
+const peakDistanceMap = new Map();
+ridesWithMaps.forEach(ride => {
+    let maxDistance = -Number.MAX_VALUE;
+    const startingPoint = ride.mapline[0];
+    ride.mapline
+        .slice(1)
+        .forEach((point) => {
+        const distance = haversine(startingPoint, point, {
+            format: "[lat,lon]",
+            unit: "km"
+        });
+        if (distance > maxDistance) {
+            maxDistance = distance;
+        }
+    });
+    peakDistanceMap.set(ride, maxDistance);
+});
+[...peakDistanceMap]
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 5)
+    .forEach(([ride, distance], index) => console.log("%d. ride %s peak distance from start: %fkm", index + 1, ride.id, distance));
+//find a median point count for use in interpolation
+const medianPointCount = simple_statistics_1.median(ridesWithMaps.map(ride => ride.mapline.length));
+//interpolate maps to use same # of points
+ridesWithMaps.map((ride) => ride.mapline_interop = interpolateLineRange(ride.mapline, medianPointCount));
+const dupesSet = new Set();
+const dupesMap = new Map();
+//finds related rides
+ridesWithMaps;
+/*.map(ride => {
+    console.log([0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0));
+
+    return ({
+        diff: Math.abs(medianPointCount - ride.mapline.length),
+        stddev: [0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0),
+        ride
+    })
+})
+.sort(({stddev: a}, {stddev: b}) => a - b)
+.map(({ride}) => ride)*/
+/*.forEach((rideA, i, rides) => {
+    const {mapline_interop: pathA} = rideA;
+    //const memoizedFilter = filterByGreaterDateOrGreaterIndexPosition(rideA, rides);
+    const dupeMapAArray = dupesMap.get(rideA) || new Set();
+
+    dupesMap.set(rideA, dupeMapAArray);
+
+    rides
+    //rideB isn't rideA
+    .filter(rideB => rideA !== rideB)
+    //pathB hasn't already been marked a dupe
+    //.filter(rideB => !dupesSet.has(rideB))
+    //pathB comes after pathA
+    .filter((rideB, index) => index > rides.indexOf(rideA))
+    //.filter((rideB, index) => memoizedFilter(rideB, index))
+    .forEach(rideB => {
+        const {mapline_interop: pathB} = rideB;
+        const dupeMapBArray = dupesMap.get(rideB) || new Set();
+
+        dupesMap.set(rideB, dupeMapBArray);
+
+        const totalDistanceDiff = distanceDiffForTwoPaths(pathA, pathB);
+        const averageDistanceDiff = totalDistanceDiff / medianPointCount;
+
+        if (averageDistanceDiff <= TOLERANCE) {
+            dupesSet.add(rideB);
+            dupeMapAArray.add(rideB);
+            dupeMapBArray.add(rideA);
+
+            return;
+        }
+
+        //reverse the pathB, since we don't care about directionality
+        const totalDistanceDiffReverse = distanceDiffForTwoPaths(pathA, pathB.slice(0).reverse());
+        const averageDistanceDiffReverse = totalDistanceDiffReverse / medianPointCount;
+
+        if (averageDistanceDiffReverse <= TOLERANCE) {
+            dupesSet.add(rideB);
+            dupeMapAArray.add(rideB);
+            dupeMapBArray.add(rideA);
+        }
+    });
+});*/
+/*const cleanedDupesMap = new Map<Ride, Set<Ride>>();
+
+console.time("heavy tings");
+
+for (const [parentRide, parentRelatedRides] of dupesMap) {
+
+    const recursiveMergeAndDeleteRelatedRide = (relatedRides: Set<Ride>) => {
+        for (const relatedRide of relatedRides) {
+            const subrelatedRides = dupesMap.get(relatedRide);
+
+            if (!subrelatedRides) {
+                break;
+            }
+
+            subrelatedRides.delete(parentRide);
+
+            for (const subrelatedRide of subrelatedRides) {
+                parentRelatedRides.add(subrelatedRide);
+
+                for (const _rides of dupesMap.values()) {
+                    if (_rides === relatedRides || _rides === parentRelatedRides || _rides === subrelatedRides) {
+                        continue;
+                    }
+
+                    _rides.delete(subrelatedRide);
+                    _rides.delete(relatedRide);
+                    _rides.delete(parentRide);
+                }
+
+                recursiveMergeAndDeleteRelatedRide(subrelatedRides);
+            };
+
+            //relatedRides.clear();
+            //dupesMap.delete(relatedRide);
+        }
+    };
+
+    recursiveMergeAndDeleteRelatedRide(parentRelatedRides);
+
+}
+
+console.timeEnd("heavy tings");
+
+const mostSimilarRides = [...dupesMap.entries()]
+.map(([ride, rides]) => ({ride, count: rides.size}));
+
+mostSimilarRides.sort(({count: a}, {count: b}) => b - a);
+
+console.group("Top 10 similar rides");
+mostSimilarRides.slice(0, 10)
+.map((entry, index) => [index + 1, entry.ride.id, entry.count])
+.forEach(line => console.log("%d: %s (%d)", ...line));
+console.groupEnd();*/
 const { maxStreakDays: totalMaxStreakDays, maxStreakRides: totalMaxStreakRides, maxDrySpell: totalMaxDrySpell } = calculateStreaksForData([...dailyRideCountsMap.values()]);
 /*const totalCount = sum(dayValues);
 const weekdayCount = sum(weekdayValues);
@@ -226,6 +386,9 @@ console.log("# of days over 25km: %d", numberOfDaysOverXKilometres(25));
 console.log("# of days over 50km: %d", numberOfDaysOverXKilometres(50));
 console.log("# of days over 75km: %d", numberOfDaysOverXKilometres(75));
 console.log("# of days over 100km: %d", numberOfDaysOverXKilometres(100));
+console.log("Highest average speed: %fkm/h", simple_statistics_1.max(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
+console.log("Lowest average speed: %fkm/h", simple_statistics_1.min(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
+console.log("Median average speed: %fkm/h", simple_statistics_1.median(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
 /*console.log("average", totalCount / data.length);
 console.log("average (weekdays)", weekdayCount / weekdayDays.length);
 console.log("average (weekends)", weekendCount / weekendDays.length);

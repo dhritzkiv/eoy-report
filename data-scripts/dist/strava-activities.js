@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/// <reference path="./polyline.d.ts" name="@mapbox/polyline"/>
+const polyline = require("@mapbox/polyline");
 var ActivityType;
 (function (ActivityType) {
     ActivityType["ride"] = "ride";
@@ -68,12 +70,24 @@ class Ride {
         }
         this._start_date_date = new Date(this.start_date);
         this._start_date_local_date = new Date(this.start_date_local);
+        if (this.map) {
+            this._mapline = polyline.decode(this.map.polyline);
+        }
     }
     get start_date_date() {
         return this._start_date_date;
     }
     get start_date_local_date() {
         return this._start_date_local_date;
+    }
+    get mapline() {
+        return this._mapline;
+    }
+    get mapline_interop() {
+        return this._mapline_interop;
+    }
+    set mapline_interop(val) {
+        this._mapline_interop = val;
     }
 }
 __decorate([
@@ -85,10 +99,25 @@ __decorate([
     writable(true)
 ], Ride.prototype, "_start_date_local_date", void 0);
 __decorate([
+    enumerable(false),
+    writable(true)
+], Ride.prototype, "_mapline", void 0);
+__decorate([
+    enumerable(false),
+    writable(true)
+], Ride.prototype, "_mapline_interop", void 0);
+__decorate([
     enumerable(false)
 ], Ride.prototype, "start_date_date", null);
 __decorate([
     enumerable(false)
 ], Ride.prototype, "start_date_local_date", null);
+__decorate([
+    enumerable(false)
+], Ride.prototype, "mapline", null);
+__decorate([
+    enumerable(false)
+], Ride.prototype, "mapline_interop", null);
+exports.Ride = Ride;
 exports.default = Ride;
 //# sourceMappingURL=strava-activities.js.map
