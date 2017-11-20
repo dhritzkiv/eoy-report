@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as assert from "assert";
 import * as path from "path";
 import * as minimist from "minimist";
-import {quantile, median, mean, max, min, sum, modeFast as mode} from "simple-statistics";
+import {quantile, median, mean, max, min, sum, modeFast as mode, standardDeviation} from "simple-statistics";
 import * as moment from "moment";
 import {Ride} from "./strava-activities";
 import {IncrementalMap} from "./utils";
@@ -206,6 +206,117 @@ ridesWithMaps.map((ride) => ride.mapline_interop = interpolateLineRange(ride.map
 
 const dupesSet = new Set<Ride>();
 const dupesMap = new Map<Ride, Set<Ride>>();
+
+//finds related rides
+ridesWithMaps
+/*.map(ride => {
+	console.log([0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0));
+
+	return ({
+		diff: Math.abs(medianPointCount - ride.mapline.length),
+		stddev: [0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0),
+		ride
+	})
+})
+.sort(({stddev: a}, {stddev: b}) => a - b)
+.map(({ride}) => ride)*/
+/*.forEach((rideA, i, rides) => {
+	const {mapline_interop: pathA} = rideA;
+	//const memoizedFilter = filterByGreaterDateOrGreaterIndexPosition(rideA, rides);
+	const dupeMapAArray = dupesMap.get(rideA) || new Set();
+
+	dupesMap.set(rideA, dupeMapAArray);
+
+	rides
+	//rideB isn't rideA
+	.filter(rideB => rideA !== rideB)
+	//pathB hasn't already been marked a dupe
+	//.filter(rideB => !dupesSet.has(rideB))
+	//pathB comes after pathA
+	.filter((rideB, index) => index > rides.indexOf(rideA))
+	//.filter((rideB, index) => memoizedFilter(rideB, index))
+	.forEach(rideB => {
+		const {mapline_interop: pathB} = rideB;
+		const dupeMapBArray = dupesMap.get(rideB) || new Set();
+
+		dupesMap.set(rideB, dupeMapBArray);
+
+		const totalDistanceDiff = distanceDiffForTwoPaths(pathA, pathB);
+		const averageDistanceDiff = totalDistanceDiff / medianPointCount;
+
+		if (averageDistanceDiff <= TOLERANCE) {
+			dupesSet.add(rideB);
+			dupeMapAArray.add(rideB);
+			dupeMapBArray.add(rideA);
+
+			return;
+		}
+
+		//reverse the pathB, since we don't care about directionality
+		const totalDistanceDiffReverse = distanceDiffForTwoPaths(pathA, pathB.slice(0).reverse());
+		const averageDistanceDiffReverse = totalDistanceDiffReverse / medianPointCount;
+
+		if (averageDistanceDiffReverse <= TOLERANCE) {
+			dupesSet.add(rideB);
+			dupeMapAArray.add(rideB);
+			dupeMapBArray.add(rideA);
+		}
+	});
+});*/
+
+/*const cleanedDupesMap = new Map<Ride, Set<Ride>>();
+
+console.time("heavy tings");
+
+for (const [parentRide, parentRelatedRides] of dupesMap) {
+
+	const recursiveMergeAndDeleteRelatedRide = (relatedRides: Set<Ride>) => {
+		for (const relatedRide of relatedRides) {
+			const subrelatedRides = dupesMap.get(relatedRide);
+
+			if (!subrelatedRides) {
+				break;
+			}
+
+			subrelatedRides.delete(parentRide);
+
+			for (const subrelatedRide of subrelatedRides) {
+				parentRelatedRides.add(subrelatedRide);
+
+				for (const _rides of dupesMap.values()) {
+					if (_rides === relatedRides || _rides === parentRelatedRides || _rides === subrelatedRides) {
+						continue;
+					}
+
+					_rides.delete(subrelatedRide);
+					_rides.delete(relatedRide);
+					_rides.delete(parentRide);
+				}
+
+				recursiveMergeAndDeleteRelatedRide(subrelatedRides);
+			};
+
+			//relatedRides.clear();
+			//dupesMap.delete(relatedRide);
+		}
+	};
+
+	recursiveMergeAndDeleteRelatedRide(parentRelatedRides);
+
+}
+
+console.timeEnd("heavy tings");
+
+const mostSimilarRides = [...dupesMap.entries()]
+.map(([ride, rides]) => ({ride, count: rides.size}));
+
+mostSimilarRides.sort(({count: a}, {count: b}) => b - a);
+
+console.group("Top 10 similar rides");
+mostSimilarRides.slice(0, 10)
+.map((entry, index) => [index + 1, entry.ride.id, entry.count])
+.forEach(line => console.log("%d: %s (%d)", ...line));
+console.groupEnd();*/
 
 const {
 	maxStreakDays: totalMaxStreakDays,
