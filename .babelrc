@@ -1,8 +1,0 @@
-{
-	"plugins": [
-		"babel-polyfill"
-	],
-	"presets": [
-		"es2015"
-	]
-}

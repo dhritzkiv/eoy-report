@@ -1,0 +1,20 @@
+{
+	"plugins": [
+		"external-helpers"
+	],
+	"presets": [
+		["env", {
+			"targets": {
+				"browsers": [
+					"last 1 safari versions",
+					"last 1 ff versions",
+					"last 1 chrome versions",
+					"last 1 opera versions",
+					"last 1 edge versions"
+				]
+			},
+			"modules": false,
+			"useBuiltIns": true
+		}]
+	]
+}
