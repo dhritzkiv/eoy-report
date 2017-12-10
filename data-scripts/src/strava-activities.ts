@@ -158,4 +158,4 @@ class Ride implements Ride {
 
 export default Ride;
 
-export {Activity, ActivityWithMap, Ride};
+export {Activity, /*ActivityWithMap, */Ride};
