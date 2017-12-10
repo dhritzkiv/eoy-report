@@ -1,8 +1,8 @@
-"use strict";
+import Collection from "ampersand-collection";
+import StatModel from "./stat";
 
-const Collection = require("ampersand-collection");
-const StatState = require("./stat");
-
-module.exports = Collection.extend({
-	model: StatState
+const StatsCollection = Collection.extend({
+	model: StatModel
 });
+
+export default StatsCollection;

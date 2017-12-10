@@ -4,7 +4,7 @@ import xhr from "xhr";
 const BeerStatsPageView = StatsView.extend({
 	template: `
 		<section class="stats-section category beer">
-			<main class="stats-holder">
+			<main data-hook="stats-holder">
 
 			</main>
 		</section>

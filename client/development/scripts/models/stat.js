@@ -6,7 +6,7 @@ import moment from "moment";
 import "moment-duration-format";
 import numeral from "numeral";
 
-module.exports = State.extend({
+const StatModel = State.extend({
 	props: {
 		title: {
 			type: "string"
@@ -22,6 +22,9 @@ module.exports = State.extend({
 		},
 		secondary_value: {
 			type: "string"
+		},
+		data: {
+			type: "object"
 		}
 	},
 	derived: {
@@ -89,4 +92,6 @@ module.exports = State.extend({
 		}
 	}
 });
+
+export default StatModel;
 
