@@ -95,6 +95,9 @@ const coffeesByDayOfWeekSorted = getCoffeesByDayOfWeek(data)
     .sort(([, a], [, b]) => b - a);
 const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];
 const dayOfLeastCoffees = coffeesByDayOfWeekSorted[coffeesByDayOfWeekSorted.length - 1];
+console.log("Coffees by day of week:");
+coffeesByDayOfWeekSorted
+    .forEach(([day, val]) => console.log(`${day}: ${val}`));
 const { maxStreakDays: totalMaxStreakDays, maxStreakCoffees: totalMaxStreakCoffees, maxDrySpell: totalMaxDrySpell } = calculateStreaksForData(dayValues);
 const { maxStreakDays: weekdayMaxStreakDays, maxStreakCoffees: weekdayMaxStreakCoffees, maxDrySpell: weekdayMaxDrySpell } = calculateStreaksForData(weekdayValues);
 const { maxStreakDays: weekendMaxStreakDays, maxStreakCoffees: weekendMaxStreakCoffees, maxDrySpell: weekendMaxDrySpell } = calculateStreaksForData(weekendValues);
