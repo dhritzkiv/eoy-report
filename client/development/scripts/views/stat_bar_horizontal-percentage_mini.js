@@ -6,7 +6,6 @@ const StatView = View.extend({
 		<article class="stat">
 			<header>
 				<h2 data-hook="title"></h2>
-				<h3 data-hook="value"></h3>
 			</header>
 			<main>
 				<div data-hook="viz-holder">
@@ -18,9 +17,6 @@ const StatView = View.extend({
 	bindings: {
 		"model.title": {
 			hook: "title"
-		},
-		"model.value": {
-			hook: "value"
 		}
 	},
 	render() {
@@ -28,39 +24,41 @@ const StatView = View.extend({
 
 		const vizEl = this.queryByHook("viz-holder");
 
-		this.buildChart(vizEl, this.model.data);
+		this.buildChart(vizEl, this.model.data.value);
 
 		return this;
 	},
 	/**
 	 * @param {Element} el
-	 * @param {number[]} data
+	 * @param {[string, number]} data
 	 */
 	buildChart(el, data) {
 		const parent = d3.select(el);
-		const margin = {top: 30, right: 30, bottom: 0, left: 30};
-		const spaceBetween = 9;
+		const margin = {top: 20, right: 20, bottom: 20, left: 20};
 
-		const height = 256 - margin.top - margin.bottom;
-		let width = 384 - margin.left - margin.right;
-		let barWidth = width / data.length;
-		let barWidthWithSpace = Math.max(Math.min(barWidth - spaceBetween, 9), 1);
-		let xOffset = (barWidth - barWidthWithSpace) / 2;
+		const width = 640 - margin.left - margin.right;
+		const barWidth = width;
+		const barHeight = 10;
+		const spaceBetween = 4;
+		const barHeightWithSpace = (barHeight * 4) + spaceBetween;
+		const height = (data.length * barHeightWithSpace) - margin.top - margin.bottom;
+		//const xOffset = (barWidth - barWidthWithSpace) / 2;
 
-		const y = d3.scaleLinear().range([height, 0]);
+		const x = d3.scaleLinear().range([0, width]);
 
-		const visibleBarY = (d) => {
-			const v = y(d);
-			const h = height - v;
+		x.domain([0, d3.max(data, ([, d]) => d)]);
 
-			if (h < barWidthWithSpace) {
-				return height - barWidthWithSpace;
+		const visibleBarX = ([, d]) => {
+			const h = x(d);
+
+			if (h < barHeight) {
+				return barHeight;
 			}
 
-			return v;
+			return h;
 		};
 
-		const visibleBarHeight = (d) => {
+		/*const visibleBarHeight = (d) => {
 			const h = height - y(d);
 
 			if (d === 0) {
@@ -68,9 +66,7 @@ const StatView = View.extend({
 			}
 
 			return Math.max(h, barWidthWithSpace);
-		};
-
-		y.domain([0, d3.max(data, (d) => d)]);
+		};*/
 
 		const svg = parent.select("svg");
 		const svgG = svg.append("g");
@@ -81,24 +77,21 @@ const StatView = View.extend({
 		.append("g")
 		.attr("class", "bar");
 
-		const barText = svgG
+		const barText = svgG.selectAll(".text")
+		.data(data)
+		.enter()
 		.append("g")
-		.attr("class", "text-bar");
-
-		const tip = barText
-		.append("g")
-		.attr("class", "tip");
-
-		const text = tip.append("text");
+		.attr("class", "bar-text")
+		.append("text");
 
 		const hoverBar = bar.append("rect").attr("class", "hover-bar");
 		const visibleBar = bar.append("rect");
 
 		hoverBar
-		.attr("height", height)
+		.attr("height", barHeight)
 		.attr("width", barWidth);
 
-		bar
+		/*bar
 		.on("mouseover touchstart", (d, i) => {
 			const transitionDuration = 150;
 			const easingFunction = d3.easeSinOut;
@@ -118,16 +111,11 @@ const StatView = View.extend({
 			.attr("transform", `translate(${xOffset}, ${translateY})`);
 
 			text.text(parseFloat(d.toFixed(2)));
-		});
+		});*/
 
 		const resize = () => {
-			width = el.clientWidth - margin.left - margin.right;
-			barWidth = width / data.length;
-			barWidthWithSpace = barWidth - spaceBetween;
-			barWidthWithSpace = Math.min(barWidthWithSpace > 1 ? barWidthWithSpace : barWidth, 15);
-			xOffset = (barWidth - barWidthWithSpace) / 2;
-			const borderRadius = Math.max((barWidthWithSpace / 2), 0);
-			const barPosition = (i) => `translate(${i * barWidth}, 0)`;
+			const borderRadius = Math.max((barHeight / 2), 0);
+			const barPosition = (i) => `translate(0, ${i * barHeightWithSpace})`;
 
 			svg
 			.attr("width", width + margin.left + margin.right)
@@ -138,20 +126,22 @@ const StatView = View.extend({
 			bar.attr("transform", (d, i) => barPosition(i));
 			barText.attr("transform", (d, i) => barPosition(i));
 
+			barText.text(([text, val]) => `${text} (${val})`);
+
 			visibleBar
-			.attr("y", height)
-			.attr("x", xOffset)
-			.attr("width", barWidthWithSpace)
+			/*.attr("y", height)
+			.attr("x", xOffset)*/
+			.attr("width", visibleBarX)
 			.attr("rx", borderRadius)
 			.attr("ry", borderRadius);
 
 			visibleBar
-			.transition()
+			/*.transition()
 			.ease(d3.easeQuadInOut)
 			.duration(400)
-			.delay((d, i) => i * 8)
-			.attr("y", visibleBarY)
-			.attr("height", visibleBarHeight);
+			.delay((d, i) => i * 8)*/
+			.attr("y", barHeight)
+			.attr("height", barHeight);
 		};
 
 		resize();

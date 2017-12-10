@@ -395,3 +395,27 @@ section.beer {
 		//left: 0;
 	}
 }
+
+[data-hook=viz-holder] {
+	svg {
+		margin: $gutter auto;
+	}
+
+	g rect.hover-bar {
+		fill: transparent;
+	}
+
+	.text-bar rect {
+		fill: transparent;
+	}
+
+	.tip {
+		font-size: 0.75em;
+		text-anchor: middle;
+		pointer-events: none;
+
+		text {
+			text-anchor: middle;
+		}
+	}
+}
