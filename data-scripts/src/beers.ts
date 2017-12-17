@@ -192,81 +192,81 @@ const [greatestMonth, ...otherMonths] = Array.from(monthsMap).sort(sortTotalDesc
 const dryestMonth = otherMonths[otherMonths.length - 1];
 
 console.log("\n");
-console.log("Top 10 Beers");
+console.log("Top 60 Beers");
 Array.from(brewMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 60)
 .map(([name, val]) => [name.split("|")[0], val])
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Breweries");
+console.log("Top 30 Breweries");
 Array.from(breweryMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Cities by Checkins");
+console.log("Top 30 Brewery Cities by Checkins");
 Array.from(breweryCityMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Cities by Brewery");
+console.log("Top 30 Brewery Cities by Brewery");
 Array.from(breweryCityByBreweryMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Regions by Checkins");
+console.log("Top 30 Brewery Regions by Checkins");
 Array.from(breweryStateMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Regions by Brewery");
+console.log("Top 30 Brewery Regions by Brewery");
 Array.from(breweryStateByBreweryMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Countries by Checkins");
+console.log("Top 20 Brewery Countries by Checkins");
 Array.from(breweryCountryMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 20)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Brewery Countries by Brewery");
+console.log("Top 20 Brewery Countries by Brewery");
 Array.from(breweryCountryByBreweryMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 20)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Styles");
+console.log("Top 30 Styles");
 Array.from(styleMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 30)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Main Styles");
+console.log("Top 20 Main Styles");
 Array.from(majorStyleMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 20)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
-console.log("Top 10 Venues by Checkins");
+console.log("Top 20 Venues by Checkins");
 Array.from(venueMap)
 .sort(sortTotalDesc)
-.slice(0, 10)
+.slice(0, 20)
 .forEach(logEachInOrderedList);
 
 console.log("\n");
