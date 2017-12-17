@@ -163,8 +163,12 @@ checkins
 	styleMap.increment(beer_type);
 	majorStyleMap.increment(majorStyleKey);
 
-	if (venue_name) {
-		venueMap.increment(venue_name);
+	if (
+		venue_name &&
+		venue_name !== "Matter and Form" &&
+		venue_name !== "WayHome"
+	) {
+		venueMap.increment(`${venue_name}`);
 
 		if (venue_city) {
 			venueCityMap.increment(`${venue_city}, ${venue_state}`);
