@@ -138,11 +138,11 @@ checkins
 	monthsMap.increment(monthKey);
 	brewMap.increment(brewKey);
 	breweryMap.increment(brewery_name);
-	breweryCityMap.increment(brewery_city);
+	breweryCityMap.increment(`${brewery_city}, ${brewery_state}`);
 
 	if (breweryMap.get(brewery_name) === 1) {
 		if (brewery_city) {
-			breweryCityByBreweryMap.increment(brewery_city);
+			breweryCityByBreweryMap.increment(`${brewery_city}, ${brewery_state}`);
 		}
 
 		if (brewery_state) {
@@ -167,7 +167,7 @@ checkins
 		venueMap.increment(venue_name);
 
 		if (venue_city) {
-			venueCityMap.increment(venue_city);
+			venueCityMap.increment(`${venue_city}, ${venue_state}`);
 		}
 
 		if (venue_state) {
