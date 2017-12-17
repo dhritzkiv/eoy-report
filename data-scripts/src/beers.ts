@@ -355,6 +355,12 @@ for (let d = new Date(startTime); d <= endTime; d.setDate(d.getDate() + 1)) {
 }
 
 console.log("\n");
+console.log("Beers by Month");
+Array.from(monthsMap)
+//.sort(sortTotalDesc)
+.forEach(entry => console.log(entry.join(": ")));
+
+console.log("\n");
 console.log("Beers by Day of Week");
 Array.from(beersPerDayOfWeekMap)
 .sort(sortTotalDesc)
