@@ -1,49 +1,29 @@
-import View from "ampersand-view";
+import StatView from "./stat";
 import * as d3 from "d3";
+import throttle from "lodash/throttle";
 
-const StatView = View.extend({
-	template: `
-		<article class="stat">
-			<header>
-				<h2 data-hook="title"></h2>
-			</header>
-			<main>
-				<div data-hook="viz-holder">
-					<svg></svg>
-				</div>
-			</main>
-		</article>
-	`,
-	bindings: {
-		"model.title": {
-			hook: "title"
-		}
-	},
-	render() {
-		this.renderWithTemplate(this);
-
-		const vizEl = this.queryByHook("viz-holder");
-
-		this.buildChart(vizEl, this.model.data.value);
-
-		return this;
-	},
+const BarStatView = StatView.extend({
 	/**
 	 * @param {Element} el
-	 * @param {number[]} data
+	 * @param {{label: string, value: number}[]} data
 	 */
 	buildChart(el, data) {
 		const parent = d3.select(el);
-		const margin = {top: 20, right: 20, bottom: 20, left: 20};
+		const svg = parent.select("svg");
+		const svgG = svg.append("g");
 
-		const height = 480 - margin.top - margin.bottom;
-		const width = 640 - margin.left - margin.right;
-		const barWidth = Math.max(width / data.length, 0.1);
-		const spaceBetween = Math.max(barWidth / 2, 1);
-		const barWidthWithSpace = barWidth - spaceBetween;
-		const xOffset = (barWidth - barWidthWithSpace) / 2;
+		const margin = {top: 20, right: 0, bottom: 20, left: 0};
+		let height = 0;
+		let width = 0;
+		let barWidth = 0;
+		let spaceBetween = 0;
+		let barWidthWithSpace = 0;
+		let xOffset = 0;
+		let currentIndex = d3.scan(data, (a, b) => b.value - a.value);
 
-		const y = d3.scaleLinear().range([height, 0]);
+		const y = d3.scaleLinear();
+
+		y.domain([0, d3.max(data, ({value: d}) => d)]);
 
 		const visibleBarY = (d) => {
 			const v = y(d);
@@ -66,57 +46,71 @@ const StatView = View.extend({
 			return Math.max(h, barWidthWithSpace);
 		};
 
-		y.domain([0, d3.max(data, (d) => d)]);
-
-		const svg = parent.select("svg");
-		const svgG = svg.append("g");
-
 		const bar = svgG.selectAll(".bar")
 		.data(data)
 		.enter()
 		.append("g")
 		.attr("class", "bar");
 
-		const barText = svgG
+		const valueBarText = svgG
 		.append("g")
 		.attr("class", "text-bar");
 
-		const tip = barText
-		.append("g")
-		.attr("class", "tip");
+		const valueText = valueBarText.append("text");
 
-		const text = tip.append("text");
+		const labelBarText = svgG
+		.append("g")
+		.attr("class", "text-bar");
+
+		const labelText = labelBarText.append("text");
 
 		const hoverBar = bar.append("rect").attr("class", "hover-bar");
 		const visibleBar = bar.append("rect");
 
-		hoverBar
-		.attr("height", height)
-		.attr("width", barWidth);
-
-		bar
-		.on("mouseover touchstart", (d, i) => {
+		const showText = ({value, label}, i) => {
+			currentIndex = i;
 			const transitionDuration = 150;
 			const easingFunction = d3.easeSinOut;
 
-			barText
+			const valueTranslateX = (i * barWidth) + (xOffset + (barWidthWithSpace / 2));
+			const valueTranslateY = visibleBarY(value) - (margin.top / 2);
+
+			valueBarText
 			.transition()
 			.ease(easingFunction)
 			.duration(transitionDuration)
-			.attr("transform", () => `translate(${i * barWidth}, 0)`);
+			.attr("transform", `translate(${valueTranslateX}, ${valueTranslateY})`);
 
-			const translateY = -(margin.top / 2) + visibleBarY(d);
+			valueText.text(parseFloat(value.toFixed(2)));
 
-			tip
+			const labelTranslateX = valueTranslateX;
+			const labelTranslateY = height + (margin.top / 2);
+
+			labelBarText
 			.transition()
 			.ease(easingFunction)
 			.duration(transitionDuration)
-			.attr("transform", `translate(${xOffset}, ${translateY})`);
+			.attr("transform", `translate(${labelTranslateX}, ${labelTranslateY})`);
 
-			text.text(parseFloat(d.toFixed(2)));
-		});
+			labelText.text(label);
+		};
 
-		const resize = () => {
+		bar.on("mouseover touchstart", showText);
+
+		const resize = throttle(() => requestAnimationFrame(() => {
+			svg
+			.attr("width", 0)
+			.attr("height", 0);
+
+			width = el.parentElement.clientWidth - margin.left - margin.right;
+			height = el.parentElement.clientHeight - margin.top - margin.bottom;
+			barWidth = Math.max(width / data.length, 0.1);
+			spaceBetween = Math.max(barWidth / 2, 0);
+			barWidthWithSpace = Math.min(barWidth - spaceBetween, 10);
+			xOffset = (barWidth - barWidthWithSpace) / 2;
+
+			y.range([height, 0]);
+
 			const borderRadius = Math.max((barWidthWithSpace / 2), 0);
 			const barPosition = (i) => `translate(${i * barWidth}, 0)`;
 
@@ -124,10 +118,15 @@ const StatView = View.extend({
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom);
 
-			svgG.attr("transform", `translate(${margin.left}, ${margin.top})`);
+			svgG
+			.attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+			hoverBar
+			.attr("height", height)
+			.attr("width", barWidth);
 
 			bar.attr("transform", (d, i) => barPosition(i));
-			barText.attr("transform", (d, i) => barPosition(i));
+			valueBarText.attr("transform", (d, i) => barPosition(i));
 
 			visibleBar
 			.attr("y", height)
@@ -141,22 +140,26 @@ const StatView = View.extend({
 			.ease(d3.easeQuadInOut)
 			.duration(400)
 			.delay((d, i) => i * 8)
-			.attr("y", visibleBarY)
-			.attr("height", visibleBarHeight);
-		};
+			.attr("y", ({value: d}) => visibleBarY(d))
+			.attr("height", ({value: d}) => visibleBarHeight(d));
+
+			showText(data[currentIndex], currentIndex);
+		}), 1000);
 
 		resize();
 
-		d3.select(window).on("resize", () => {
+		const windowResizeListener = () => {
 			const newWidth = el.clientWidth - margin.left - margin.right;
 
 			if (Math.floor(width) !== Math.floor(newWidth)) {
 				resize();
 			}
-		});
+		};
 
-		this.once("remove", () => d3.select(window).on("resize", null));
+		window.addEventListener("resize", windowResizeListener, false);
+
+		this.once("remove", () => window.removeEventListener("resize", windowResizeListener, false));
 	}
 });
 
-export default StatView;
+export default BarStatView;

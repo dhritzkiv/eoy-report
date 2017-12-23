@@ -25,6 +25,14 @@ const StatModel = State.extend({
 		},
 		data: {
 			type: "object"
+		},
+		tall: {
+			type: "string",
+			default: "y1"
+		},
+		wide: {
+			type: "string",
+			default: "x1"
 		}
 	},
 	derived: {

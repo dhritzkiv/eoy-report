@@ -1,50 +1,25 @@
-import View from "ampersand-view";
+import StatView from "./stat";
 import * as d3 from "d3";
 
-const StatView = View.extend({
-	template: `
-		<article class="stat">
-			<header>
-				<h2 data-hook="title"></h2>
-			</header>
-			<main>
-				<div data-hook="viz-holder">
-					<svg></svg>
-				</div>
-			</main>
-		</article>
-	`,
-	bindings: {
-		"model.title": {
-			hook: "title"
-		}
-	},
-	render() {
-		this.renderWithTemplate(this);
-
-		const vizEl = this.queryByHook("viz-holder");
-
-		this.buildChart(vizEl, this.model.data.value);
-
-		return this;
-	},
+const HorizonatlBarStatView = StatView.extend({
 	/**
 	 * @param {Element} el
 	 * @param {[string, number]} data
 	 */
 	buildChart(el, data) {
 		const parent = d3.select(el);
-		const margin = {top: 20, right: 20, bottom: 20, left: 20};
+		const svg = parent.select("svg");
+		const svgG = svg.append("g");
 
-		const width = 640 - margin.left - margin.right;
-		const barWidth = width;
+		const margin = {top: 10, right: 0, bottom: 10, left: 0};
 		const barHeight = 10;
 		const spaceBetween = 4;
 		const barHeightWithSpace = (barHeight * 4) + spaceBetween;
-		const height = (data.length * barHeightWithSpace) - margin.top - margin.bottom;
-		//const xOffset = (barWidth - barWidthWithSpace) / 2;
 
-		const x = d3.scaleLinear().range([0, width]);
+		let width = 0;
+		let height = 0;
+
+		const x = d3.scaleLinear();
 
 		x.domain([0, d3.max(data, ([, d]) => d)]);
 
@@ -57,19 +32,6 @@ const StatView = View.extend({
 
 			return h;
 		};
-
-		/*const visibleBarHeight = (d) => {
-			const h = height - y(d);
-
-			if (d === 0) {
-				return h;
-			}
-
-			return Math.max(h, barWidthWithSpace);
-		};*/
-
-		const svg = parent.select("svg");
-		const svgG = svg.append("g");
 
 		const bar = svgG.selectAll(".bar")
 		.data(data)
@@ -88,32 +50,18 @@ const StatView = View.extend({
 		const visibleBar = bar.append("rect");
 
 		hoverBar
-		.attr("height", barHeight)
-		.attr("width", barWidth);
+		.attr("height", barHeight);
 
-		/*bar
-		.on("mouseover touchstart", (d, i) => {
-			const transitionDuration = 150;
-			const easingFunction = d3.easeSinOut;
+		const resize = () => requestAnimationFrame(() => {
+			width = el.parentElement.clientWidth - margin.left - margin.right;
+			height = Math.min((data.length * barHeightWithSpace), el.parentElement.clientHeight) - margin.top - margin.bottom;
 
-			barText
-			.transition()
-			.ease(easingFunction)
-			.duration(transitionDuration)
-			.attr("transform", () => `translate(${i * barWidth}, 0)`);
+			//update range
+			x.range([0, width]);
 
-			const translateY = -(margin.top / 2) + visibleBarY(d);
+			hoverBar
+			.attr("width", width);
 
-			tip
-			.transition()
-			.ease(easingFunction)
-			.duration(transitionDuration)
-			.attr("transform", `translate(${xOffset}, ${translateY})`);
-
-			text.text(parseFloat(d.toFixed(2)));
-		});*/
-
-		const resize = () => {
 			const borderRadius = Math.max((barHeight / 2), 0);
 			const barPosition = (i) => `translate(0, ${i * barHeightWithSpace})`;
 
@@ -126,7 +74,9 @@ const StatView = View.extend({
 			bar.attr("transform", (d, i) => barPosition(i));
 			barText.attr("transform", (d, i) => barPosition(i));
 
-			barText.text(([text, val]) => `${text} (${val})`);
+			barText
+			.attr("font-size", "14px")
+			.text(([text, val]) => `${text} (${val})`);
 
 			visibleBar
 			/*.attr("y", height)
@@ -142,20 +92,22 @@ const StatView = View.extend({
 			.delay((d, i) => i * 8)*/
 			.attr("y", barHeight)
 			.attr("height", barHeight);
-		};
+		});
 
 		resize();
 
-		d3.select(window).on("resize", () => {
+		const windowResizeListener = () => {
 			const newWidth = el.clientWidth - margin.left - margin.right;
 
 			if (Math.floor(width) !== Math.floor(newWidth)) {
 				resize();
 			}
-		});
+		};
 
-		this.once("remove", () => d3.select(window).on("resize", null));
+		window.addEventListener("resize", windowResizeListener, false);
+
+		this.once("remove", () => window.removeEventListener("resize", windowResizeListener, false));
 	}
 });
 
-export default StatView;
+export default HorizonatlBarStatView;

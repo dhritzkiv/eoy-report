@@ -2,13 +2,13 @@ import StatsView from "./stats";
 import xhr from "xhr";
 
 const BeerStatsPageView = StatsView.extend({
-	template: `
+	/*template: `
 		<section class="stats-section category beer">
 			<main data-hook="stats-holder">
 
 			</main>
 		</section>
-	`//,
+	`//,*/
 	/*render() {
 		this.renderWithTemplate();
 

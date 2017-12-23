@@ -7,11 +7,22 @@ import StatBarchartMiniView from "./stat_bar_mini";
 import StatHorizontalPercentageBarchartMiniView from "./stat_bar_horizontal-percentage_mini";
 
 const StatsView = View.extend({
+	props: {
+		name: {
+			type: "string"
+		}
+	},
 	template: `
 		<section class="stats-section">
 			<main data-hook="stats-holder"></main>
 		</section>
 	`,
+	bindings: {
+		name: {
+			type: "class",
+			selector: "section"
+		}
+	},
 	render() {
 		this.renderWithTemplate(this);
 
@@ -31,13 +42,15 @@ const StatsView = View.extend({
 				default:
 					break;
 			}
-		}, this.queryByHook("stats_holder"));
+		}, this.queryByHook("stats-holder"));
 
 		/* eslint-enable prefer-arrow-callback*/
 
 		return this;
 	},
-	stats: new StatsCollection()
+	collections: {
+		stats: StatsCollection
+	}
 });
 
 export default StatsView;

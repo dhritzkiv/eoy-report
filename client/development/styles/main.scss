@@ -51,7 +51,8 @@ $easeInOutQuart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 }
 
 html {
-	font-size: calc(112.5% + 4 * (100vw - #{$ipadPortrait}) / 400);
+	//font-size: calc(112.5% + 4 * (100vw - #{$ipadPortrait}) / 400);
+	font-size: 16px;
 }
 
 :root {
@@ -206,16 +207,25 @@ section.cycling {
 section.beer {
 	$colorBackground: #d0d0bc;
 	$colorText: #223bb9;
+	$colorValue: #e36e5f;
 	background-color: $colorBackground;
 	color: $colorText;
 
 	h3 {
-		color: #e36e5f;
+		color: $colorValue;
 	}
 
-	.graph-holder {
-		.bar rect {
+	svg {
+		.bar rect:not(.hover-bar) {
+			fill: $colorValue;
+		}
+
+		text {
 			fill: $colorText;
+		}
+
+		.line {
+			stroke: $colorValue;
 		}
 	}
 
@@ -231,121 +241,6 @@ section.beer {
 			-2px 2px 0px $colorBackground,
 			2px -2px 0px $colorBackground;
 		z-index: 10;
-	}
-}
-
-.stats {
-
-	.stat {
-		padding: 0.5em 0.125em;
-	}
-
-	h3 {
-		font-size: 1em;
-		font-family: $ffHeading1;
-		letter-spacing: 0.085em;
-		margin: 0;
-	}
-
-	h2 {
-		font-size: 2.4em;
-		font-family: $ffHeading2;
-		letter-spacing: 0.05em;
-		margin: 0;
-	}
-
-	.graph-holder {
-		margin: $gutter * 2 auto;
-		//border: 1px solid red;
-
-		h3 {
-			text-align: center;
-			margin-top: $gutter * 2;
-		}
-
-		.divider {
-			$dividerHeight: $gutter * 2;
-			$offset: -($gutter + 1px);
-			position: relative;
-			background-image: url("/img/map-divider-squiggle.svg");
-			background-position: center center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100%;
-			height: $dividerHeight;
-			margin-bottom: $offset;
-			z-index: 10;
-			filter: hue-rotate(7deg) brightness(30) saturate(50%);
-
-			&:last-child {
-				margin-bottom: 0;
-				margin-top: $offset;
-				transform: rotate(180deg);
-			}
-		}
-
-		&.full {
-			width: 100%;
-		}
-
-		svg {
-			margin: $gutter auto;
-		}
-
-		g rect.hover-bar {
-			fill: transparent;
-		}
-
-		.text-bar rect {
-			fill: transparent;
-		}
-
-		.tip {
-			font-size: 0.75em;
-			text-anchor: middle;
-			pointer-events: none;
-
-			text {
-				text-anchor: middle;
-			}
-		}
-	}
-
-	.list {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin-top: $gutter;
-
-		&.full {
-			width: 100%;
-		}
-
-		li {
-			font-size: 1.5em;
-		}
-	}
-
-	.stats-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: flex-start;
-		flex-wrap: wrap;
-		width: 100%;
-		max-width: $ipadLandscape + ($gutter * 2);
-		padding: 0 $gutter;
-		margin: 0 auto;
-
-		& > *.stat {
-			flex: 0 1 auto;
-			width: 33%;
-
-			@media screen and (max-width: 414px) {
-				width: 50%;
-			}
-		}
 	}
 }
 
@@ -398,7 +293,7 @@ section.beer {
 
 [data-hook=viz-holder] {
 	svg {
-		margin: $gutter auto;
+		margin: 0 auto;
 	}
 
 	g rect.hover-bar {
@@ -409,13 +304,93 @@ section.beer {
 		fill: transparent;
 	}
 
-	.tip {
-		font-size: 0.75em;
-		text-anchor: middle;
+	.text-bar {
+		font-size: 0.85em;
 		pointer-events: none;
 
 		text {
 			text-anchor: middle;
+			dominant-baseline: middle;
+		}
+	}
+}
+
+[data-hook=stats-holder] {
+	$columns: 6;
+	$height: 196px;
+	$width: 220px;
+	padding: 0.5rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+	grid-auto-rows: minmax(auto, $height);
+	grid-gap: 0.5rem;
+	grid-auto-flow: dense;
+
+	article {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		overflow-wrap: break-word;
+		//word-break: break-all;
+		overflow: hidden;
+		padding: 0.85em;
+		background-color: rgba(white, 0.1);
+
+		header {
+			margin-bottom: $gutter;
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+
+		main {
+			flex-grow: 1;
+			flex-shrink: 1;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			/*overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;*/
+		}
+
+		& > * {
+			width: 100%;
+		}
+
+		h3 {
+			font-size: 5.8em;
+			font-family: $ffHeading1;
+			letter-spacing: 0.01em;
+			margin: 0;
+		}
+
+		h2 {
+			font-size: 1em;
+			font-family: $ffHeading2;
+			font-weight: 500;
+			letter-spacing: 0.05em;
+			margin: 0;
+			text-transform: uppercase;
+		}
+
+		@for $i from 1 through $columns {
+			&.x#{$i} {
+				grid-column-end: span $i;
+
+				@media screen and (max-width: $width * 2) {
+					grid-column-end: span 1;
+				}
+			}
+
+			&.y#{$i} {
+				grid-row-end: span $i;
+			}
+		}
+
+		&.xfull {
+			grid-column: 1 / -1;
 		}
 	}
 }
