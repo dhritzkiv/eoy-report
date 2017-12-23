@@ -19,6 +19,7 @@ interface CheckinBase {
 	venue_state: string;
 	venue_country: string;
 	checkin_url: string;
+	purchase_venue: string;
 }
 
 interface CheckinRaw extends CheckinBase {
@@ -57,6 +58,7 @@ class Checkin implements Checkin {
 		checkin.venue_city = input.venue_city;
 		checkin.venue_state = input.venue_state;
 		checkin.venue_country = input.venue_country;
+		checkin.purchase_venue = input.purchase_venue;
 		checkin.checkin_url = input.checkin_url;
 		checkin.beer_abv = parseFloat(input.beer_abv);
 		checkin.beer_ibu = parseFloat(input.beer_ibu);
@@ -120,11 +122,12 @@ const venueMap = new IncrementalMap<Checkin["venue_name"]>();
 const venueCityMap = new IncrementalMap<Checkin["venue_city"]>();
 const venueStateMap = new IncrementalMap<Checkin["venue_state"]>();
 const venueCountryMap = new IncrementalMap<Checkin["venue_country"]>();
+const purchaseVenueMap = new IncrementalMap<Checkin["purchase_venue"]>();
 const majorStyleMap = new IncrementalMap<string>();
 
 checkins
 .filter(({created_at}) => created_at > startTime && created_at < endTime)
-.forEach(({created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country}) => {
+.forEach(({created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country, purchase_venue}) => {
 	const dayOfWeekKey = moment(created_at).format("dddd");
 	const dateKey = created_at.toISOString().slice(0, 10);
 	const weekKey = moment(created_at).format("YYYY-w");
@@ -162,6 +165,10 @@ checkins
 
 	styleMap.increment(beer_type);
 	majorStyleMap.increment(majorStyleKey);
+
+	if (purchase_venue) {
+		purchaseVenueMap.increment(purchase_venue);
+	}
 
 	if (
 		venue_name &&
@@ -262,6 +269,13 @@ Array.from(styleMap)
 console.log("\n");
 console.log("Top 20 Main Styles");
 Array.from(majorStyleMap)
+.sort(sortTotalDesc)
+.slice(0, 20)
+.forEach(logEachInOrderedList);
+
+console.log("\n");
+console.log("Top 20 Purchase Venues by Checkins");
+Array.from(purchaseVenueMap)
 .sort(sortTotalDesc)
 .slice(0, 20)
 .forEach(logEachInOrderedList);
