@@ -20,7 +20,9 @@ Checkin.from = (input) => {
     checkin.venue_city = input.venue_city;
     checkin.venue_state = input.venue_state;
     checkin.venue_country = input.venue_country;
+    checkin.purchase_venue = input.purchase_venue;
     checkin.checkin_url = input.checkin_url;
+    checkin.serving_type = input.serving_type;
     checkin.beer_abv = parseFloat(input.beer_abv);
     checkin.beer_ibu = parseFloat(input.beer_ibu);
     checkin.venue_lat = parseFloat(input.venue_lat);
@@ -66,14 +68,16 @@ const breweryCityByBreweryMap = new utils_1.IncrementalMap();
 const breweryStateByBreweryMap = new utils_1.IncrementalMap();
 const breweryCountryByBreweryMap = new utils_1.IncrementalMap();
 const styleMap = new utils_1.IncrementalMap();
+const majorStyleMap = new utils_1.IncrementalMap();
 const venueMap = new utils_1.IncrementalMap();
 const venueCityMap = new utils_1.IncrementalMap();
 const venueStateMap = new utils_1.IncrementalMap();
 const venueCountryMap = new utils_1.IncrementalMap();
-const majorStyleMap = new utils_1.IncrementalMap();
+const purchaseVenueMap = new utils_1.IncrementalMap();
+const servingTypeMap = new utils_1.IncrementalMap();
 checkins
     .filter(({ created_at }) => created_at > startTime && created_at < endTime)
-    .forEach(({ created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country }) => {
+    .forEach(({ created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country, purchase_venue, serving_type }) => {
     const dayOfWeekKey = moment(created_at).format("dddd");
     const dateKey = created_at.toISOString().slice(0, 10);
     const weekKey = moment(created_at).format("YYYY-w");
@@ -86,10 +90,10 @@ checkins
     monthsMap.increment(monthKey);
     brewMap.increment(brewKey);
     breweryMap.increment(brewery_name);
-    breweryCityMap.increment(brewery_city);
+    breweryCityMap.increment(`${brewery_city}, ${brewery_state}`);
     if (breweryMap.get(brewery_name) === 1) {
         if (brewery_city) {
-            breweryCityByBreweryMap.increment(brewery_city);
+            breweryCityByBreweryMap.increment(`${brewery_city}, ${brewery_state}`);
         }
         if (brewery_state) {
             breweryStateByBreweryMap.increment(brewery_state);
@@ -104,10 +108,18 @@ checkins
     breweryCountryMap.increment(brewery_country);
     styleMap.increment(beer_type);
     majorStyleMap.increment(majorStyleKey);
-    if (venue_name) {
-        venueMap.increment(venue_name);
+    if (purchase_venue) {
+        purchaseVenueMap.increment(purchase_venue);
+    }
+    if (serving_type) {
+        servingTypeMap.increment(serving_type);
+    }
+    if (venue_name &&
+        venue_name !== "Matter and Form" &&
+        venue_name !== "WayHome") {
+        venueMap.increment(`${venue_name}`);
         if (venue_city) {
-            venueCityMap.increment(venue_city);
+            venueCityMap.increment(`${venue_city}, ${venue_state}`);
         }
         if (venue_state) {
             venueStateMap.increment(venue_state);
@@ -127,71 +139,83 @@ const dryestWeek = weeksSorted[weeksSorted.length - 1];
 const [greatestMonth, ...otherMonths] = Array.from(monthsMap).sort(sortTotalDesc);
 const dryestMonth = otherMonths[otherMonths.length - 1];
 console.log("\n");
-console.log("Top 10 Beers");
+console.log("Top 60 Beers");
 Array.from(brewMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 60)
     .map(([name, val]) => [name.split("|")[0], val])
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Breweries");
+console.log("Top 30 Breweries");
 Array.from(breweryMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Cities by Checkins");
+console.log("Top 30 Brewery Cities by Checkins");
 Array.from(breweryCityMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Cities by Brewery");
+console.log("Top 30 Brewery Cities by Brewery");
 Array.from(breweryCityByBreweryMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Regions by Checkins");
+console.log("Top 30 Brewery Regions by Checkins");
 Array.from(breweryStateMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Regions by Brewery");
+console.log("Top 30 Brewery Regions by Brewery");
 Array.from(breweryStateByBreweryMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Countries by Checkins");
+console.log("Top 20 Brewery Countries by Checkins");
 Array.from(breweryCountryMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 20)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Brewery Countries by Brewery");
+console.log("Top 20 Brewery Countries by Brewery");
 Array.from(breweryCountryByBreweryMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 20)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Styles");
+console.log("Top 30 Styles");
 Array.from(styleMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 30)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Main Styles");
+console.log("Top 20 Main Styles");
 Array.from(majorStyleMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 20)
     .forEach(logEachInOrderedList);
 console.log("\n");
-console.log("Top 10 Venues by Checkins");
+console.log("Top 20 Purchase Venues by Checkins");
+Array.from(purchaseVenueMap)
+    .sort(sortTotalDesc)
+    .slice(0, 20)
+    .forEach(logEachInOrderedList);
+console.log("\n");
+console.log("Top 20 Venues by Checkins");
 Array.from(venueMap)
     .sort(sortTotalDesc)
-    .slice(0, 10)
+    .slice(0, 20)
+    .forEach(logEachInOrderedList);
+console.log("\n");
+console.log("Top 20 Serving Types by Checkins");
+Array.from(servingTypeMap)
+    .sort(sortTotalDesc)
+    .slice(0, 20)
     .forEach(logEachInOrderedList);
 console.log("\n");
 console.log("Top 10 Venue Cities by Checkins");
@@ -260,6 +284,11 @@ for (let d = new Date(startTime); d <= endTime; d.setDate(d.getDate() + 1)) {
     maxDrought = Math.max(maxDrought, drought);
     dailyTotals.push(value);
 }
+console.log(JSON.stringify(dailyTotals));
+console.log("\n");
+console.log("Beers by Month");
+Array.from(monthsMap)
+    .forEach(entry => console.log(entry.join(": ")));
 console.log("\n");
 console.log("Beers by Day of Week");
 Array.from(beersPerDayOfWeekMap)
