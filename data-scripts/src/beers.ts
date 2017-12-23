@@ -19,6 +19,7 @@ interface CheckinBase {
 	venue_state: string;
 	venue_country: string;
 	checkin_url: string;
+	serving_type: string;
 	purchase_venue: string;
 }
 
@@ -60,6 +61,7 @@ class Checkin implements Checkin {
 		checkin.venue_country = input.venue_country;
 		checkin.purchase_venue = input.purchase_venue;
 		checkin.checkin_url = input.checkin_url;
+		checkin.serving_type = input.serving_type;
 		checkin.beer_abv = parseFloat(input.beer_abv);
 		checkin.beer_ibu = parseFloat(input.beer_ibu);
 		checkin.venue_lat = parseFloat(input.venue_lat);
@@ -117,17 +119,18 @@ const breweryCountryMap = new IncrementalMap<Checkin["brewery_country"]>();
 const breweryCityByBreweryMap = new IncrementalMap<Checkin["brewery_city"]>();
 const breweryStateByBreweryMap = new IncrementalMap<Checkin["brewery_state"]>();
 const breweryCountryByBreweryMap = new IncrementalMap<Checkin["brewery_country"]>();
-const styleMap = new IncrementalMap<Checkin["brewery_country"]>();
+const styleMap = new IncrementalMap<Checkin["beer_type"]>();
+const majorStyleMap = new IncrementalMap<Checkin["beer_type"]>();
 const venueMap = new IncrementalMap<Checkin["venue_name"]>();
 const venueCityMap = new IncrementalMap<Checkin["venue_city"]>();
 const venueStateMap = new IncrementalMap<Checkin["venue_state"]>();
 const venueCountryMap = new IncrementalMap<Checkin["venue_country"]>();
 const purchaseVenueMap = new IncrementalMap<Checkin["purchase_venue"]>();
-const majorStyleMap = new IncrementalMap<string>();
+const servingTypeMap = new IncrementalMap<Checkin["serving_type"]>();
 
 checkins
 .filter(({created_at}) => created_at > startTime && created_at < endTime)
-.forEach(({created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country, purchase_venue}) => {
+.forEach(({created_at, brewery_name, brewery_city, brewery_state, brewery_country, beer_name, beer_id, beer_type, venue_name, venue_city, venue_state, venue_country, purchase_venue, serving_type}) => {
 	const dayOfWeekKey = moment(created_at).format("dddd");
 	const dateKey = created_at.toISOString().slice(0, 10);
 	const weekKey = moment(created_at).format("YYYY-w");
@@ -168,6 +171,10 @@ checkins
 
 	if (purchase_venue) {
 		purchaseVenueMap.increment(purchase_venue);
+	}
+
+	if (serving_type) {
+		servingTypeMap.increment(serving_type);
 	}
 
 	if (
@@ -283,6 +290,13 @@ Array.from(purchaseVenueMap)
 console.log("\n");
 console.log("Top 20 Venues by Checkins");
 Array.from(venueMap)
+.sort(sortTotalDesc)
+.slice(0, 20)
+.forEach(logEachInOrderedList);
+
+console.log("\n");
+console.log("Top 20 Serving Types by Checkins");
+Array.from(servingTypeMap)
 .sort(sortTotalDesc)
 .slice(0, 20)
 .forEach(logEachInOrderedList);
