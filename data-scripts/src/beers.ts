@@ -386,6 +386,8 @@ for (let d = new Date(startTime); d <= endTime; d.setDate(d.getDate() + 1)) {
     dailyTotals.push(value);
 }
 
+console.log(JSON.stringify(dailyTotals));
+
 console.log("\n");
 console.log("Beers by Month");
 Array.from(monthsMap)
