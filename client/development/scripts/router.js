@@ -111,7 +111,7 @@ const Router = AmpersandRouter.extend({
 					type: "percentage",
 					value: [
 						["Octopus Wants to Fight - Great Lakes Brewery", 7],
-						["Cutting Bells", 6],
+						["Cutting Bells - Bellwoods Brewery", 6],
 						["Guava Milkshark - Bellwoods Brewery", 5],
 						["Ghost Orchid - Bellwoods Brewery", 4],
 						["Hawaiian Uppercut - Stack Brewing", 4],
