@@ -10,6 +10,7 @@ const utils_1 = require("./utils");
 const interpolateLineRange = require("line-interpolate-points");
 /// <reference path="./haversine.d.ts"/>
 const haversine = require("haversine");
+const simplify = require("simplify-js");
 class NumberArray extends Array {
 }
 class NumberMap extends Map {
@@ -17,7 +18,7 @@ class NumberMap extends Map {
         super(entries);
     }
 }
-const TOLERANCE = 0.0005;
+const TOLERANCE = 0.001;
 const filterByGreaterDateOrGreaterIndexPosition = (rideA, rides) => (rideB, index) => {
     /*if (rideB.start_date_local_date) {
         return rideB.start_date_local_date > rideA.start_date_local_date;
@@ -81,7 +82,7 @@ const getRidesByDayOfWeek = (data) => {
         .forEach(([day, value]) => days.increment(day, value));
     return [...days.values()];
 };
-const { _: [inFile] } = minimist(process.argv.slice(2));
+const { _: [inFile, outFile] } = minimist(process.argv.slice(2));
 assert.ok(inFile, "Missing input file argument");
 const raw = fs.readFileSync(inFile, "utf8");
 const data = JSON.parse(raw);
@@ -131,6 +132,108 @@ let maxDryStreak = 0;
 for (const dayRideCount of dailyRideCounts) {
 
 }*/
+console.time("find dupes");
+ridesWithMaps.forEach(ride => ride.mapline_interop = simplify(ride.mapline.map(([x, y]) => ({ x, y })), TOLERANCE, true).map(({ x, y }) => [x, y]));
+//find a median point count for use in interpolation
+const medianPointCount = simple_statistics_1.median(ridesWithMaps.map(ride => ride.mapline_interop.length));
+//interpolate maps to use same # of points
+ridesWithMaps.forEach((ride) => ride.mapline_interop = interpolateLineRange(ride.mapline_interop, medianPointCount));
+const dupesMap = new Map();
+//finds related rides
+ridesWithMaps
+    .map(ride => ({
+    ride,
+    diff: Math.abs(medianPointCount - ride.mapline_interop.length)
+}))
+    .sort(({ diff: a }, { diff: b }) => a - b)
+    .map(({ ride }) => ride)
+    .forEach((rideA, i, rides) => {
+    const { mapline_interop: pathA } = rideA;
+    const pathAReversed = pathA.slice(0).reverse();
+    const dupeMapASet = dupesMap.get(rideA) || new Set();
+    dupesMap.set(rideA, dupeMapASet);
+    rides
+        .filter(rideB => rideA !== rideB)
+        .filter((rideB, index) => index > rides.indexOf(rideA))
+        .forEach(rideB => {
+        const { mapline_interop: pathB } = rideB;
+        const dupeMapBSet = dupesMap.get(rideB) || new Set();
+        dupesMap.set(rideB, dupeMapBSet);
+        const distanceDiffs = [pathA, pathAReversed]
+            .map(path => distanceDiffForTwoPaths(path, pathB))
+            .map(diff => diff / medianPointCount);
+        if (Math.min(...distanceDiffs) <= TOLERANCE) {
+            dupeMapASet.add(rideB);
+            dupeMapBSet.add(rideA);
+        }
+    });
+});
+console.timeEnd("find dupes");
+console.time("prune dupes");
+console.log("rides before de-duping", dupesMap.size);
+for (const [parentRide, parentRelatedRides] of dupesMap) {
+    const recursiveMergeAndDeleteRelatedRide = (relatedRides) => {
+        for (const relatedRide of relatedRides) {
+            const subrelatedRides = dupesMap.get(relatedRide);
+            if (!subrelatedRides) {
+                break;
+            }
+            subrelatedRides.delete(parentRide);
+            for (const subrelatedRide of subrelatedRides) {
+                parentRelatedRides.add(subrelatedRide);
+                for (const _rides of dupesMap.values()) {
+                    if (
+                    //two sets are the same
+                    _rides === relatedRides ||
+                        _rides === parentRelatedRides ||
+                        _rides === subrelatedRides) {
+                        continue;
+                    }
+                    _rides.delete(subrelatedRide);
+                    _rides.delete(relatedRide);
+                    _rides.delete(parentRide);
+                }
+                recursiveMergeAndDeleteRelatedRide(subrelatedRides);
+            }
+            ;
+            //dupesMap.delete(relatedRide);
+            dupesMap.delete(relatedRide);
+        }
+    };
+    recursiveMergeAndDeleteRelatedRide(parentRelatedRides);
+}
+console.log("rides after de-duping", dupesMap.size);
+console.timeEnd("prune dupes");
+const mostSimilarRides = [...dupesMap.entries()]
+    .map(([ride, rides]) => ({ ride, count: rides.size }));
+mostSimilarRides.sort(({ count: a }, { count: b }) => b - a);
+console.log();
+console.group("Top 10 similar rides");
+mostSimilarRides.slice(0, 10)
+    .map((entry, index) => [index + 1, entry.ride.id, entry.count])
+    .forEach(line => console.log("%d: %s (%d)", ...line));
+console.groupEnd();
+if (outFile) {
+    console.log();
+    console.group("Output");
+    const ridesArray = Array.from(dupesMap.keys()).map((ride) => ({
+        id: ride.id,
+        //correct the format from [lat, lon] to [lon, lat]
+        points: ride.mapline.map(tuple => tuple.reverse())
+    }));
+    const reducePoints = (total, { points }) => total + points.length;
+    const originalPointCount = ridesArray.reduce(reducePoints, 0);
+    console.time("simplify rides");
+    ridesArray.forEach((ride) => {
+        ride.points = simplify(ride.points.map(([x, y]) => ({ x, y })), 0.00009, true).map(({ x, y }) => [x, y]);
+    });
+    console.timeEnd("simplify rides");
+    const finalPointCount = ridesArray.reduce(reducePoints, 0);
+    console.log(`simplified from ${originalPointCount} to ${finalPointCount} points`);
+    fs.writeFileSync(outFile, JSON.stringify(ridesArray, null, "\t"));
+    console.log("outputed file");
+    console.groupEnd();
+}
 const peakDistanceMap = new Map();
 ridesWithMaps.forEach(ride => {
     let maxDistance = -Number.MAX_VALUE;
@@ -148,125 +251,13 @@ ridesWithMaps.forEach(ride => {
     });
     peakDistanceMap.set(ride, maxDistance);
 });
+console.log();
+console.group("Top 10 rides by distance from start");
 [...peakDistanceMap]
     .sort(([, a], [, b]) => b - a)
     .slice(0, 5)
     .forEach(([ride, distance], index) => console.log("%d. ride %s peak distance from start: %fkm", index + 1, ride.id, distance));
-//find a median point count for use in interpolation
-const medianPointCount = simple_statistics_1.median(ridesWithMaps.map(ride => ride.mapline.length));
-//interpolate maps to use same # of points
-ridesWithMaps.map((ride) => ride.mapline_interop = interpolateLineRange(ride.mapline, medianPointCount));
-const dupesSet = new Set();
-const dupesMap = new Map();
-//finds related rides
-ridesWithMaps;
-/*.map(ride => {
-    console.log([0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0));
-
-    return ({
-        diff: Math.abs(medianPointCount - ride.mapline.length),
-        stddev: [0, 1].map(i => standardDeviation(ride.mapline.map(point => point[i]))).reduce((p, n) => p + n, 0),
-        ride
-    })
-})
-.sort(({stddev: a}, {stddev: b}) => a - b)
-.map(({ride}) => ride)*/
-/*.forEach((rideA, i, rides) => {
-    const {mapline_interop: pathA} = rideA;
-    //const memoizedFilter = filterByGreaterDateOrGreaterIndexPosition(rideA, rides);
-    const dupeMapAArray = dupesMap.get(rideA) || new Set();
-
-    dupesMap.set(rideA, dupeMapAArray);
-
-    rides
-    //rideB isn't rideA
-    .filter(rideB => rideA !== rideB)
-    //pathB hasn't already been marked a dupe
-    //.filter(rideB => !dupesSet.has(rideB))
-    //pathB comes after pathA
-    .filter((rideB, index) => index > rides.indexOf(rideA))
-    //.filter((rideB, index) => memoizedFilter(rideB, index))
-    .forEach(rideB => {
-        const {mapline_interop: pathB} = rideB;
-        const dupeMapBArray = dupesMap.get(rideB) || new Set();
-
-        dupesMap.set(rideB, dupeMapBArray);
-
-        const totalDistanceDiff = distanceDiffForTwoPaths(pathA, pathB);
-        const averageDistanceDiff = totalDistanceDiff / medianPointCount;
-
-        if (averageDistanceDiff <= TOLERANCE) {
-            dupesSet.add(rideB);
-            dupeMapAArray.add(rideB);
-            dupeMapBArray.add(rideA);
-
-            return;
-        }
-
-        //reverse the pathB, since we don't care about directionality
-        const totalDistanceDiffReverse = distanceDiffForTwoPaths(pathA, pathB.slice(0).reverse());
-        const averageDistanceDiffReverse = totalDistanceDiffReverse / medianPointCount;
-
-        if (averageDistanceDiffReverse <= TOLERANCE) {
-            dupesSet.add(rideB);
-            dupeMapAArray.add(rideB);
-            dupeMapBArray.add(rideA);
-        }
-    });
-});*/
-/*const cleanedDupesMap = new Map<Ride, Set<Ride>>();
-
-console.time("heavy tings");
-
-for (const [parentRide, parentRelatedRides] of dupesMap) {
-
-    const recursiveMergeAndDeleteRelatedRide = (relatedRides: Set<Ride>) => {
-        for (const relatedRide of relatedRides) {
-            const subrelatedRides = dupesMap.get(relatedRide);
-
-            if (!subrelatedRides) {
-                break;
-            }
-
-            subrelatedRides.delete(parentRide);
-
-            for (const subrelatedRide of subrelatedRides) {
-                parentRelatedRides.add(subrelatedRide);
-
-                for (const _rides of dupesMap.values()) {
-                    if (_rides === relatedRides || _rides === parentRelatedRides || _rides === subrelatedRides) {
-                        continue;
-                    }
-
-                    _rides.delete(subrelatedRide);
-                    _rides.delete(relatedRide);
-                    _rides.delete(parentRide);
-                }
-
-                recursiveMergeAndDeleteRelatedRide(subrelatedRides);
-            };
-
-            //relatedRides.clear();
-            //dupesMap.delete(relatedRide);
-        }
-    };
-
-    recursiveMergeAndDeleteRelatedRide(parentRelatedRides);
-
-}
-
-console.timeEnd("heavy tings");
-
-const mostSimilarRides = [...dupesMap.entries()]
-.map(([ride, rides]) => ({ride, count: rides.size}));
-
-mostSimilarRides.sort(({count: a}, {count: b}) => b - a);
-
-console.group("Top 10 similar rides");
-mostSimilarRides.slice(0, 10)
-.map((entry, index) => [index + 1, entry.ride.id, entry.count])
-.forEach(line => console.log("%d: %s (%d)", ...line));
-console.groupEnd();*/
+console.groupEnd();
 const { maxStreakDays: totalMaxStreakDays, maxStreakRides: totalMaxStreakRides, maxDrySpell: totalMaxDrySpell } = calculateStreaksForData([...dailyRideCountsMap.values()]);
 /*const totalCount = sum(dayValues);
 const weekdayCount = sum(weekdayValues);
