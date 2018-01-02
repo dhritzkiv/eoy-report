@@ -1,6 +1,13 @@
-import View from "ampersand-view";
+import StatView from "./stat";
 
-const StatView = View.extend({
+const bindings = {
+	...StatView.prototype.bindings,
+	"model.data.value": {
+		hook: "value"
+	}
+};
+
+const NumericStatMiniView = StatView.extend({
 	template: `
 		<article class="stat">
 			<header>
@@ -11,14 +18,7 @@ const StatView = View.extend({
 			</main>
 		</article>
 	`,
-	bindings: {
-		"model.title": {
-			hook: "title"
-		},
-		"model.data.value": {
-			hook: "value"
-		}
-	}
+	bindings
 });
 
-export default StatView;
+export default NumericStatMiniView;

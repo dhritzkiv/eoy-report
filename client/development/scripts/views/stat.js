@@ -16,15 +16,18 @@ const StatView = View.extend({
 	render() {
 		this.renderWithTemplate(this);
 
-		const vizEl = this.queryByHook("viz-holder");
+		if (typeof this.buildChart === "function") {
+			const vizEl = this.queryByHook("viz-holder");
 
-		this.buildChart(vizEl, this.model.data.value);
+			this.buildChart(vizEl, this.model.data.value);
+		}
 
 		return this;
 	},
 	bindings: {
-		"model.title": {
-			hook: "title"
+		"model.title_formatted": {
+			hook: "title",
+			type: "innerHTML"
 		},
 		"model.tall": {
 			type: "class",

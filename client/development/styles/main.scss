@@ -373,6 +373,10 @@ section.beer {
 			letter-spacing: 0.05em;
 			margin: 0;
 			text-transform: uppercase;
+
+			span.unit {
+				text-transform: none;
+			}
 		}
 
 		@for $i from 1 through $columns {
