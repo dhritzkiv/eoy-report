@@ -7,7 +7,7 @@ import AmpersandRouter from "ampersand-router";
 //import MapsLegendPage from "./views/maps-legend";
 
 import CoffeeStatsPage from "./views/stats_coffee";
-//import CyclingStatsPage from "./views/stats_cycling";
+import CyclingStatsPage from "./views/stats_cycling";
 import BeerStatsPage from "./views/stats_beer";
 //import HealthStatsPage from "./views/stats_health";
 
@@ -85,7 +85,9 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	cycling() {
-		const view = new CyclingStatsPage();
+		const view = new CyclingStatsPage({
+			name: "cycling"
+		});
 
 		this.trigger("newPage", view);
 		this.trigger("navigation");
