@@ -39,18 +39,32 @@ const HorizonatlBarStatView = StatView.extend({
 		.append("g")
 		.attr("class", "bar");
 
-		const barText = svgG.selectAll(".text")
+		const barTextHolder = svgG
+		.selectAll(".text-holder")
 		.data(data)
 		.enter()
 		.append("g")
-		.attr("class", "bar-text")
-		.append("text");
+		.attr("class", "text-holder");
 
-		const hoverBar = bar.append("rect").attr("class", "hover-bar");
+		const barTextTitle = barTextHolder
+		.append("text")
+		.attr("class", "bar-text title")
+		.text(d => d[0]);
+
+		const barTextValue = barTextHolder
+		.append("text")
+		.attr("class", "bar-text value")
+		.text(d => d[1]);
+
+		barTextHolder
+		.selectAll("text")
+		.attr("font-size", "14px");
+
+		//const hoverBar = bar.append("rect").attr("class", "hover-bar");
 		const visibleBar = bar.append("rect");
 
-		hoverBar
-		.attr("height", barHeight);
+		/*hoverBar
+		.attr("height", barHeight);*/
 
 		const resize = () => requestAnimationFrame(() => {
 			width = el.parentElement.clientWidth - margin.left - margin.right;
@@ -59,8 +73,8 @@ const HorizonatlBarStatView = StatView.extend({
 			//update range
 			x.range([0, width]);
 
-			hoverBar
-			.attr("width", width);
+			/*hoverBar
+			.attr("width", width);*/
 
 			const borderRadius = Math.max((barHeight / 2), 0);
 			const barPosition = (i) => `translate(0, ${i * barHeightWithSpace})`;
@@ -72,24 +86,56 @@ const HorizonatlBarStatView = StatView.extend({
 			svgG.attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 			bar.attr("transform", (d, i) => barPosition(i));
-			barText.attr("transform", (d, i) => barPosition(i));
 
-			barText
-			.attr("font-size", "14px")
-			.text(([text, val]) => `${text} (${val})`);
+			barTextHolder.attr("transform", (d, i) => barPosition(i));
+
+			barTextTitle
+			.text(d => d[0])
+			.text(function(d) {
+				const originalTitle = d[0];
+				let currentTitle = originalTitle;
+				const valueLength = d[1].length;
+				const currentValueWidth = this.getSubStringLength(0, valueLength);
+
+				while (currentTitle.length) {
+					const currentWidth = this.getSubStringLength(0, currentTitle.length);
+					const elipsisWidth = currentTitle === originalTitle ? 0 : this.getSubStringLength(0, 3);
+
+					if (currentWidth < (width - currentValueWidth - 15 - elipsisWidth)) {
+						break;
+					}
+
+					currentTitle = `${originalTitle.substring(0, currentTitle.length - 2)}…`;
+				}
+
+				return currentTitle;
+			});
+
+			barTextValue
+			.attr("dx", function(d) {
+				const title = d3.select(this.parentNode).select(".bar-text.title");
+				const valueTextWidth = this.getComputedTextLength();
+
+				const barWidth = visibleBarX(d);
+				const titleTextWidth = title.node().getComputedTextLength();
+
+				const dx = Math.min(width, Math.max(barWidth, titleTextWidth + valueTextWidth + 15));
+
+				return dx;
+			});
 
 			visibleBar
 			/*.attr("y", height)
 			.attr("x", xOffset)*/
-			.attr("width", visibleBarX)
 			.attr("rx", borderRadius)
-			.attr("ry", borderRadius);
-
-			visibleBar
-			/*.transition()
+			.attr("ry", borderRadius)
+			.transition()
 			.ease(d3.easeQuadInOut)
 			.duration(400)
-			.delay((d, i) => i * 8)*/
+			.delay((d, i) => i * 8)
+			.attr("width", visibleBarX);
+
+			visibleBar
 			.attr("y", barHeight)
 			.attr("height", barHeight);
 		});

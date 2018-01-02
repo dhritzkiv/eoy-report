@@ -313,6 +313,16 @@ section.beer {
 			dominant-baseline: middle;
 		}
 	}
+
+	.bar-text {
+		&.title {
+			text-anchor: start;
+		}
+
+		&.value {
+			text-anchor: end;
+		}
+	}
 }
 
 [data-hook=stats-holder] {
