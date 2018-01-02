@@ -58,7 +58,7 @@ const plugins = [
 		include: "**/*.html"
 	}),
 	html({
-		include: "**/*.svg"
+		include: ["**/*.svg", "**/*.geojson"]
 	}),
 	json(),
 	nodeResolve({
