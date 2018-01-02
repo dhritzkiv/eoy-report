@@ -5,6 +5,7 @@ import StatNumericMiniView from "./stat_numeric_mini";
 import StatLinechartMiniView from "./stat_line_mini";
 import StatBarchartMiniView from "./stat_bar_mini";
 import StatHorizontalPercentageBarchartMiniView from "./stat_bar_horizontal-percentage_mini";
+import StatMapMiniView from "./stat_map_mini";
 
 const StatsView = View.extend({
 	props: {
@@ -39,6 +40,8 @@ const StatsView = View.extend({
 					return new StatBarchartMiniView(opts);
 				case "percentage":
 					return new StatHorizontalPercentageBarchartMiniView(opts);
+				case "map":
+					return new StatMapMiniView(opts);
 				default:
 					break;
 			}
