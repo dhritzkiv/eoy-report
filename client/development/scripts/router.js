@@ -90,7 +90,7 @@ const Router = AmpersandRouter.extend({
 				title: "Total beer servings",
 				data: {
 					type: "numeric",
-					value: 656
+					value: 910
 				}
 			},
 			{
@@ -99,10 +99,16 @@ const Router = AmpersandRouter.extend({
 					type: "percentage",
 					value: [
 						["Octopus Wants to Fight - Great Lakes Brewery", 7],
+						["Cutting Bells", 6],
+						["Guava Milkshark - Bellwoods Brewery", 5],
+						["Ghost Orchid - Bellwoods Brewery", 4],
 						["Hawaiian Uppercut - Stack Brewing", 4],
-						["Guava Milkshark - Bellwoods Brewery", 4],
+						["Cidre de Normandie - Le Père Jules", 4],
 						["BUMO (ver. II) - Burdock", 3],
-						["Barn Raiser Country Ale - Oast House Brewers", 3]
+						["Barn Raiser Country Ale - Oast House Brewers", 3],
+						["Blackcap Raspberry - Cascade Brewery", 3],
+						["Runes (Citra & Mosaic) - Bellwoods Brewery", 3],
+						["Schöfferhofer Grapefruit - Radeberger Gruppe", 3]
 					]
 				},
 				wide: "x2",
@@ -113,26 +119,26 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "percentage",
 					value: [
-						["India Pale Ale", 124],
-						["Sour", 103],
-						["Pale Ale", 85],
-						["Saison", 63],
-						["Stout", 46],
-						["Lager", 17],
+						["India Pale Ale", 248],
+						["Sour", 140],
+						["Pale Ale", 103],
+						["Saison", 86],
+						["Stout", 68],
+						["Lager", 26],
+						["Porter", 22],
+						["Wild Ale", 17],
+						["Cider", 16],
+						["Blonde Ale", 16],
+						["Witbier", 15],
+						["Pilsner", 15],
 						["Lambic", 14],
-						["Witbier", 13],
-						["Porter", 13],
-						["Blonde Ale", 12],
-						["Red Ale", 11],
-						["Pilsner", 10],
-						["Hefeweizen", 9],
-						["Wild Ale", 8],
-						["Belgian Strong Golden Ale", 8],
-						["Belgian Tripel", 7],
-						["Pale Wheat Ale", 6],
-						["Cider", 6],
-						["Brown Ale", 5],
-						["Belgian Quad", 4]
+						["Red Ale", 13],
+						["Hefeweizen", 13],
+						["Brown Ale", 10],
+						["Belgian Strong Golden Ale", 9],
+						["Belgian Tripel", 8],
+						["Pale Wheat Ale", 7],
+						["Fruit Beer", 7]
 					]
 				},
 				wide: "x1",
@@ -180,28 +186,28 @@ const Router = AmpersandRouter.extend({
 				title: "Total unique beers",
 				data: {
 					type: "numeric",
-					value: 590
-				}
-			},
-			{
-				title: "Total breweries",
-				data: {
-					type: "numeric",
-					value: 207
+					value: 809
 				}
 			},
 			{
 				title: "Beers enjoyed more than once",
 				data: {
 					type: "numeric",
-					value: 55
+					value: 78
 				}
 			},
 			{
 				title: "Beers enjoyed more than twice",
 				data: {
 					type: "numeric",
-					value: 5
+					value: 11
+				}
+			},
+			{
+				title: "Total breweries",
+				data: {
+					type: "numeric",
+					value: 281
 				}
 			},
 			{
@@ -217,10 +223,10 @@ const Router = AmpersandRouter.extend({
 						{label: "Jun", value: 75},
 						{label: "Jul", value: 69},
 						{label: "Aug", value: 69},
-						{label: "Sep", value: 31},
-						{label: "Oct", value: 31},
-						{label: "Nov", value: 31},
-						{label: "Dec", value: 31}
+						{label: "Sep", value: 85},
+						{label: "Oct", value: 72},
+						{label: "Nov", value: 64},
+						{label: "Dec", value: 64}
 					]
 				},
 				wide: "x2",
@@ -231,13 +237,13 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "bar",
 					value: [
-						{label: "Mon", value: 1.489795918367347},
-						{label: "Tue", value: 1.9795918367346939},
-						{label: "Wed", value: 1.6122448979591837},
-						{label: "Thr", value: 1.7346938775510203},
-						{label: "Fri", value: 2.142857142857143},
-						{label: "Sat", value: 2.36734693877551},
-						{label: "Sun", value: 2.02}
+						{label: "Mon", value: 1.7924528301886793},
+						{label: "Tue", value: 2.4423076923076925},
+						{label: "Wed", value: 2.1538461538461537},
+						{label: "Thr", value: 2.3846153846153846},
+						{label: "Fri", value: 2.75},
+						{label: "Sat", value: 3.3076923076923075},
+						{label: "Sun", value: 2.5849056603773586}
 					]
 				}
 			},
@@ -245,7 +251,7 @@ const Router = AmpersandRouter.extend({
 				title: "Days without a beer",
 				data: {
 					type: "numeric",
-					value: 109
+					value: 33
 				}
 			},
 			{
@@ -259,7 +265,7 @@ const Router = AmpersandRouter.extend({
 				title: "Days with more beer servings than usual",
 				data: {
 					type: "numeric",
-					value: 157
+					value: 143
 				}
 			},
 			{
@@ -273,14 +279,14 @@ const Router = AmpersandRouter.extend({
 				title: "Longest dry streak",
 				data: {
 					type: "numeric",
-					value: 86
+					value: 2
 				}
 			},
 			{
 				title: "Daily beer servings",
 				data: {
 					type: "line",
-					value: [2,1,0,1,0,3,4,2,2,2,1,1,4,10,8,2,1,6,2,0,1,4,1,3,2,3,1,1,2,2,1,4,1,4,1,0,3,1,5,6,5,9,4,3,4,2,4,14,5,5,5,3,8,6,1,9,5,4,3,2,1,4,4,5,2,2,1,5,4,1,2,3,4,1,2,3,1,0,1,1,4,2,1,1,1,1,1,1,2,0,1,13,4,1,1,1,2,3,3,1,0,9,1,3,1,1,5,0,4,2,1,3,1,1,3,1,6,3,3,0,1,2,2,1,6,1,3,1,7,2,2,1,4,3,1,4,2,1,4,0,6,0,2,1,4,2,5,1,2,1,1,1,5,2,4,0,1,2,2,4,7,5,0,5,1,4,2,2,4,0,2,2,3,0,5,1,0,3,4,1,4,3,3,5,3,2,0,1,1,4,1,1,4,1,4,3,2,0,2,2,2,1,3,0,2,2,1,1,3,4,6,1,1,3,2,2,3,2,4,1,8,0,3,3,5,3,1,1,1,1,4,3,1,2,0,0,2,2,3,2,1,4,1,1,2,1,0,1,3,2,1,4,3,1,2,2,5,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+					value: [2,1,0,1,0,3,4,2,2,2,1,1,4,10,8,2,1,6,2,0,1,4,1,3,2,3,1,1,2,2,1,4,1,4,1,0,3,1,5,6,5,9,4,3,4,2,4,14,5,5,5,3,8,6,1,9,5,4,3,2,1,4,4,5,2,2,1,5,4,1,2,3,4,1,2,3,1,0,1,1,4,2,1,1,1,1,1,1,2,0,1,13,4,1,1,1,2,3,3,1,0,9,1,3,1,1,5,0,4,2,1,3,1,1,3,1,6,3,3,0,1,2,2,1,6,1,3,1,7,2,2,1,4,3,1,4,2,1,4,0,6,0,2,1,4,2,5,1,2,1,1,1,5,2,4,0,1,2,2,4,7,5,0,5,1,4,2,2,4,0,2,2,3,0,5,1,0,3,4,1,4,3,3,5,3,2,0,1,1,4,1,1,4,1,4,3,2,0,2,2,2,1,3,0,2,2,1,1,3,4,6,1,1,3,2,2,3,2,4,1,8,0,3,3,5,3,1,1,1,1,4,3,1,2,0,0,2,2,3,2,1,4,1,1,2,1,0,1,3,2,1,4,3,1,2,2,5,4,2,3,2,1,5,3,5,7,3,4,5,0,1,1,12,0,0,4,2,5,4,2,3,2,0,2,3,1,4,2,0,1,0,2,2,11,2,1,2,1,3,6,3,1,0,3,1,2,1,4,2,4,2,2,1,3,2,1,1,1,2,6,1,4,5,2,1,0,2,3,2,2,1,2,1,2,2,3,3,2,3,1,3,2,4,1,1,3,1,1,3,0,3,2,2,0,1,5,3,5,2,2,1,1,1,1,1,2]
 				},
 				wide: "xfull",
 				tall: "y2"
@@ -290,38 +296,43 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "percentage",
 					value: [
-						["Sonic Café", 20],
-						["Birreria Volo", 17],
-						["Bellwoods Brewery", 15],
-						["Bar Hop Brewco", 10],
-						["Burdock", 10],
+						["Birreria Volo", 27],
+						["Sonic Café", 26],
+						["Bellwoods Brewery (Ossington)", 15],
+						["Bar Hop Brewco", 13],
+						["Bellwoods Brewery (Hafis)", 11],
+						["Burdock", 11],
+						["The Greater Good Bar", 11],
 						["Otto's Bierhalle", 9],
 						["Tequila Bookworm", 8],
+						["The Get Well", 8],
+						["C'est What?", 8],
 						["Bryden's Pub", 7],
-						["The Greater Good Bar", 7],
 						["Young Henrys", 7],
 						["Stomping Ground Brewery & Beer Hall", 7],
 						["Galbraith's Alehouse", 7],
 						["Brothers Beer", 7],
+						["Snakes & Lattes (College)", 6],
 						["Batch Brewing Company", 6],
 						["MERIT Brewing", 6],
 						["Wenona Lodge", 6],
 						["Bar Hop", 6],
 						["Trinity Common", 6],
+						["Folly Brewpub", 6],
 						["16 Tun", 6],
 						["Good George Brew Pub", 5]
 					]
 				},
 				wide: "x1",
 				tall: "y3"
-			},
+			},/*
 			{
 				title: "Average daily volume (mL)",
 				data: {
 					type: "numeric",
 					value: 413
 				}
-			},
+			/,*/
 			{
 				title: "Most beer servings in one day",
 				data: {
@@ -341,30 +352,35 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "percentage",
 					value: [
-						["Bellwoods Brewery", 65],
-						["Burdock", 36],
-						["Great Lakes Brewery", 17],
+						["Bellwoods Brewery", 100],
+						["Burdock", 50],
+						["Great Lakes Brewery", 32],
+						["Folly Brewpub", 26],
+						["Blood Brothers Brewing", 21],
+						["Halo Brewery", 18],
+						["Indie Alehouse", 17],
 						["Half Hours on Earth", 16],
-						["Sawdust City Brewing Co.", 12],
-						["Blood Brothers Brewing", 11],
+						["Rainhard Brewing", 15],
+						["Sawdust City Brewing Co.", 14],
+						["Dominion City Brewing Co.", 13],
+						["Collective Arts Brewing", 12],
+						["Left Field Brewery", 12],
+						["Nickel Brook Brewing Co.", 12],
+						["Flying Monkeys Craft Brewery", 10],
 						["Stack Brewing", 10],
-						["Left Field Brewery", 10],
-						["Indie Alehouse", 10],
-						["Collective Arts Brewing", 9],
+						["Shacklands Brewing Company", 10],
+						["Forked River Brewing Company", 10],
 						["Beau's All Natural Brewing Company ", 9],
-						["Forked River Brewing Company", 9],
-						["Flying Monkeys Craft Brewery", 9],
 						["Brasserie Cantillon", 9],
-						["Amsterdam Brewing Company (Canada)", 8],
 						["Batch Brewing Company", 8],
-						["Wellington Brewery", 7],
+						["Amsterdam Brewing Company (Canada)", 8],
+						["Wellington Brewery", 8],
 						["Stomping Ground Brewing Co", 7],
-						["Nickel Brook Brewing Co.", 7],
 						["Godspeed Brewery", 7],
 						["Rouge River Brewing Company", 7],
 						["Young Henrys Brewing Company", 7],
+						["Cascade Brewery", 6],
 						["MERIT Brewing", 6],
-						["Rainhard Brewing", 6],
 						["Bench Brewing Company", 6],
 						["Niagara Oast House Brewers", 6],
 						["Le Trou du Diable", 5],
@@ -375,39 +391,91 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
+				title: "Top bottle shops by servings",
+				data: {
+					type: "percentage",
+					value: [
+						["Bellwoods Brewery (Ossington)", 47],
+						["Burdock", 23],
+						["Folly", 10],
+						["Halo Brewery", 9],
+						["Blood Brothers Brewing", 8],
+						["Rainhard Brewing", 7],
+						["Indie Alehouse", 7],
+						["LCBO (Summerhill)", 7],
+						["Purvis Beer", 6],
+						["Great Lakes Brewery", 6],
+						["Bellwoods Brewery (Hafis)", 6],
+						["Shacklands Brewing Company", 5],
+						["LCBO (Dundas & Dovercourt)", 5],
+						["Left Field Brewery", 5],
+						["Slow Beer", 4],
+						["Kensington Brewing Company", 4],
+						["Dépanneur Peluso", 4],
+						["Godspeed Brewery", 3],
+						["Legacy Liquor Store", 3],
+						["Amsterdam Brewery", 2],
+						["Market Brewing Company", 2],
+						["LCBO (Spadina & Dundas)", 2]
+					]
+				},
+				wide: "x1",
+				tall: "y3"
+			},
+			{
+				title: "Top serving styles by servings",
+				data: {
+					type: "percentage",
+					value: [
+						["Bottle", 282],
+						["Draft", 209],
+						["Can", 140],
+						["Cask", 18],
+						["Nitro", 6],
+						["Growler", 4],
+						["Crowler", 2]
+					]
+				},
+				wide: "x1",
+				tall: "y2"
+			},
+			{
 				title: "Top brewery cities by beer servings",
 				data: {
 					type: "percentage",
 					value: [
-						["Toronto (CA)", 225],
-						["Etobicoke (CA)", 28],
+						["Toronto (CA)", 327],
+						["Etobicoke (CA)", 36],
 						["Auckland (NZ)", 23],
-						["Hamilton (CA)", 15],
+						["Ottawa (CA)", 22],
+						["Guelph (CA)", 20],
+						["Hamilton (CA)", 18],
 						["Seaforth (CA)", 16],
-						["Guelph (CA)", 12],
-						["Gravenhurst (CA)", 12],
-						["Barrie (CA)", 12],
-						["Collingwood (AU)", 11],
+						["Gravenhurst (CA)", 14],
+						["Barrie (CA)", 13],
+						["London (CA)", 11],
 						["Marrickville (AU)", 11],
 						["Sudbury (CA)", 10],
 						["Bruxelles (BE)", 9],
-						["Vankleek Hill (ON)", 9],
-						["London (CA)", 9],
-						["Niagara-on-the-Lake (CA)", 7],
+						["Vankleek Hill (CA)", 9],
+						["Vancouver (CA)", 9],
+						["Collingwood (AU)", 8],
+						["Niagara-on-the-Lake (CA)", 8],
 						["Burlington (CA)", 7],
 						["Newtown (AU)", 7],
 						["Markham (CA)", 7],
+						["Brooklyn (US)", 7],
+						["Portland, OR (US)", 7],
 						["Wellington (NZ)", 6],
 						["Beamsville (CA)", 6],
-						["Ottawa (CA)", 6],
+						["Shawinigan (CA)", 6],
 						["Longmont (US)", 5],
 						["Hamilton (NZ)", 5],
-						["Shawinigan (CA)", 5],
+						["Kingston (CA)", 5],
+						["St-Jérôme (CA)", 5],
 						["Melbourne (AU)", 4],
-						["St-Jérôme (CA)", 4],
 						["Baskerville (US)", 4],
 						["New Plymouth (NZ)", 4],
-						["Kingston (ON)", 4],
 						["Matakana (NZ)", 3]
 					]
 				},
@@ -419,25 +487,26 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "percentage",
 					value: [
-						["Canada", 422],
+						["Canada", 621],
 						["Australia", 80],
+						["United States", 66],
 						["New Zealand", 58],
-						["United States", 35],
-						["Belgium", 20],
-						["Germany", 12],
+						["Belgium", 23],
+						["Germany", 18],
+						["France", 6],
+						["Denmark", 6],
 						["Scotland", 4],
-						["France", 4],
-						["Denmark", 4],
+						["England", 4],
 						["Austria", 3],
-						["England", 3],
-						["Netherlands", 2],
-						["Ireland", 2],
-						["Sweden", 2],
+						["Netherlands", 3],
+						["Ireland", 3],
+						["Sweden", 3],
+						["Poland", 3],
+						["Spain", 2],
 						["Italy", 1],
-						["Spain", 1],
 						["Norway", 1],
-						["Poland", 1],
-						["Japan", 1]
+						["Japan", 1],
+						["Slovakia", 1]
 					]
 				},
 				wide: "x1",
