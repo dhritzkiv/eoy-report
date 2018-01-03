@@ -13,6 +13,19 @@ import BeerStatsPage from "./views/stats_beer";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
 
+const makeGeoJSONTextLabelForPoint = (text, point, size = 1) => ({
+	type: "Feature",
+	properties: {
+		type: "text",
+		text,
+		size
+	},
+	geometry: {
+		"type": "Point",
+		"coordinates": point
+	}
+});
+
 const Router = AmpersandRouter.extend({
 	routes: {
 		"": "start",
@@ -88,6 +101,246 @@ const Router = AmpersandRouter.extend({
 		const view = new CyclingStatsPage({
 			name: "cycling"
 		});
+
+		view.stats.add([
+			{
+				title: "Total distance (km)",
+				data: {
+					type: "numeric",
+					value: 3602
+				}
+			},
+			{
+				title: "Total rides",
+				data: {
+					type: "numeric",
+					value: 691
+				}
+			},
+			{
+				title: "Total time (hrs)",
+				data: {
+					type: "numeric",
+					value: 150.1
+				}
+			},
+			{
+				title: "Toronto rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/lake-ontario-coastline.geojson"
+							},
+							{
+								uri: "/data/ytz-airport-grounds.geojson"
+							},
+							{
+								uri: "/data/yyz-airport-grounds.geojson"
+							},
+							{
+								uri: "/data/2017_rides_toronto.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Toronto", [-79.383558, 43.652503])
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Hamilton", [-79.866091, 43.250021], 0.75)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Mississauga", [-79.65, 43.6], 0.75)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Oakville", [-79.687666, 43.467517], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Burlington", [-79.8, 43.316667], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Vaughan", [-79.5, 43.83333], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Newmarket", [-79.466667, 44.05], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Niagara Falls", [-79.106667, 43.06], 0.5)
+							}
+						],
+						center: [-79.383558, 43.652503],
+						minZoom: 18,
+						startZoom: 20
+					}
+				},
+				wide: "xfull",
+				tall: "y3"
+			},
+			{
+				title: "Top daily distance (km)",
+				data: {
+					type: "numeric",
+					value: 114.69
+				}
+			},
+			{
+				title: "Top weekly distance (km)",
+				data: {
+					type: "numeric",
+					value: 210.1
+				}
+			},
+			{
+				title: "Sydney rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/sydney-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_rides_sydney.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Sydney", [151.212222, -33.868056])
+							}
+						],
+						center: [151.230278, -33.868056],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Melbourne rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/melbourne-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_rides_melbourne.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Melbourne", [144.963, -37.814])
+							}
+						],
+						center: [144.963, -37.837],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Auckland rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/auckland-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_rides_auckland.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Auckland", [174.765, -36.847])
+							}
+						],
+						center: [174.81, -36.8675],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Top monthly distance (km)",
+				data: {
+					type: "numeric",
+					value: 401.2
+				}
+			},
+			{
+				title: "Total elevation gain (m)",
+				data: {
+					type: "numeric",
+					value: 6524
+				}
+			},
+			{
+				title: "Montreal rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/montreal-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_rides_montreal.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Montreal", [-73.57, 45.5])
+							}
+						],
+						center: [-73.57, 45.5125],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Vancouver rides",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/vancouver-green.geojson"
+							},
+							{
+								uri: "/data/vancouver-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_rides_vancouver.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Vancouver", [-123.1, 49.25])
+							}
+						],
+						center: [-123.1, 49.285],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Est. total energy (cal)",
+				data: {
+					type: "numeric",
+					value: 64100
+				}
+			},
+			{
+				title: "Est. peak speed (km/h)",
+				data: {
+					type: "numeric",
+					value: 70
+				}
+			}
+		]);
 
 		this.trigger("newPage", view);
 		this.trigger("navigation");
