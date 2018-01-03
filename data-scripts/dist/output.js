@@ -38,6 +38,21 @@ const areas = [
     }
 ];
 const main = async () => {
+    /*
+    //get strava ride ids
+    await asyncExecFile(`node`, [
+        path.join(SCRIPTS_DIR, "get-strava-ride-ids.js"),
+        path.join(DATA_SRC_DIR, "2017_ride_ids.json"),
+        "--year=2017"
+    ]);
+
+    //get strava rides from ids
+    await asyncExecFile(`node`, [
+        path.join(SCRIPTS_DIR, "get-strava-rides-from-ids.js"),
+        path.join(DATA_SRC_DIR, "2017_ride_ids.json"),
+        path.join(DATA_SRC_DIR, "2017_rides.json")
+    ]);
+    */
     await asyncExecFile(`node`, [
         path.join(SCRIPTS_DIR, "rides.js"),
         path.join(DATA_SRC_DIR, "2017_rides.json"),
