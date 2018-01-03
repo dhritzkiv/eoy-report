@@ -183,10 +183,14 @@ body > header {
 			&.polygon,
 			&.multipolygon {
 				//fill: darken($colorBackground, 12.5%);
-				fill: rgba($colorText, 0.25);
+				fill: mix($colorText, $colorBackground, 25%);
 
 				&.airport-grounds {
-					fill: rgba(#cb9625, 0.125);
+					fill: mix(mix(#ec5f30, #cb9625, 50%), $colorBackground, 12.5%);
+				}
+
+				&.green {
+					fill: mix(#cb9625, $colorBackground, 12.5%);
 				}
 			}
 
