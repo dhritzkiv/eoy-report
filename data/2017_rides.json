@@ -24038,5 +24038,3569 @@
 		"calories": 44.7,
 		"_start_date_date": "2017-10-18T13:43:26.000Z",
 		"_start_date_local_date": "2017-10-18T09:43:26.000Z"
+	},
+	{
+		"id": 1322432953,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 2759.5,
+		"moving_time": 558,
+		"elapsed_time": 746,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-21T21:56:23Z",
+		"start_date_local": "2017-12-21T16:56:23Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.945,
+		"total_elevation_gain": 9.9,
+		"elev_high": 102,
+		"elev_low": 87.9,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1322432953",
+			"polyline": "{}miGlqrcN_@w@Be@IaA?OG]EMS_CUeBEJECIu@CeABODKHEVKbBe@dCg@dBq@v@WbBa@`@EXI^U|@[rB{@|A[nBg@~Ao@x@WfAc@vC}@n@Y`AUJGd@OF?FHFj@AlAJjADLHHLBhAUN@jA]NAz@_@D@Jt@CPBBFGb@IPKKKj@_B@BSBAPMb@KDENE@CHW@CBC^Bz@RhCPnAXvARl@H\\ALWh@k@Nk@\\u@Va@JQJeBb@]FU?SDGBK?DDJDV@CBg@GE@YCa@W}@Yy@?W\\MKq@OGHEEK@QJi@pCS^]Ny@`@m@R_A^cAZeCl@KFYFm@Te@DGBsAJ?FSF",
+			"resource_state": 3,
+			"summary_polyline": "{}miGlqrcNcBwQ|n@yR~@jFpFsAPlA|AiC}AdCfApN}IdDsIs@oA|DyRzF"
+		},
+		"max_speed": 14.2,
+		"average_watts": 84.2,
+		"kilojoules": 47,
+		"calories": 52.4
+	},
+	{
+		"id": 1321949211,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2193.3,
+		"moving_time": 505,
+		"elapsed_time": 568,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-21T14:33:41Z",
+		"start_date_local": "2017-12-21T09:33:41Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.343,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1321949211",
+			"polyline": "cbmiG`mwcNa@i@ERSDKFSKCGuAqI[kDSgB@GCGDMAWSqAQGQcAGOKu@OuBBaCHmCh@{D?m@Hm@Ds@Eo@UaCW_AIe@CiAUwA_@sDKq@Eo@M_A?g@I}@Gi@Qy@U{BG_@Ce@Oy@Eg@Ms@AKDICYUsAS_CKo@GMKeAI_@SwBKa@]uBUkCG}ACKDcAAa@WyA?MIu@CQIMYyAM[KgAIWSmBEIEYAi@EY@i@I?EAGSDs@?YYaEIm@?GNIDGFU",
+			"resource_state": 3,
+			"summary_polyline": "cbmiG`mwcN_B[oE_[p@aWwQ_}A?mJ"
+		},
+		"max_speed": 8.3,
+		"average_watts": 64.2,
+		"kilojoules": 32.4,
+		"calories": 36.2
+	},
+	{
+		"id": 1321365202,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2225.1,
+		"moving_time": 471,
+		"elapsed_time": 592,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-20T23:12:17Z",
+		"start_date_local": "2017-12-20T18:12:17Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.724,
+		"total_elevation_gain": 8.3,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1321365202",
+			"polyline": "q|miGxorcNwA|@\\bC@`@DDV~D^~CHZDd@Xx@f@rD\\~DPpAJpANv@GLAVTfB\\dDZtBHxAJ`AHPPfBFNHz@VlAp@jFH\\n@dHRfAl@lEBZL@ZdDBRHRLlA@hAEx@WzBc@lG@xEF`ATdB`@lDHdADJh@lCPlAJ|@Jd@@NCD?HD\\HKNAj@OR?PDDD@FL|A?PN|@PCTKF`@JCF@",
+			"resource_state": 3,
+			"summary_polyline": "q|miGxorcNwA|@|@jJvQdyAu@hX~CbVjBWd@zDbAN"
+		},
+		"max_speed": 9.1,
+		"average_watts": 59.8,
+		"kilojoules": 28.2,
+		"calories": 31.4
+	},
+	{
+		"id": 1320818760,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2278.9,
+		"moving_time": 458,
+		"elapsed_time": 507,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-20T14:36:01Z",
+		"start_date_local": "2017-12-20T09:36:01Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.976,
+		"total_elevation_gain": 9.2,
+		"elev_high": 105.3,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1320818760",
+			"polyline": "k`miGnkwcNy@PAKFSEOJPD?@HCPEJE?FDaALEICYGW]w@Ic@QWGAGy@W_BIM[uC]yBGw@Km@S{AEKQsAOgBCgA?qABoANoABw@L}@@c@TkC@aAGeAGo@WaB]{DOk@MqA?Y_@cDG}@UeBMsAEMOiAS{@YuBW}AQeCWsBg@mDw@{I]eCAW_@mCi@iFI]Y{Ck@cEBS?q@e@mEAOWEJDHI@GAI@GTMDSAHOH",
+			"resource_state": 3,
+			"summary_polyline": "k`miGnkwcNoBn@sAqDcDyUb@oYaRweB"
+		},
+		"max_speed": 9,
+		"average_watts": 78,
+		"kilojoules": 35.7,
+		"calories": 39.8
+	},
+	{
+		"id": 1320329017,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 3272.9,
+		"moving_time": 651,
+		"elapsed_time": 720,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-20T02:25:55Z",
+		"start_date_local": "2017-12-19T21:25:55Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.027,
+		"total_elevation_gain": 16.2,
+		"elev_high": 97.8,
+		"elev_low": 85.5,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.39
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1320329017",
+			"polyline": "}_liGzaqcNyAzCI|APdAFd@CTf@lALJLl@@NE`@@PLfAFL@^b@|AER@^Lp@Dd@Kv@Cj@LxAAf@HLAJLn@JvAJ`@B\\Lt@?RCHG^Hz@bBdKT~CLnAPl@LlAJlA@`AJ?b@dFb@nCPpAD|BHHN~Ar@|Df@vFTfBQL[JG?QJEC[BGBCFCb@BZDf@J\\Bp@Nv@B~@EPMLGNAn@Qt@Q|@?Nm@zC]zA[lBWbAWt@?LQf@G`@O^Yd@q@R[Fa@VIB{@b@oCx@s@VQTIDo@tAWp@GHKZSPGLIV@FGPQ^cAZSJs@Pq@HIDi@LI?MJGZC`BF`CBb@RzARpALj@B\\uAHgAX_Cf@a@LIFw@TIFw@RGBCDODEDEPKn@?TBVJ`@Nt@@d@C@",
+			"resource_state": 3,
+			"summary_polyline": "}_liGzaqcNcBxFjStjBuBp@h@nHcGzXsKrEuDzHiGbBx@zO_NbDDtF"
+		},
+		"max_speed": 9.2,
+		"average_watts": 77.7,
+		"kilojoules": 50.6,
+		"calories": 56.4
+	},
+	{
+		"id": 1320198091,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 1563.8,
+		"moving_time": 320,
+		"elapsed_time": 506,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-19T23:14:45Z",
+		"start_date_local": "2017-12-19T18:14:45Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.887,
+		"total_elevation_gain": 0,
+		"elev_high": 101.7,
+		"elev_low": 86.5,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.39
+		],
+		"map": {
+			"id": "a1320198091",
+			"polyline": "{|miGxorcNc@gABAPEJG\\Q|AYbA_@^Sv@Y`@Ij@SrBe@n@YBE@YEa@qAaK?GFMl@Ol@SJKn@U|@Sb@Gl@OdAQx@a@TGFOd@QxBm@f@Qd@UjA[f@SbCu@hAUJK\\MzA]JDLGHAJ@LJDADKAOUeBMCCQAi@CYBIDCv@O~@YV@FBPE@FCBBHCfAKf@@F?`@Em@GKI@?F",
+			"resource_state": 3,
+			"summary_polyline": "{|miGxorcN_@iAjPkFmAsM~d@qM_@iFhDi@c@~B"
+		},
+		"max_speed": 8.9,
+		"average_watts": 53.1,
+		"kilojoules": 17,
+		"calories": 18.9
+	},
+	{
+		"id": 1319023966,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 1861.5,
+		"moving_time": 383,
+		"elapsed_time": 452,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-19T00:15:27Z",
+		"start_date_local": "2017-12-18T19:15:27Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.86,
+		"total_elevation_gain": 3.9,
+		"elev_high": 106,
+		"elev_low": 95.9,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1319023966",
+			"polyline": "m~miGdrrcNUEJCVBBEFR@hANlAKh@Ez@T~Cj@~Cj@fCCLTrA@FKA?`@RdDFf@RbDf@lCbAtJB?Ld@XpBDPVhBJb@Hx@JNBRz@jHFhATvBZhCV~@J|@Bf@FJ@F?XL~ARb@BPXxD?`AAVGTATIPo@|HHrDAb@R@DDDRLAFBF@BFBP\\R^CJBDRLN",
+			"resource_state": 3,
+			"summary_polyline": "m~miGdrrcN~Dhe@hLzz@c@fZbDpB"
+		},
+		"max_speed": 10.2,
+		"average_watts": 67.3,
+		"kilojoules": 25.8,
+		"calories": 28.7
+	},
+	{
+		"id": 1318444522,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2260.4,
+		"moving_time": 433,
+		"elapsed_time": 470,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-18T14:44:14Z",
+		"start_date_local": "2017-12-18T09:44:14Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.22,
+		"total_elevation_gain": 9.4,
+		"elev_high": 105.9,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1318444522",
+			"polyline": "_dmiGzhwcNR~BEBSEO?ID@H@QCu@Qw@UKa@eCg@cEMs@IaAIc@_@oDGMGu@UsAIy@A_@F}DFoAZmCCKNkD@m@Eu@EMk@}EAg@O_BQmAGeASeAGo@Ki@[qDMo@Se@i@cHEO?[]uBGo@Cs@Ou@EM]}BOi@g@eEI_AIqBGs@Mk@]eFQmAGK[}CGW?wAESEEIgAIi@AEGAAKAK@UOgCEIQoAWoAVGT@DBf@UGFc@kA",
+			"resource_state": 3,
+			"summary_polyline": "_dmiGzhwcN]lCcFa^p@uU}RqfBzAWk@cA"
+		},
+		"max_speed": 9.7,
+		"average_watts": 81.3,
+		"kilojoules": 35.2,
+		"calories": 39.2
+	},
+	{
+		"id": 1317867522,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 8998.9,
+		"moving_time": 1624,
+		"elapsed_time": 1719,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-17T21:20:44Z",
+		"start_date_local": "2017-12-17T16:20:44Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.541,
+		"total_elevation_gain": 72.4,
+		"elev_high": 168.5,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.51,
+			-79.63
+		],
+		"end_latlng": [
+			43.55,
+			-79.71
+		],
+		"map": {
+			"id": "a1317867522",
+			"polyline": "crqhGtl`eNJjDIMYMUWSKGAGBi@|@Ex@Oz@GTSFMb@_@f@AHKEUFICI@_@YUYI[OYQUKEICID]VUV{@pAS`@}@vAi@v@INGN{@lAwBlDaBbCUb@_CfDQNiA|AG@EF}@`B_AnAgB~CgBhCi@z@s@`AmB~CiAvAY`@m@n@]j@m@r@{@lA[f@u@zA{@nAk@dAyD`GYZu@|@y@rA_@t@[b@w@xAq@|@}BvD}AtC[^k@`AQb@m@bAMRIFGHgBvDk@~@Yb@MF{@|A{AdCm@hAYd@iAtBq@rA}@pAqBfDiAzA{BhDm@jA}@xAKXeAfB_B~CMTKFw@dAq@bAWZWh@q@bAEJaBzBaFhIS\\ENIN_AnAwEzH_@f@Yl@cAtAoAxBKVeAlBCJOTk@|A[lASfASpBSzAa@fBWdBEf@WtAYrB[bAm@`Bm@hAcA|AOPm@lAi@x@g@l@SZg@~@eDrFeAnBgA~AaApBYdAWp@sCzESTKFGLKh@?NHZnAhBTXLHf@x@L?`@l@HDP\\Rf@Tx@P`A`@vAHb@ZhAf@~Bx@pCX|AnAzE`A|DV~A?b@MZw@`Au@fA]l@o@bA_@r@a@l@Wf@eC~Dy@dBc@jAcB`DYz@m@dCa@zB?LmCdLc@tB?HETa@dAUd@qAbBg@l@cChD_@n@m@fA}@lBcCjG[n@k@t@e@d@qA|@GFELm@h@_@^k@zA]t@_@n@AHDP\\d@h@^^J~ARlAHx@PJJdCZH?rATbBd@h@Rt@b@l@Xn@b@PR\\n@Z|@v@~ELbBFFJB`A@VBz@RDZCJITGC",
+			"resource_state": 3,
+			"summary_polyline": "crqhGtl`eNJjD}A}@kCfHcDeCgAp@so@x`A}dB|rCaF~JsGh]a\\`k@xFvKtKne@kRt\\cIl]k\\hi@fZlJpCdMxC~A"
+		},
+		"max_speed": 9.4,
+		"average_watts": 100.2,
+		"kilojoules": 162.7,
+		"calories": 181.4
+	},
+	{
+		"id": 1317809810,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 2847.5,
+		"moving_time": 451,
+		"elapsed_time": 535,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-17T20:41:26Z",
+		"start_date_local": "2017-12-17T15:41:26Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.314,
+		"total_elevation_gain": 0,
+		"elev_high": 100,
+		"elev_low": 79,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.64,
+			-79.42
+		],
+		"map": {
+			"id": "a1317809810",
+			"polyline": "u_miGljwcNMh@?JH^JdAPrAXfBVnBJbADt@BJH@FFJ?NEdAo@rEiBLOzEyATMr@O`@QTCbDgAnDy@hA[`Ae@~Bo@jAa@J?bBk@fDu@xBs@xAUl@WVEn@ElAUxAe@\\S`@IDE@Kd@EVOFMDQDm@?kDC{@ESDaDFw@Ca@FsEDaAFEK@DXEd@ErAXd@@|@RbB|BlLBKH??HDLRJl@CJId@IFWVIr@Q~@[|Ac@j@CZQd@MJIVCJI~@Ip@MlAYbA]|@QTUBI?SOa@EQ?GD?",
+			"resource_state": 3,
+			"summary_polyline": "u_miGljwcN~BvQxdAu[t@oZh@zIdDdMpXiHHoB"
+		},
+		"max_speed": 14.4,
+		"average_watts": 84.7,
+		"kilojoules": 38.2,
+		"calories": 42.6
+	},
+	{
+		"id": 1316480029,
+		"name": "Home to Bellwoods Brewery (Hafis) to Home",
+		"description": null,
+		"distance": 19174,
+		"moving_time": 3678,
+		"elapsed_time": 4301,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-16T21:32:17Z",
+		"start_date_local": "2017-12-16T16:32:17Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.213,
+		"total_elevation_gain": 123.5,
+		"elev_high": 168.6,
+		"elev_low": 97,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1316480029",
+			"polyline": "c`miGfkwcNmBYXk@LAHi@?c@ZVHWDASPNp@?HPp@HNHHD?Ib@QFS@MFy@@D??FCDE?EHBRNn@GJR`AGNCzCILv@dINz@l@fFXjDVpAHr@I`@Ah@D`ADHVrAHn@ZpDBr@f@zDH\\RbBBv@BFJr@ZbCdAjKX~AHt@`@vFF`@FLFj@ANKV}AZkAb@aAX[Nw@NmBj@eCj@sDjAgEdAy@X{@VaB`@gElAIGGBU@CEK?[G{@Lc@JcC`AIDaCl@IDu@T_A^IFoBl@iC|@e@\\]l@]d@OLSH}Ad@UBSHu@Ng@VeBd@m@T}@Rg@FqDpAMNGAUP_@NUAa@KQHQNo@AIDIJaBbAUFMGe@TsBf@e@Pc@D_AXyAXGFYJeATUPg@FiAV_@NWVWKU?uBf@s@^Qd@Iv@CFWP[FkANm@RuAVIDSAIBa@Z[LSPm@XkB\\{@RgBn@MAKDIHGJEVJ|@CTV`BDBCFa@BOAESe@OAQ[IWOk@Mk@EMIg@?EIu@LGEe@TIIsA~@cAz@c@j@w@vA[`@k@r@QLm@J_BAg@B]FuAd@aAPmCr@kAj@y@r@s@f@g@T@FE@OJc@~@{@rAaAjAgBbBoBdBi@^kAn@EPa@HCJUJWFc@DO?UGQGYSi@s@O_@M_A?WD{@Eo@ESWy@I@SPWLSK]LIF[NQCKFIPKNm@l@]NOEIJGZEd@NPQrAMNAPCDODUMo@OWBMFEBQj@]d@CXa@b@BVcAr@g@Ru@f@QDOLMDMLITML[Jk@XkAZSLENa@LGHi@N[AWMSWOa@IQQ@STCGEDI@EKBGJG?QEFB^Np@ZxBV~Bj@vDBf@BDEFe@F]HWJiCt@}@ZIHeAXu@ZuA\\_AVYD{Ac@c@Aq@NsARi@Nm@Lw@Fo@NCJA`@@r@TpBZfBVP\\zBDf@TlALjA?RLr@\\`Ap@hALb@Ez@M?GFy@Re@FMOo@H{Bb@}@Tm@TICI@o@NqFfBGAOOY{@a@OIAi@B_AVKEI@}Ah@wAp@w@p@GBe@^K?iBj@cAR_Bh@o@FIBaBVm@Lc@NMC@Ma@uBSwB[gAE?[h@i@^DCASHMDBGFHSF?`@\\l@`CR^Jb@Nt@RNRDzBUz@QfBc@dCs@lBe@JEh@i@B[HQh@c@LA`A_@rAc@VMf@QL@n@QJAJBFHPh@HJFTD?B`@BHNJH?TERIJIp@[nDoAJKh@MZCj@MZK`Eu@~@SRUFKBOA]OYs@aAKSIScAqDGIgAqHg@oEDODEnAONGx@OLApB]fAMJ?XDl@TTDd@?`Cs@b@GpBk@t@_@zCaAb@ARH@]EYEKJIBOQ}AK}AIm@e@cCe@cEIYMiAa@iCGkAGKIeAGMK_AMk@U}CI_@M_@[sBW{B?SGm@[{BK[EYCg@Is@AWEIDIJGlAIhA_@lAW`Cq@l@Kx@YbAe@vBo@PKRGFIz@]r@KHOGaAKMIgAIGKk@YYIAWDS?g@TOBM?KEEKAYEKIgA?WHM`Ba@RDfA_@hBe@`@QJFb@Id@MBOVK`EmARCP@`A_@TCf@QfBc@d@Gj@Wt@Qj@[\\KTAREHCHGfAUNKrC}@NWxDmAdI_C`AUbA]dFuAv@Yl@MZEf@Mh@Qb@UhAa@xAWTI\\UPEF@JEHIVKx@Il@S`@I\\OfAYnA_@d@ILIpAa@dBe@jBm@NG^_@x@[dA[n@OTKp@MzB}@j@OPMRIjC}@fBi@x@[|A_@NMNGbGkBJKR@BDL?^QfFqA~@g@rBy@j@QNMb@KNK|@]fDcATOdA]z@Md@KHOdBm@FGBMAc@KSEs@Ii@I[KKKy@o@oCQgBc@sC[yCEK_@sCGq@EIWuBCGG_@Aa@DODE~@K|@SrAc@dAW`@MTKx@Sn@GbADf@G`@SXGhAo@hA[p@KdDy@z@YtBg@^OJSjA]HQXKrEoAzCo@l@SfCm@XOd@M|Bk@JE@ODAn@QVM^ENGv@Sb@QFGDM@O?g@C]SwAKcAQu@M_AKc@OkAMQAYEGEB",
+			"resource_state": 3,
+			"summary_polyline": "c`miGfkwcNmBY|A}Bf@xCaCnAHjI~NpzAco@nOyWnLmy@~TkBvC}TfGHnFuKaBmIbJeQlD{UtTwDiA{@qH_Dv@gClBc@nE{BKoIfJaGfCqCqBnB`Q_`@~GrF~\\qUbF}EgAcX|IwAuHqAv@~@OdCpGrOeDpIgFtAMrAlCfU}GiGe[|_@aGqKu}@zXiIi@{EaDAM_DjuDajAiG_f@lfAaZkB}O"
+		},
+		"max_speed": 12.3,
+		"average_watts": 80.7,
+		"kilojoules": 296.7,
+		"calories": 330.8
+	},
+	{
+		"id": 1310394474,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2259.8,
+		"moving_time": 450,
+		"elapsed_time": 610,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-11T14:44:26Z",
+		"start_date_local": "2017-12-11T09:44:26Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.022,
+		"total_elevation_gain": 9.2,
+		"elev_high": 105.3,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1310394474",
+			"polyline": "m`miGhkwcN`@v@M@a@NKOq@K[Da@RIUAm@Mm@CGGEGWGGo@uEa@mDKq@e@yEKs@GOG[CaAKcBCiABQFeB\\iDDkA?IEGB{@Pk@BSCq@Kw@EMOgAQqB]mCQoB@OIaAQmAOq@YuB[gDMq@KuA]qCEOMcBSw@AGDUAMOm@K}@KICMi@uEOwAKqBe@sDCo@OqBQg@KKIq@_@_FMi@MwCI_@K_A@q@Eg@CU_@?M_ASuBHA?HDD",
+			"resource_state": 3,
+			"summary_polyline": "m`miGhkwcN`@v@uDEkEyZj@}WaSyeB"
+		},
+		"max_speed": 9.9,
+		"average_watts": 77.5,
+		"kilojoules": 34.9,
+		"calories": 38.9
+	},
+	{
+		"id": 1309882291,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 11375.1,
+		"moving_time": 2179,
+		"elapsed_time": 4623,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-10T21:21:45Z",
+		"start_date_local": "2017-12-10T16:21:45Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.22,
+		"total_elevation_gain": 52,
+		"elev_high": 124.2,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1309882291",
+			"polyline": "gamiGlkwcNWTDPCLKFG@GIM@QHOCEBCA@UCy@Ic@MuASe@GUYqBMQS_AUcBUy@QiBUqA[sCQqB@uEJ}@Z{@NaBASH{B?m@Ec@@SEOC}@I[Gi@QMGs@CEE?KBKOe@HaF|AUJKHe@PuAX]PWDa@P{@PSJ_@Jw@XSDyA`@e@PIDc@Na@Fc@FGAMBEAMQ@WImAI_@OwAEOOkBGMWyAISMHe@Dc@Xy@XIHw@T_A^y@Vw@LQLa@Fk@VeA`@g@Js@Ho@PKCADWJYBaAXm@Hk@Pa@Tw@\\U@a@Vg@LaBh@g@Fy@TKAIMIg@KwA@QEALMRCR@DJJ?^SE@IQ?FCE?HIOMCQSUs@GKGYM]I[GIOq@m@{A?S]yBMYKCI@s@\\{@Po@V{Ab@eAR_@PSD]LgATcA\\mFnAIHy@NSAYJGHO?_@NEAIUCe@EQG}@M{@g@eCYgDMy@]uAWmBG{@SoAOy@_A}COo@IgAM{@SmB@[CUMeAKOCQIOGe@UcCIQk@qE]uECOGOa@kDKi@Us@QeAKS[wAUyA[gAUi@WaAk@wDUaCGKM{@KYGGW@a@JYKIB]NKK?OEKEKIIO]g@sAEQe@oABSaAaDWmCWqAMQq@_G]eCKeAIg@?OKw@KwACKOMq@NK?]NM?EES}@KMQG?JUTFJFA@PFCBG?IOWZX?FPTVBbAKZK|@Gn@QZEDFFALAFGD?LKj@EtAUL@LVPfBTzADn@\\jBNfBRbAHND^f@nEp@bFPjBJf@d@nEAf@CHEDw@BIHMd@HtAF\\RfBPvAHd@FNRzARn@FBJVLNJd@FLl@xDJP\\fBBLCP?JBj@TbB^dBDJVrBRfADh@CNHrAJv@HFThBNr@D|@NfBDJ@\\Hr@P~@B^BLRxBPbADNHF\\`ABLDp@DJFp@Nn@Dr@Ht@R`AVrBLvAZhBH`A?l@FDFr@N@Db@BBEAVBBN\\fEDl@NHHd@ThCf@pDJtAVpB?x@Fx@Hh@FJj@~DVrAJz@NtBTbANfA@b@NpAFdARrALXBv@DXF`AFZJz@DNHh@NrABjAHjADJJv@PEF?BBJCPIRCl@Sl@Il@S^Ej@S|A]t@Wn@OFCnBi@b@OTQ`@ErBg@TIfA[JEHGbBg@DGp@UlBc@LAfDmAbBc@HW|C}@ZQrBg@jJqChAa@~A_@^fCx@hHH^HBFFJBl@CNQ|@QbCs@fAUd@UvFwAj@Y\\KHQf@Q~@SLFZEhA]BFBtAFt@?JFd@",
+			"resource_state": 3,
+			"summary_polyline": "gamiGlkwcNkB~@aFw\\n@aV}@sGa^lJuBiNqg@lOo@cDfBWyFcOg]fJuXsfBuCO_CmG}Fga@gEe@rO_@|Gri@{AjBd@zExElT`PtiA`NdlAvgAy[tB|M`\\uIVdE"
+		},
+		"max_speed": 11.6,
+		"average_watts": 76.7,
+		"kilojoules": 167.2,
+		"calories": 186.4
+	},
+	{
+		"id": 1309756870,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 1641.4,
+		"moving_time": 342,
+		"elapsed_time": 389,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-10T20:10:43Z",
+		"start_date_local": "2017-12-10T15:10:43Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.799,
+		"total_elevation_gain": 2.2,
+		"elev_high": 97.7,
+		"elev_low": 85.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.64,
+			-79.42
+		],
+		"map": {
+			"id": "a1309756870",
+			"polyline": "{_miGxjwcNc@wBIs@HGh@Ov@a@zAg@hBe@pAa@jCu@h@K\\Od@KFERC\\OrAOd@KL?v@QLEJMb@QJOdA_@n@Y`ASnD}@bDRDMj@[VQFKn@]RGh@WVG\\QJ?\\QZIH?JB\\RLPB|@JrAXfB?PBECQ_@sA?IFMFQA_@Fg@E}Ao@qDSw@My@YqAEBADA\\ZhA@FEB",
+			"resource_state": 3,
+			"summary_polyline": "{_miGxjwcNm@kDjBy@|s@_S`Ah@h@jG{BqTL|B"
+		},
+		"max_speed": 11.7,
+		"average_watts": 61.9,
+		"kilojoules": 21.2,
+		"calories": 23.6
+	},
+	{
+		"id": 1308757593,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 2816.8,
+		"moving_time": 666,
+		"elapsed_time": 1202,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-10T05:50:07Z",
+		"start_date_local": "2017-12-10T00:50:07Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.229,
+		"total_elevation_gain": 7.4,
+		"elev_high": 106,
+		"elev_low": 94.8,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1308757593",
+			"polyline": "c}miGfprcNyA\\@DAN@PF^Pn@HFNp@DDIl@@PNn@DZAHJXDV^zAR|BRfA^zCFx@@f@H`@VrCPtAHfAPbADt@PlARhAHt@XjANvBN`APdB@`ANtADNb@vDXxABp@\\nCFXVlCRr@L|@Td@HtA?PE@?GF@DRHn@F\\@PRbBBrAAjAQpAQpBCn@Mn@?ZGp@Al@BLC\\?d@BX^|@Ap@FZ@h@NhADLHABGFA?GXORe@DCF?JNHXCLOXAGvGoBgC^URSTq@zBGV?LCJEMDD?KDI?KFSCS?_@AEGBG]JlAEH@DD@ZKZFZL\\Z\\lABTCX]RGFq@PSLIJ?HBTGJPxACHBPL|@AJJXDFL@Jp@Zh@Bl@CL@JJf@NCJGJDD?BGI?",
+			"resource_state": 3,
+			"summary_polyline": "c}miGfprcNwAdAdTvbB}@~Pv@vIrJqA}Cr@qAbEGqC|CrEyBbDzC`L"
+		},
+		"max_speed": 8.4,
+		"average_watts": 54.5,
+		"kilojoules": 36.3,
+		"calories": 40.5
+	},
+	{
+		"id": 1308524932,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 2032.5,
+		"moving_time": 306,
+		"elapsed_time": 312,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-09T22:41:50Z",
+		"start_date_local": "2017-12-09T17:41:50Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.642,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1308524932",
+			"polyline": "wcmiGpjwcN\\d@OIMAU\\YH@GEM?UOm@OcAAw@KaAYqAe@{CIOCOg@}DAU[qCQ}BBWC}CJcBX{CBk@ZoBAy@CQGQS{BGUIsAYgBEg@UaBQmBScAUwBEo@GWOwBOm@G_AWQQmAe@aFOiCKc@KuAk@iEO_BGYc@sEKc@Gs@SeAGSIKEIA_@KgAw@iHWyCFQ",
+			"resource_state": 3,
+			"summary_polyline": "wcmiGpjwcNo@`AeEk[p@iWoQw|A"
+		},
+		"max_speed": 13.9,
+		"average_watts": 122.2,
+		"kilojoules": 37.4,
+		"calories": 41.7
+	},
+	{
+		"id": 1308480911,
+		"name": "Home to GLB to Rainhard to Shacklands to Bellwoods Brewery",
+		"description": null,
+		"distance": 31376.5,
+		"moving_time": 5131,
+		"elapsed_time": 11219,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-09T18:36:06Z",
+		"start_date_local": "2017-12-09T13:36:06Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.115,
+		"total_elevation_gain": 105.1,
+		"elev_high": 126,
+		"elev_low": 72.5,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1308480911",
+			"polyline": "g`miGrkwcNQ@@GFABECENl@RdBRf@h@lEH^PlBBFF@n@WdBg@LK\\Ix@YjGaB`BWJCHMx@WNA^_@\\MjAWLKPGhJeCZKFGXMJALDJZ@L@pADl@Hl@CLBXFv@V`CPrCVtB?\\Dr@LdAHj@Nh@NBTEh@?HT@\\PrBTxACJDHD?\\EpBo@tAUJK^I^MdDo@?EDABFH@b@MJ@d@OL@LQLGdASPKn@M\\M?K`Be@j@Yj@MFGn@UZELGBGDAH@x@MlFyAh@Sz@@XAf@WHU~AQHMZEh@MHITE|CaAJCRDDJJt@T|CRfBARZfBZfCEZ@x@Dh@F|AVbBXlALbADDP~@JZH@b@Cv@Sl@GNHHP?|@YbBi@jEI`@GPMJUzBSr@CIFYf@S^KPBz@SJGNC@RJPHp@?N`@Zf@TXRFJCNBTELINe@j@KPOd@S^UF]h@gB~BQXWPSXMJ{@hBWx@a@v@[z@KNc@lAKLa@xAMPYlAUd@Od@u@nCYz@WjAW|AAjAK\\a@x@i@fBg@tAKNw@`CKNK\\Mn@Gb@IlAFzAJxAARBvAANGNMrAONG~Ag@hGOlBo@|FQdCAb@VdA?N[|@MnAKfBMfFDnDHrBh@nE\\`CLpAFhA\\dAf@`Al@fB^lCt@dCl@dDHt@@b@EzB@r@l@rCXlBVpACRFZL^FHb@Jn@^JLpBfGx@fB`AfBf@TTVHDj@Vf@L\\NVRPTLl@VdBDNPVtCrCDJd@XZXtA|Av@hAp@d@ZH`@DNPN`@@HELa@p@M\\?^D|@Nh@^r@PV~@~@nAhAdAr@b@n@TTt@Xj@Z\\DLBb@TzAZFRXFNAZFt@T|@^hCh@HHtCr@VJv@d@H@\\Br@Ct@Fv@|@lBlAl@n@Zd@DVCd@EDKBCHAn@Gn@q@jC?PEDGA[LC|@Cb@?b@PZ|AhAdAbAxAp@\\T~@x@TVVNVf@L?VTj@hAL\\HLH`@?PN`AT`ATvAPt@\\x@t@~@TR\\NHDL@j@X\\FLDlCpAJDVDjCjARL`EhB`DfBF@BE^d@LHnBr@n@b@n@\\l@`@tAn@LAlBVJAdBJn@FJAL?~@L\\LJR?HIrCFtA@z@Dj@?\\X`CLl@Bb@ZfBPjB?JVpCVjAH~@IJGCYHWB_@P]H]NkA\\e@Rc@Lq@RK@OAEDAPc@JGHe@Lk@JSH]H_@PWFm@TmAZqATi@Rw@RoA`@gCv@u@Ni@PG?kA`@iBv@OCaAV_@PUFe@X]HQNo@TeAZUBaCv@I@_@Ju@P}E`Bu@BWJi@@mBb@o@RaAx@{BnAEJARTlALJFZRf@^D^SVAJDHLVvALpABf@CRb@zCDTEHYNKPCCEMFCAD@ITMJK@QAUe@iC@Qu@_FGIGEi@DKDK?KGOQa@cCGKGCKAMByAf@}B`AmGbBaCv@IF}B~@{@PIAmA^mBv@yAf@}Ab@uAj@eBj@yBl@MBM?{Bl@qBv@k@LiA\\gCh@yAp@YFsCnAiAb@cAVcAZ_@HUPwAf@_@PuAbAe@d@qAdAi@\\sAl@SFiARcABq@AaBIgALu@VuCl@e@NM@c@Jo@JSFyAZ}@^eAVmBv@c@La@Po@Nm@TqBd@_A^cB`@a@NE?OJI@W\\E@Q?OEM?_@Lm@LKHg@RKHWLy@Xi@JgA^{@\\oC|@kA\\gAb@o@PuCdA_Bn@WPu@VYNiAZaBl@yA`@cAb@oAb@_@LmATaBf@uAn@kAl@uAh@_ARYHc@J}B~@q@P{Br@}@RITm@\\o@Py@Fa@JYLk@JUJ]Dk@VYH]NSDa@VK@WHYHCXWFc@Ho@Vg@HwA`@qAf@sA`@_Bp@cAVYP_APID]FiAb@o@P_Cv@c@HULc@XYJOYG_@GkAUqAMiAB}@D[L_@AWKQuBuA}@Ou@Fq@^YROPANON_AnAi@n@mAv@WHICe@cAkAgBa@g@Q_@Io@?[@w@EgBJc@a@oEG_@Yy@QSUMk@MUD_BOuBIIDs@@_@EW?IAmBoAMMg@[o@Si@[KAKEqBiAa@OK?KE][a@u@CQk@wB{@iA[]WOm@w@KGu@iCOYMEUW_@Uw@Sm@MyBMqAc@g@a@MCGIICk@o@KGIW?IBIFGJAbBmApAw@|@q@p@a@x@m@fBsAFITKjAu@RS`Aq@`Bm@VEp@CJA~@HHG`AHXANCVKDQf@YrCwC^UbAa@^KLIf@Q`Ae@b@OBE`@GBG|@KBG`AITGBIRM^]BG^Y`@a@XOBOPQ^UREDGRIJOBKn@o@HENC@Yb@ELCHE@Up@Y@MFEj@}@b@e@JINAbAeAl@Wt@m@lEuCjAiAJOCc@q@}EeAeDi@y@m@}@s@w@_Bg@wBk@i@KGGYw@UaA?_@Fg@T}@Xy@N?~@b@JEDK?QCKCw@AMGIE_@KgAEIW}AGQBCJC\\QREd@UfA]nDoAREPSLEJIDMBe@EsAGo@WeBWgCs@cEm@qE?WBYa@yA]cDUmAc@oCa@kDQw@Eo@g@{CQwA[cBy@sGa@}BOeAIcAy@gGGQIk@c@@a@Po@RI?}@Xg@Jk@RI?k@TWF[RM@WK[AG@CADHFB`@IZBRFn@]Z[De@MkAO}BSgBo@}DOeB[aB[gD@ILQPKz@IDI?ISgBEy@Q}AIW[o@AUBGVY\\GLED@H?ZKFg@Aa@QsBGQc@qDm@yDOwBBERAz@]FOtAe@jCcAn@QnAKB[HCNEKFE@HBxBq@j@K~Bs@j@UBQb@KDGFC|@SJQv@KzAk@b@Mf@AZENEHKp@Wr@S~@QJ?BGFe@Ig@?SFoAAq@FqADoCLmCT}AVcATi@GSBOb@uATi@@ONg@NkBDE?GCD`@o@l@iAdB{DnAqBlAwAt@eAtA{ADQVY|@_A~@s@b@c@T[FQVYt@g@h@Ud@]VMnAg@tBo@t@[XK`B[n@S`@IbAa@`@?|@MTGhBUtBGl@EzAWZMbASXQ|Ba@f@MJGJOHSRa@MuA\\u@d@cBf@wAzBiG^}AdAuC\\{ALa@l@mDNu@D?@KVu@Pq@KWh@aD`@{Cv@oEb@aEBu@E[F_CEMAm@L_CCyAFQ?UVeF@eBD_ACQBgAXqG@iAAUFaFF_BBOHwDASDKBmEDYCqDFW?mEFoDDoALaBE{BDy@AMGK@[Cc@HcBDeBBW@q@E{BJcDCSDoGDSDEd@ML@LCtBo@VOb@]x@Mt@MlAK",
+			"resource_state": 3,
+			"summary_polyline": "g`miGrkwcN`ClOth@sO|BzYrBhBp@`Gh|@iUzD~_@b@`BlDAqCrQxDuAbC~E{OhXmN~h@T`HiD~]g@fWfB`RvFhTjBlSbJzPpE|BnApEjNbM]fF`CtDpHxFxZvHrEzD\\bBcChLxMpKnFtPff@pUtK`AzCjb@omA`^eEhD~@|ClBBnAvKk@j@y@wM}AK{AcDanAr`@yMfI}J`@ki@dO_{Btv@y@eMiF}AgIbHeDsFwAmQmLo@aMqG_JwP}N_GrSqOvJy@xFeFbM{Dj_@i[eDaNcJuEw@aCv@_E`BPiAoIrJiDn@kDaRosAiMfCpDoAiD_ZbBeAsA}IzBaB}BkSlj@kQb@{Q|C{OtUm\\`n@iQzM{g@zCgVfD{}B|LoD"
+		},
+		"max_speed": 14.8,
+		"average_watts": 97.5,
+		"kilojoules": 500.5,
+		"calories": 558
+	},
+	{
+		"id": 1307277413,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2116.2,
+		"moving_time": 414,
+		"elapsed_time": 540,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-08T23:34:50Z",
+		"start_date_local": "2017-12-08T18:34:50Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.112,
+		"total_elevation_gain": 7.7,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1307277413",
+			"polyline": "_}miGlprcNMIEBEN?FN`@@h@Fd@M|AENBvAPdCPlATz@Z~B\\tBP|ABLNrCLn@FpALjALv@T~BNv@@\\VvBHtALvAFLNfBNdALr@ZlCZzALz@FFJh@LlAVtAVfCRdCLbA\\hDRpAR~BAFE@B^QbCFXCh@c@fFCjA@r@FPD`BDXAPTjALfAJlA^dDJpAPtAPfBVpAZ|C",
+			"resource_state": 3,
+			"summary_polyline": "_}miGlprcN@nMfQzxAw@xQdEf`@"
+		},
+		"max_speed": 9.1,
+		"average_watts": 74.4,
+		"kilojoules": 30.8,
+		"calories": 34.4
+	},
+	{
+		"id": 1306809980,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2400.1,
+		"moving_time": 443,
+		"elapsed_time": 466,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-08T14:46:24Z",
+		"start_date_local": "2017-12-08T09:46:24Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.418,
+		"total_elevation_gain": 12.4,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1306809980",
+			"polyline": "ubmiGxkwcN^REEH_@F?PO@MMk@@IS??Y[YXf@IDGADHGN?HMX?PD\\AFQBSHo@@[CE?CISQG[?ORGMmBMkABY_@oCSmA?OKq@KyAa@kCYuCIwBA{@D{Ap@eIBEJq@@MEq@q@oEGgAM}@CMIK]kCIsAAk@M}@EOGIGa@KyAIw@[wDi@mFi@iDKgAY{A_@oD]eBi@kEIqA[iC_@uEs@wEOuBUkA@gAAe@IiAMo@OyA?IBE@GAFOEBS",
+			"resource_state": 3,
+			"summary_polyline": "ubmiGxkwcN~@o@{@iBC`DwCk@uC__@`AuQgSugB"
+		},
+		"max_speed": 8.6,
+		"average_watts": 95.3,
+		"kilojoules": 42.2,
+		"calories": 47.1
+	},
+	{
+		"id": 1306208691,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2173.1,
+		"moving_time": 409,
+		"elapsed_time": 425,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-07T23:23:38Z",
+		"start_date_local": "2017-12-07T18:23:38Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.313,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1306208691",
+			"polyline": "__niGrprcNDFGXAXN`BLp@Ff@@x@FdANbAD^Lr@B`@Nl@ThCFNVhBVfD^zBBf@PpA?ZTxALNNbAJvAPlADdAP~BTzALh@NrANv@Fb@HLTjBPxBXlBBf@\\jCTbCFd@Pn@Hl@v@zHDjAAz@K|AStBLRAb@Qt@Q|CBhADfA@~@JnAThBRbAb@|CJnAl@`DFj@JDTCHJDB`@KDGTAFJFb@@XDVPjB",
+			"resource_state": 3,
+			"summary_polyline": "__niGrprcN|RfeB[h[nChRnBCh@lE"
+		},
+		"max_speed": 8.9,
+		"average_watts": 67.2,
+		"kilojoules": 27.5,
+		"calories": 30.7
+	},
+	{
+		"id": 1305668642,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2328.9,
+		"moving_time": 435,
+		"elapsed_time": 477,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-07T14:49:05Z",
+		"start_date_local": "2017-12-07T09:49:05Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.354,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1305668642",
+			"polyline": "}amiGhlwcNm@Aw@Ze@LFYNAPGd@kAHA@GcA_@Ym@Ie@Em@BaAk@uBM_C_@MGy@WaCGa@GOIm@MaBGmABkDDs@J{@No@NgCPeABqAKc@WuBc@oEWeBa@_E_A{GKeA@[KoAEK?{@AS[{BKc@Go@Oe@C]IKMm@Oc@A[c@gEGgAUGOaAk@iHYsB?IBECMGKM}@k@sFKwAg@yDCc@Dk@Ak@CUM}@WCSwAAWFE@GI@CCFG?c@BKFILe@?M",
+			"resource_state": 3,
+			"summary_polyline": "}amiGhlwcNkCf@zAyB}AmA_DuTt@{WySyeBZ}C"
+		},
+		"max_speed": 12,
+		"average_watts": 89,
+		"kilojoules": 38.7,
+		"calories": 43.2
+	},
+	{
+		"id": 1305047575,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2184.1,
+		"moving_time": 413,
+		"elapsed_time": 448,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-06T23:17:18Z",
+		"start_date_local": "2017-12-06T18:17:18Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.288,
+		"total_elevation_gain": 7.9,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1305047575",
+			"polyline": "a~miGrqrcNR@EAI@CBG^?n@NxACLEBAGE`@?`@PtBRzAXnAbAhHPvB`@~DJbBRjARpA`@pDXxCLl@ZbCPz@pAhKJf@BZHzARxBHn@FND\\l@`F@V^jCHhAVfB@RI^OdBNt@i@hFEr@CxAVDLpDb@zERbBXb@DTPzAHpAHNF^DbABDDEN@NLv@KHBDDFNDhARnB",
+			"resource_state": 3,
+			"summary_polyline": "a~miGrqrcNFrJzQb{A{@fQpDrYpBL`@hE"
+		},
+		"max_speed": 12.5,
+		"average_watts": 91.1,
+		"kilojoules": 37.6,
+		"calories": 41.9
+	},
+	{
+		"id": 1304870742,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 1362.8,
+		"moving_time": 348,
+		"elapsed_time": 600,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-06T20:25:52Z",
+		"start_date_local": "2017-12-06T15:25:52Z",
+		"gear_id": "b3064020",
+		"average_speed": 3.916,
+		"total_elevation_gain": 6.2,
+		"elev_high": 102.4,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1304870742",
+			"polyline": "c~miG|prcN`@Y]OFl@CJTZBPNTTJZPBHGZq@VJb@N\\|A]vCe@v@QLK^GFABDDBFEH@HCLOJEj@Kh@QNCD@BF@ZJjAFvAGBIG?ZEb@BHJHHEV?lAFDAAH{ByD@ICM?SIy@?MDMpB]LM?UISQEm@JeA\\QHa@HWReAb@eCd@sEdAOHO@YCEUCs@Mq@MwA?[DA",
+			"resource_state": 3,
+			"summary_polyline": "c~miG|prcNfBzB]tBnO_DDlG~BRgC_HzBqBqSfFy@uF"
+		},
+		"max_speed": 12.6,
+		"average_watts": 63.3,
+		"kilojoules": 22,
+		"calories": 24.6
+	},
+	{
+		"id": 1304431968,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2247.1,
+		"moving_time": 451,
+		"elapsed_time": 550,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-06T14:32:30Z",
+		"start_date_local": "2017-12-06T09:32:30Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.982,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1304431968",
+			"polyline": "_amiGtlwcNOKGP@RYHI?SI[LQAEB?[MkAScAEIOmA_@sBe@cEGSUoB@G?OEk@q@uFIgAEqAFkCn@{FAIF[AGJi@?c@MsAKg@[yCBOMy@GeACEQ@S_BBa@KaAAa@@OCMOKQiA?_@U}AEOIOUcBGs@Cy@WcBKaBMs@IuADw@Cg@Ee@I[YKIe@YuDIe@UwBa@}COkBG[@KCYMk@E_AOsA_@}BGi@Qm@YcEMw@BoAA_@Y_CIiAAIc@IAI",
+			"resource_state": 3,
+			"summary_polyline": "_amiGtlwcNaCh@{C_UeAsMfAcO{SahB"
+		},
+		"max_speed": 9.7,
+		"average_watts": 90.3,
+		"kilojoules": 40.7,
+		"calories": 45.4
+	},
+	{
+		"id": 1303739310,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 10298.7,
+		"moving_time": 1910,
+		"elapsed_time": 2085,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-05T23:12:04Z",
+		"start_date_local": "2017-12-05T18:12:04Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.392,
+		"total_elevation_gain": 58.5,
+		"elev_high": 135.1,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.67,
+			-79.47
+		],
+		"map": {
+			"id": "a1303739310",
+			"polyline": "}}miGxprcNtATCIWUJM?FDA@G@XETDr@GN?l@SLORM^ANKf@?d@RhCHl@FRZlB\\zCNzAAPE@?HHjA^`CTx@TrDP|@RtBTdBPbAFlANh@B`@F`@HJBPj@`GT~Ax@jHTnAb@`EZhBPdC|@hF@z@YrAKlAGd@?V[|BGnBBRDvAPzBx@~F@JCFKHWHK@_@Na@Ju@H{@Tq@D[Ha@DKHm@LGD{A`@sAj@eB`@YNYD_@Le@CWDcAb@m@Ls@X{Ab@_@P_B`@gA^a@Tm@JsA^G@CAGB_@AeAd@k@REFg@VkBf@y@XcBv@oAVg@Rm@Fs@RmBv@a@HWHwAl@[D[Ec@LcBp@o@Je@RYP}@Z_@FoA^gAV}@d@k@Tc@JS?OBu@TWBwA\\YNwAf@kAR_C~@OJa@Ju@Li@ZUBe@J[Nm@Hg@NKFFHDAGLEXWhDC`AAv@@PI~B@`@b@jGJbCHf@Bh@FN?jBFp@DPJdAJpC`@bD?x@@fAPnAPbCHXHr@DJTxARt@Rh@TzAJTb@hDDh@l@jDNdBPtAFVdA`HPtADNX~BNtCVdBXlDTfBPnBHtADPBhADNTrCVlBZ~DZRRpCJl@A|@Jv@Dz@LtAJnBCn@@\\Jb@N^HXFLF^MHo@Tk@XgBl@}@Dw@Zu@Lg@D]RkAb@s@PoBp@qAVcA\\k@VIFEN?PJlANfAN|AT~@RxAXjCJ\\P|AHh@HvABJFh@l@tCBP@DD?CFLf@PtAVLP`BPhATvBHNT|A@bAJJDRTlBFdAB\\Aj@JVOPAHDx@Hb@@PJNTHh@nEHjAPbADh@`@nCCJGDcATa@TKTAN@RFf@h@nB\\lBZpAL~@P|AJdCh@jDLb@LrADLHlABLLfAZrBDDBVCHSJK?OBu@VSBGAo@R]TEAOYGGWSMCK?ED_@NOLGJ?J?FDFb@DPANBAIF@PCR?FCVi@EeA@g@CwAQgAEk@]iBYmC?QY}AS{A?OUeAIq@?IFEDG~B[XILEBWE_@SeAM}AIq@GUOc@EQU_@MEY?yA}AEKbAeFaAo@i@Sq@DKV@\\\\Vl@JJLTj@FBHEJKFAd@e@FOBYGGJDAF",
+			"resource_state": 3,
+			"summary_polyline": "}}miGxprcNtATy@zKjQrxAoAhOrAzNkzBzo@c@fOnC~c@vKtt@fJj`Ae[~JdQlrA}BvBdHbf@aJpAjAb@jAy@GeE}C_UxD{AoAaI}CoCbAeFkDYxBrBpA}A"
+		},
+		"max_speed": 11.7,
+		"average_watts": 85.4,
+		"kilojoules": 163.1,
+		"calories": 181.8
+	},
+	{
+		"id": 1303077179,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2007.4,
+		"moving_time": 422,
+		"elapsed_time": 474,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-05T14:36:42Z",
+		"start_date_local": "2017-12-05T09:36:42Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.757,
+		"total_elevation_gain": 9.4,
+		"elev_high": 105.8,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1303077179",
+			"polyline": "ibmiGnkwcNa@NYXIBS@AHE?k@uAGW@[Da@q@mEEc@AaAUcAMeAKeBS_BGSUeBMyBBoEJkAP_AFy@J_AAMDg@J[AuAS_B[wAKo@@y@KiAKMQo@Mw@McCW}Ca@mCo@oGGOG{@UoA]}DCOM]_@wDc@qCMIEWGi@@FA{@a@gEEy@QsAO_@DFD?l@?LGd@EVGJIr@OFGb@GPKx@W`@GFGDM",
+			"resource_state": 3,
+			"summary_polyline": "ibmiGnkwcNaBx@s@mBaDu\\bA}RiNijAlJyB"
+		},
+		"max_speed": 8.8,
+		"average_watts": 73.8,
+		"kilojoules": 31.2,
+		"calories": 34.7
+	},
+	{
+		"id": 1302484250,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2849.5,
+		"moving_time": 527,
+		"elapsed_time": 835,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-05T00:57:56Z",
+		"start_date_local": "2017-12-04T19:57:56Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.407,
+		"total_elevation_gain": 9.4,
+		"elev_high": 107.4,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1302484250",
+			"polyline": "samiGpkwcN@JUFFLCGBc@Ce@Ig@C_@IQOgAg@Fe@La@Bo@Jm@T}@Xu@ZaDr@s@ZmB^mA`@[Pa@LUDqA^o@NKEK[c@}F[oCKuAe@mCEg@GEiA^k@Z}Bp@oI|BoA`@YBSAEDE?KCCE@G?GH@?SEIGJa@CNPn@bCZ`CDJNLF@FANKjC_AL@dK}CXEt@WJANGLABDHd@LlA^jCLxAVrBFHHBL?l@MNKLGNM\\M|@UfB[d@O\\E`Ba@pAe@z@S~@]nAWJGhAY^MHEd@MJfA?LDFRhB@DBE\\KN@DN",
+			"resource_state": 3,
+			"summary_polyline": "samiGpkwcNw@qEi\\xIwCaUaWfFxBrHpTsGrB`Nv[{Id@fEx@D"
+		},
+		"max_speed": 13,
+		"average_watts": 81.4,
+		"kilojoules": 42.9,
+		"calories": 47.8
+	},
+	{
+		"id": 1302409696,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2213.6,
+		"moving_time": 430,
+		"elapsed_time": 480,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-04T23:26:33Z",
+		"start_date_local": "2017-12-04T18:26:33Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.148,
+		"total_elevation_gain": 7.9,
+		"elev_high": 105.9,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1302409696",
+			"polyline": "s~miGhqrcNt@RM@INCJ?^J|BARGh@@TZtDp@|EPdALhA@TE??HBd@\\Bt@hIT`DZnCZzDD?@FR@@TXtBf@jEJlA^lC^`Ev@dH`@jCP`CJl@JxAPfA?d@DXMdA?j@CTg@~DEpB@bBJdCNzA|@dGNbBRNBRLjATzDLAR?DRBBF@PIb@IRDX`C@`@D`@VKBEAJDD",
+			"resource_state": 3,
+			"summary_polyline": "s~miGhqrcNt@RBdMtPrvA[~XhCtS|BH`AdE"
+		},
+		"max_speed": 11.5,
+		"average_watts": 92.4,
+		"kilojoules": 39.7,
+		"calories": 44.3
+	},
+	{
+		"id": 1301798012,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1412.2,
+		"moving_time": 333,
+		"elapsed_time": 358,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-04T14:29:15Z",
+		"start_date_local": "2017-12-04T09:29:15Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.241,
+		"total_elevation_gain": 8,
+		"elev_high": 104.2,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1301798012",
+			"polyline": "e`miGrkwcNuBh@MCEBJJMeAEEIk@IUGISg@_@{BOa@W}Bi@sDKuAUqBGIIg@C}@KgA?aCFiBb@mE@WAMNwAJe@@c@Ec@Os@[cAYwAHg@QiAEs@CMEo@@{@QiBg@]QuA@[@E@KAWMs@KYKi@QkDKaAGoBGM_@kDEICOUIE@EB",
+			"resource_state": 3,
+			"summary_polyline": "e`miGrkwcNiCh@}E}Zx@gWiIen@"
+		},
+		"max_speed": 8.5,
+		"average_watts": 81.7,
+		"kilojoules": 27.2,
+		"calories": 30.3
+	},
+	{
+		"id": 1299839842,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 9032.9,
+		"moving_time": 1579,
+		"elapsed_time": 1629,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-03T04:13:57Z",
+		"start_date_local": "2017-12-02T23:13:57Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.721,
+		"total_elevation_gain": 34.2,
+		"elev_high": 97.9,
+		"elev_low": 74.2,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.67,
+			-79.32
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1299839842",
+			"polyline": "{woiGf_dcNGVK@CFEAEBBH?hBGPCl@H|FAbACv@IP?R?b@FlAF`ADPLjARrAF~@Lj@h@pDh@hFd@nBFr@~@zHAj@LlAB~@Hn@L|A?f@TdFRxAR~@Fv@DPDHLx@JdA?b@DJ@VNrAZjBDr@H@Jl@Nb@Jr@?PLPFr@xB~FXdATjAj@rHNtABr@Hl@NfCR|ALt@F`AP|@?LD\\f@xBX`DRv@D\\Jx@FbADPFj@AFD@E@H~@bAbGZ~Bj@bIRnGDNNlANt@JpANl@HJFTBf@\\xAb@vCb@bCpArKl@fD@NXpALrAPnAJfAPfABf@FPH^GtA@NPbAPlBPrADRj@ZJv@JfANdCPpB@j@In@AZFHFfAR@Nn@RAHZAb@EXBPKp@?d@FR@TDn@Jh@RFN`@z@bAFPDZRRFLPRHr@C|@Bh@BZVpAb@fDLj@\\d@XnBVt@Lt@JLDNPlAFNF^HhAHF?n@DPDDFPFd@J`@Dl@HIL@@JIVKH[b@Uf@CXA`AFZ@l@nAlJHdB]~CA~@@XJr@Dx@LTHb@A`@ENT`AMh@@JJx@J^@^fAR?Rj@r@@ZH^DfAOVSFEDFFCJGFJYDf@FLAPBj@JLb@bA?NxANIC@z@A^G^IpA?TGr@CdATjBVRD~BDNDv@PnB`@nABPJNB^J`ANn@R~A@RAZFh@EXGF@LThAHTDj@RrAHTPhBDH@XT@DdAFP@b@PlANv@HN\\hBLjANbCTdBLf@ZrDHz@VxAd@pE?h@Kj@Qh@s@zAOd@WdAMv@?f@Fv@VrBDABFFl@FJ`@`EP|@RhBHZBZAhABnAFNHnADPJLDR\\|CJn@JRZdBZlARjABv@LjBb@|CHhAl@lD\\jDRN\\hCRtCA^CHqARqA`@KCqAf@q@LCH@|@DLJzA@z@BLHlBLfA?`@W@i@Ho@TcCdAq@P]Pe@FSHu@PKP?n@LvABrAFNBVBE",
+			"resource_state": 3,
+			"summary_polyline": "{woiGf_dcNi@hVdIpx@nChTpFpR`MdoAzOreAtBvYfDzFdI`d@mAhExAvLVpTlCtE?~GhCpBg@xIfP`pAgCfLlOrmAwHpBl@rMuLnDTnG"
+		},
+		"max_speed": 15.1,
+		"average_watts": 101.4,
+		"kilojoules": 160.1,
+		"calories": 178.5
+	},
+	{
+		"id": 1299700610,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 9516.8,
+		"moving_time": 1589,
+		"elapsed_time": 1712,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-02T23:41:05Z",
+		"start_date_local": "2017-12-02T18:41:05Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.989,
+		"total_elevation_gain": 29.2,
+		"elev_high": 105.3,
+		"elev_low": 74.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.67,
+			-79.32
+		],
+		"map": {
+			"id": "a1299700610",
+			"polyline": "yamiGllwcN[YFFILk@`BIb@Ab@DHm@k@E_@IBFKMi@PU]uC[wBA]E]k@_DIaCO{Ak@cEE}@M}A@QAyA@aADcAZaDFu@?q@J]P]O_AGq@g@qDAg@@GqAiICi@QwAa@gCAUEg@Kk@G_AQoAMuAGaB]iC?uAEk@I_@YAOkAKiBYmCBiCIM]mCK[Q{@EOuAwJEe@GiAG]E}@QiAC}BKu@GQQiA[kCGiAa@gEIq@YKG]UoCY{BIcAm@}DK{@@SOy@[sBAUBi@]qBWy@Y}BHPDC?Ig@{@]{AJe@QmAM[DU?q@[_CEOIgAEKCa@@IDCVGFEHK^O~@Qj@UPYn@OJMJSfBoA\\Z^WRa@@g@Eg@IOg@eDCEEDD@FJ?]Qq@@qELs@JcA_A]I[WBq@mAMMAPELQJEHGT@JBSUi@FoAAc@Os@Gw@Lc@_@aCHYSeAGq@?YFWj@m@Rm@EWq@[?GCDAIOOWKWe@USGOCy@CaCMmAUmAGy@AeAJD?b@EAWkBUOGS[uBQw@W{CYcBUsBM{@MgAGOEa@Oq@i@wEo@eE?U]eCAQ?iADM?QDs@Nu@@QCGDQAk@{@}FKOCOm@iEGm@Ao@Mo@u@cFg@sDWkCYgBIcAW_BUgB[iBCg@?s@AQGUJcAE{@CQSSCc@Qw@o@iA_@{@g@kBe@iC_@kB}AaHCg@HQAKFQ?a@[aDEOIw@OWI_@Ms@Cu@CQKa@[mB[kAUoAIm@Gu@WsA?UK}@Ss@Ik@QkBS_BWw@?GDWAWI_@QQa@k@KWCIEw@@k@ASUgBQeB@_@JG|@Y\\?bAa@N@hAc@d@ING~A[ZKNGVQ\\_@JSNXGL@Ff@?BE@KCOMWU}@FUKg@DS]_BIw@a@mBGm@?Om@oEIa@O_@Gc@WcDo@sLCOImAe@oDc@uCYiDQ_AIeAEOk@qDKMU{Am@qFEQCc@EqC@_AAKEI?}AIqCDk@FKv@k@BACHMBW?IGK_@AYAqABILIZ]DS?GCE?GFGGHAF",
+			"resource_state": 3,
+			"summary_polyline": "yamiGllwcNoAnD}@gA{Dsb@hAwPua@wlDlM{HcAgIZiIyEwBu@wOfAmC{CeDi@qMcJql@Z}H}J{z@iIk[O{GcLus@bQoFePmsAXyX"
+		},
+		"max_speed": 14.4,
+		"average_watts": 101.8,
+		"kilojoules": 161.7,
+		"calories": 180.3
+	},
+	{
+		"id": 1298312479,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2222.8,
+		"moving_time": 406,
+		"elapsed_time": 471,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-01T23:27:08Z",
+		"start_date_local": "2017-12-01T18:27:08Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.475,
+		"total_elevation_gain": 8.2,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1298312479",
+			"polyline": "e~miGpqrcNa@jAFCLWDUCGDAEDJz@RpBAb@Gd@ATDh@P~@JbA`@rC\\bBDv@LdAEAAD@p@`@LBPv@hKZjDT~ALpBFn@DPBf@XxANvAFN^nBv@nGJJJj@^vDHPFf@NdBBv@PjAdAnJBh@Ap@UjBHXKfB_@zDGlA@^RLNvDt@pHZbCD`@d@vCBXD?DH?FBDFBJ?lAWDFFbAZvBLC",
+			"resource_state": 3,
+			"summary_polyline": "e~miGpqrcNa@jA\\{@nRdeB}@rQzAvOjAvIpBBv@~D"
+		},
+		"max_speed": 9.7,
+		"average_watts": 79.8,
+		"kilojoules": 32.4,
+		"calories": 36.1
+	},
+	{
+		"id": 1297840071,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2195.3,
+		"moving_time": 405,
+		"elapsed_time": 446,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-01T14:50:00Z",
+		"start_date_local": "2017-12-01T09:50:00Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.42,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1297840071",
+			"polyline": "aemiGnkwcNFP[P?PBDEk@Oq@IOGgBO}@KiAES}@aHCSEAQuBGaAa@}DCiABmDLmAJe@LwA?[Bg@JkAAe@Iq@GMY{C{@yGG}@g@}DC_Aa@eCGQ_@cD]}BWoD?m@IgAa@mBa@qESuA?SQBBE?MG}@[gCK}A_@oCIaA@OUgAa@eEWMEOMuAKeB@eBM_BMu@QOMw@BENATQP?",
+			"resource_state": 3,
+			"summary_polyline": "aemiGnkwcN}Ec^t@yRyP}vAsA_Oz@Y"
+		},
+		"max_speed": 9.8,
+		"average_watts": 90.4,
+		"kilojoules": 36.6,
+		"calories": 40.8
+	},
+	{
+		"id": 1297342178,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 1300,
+		"moving_time": 260,
+		"elapsed_time": 280,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-12-01T01:47:14Z",
+		"start_date_local": "2017-11-30T20:47:14Z",
+		"gear_id": "b3064020",
+		"average_speed": 5,
+		"total_elevation_gain": 4.1,
+		"elev_high": 103.5,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.41
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1297342178",
+			"polyline": "crmiG`rtcNQJEXRfA^nCLd@LnAHd@Bj@Hh@JdALr@Fp@d@lC@VHZFbAf@`DVbC?`@Cf@Q`BWtDSrB?fBD|CZzBVHBNNjBPbAH|@N`AJZJz@Lp@BJAPXzBJH`@Ob@GDBFHBVCPZlCFJFAFB",
+			"resource_state": 3,
+			"summary_polyline": "crmiG`rtcNjFfe@{@zUtDhV~A?r@dE"
+		},
+		"max_speed": 9.4,
+		"average_watts": 56.9,
+		"kilojoules": 14.8,
+		"calories": 16.5
+	},
+	{
+		"id": 1297168688,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 911.2,
+		"moving_time": 224,
+		"elapsed_time": 319,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-30T22:03:38Z",
+		"start_date_local": "2017-11-30T17:03:38Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.068,
+		"total_elevation_gain": 3.9,
+		"elev_high": 106,
+		"elev_low": 101.8,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1297168688",
+			"polyline": "q|miGhorcNaA\\G?EFCJJr@Af@BXJn@FJBXF^@bALr@LlABdAHr@DhAF\\HR\\xABf@FV@R?n@BDHbA?f@Hl@^nBF|@Lf@?b@ZfCFZHbANx@F|@NbA@~@JV^pCFXB|@BHFBNA",
+			"resource_state": 3,
+			"summary_polyline": "q|miGhorcNoAd@H`ChKz{@"
+		},
+		"max_speed": 7.2,
+		"average_watts": 63.9,
+		"kilojoules": 14.3,
+		"calories": 16
+	},
+	{
+		"id": 1296677296,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2174.8,
+		"moving_time": 426,
+		"elapsed_time": 448,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-30T14:41:32Z",
+		"start_date_local": "2017-11-30T09:41:32Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.105,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.8,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1296677296",
+			"polyline": "}cmiGxiwcNDtAOFKPKACMEg@?i@a@c@Ca@c@mCAWg@mEGQUqBAWQwBMOQmAUaD?aBFyBLqALy@LwABs@NkAAmAAMOi@KOCKQaBa@}CUwBAq@Ik@KuAGMKm@E{ACOKKQcAIOSkCe@mDBe@QmAWiDM}@MKEQg@_GG_@IEG_@C[Ag@Q_BEgAKo@GaAUo@EEKACGAa@BMDK@KC[OyBe@eEKe@?OKu@EOK_AAKDa@CQ?e@AQ]uBCKIGGUCYBSSAAS",
+			"resource_state": 3,
+			"summary_polyline": "}cmiGxiwcNa@lBqE_\\n@{WqS{eB"
+		},
+		"max_speed": 9.7,
+		"average_watts": 86.1,
+		"kilojoules": 36.7,
+		"calories": 40.9
+	},
+	{
+		"id": 1296038345,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2271.7,
+		"moving_time": 467,
+		"elapsed_time": 640,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-29T23:24:49Z",
+		"start_date_local": "2017-11-29T18:24:49Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.864,
+		"total_elevation_gain": 8.1,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1296038345",
+			"polyline": "q|miGrorcNu@`@ETTbED|@Cv@?LFDA\\Bb@PtAv@rEDf@ZzBDl@PJBNLlAFhA^fEl@lFVdEVvBLt@DLFf@b@dCh@~D^|D@RPfADf@H\\~@xGJPFb@Fh@AFE@?LLd@VpARzBDnAEh@Uv@In@Cn@MnAOhC?TEjBFhBT?@FCn@Fz@BPPLLbADd@?HEA?RLdAHpBDd@BD@`@HJD?BPBDD?BFZpC@p@BHJBJAr@Wn@KBNENVzCDXJ?NKc@a@",
+			"resource_state": 3,
+			"summary_polyline": "q|miGrorcN{@v@`@nKvQzxA_AvUbDnW~BWRfD"
+		},
+		"max_speed": 12.7,
+		"average_watts": 67.3,
+		"kilojoules": 31.4,
+		"calories": 35
+	},
+	{
+		"id": 1295398943,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2269.3,
+		"moving_time": 466,
+		"elapsed_time": 606,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-29T14:42:21Z",
+		"start_date_local": "2017-11-29T09:42:21Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.87,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1295398943",
+			"polyline": "mcmiG`lwcNbABAHGFKFM@MC]@e@FWEKICm@Q}A@IWmBWgDWeBGQe@}EKQCSS{A?YIaBGa@@aAJaDf@eE@sAHgAA_AAMMMm@uDHm@?GKa@c@oCEQWuDUiA?o@CUK]]kBWqCKgBKu@As@UgCKk@UuB_@]EQ_AqHWeEUoBUqBCEGEG_@[uDo@sEMmACs@Kg@?KLU?}@_@qDGs@MAQMAG@H",
+			"resource_state": 3,
+			"summary_polyline": "mcmiG`lwcNbAByCPmDc[l@cXqSgfB"
+		},
+		"max_speed": 9.7,
+		"average_watts": 83.4,
+		"kilojoules": 38.9,
+		"calories": 43.3
+	},
+	{
+		"id": 1294879175,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 4169.2,
+		"moving_time": 747,
+		"elapsed_time": 798,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-29T02:33:12Z",
+		"start_date_local": "2017-11-28T21:33:12Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.581,
+		"total_elevation_gain": 5.5,
+		"elev_high": 107.8,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.67,
+			-79.39
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1294879175",
+			"polyline": "s~oiGhfpcNi@`DANDRIDCEAILL?FEU@MFM@O?QD@FV?f@PjAPlBLl@VJp@lEL~AORJp@N`@Pz@@j@BNBd@CPRnA?NVlBANJr@LFCLHHKF@FFPJJPFH?n@OfCaAV@`@b@f@t@bAp@HRLFJLb@fCDd@RbA?NDb@R`Ad@`F^tCBt@FJDj@Pj@f@l@LXT|A^hBXz@`@|BLlAELXdCFFBEDNCZB^^xCHXFj@@j@R~AFJJdAVvARdBNtBHxABLJ`An@`FHnAH`@N~AJh@Fv@h@pCNh@TxBZxBHnAPv@PnANxBj@pEJ`AX|BBd@ARBZDHRjANrADNJfBd@lDBb@DN\\^BPT`D`@lC\\|CHpAX`CHdADNL|ADTLr@Bb@DRDHThBHHP?HMXCt@M|Ce@ZMbAULIrAW`Aa@|@Wz@[HKl@WDS|@]z@OHJ\\?FAHIt@G@MBEHRJt@Nx@UPFl@D?BD",
+			"resource_state": 3,
+			"summary_polyline": "s~oiGhfpcNs@dEVeAxBvMzBbV~Fi@pDtDnDlYxDtNn\\lqC~\\yI`@hE"
+		},
+		"max_speed": 11.2,
+		"average_watts": 76,
+		"kilojoules": 56.7,
+		"calories": 63.3
+	},
+	{
+		"id": 1294755579,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2230.5,
+		"moving_time": 457,
+		"elapsed_time": 506,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-28T23:52:05Z",
+		"start_date_local": "2017-11-28T18:52:05Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.881,
+		"total_elevation_gain": 11,
+		"elev_high": 106.3,
+		"elev_low": 97,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.67,
+			-79.39
+		],
+		"map": {
+			"id": "a1294755579",
+			"polyline": "y{miGrnrcN{An@BGMIOAf@RG@CFBFBI?w@@SAO[qAWg@CS_@yEKwBYmCg@}D[uAE{@OgAUKESYkCQkAAg@Uw@QuAC{@MsAQuDGYY{CEQKgAI]a@JCOi@yDAQDQCMKs@EGIgA@i@CDMC_@JMN]HSCU@KBmAHk@ZINe@H]N{@HGPe@Dk@AUTi@\\KVg@D]RUB[?OFIL[MKXEDo@T]RUDKNSCi@WI@c@cAUuAEs@?w@EKGAeANW@YPUJKAoAh@UF_@TODUJI?KUSCONo@NKPKHc@NIFMh@K@",
+			"resource_state": 3,
+			"summary_polyline": "y{miGrnrcNuBZb@_AuOemAmZjJkB}Ai@oEoOlF"
+		},
+		"max_speed": 9.8,
+		"average_watts": 87.6,
+		"kilojoules": 40,
+		"calories": 44.7
+	},
+	{
+		"id": 1294047365,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2195.1,
+		"moving_time": 418,
+		"elapsed_time": 473,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-28T14:48:56Z",
+		"start_date_local": "2017-11-28T09:48:56Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.251,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.8,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1294047365",
+			"polyline": "ccmiG~kwcNh@W@KOVOFYPSDGAKCIo@GSOICISmAUcCIc@Y_CUyBAi@SOY}BMe@K_AQuCCcA?k@PuCRyAFeAFe@EUDq@HK@MDiA?SEe@QQIOe@yFc@kDAU@OGe@Q}@OQCQS_COaAOu@iAwJMm@Ak@@oACIDm@I_AKO[oBEa@UiAGw@GSi@gEMyAGS@QGa@?[MeAYkAc@oAWiA@UCc@MeAI_@AQHWKO@OIuAC}@CM@[EoBCQGOSyAKYBKFA?Y",
+			"resource_state": 3,
+			"summary_polyline": "ccmiG~kwcNj@c@uAt@q@{AmDmWp@aXkPwoAqAuU"
+		},
+		"max_speed": 9.4,
+		"average_watts": 97.5,
+		"kilojoules": 40.8,
+		"calories": 45.5
+	},
+	{
+		"id": 1293382044,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2196.6,
+		"moving_time": 414,
+		"elapsed_time": 456,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-28T00:00:15Z",
+		"start_date_local": "2017-11-27T19:00:15Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.306,
+		"total_elevation_gain": 7.7,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1293382044",
+			"polyline": "e~miG|prcN?OFF@J@~@Hd@AjAGtAJ`BDLLnANn@Dd@RdATpBTbCET?JHt@RHBRXzCT|CXjBPbBZ`BPfBBHFDBHRdBBHHrANpA@d@Fr@b@tCTlBPv@TrAn@vGRdAFx@N|@Bx@Nr@Jz@VpDBd@WdCLXGhAc@~EE`CRPDzANhBHPHd@XrDJb@HNT~A^|DDl@BFNCBLDDP?FGr@GDEFHF|BANDl@@FD@JA",
+			"resource_state": 3,
+			"summary_polyline": "e~miG|prcNpQ`aB_@bXhDbYxBJ^bE"
+		},
+		"max_speed": 10.5,
+		"average_watts": 75.7,
+		"kilojoules": 31.4,
+		"calories": 35
+	},
+	{
+		"id": 1292746403,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2136.7,
+		"moving_time": 437,
+		"elapsed_time": 458,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-27T14:46:30Z",
+		"start_date_local": "2017-11-27T09:46:30Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.889,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1292746403",
+			"polyline": "uemiGljwcNJ|@EIGg@IGQe@?QOa@Cc@Kg@IqA?i@Ec@Ku@UeA@So@iEEe@A_@U{AKmACwAB}CLuBPoALkBF]IMJMFS@i@Ei@Iq@Oe@Y{AEg@Aq@g@wDCeAWiBYyAg@eD_@yCMq@Gu@e@cDIeB?OIi@?k@McAKOEc@S_DU{BSEI[c@uDSmC@sACS_@GEEHC?Oi@qDO{@W}BAe@UgCBOAQDq@A[OkAAg@KUIy@?UDC?GD?",
+			"resource_state": 3,
+			"summary_polyline": "uemiGljwcNgEk[z@iUiPyqAeAaS"
+		},
+		"max_speed": 8.8,
+		"average_watts": 79.1,
+		"kilojoules": 34.6,
+		"calories": 38.5
+	},
+	{
+		"id": 1290723920,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 1189.4,
+		"moving_time": 207,
+		"elapsed_time": 216,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-26T04:41:17Z",
+		"start_date_local": "2017-11-25T23:41:17Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.746,
+		"total_elevation_gain": 6.5,
+		"elev_high": 97.8,
+		"elev_low": 91,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.41
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1290723920",
+			"polyline": "ypliG|kucNKRJv@J|ANfARhALb@H`ANbA\\rDRrACJEBiATc@LUBWFIDq@Pw@V[PITBh@b@bC@\\x@`GBp@PzAV~ACLE@]FMFi@NgARaElAUDy@X_@PSj@Cd@Bv@PtA@VBB",
+			"resource_state": 3,
+			"summary_polyline": "ypliG|kucNhClV_IvCpCzTyMbEBzF"
+		},
+		"max_speed": 10.7,
+		"average_watts": 103.9,
+		"kilojoules": 21.5,
+		"calories": 24
+	},
+	{
+		"id": 1290679849,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 615.3,
+		"moving_time": 118,
+		"elapsed_time": 118,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-26T02:52:56Z",
+		"start_date_local": "2017-11-25T21:52:56Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.214,
+		"total_elevation_gain": 4.8,
+		"elev_high": 90.2,
+		"elev_low": 85,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.64,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1290679849",
+			"polyline": "skkiG`wucNGLANPvBFxATxA^xAFz@RfBHd@P~BEFYJuAVW@_@N{@LIF}@Fw@NIHc@LSL[Ja@DIFKK",
+			"resource_state": 3,
+			"summary_polyline": "skkiG`wucN|BlV_O~C"
+		},
+		"max_speed": 8.7,
+		"average_watts": 108.4,
+		"kilojoules": 12.8,
+		"calories": 14.3
+	},
+	{
+		"id": 1290675284,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 1841.8,
+		"moving_time": 363,
+		"elapsed_time": 443,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-26T02:43:53Z",
+		"start_date_local": "2017-11-25T21:43:53Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.074,
+		"total_elevation_gain": 3.5,
+		"elev_high": 91.9,
+		"elev_low": 84.9,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.39
+		],
+		"end_latlng": [
+			43.64,
+			-79.41
+		],
+		"map": {
+			"id": "a1290675284",
+			"polyline": "eeliGfpqcNMGM@INEX@NHTLhAT~DLvA@~@EXBDNlAVbBJ`APfARdBNfBRdALhABDFz@HXVdBXpDBD@FFHE^NpAJh@PtALVFVRpBTfA@v@VlBJbB`@bDPdBDNJNTf@Ln@JvBr@hGPtBPfAPvB\\|CLhBVbCfAnHX|BP|@DC",
+			"resource_state": 3,
+			"summary_polyline": "eeliGfpqcNk@b@x@`NpW~tB"
+		},
+		"max_speed": 11.6,
+		"average_watts": 80.4,
+		"kilojoules": 29.2,
+		"calories": 32.5
+	},
+	{
+		"id": 1290560202,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 3872.5,
+		"moving_time": 752,
+		"elapsed_time": 777,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-25T23:37:48Z",
+		"start_date_local": "2017-11-25T18:37:48Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.15,
+		"total_elevation_gain": 5.2,
+		"elev_high": 97.8,
+		"elev_low": 85,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.39
+		],
+		"map": {
+			"id": "a1290560202",
+			"polyline": "i`miGtjwcNBTI_@@OCA?IOeA@g@HOHIj@Sr@O~@_@~Ag@dAWfA[v@YNMHU?Me@uEg@kDIcA?KFGpAWx@[n@OFKJEf@Od@IFEBKF[G}@WeBQeBWaBSsBe@}Ci@wF]mB_@eD]_DGaAYkBS_Aa@iESmAe@aEy@wGOyAFCZ?l@Sp@YjA[fBu@fD{@HOvBq@LCL@r@Iv@Yt@S`@Gl@W`@IPK|@Yh@Ad@Oj@IN@LKJi@D@PCdB[n@G^?RC@EJIr@O|@]dBi@De@jA]KEKUEAE@B@BEKYE_@Kc@UoCMUeCsSm@uF]wBOo@BQC_@QoA@w@E_@Ku@MQa@}C]{AB[E_@CSQo@@a@m@wCGm@IUKGGOSOAGOCADRDVIJKAU",
+			"resource_state": 3,
+			"summary_polyline": "i`miGtjwcNAmDtMgEmAuNxHeDeNcjA`t@qTeMs_A{BiGt@e@"
+		},
+		"max_speed": 11.2,
+		"average_watts": 72.6,
+		"kilojoules": 54.6,
+		"calories": 60.8
+	},
+	{
+		"id": 1290437103,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 1200.5,
+		"moving_time": 300,
+		"elapsed_time": 587,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-25T21:27:34Z",
+		"start_date_local": "2017-11-25T16:27:34Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.002,
+		"total_elevation_gain": 4.2,
+		"elev_high": 100.2,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1290437103",
+			"polyline": "gcmiGtmwcN@a@EC_@RM?DDEIGAIFCHECCK?MQw@GeA@[]{A_@cE_@aCGm@@g@[qBIQIk@a@sDBQ?mAHeCFs@N_AAI[ASZGd@AlBFd@AxABzADN?fAD^H^\\TBPHh@P~B`@bE^lCPr@BTCDAZFPF@DC",
+			"resource_state": 3,
+			"summary_polyline": "gcmiGtmwcNqAUkDoYYyOMbNtD~U"
+		},
+		"max_speed": 9.3,
+		"average_watts": 61.2,
+		"kilojoules": 18.4,
+		"calories": 20.5
+	},
+	{
+		"id": 1290425053,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 8013,
+		"moving_time": 1431,
+		"elapsed_time": 1853,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-25T20:54:48Z",
+		"start_date_local": "2017-11-25T15:54:48Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.6,
+		"total_elevation_gain": 35.3,
+		"elev_high": 107.6,
+		"elev_low": 89,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1290425053",
+			"polyline": "c_miGxjwcNYj@HPHj@F|@`@~Bb@jDHlAFBj@UN?x@Il@@\\IL@\\`CBHFBp@_@rDcAlBq@RE\\??~AAT@VEl@ElADt@AjBEl@CpB@^AjCK`ACp@?PF^@NAlCMrA?rBKzEWdEE`BHJ?N_@nM@tDGP@Fb@?n@Gd@Kj@MhAa@ZGJQhB[JGHNBRLjDAXCFk@JuBf@k@Vq@PKJBDPPZHLAt@MjBa@j@S~@Qf@APDNIr@AdAO`@StBc@`Ca@LU\\Ih@Ef@Kl@OLIz@QbBi@tAU@c@VI^GJBHAD@BJ@pAV|BBHFDL?z@MfCs@rB_@FIDAH@Jr@DbAPVD\\@FKr@H~AH~@L\\Hr@HXNpAEBMAa@F_@NuA\\c@BOHJ?p@SiAZIDcA\\gAXEFCJANX|BRlBdBtLp@vFDr@FPARWL{@Js@TMA_@J_@RoAZaAPg@Pg@Fi@Lg@Na@TsAf@[FYDqAZ}@\\c@FoAd@yBd@o@FoBf@c@LKHq@ZkAXgA\\a@JIFi@HcAZUJaB`@oAb@_@F}@`@YLm@NEBSFMT?FGEo@E_@HWEIC[e@_BoAWY][KOLS@INOVq@Gi@Zw@ZsAl@qAd@eBf@sAh@kBZgCNm@h@uCXaBLiAtAqJNeBVwBECDe@?KK[q@aBoA}BM_@SeAUwBsAwJIiBUkAe@sDOq@a@_EIKS}BUkBASW{Ai@sGA}@Hy@Ei@a@aDKOCQc@aEK[QsAQmBGMEa@?KFMVCxBc@LIHSAk@UwAIOCQ}@kHQ{@ECEBCF?F",
+			"resource_state": 3,
+			"summary_polyline": "c_miGxjwcNpA`PvEa@h@nCdK{CmBzlAnKyBZnEmGpClOsAbWmHdAnF|IkBdBfQmKnDpEr^y~@fXwHgElGmSzFqb@oDmJoHql@{Dia@pD_BeC}N"
+		},
+		"max_speed": 12.6,
+		"average_watts": 90,
+		"kilojoules": 128.7,
+		"calories": 143.5
+	},
+	{
+		"id": 1289163298,
+		"name": "Work to Burdock to Bellwoods to Home",
+		"description": null,
+		"distance": 8143.6,
+		"moving_time": 1554,
+		"elapsed_time": 1923,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-24T23:44:22Z",
+		"start_date_local": "2017-11-24T18:44:22Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.24,
+		"total_elevation_gain": 17.3,
+		"elev_high": 109,
+		"elev_low": 90.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1289163298",
+			"polyline": "g~miGjrrcNe@UEBTLE\\?FH`@HXDv@BHHp@HdBjBtNCL@^TfC`@jCJtADNl@dFVvAN|ABbA\\F@FITc@Hc@NcAb@u@LaAVwDfAcA\\_B\\gEfAWF_@RmAb@_@HGJ?X@DMNAJBj@~@bHDbALn@VfCLp@D`Af@vCNxB|AlLDr@VxBVrAL~@LxAF^JnAXjBPvA@TGJS?o@JcA\\yCp@c@P}A\\o@T}Ab@aA\\e@LIHGP@v@V~AJtA\\~AjAlI@FNG?^LbBRNT|AVlBXtDb@|CLfBJTTpALdB?L^vBb@lEF^D?TVN|@^~@DVAVDd@CTd@hFJDPhACt@HjAJLJt@HtBJdAT`BC\\GBY?CXKEKOp@wM[xABdBEhAD?BFAJ?FBJB@@PBHBBBPCTIPORIDEE]uA?GGk@ASES?GBEXMRER?HADO_@oD?WHC^CfBi@p@M\\Kv@Mv@[hBi@^Qj@[H@XEbCk@tBo@LIVKh@O`AWf@Eh@O~@Mj@QJIZMn@Uj@M^Ml@Mj@Ql@K|CeAvD_At@[^IZMXIL?j@UXGv@[j@MPINMxHuBjCi@nAc@LA~@[f@It@UJEFKBM?OScAGMUkBI_A@K`@Ux@ODGDI?MUiBSeAAWQaAKeAWwAAQBGCSUkB_@qDe@iCEm@c@gCc@yDiAyIEQIGs@?mC`AuAXc@R_Cr@QAQG[FuBn@MJmBr@i@F}@RkBXATY\\YDmA`@eBTGHgATEBADQEAHNlABj@PrA?TD?EACNQL",
+			"resource_state": 3,
+			"summary_polyline": "g~miGjrrcNk@QnJvu@_^zK~K`dAsTxGjOfdAlCpZ{@n@j@aN]`L}@qDtAs@_@gErxAoa@w@{GhBqAgJar@ug@|MLhG"
+		},
+		"max_speed": 11.4,
+		"average_watts": 75.9,
+		"kilojoules": 118,
+		"calories": 131.5
+	},
+	{
+		"id": 1285924892,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1950.2,
+		"moving_time": 408,
+		"elapsed_time": 436,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-22T14:42:18Z",
+		"start_date_local": "2017-11-22T09:42:18Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.78,
+		"total_elevation_gain": 9.6,
+		"elev_high": 105.9,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1285924892",
+			"polyline": "{bmiGjkwcN`@^p@IFXAIi@DEuAa@]DPCBCG?UEe@]k@?c@MkBMYK[{@o@[wAMMMo@Ok@?KGC[}BMc@KQGi@IaAGqAEU@U@aDJoBZcCAQBo@R{@AkBQ{AMa@KyAa@}CWyCMaACo@E]YKIe@@a@Gy@Ic@GSGg@EsAOwAOqCSgBEQCa@QcBU{CMk@GOQoAGQo@gFS_AOeAGQa@eDGGE[GCE?ILCCEo@Kg@@W",
+			"resource_state": 3,
+			"summary_polyline": "{bmiGjkwcNzAn@kJwZf@_YmHgr@gFqY"
+		},
+		"max_speed": 14.9,
+		"average_watts": 80.1,
+		"kilojoules": 32.7,
+		"calories": 36.5
+	},
+	{
+		"id": 1285401885,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 3061.9,
+		"moving_time": 627,
+		"elapsed_time": 636,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-22T02:26:05Z",
+		"start_date_local": "2017-11-21T21:26:05Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.883,
+		"total_elevation_gain": 15.4,
+		"elev_high": 97.8,
+		"elev_low": 86,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1285401885",
+			"polyline": "_pkiGplrcNSw@CEE?BAG?GJUDGFICO_@S@GASBSPm@XIHCVGNORGFk@TGFMFq@LIHGLETFJBj@Jx@FNz@jFFRJf@b@vDDzARnAFJRhAFLB~@?f@JhAh@vD\\~AZhCGR?FJ^VjB\\fBp@dCF`@EPh@~CB`AGH[FSHQR@ZF`@AHVzAR|@B^CHIFEJGCAEWOE?Kr@EJAJCFOFKPCHD`@@x@M`CK`@SZIHc@vAMRYl@]rAm@dBMl@Kz@KRALEHY\\KHa@JQC_@D[Pk@TIFe@He@T_AROJMFu@J[HmAH]FUt@?JDz@D\\FpAJn@ATEJEB[FICUJq@Jg@PiAVc@HS@EFI\\?n@JxAPz@XvBNrBHf@ADaAHiBf@qCj@KHaA^{@RGHUFEBKJGVAf@Hj@TlAFf@DJDG",
+			"resource_state": 3,
+			"summary_polyline": "_pkiGplrcNqCeA{FzE|Mn`AeApBr@jGkBfBIfFoFpPsPtE@~HmHzBnA~MkNpD\\pF"
+		},
+		"max_speed": 10.2,
+		"average_watts": 82.2,
+		"kilojoules": 51.6,
+		"calories": 57.5
+	},
+	{
+		"id": 1285289049,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 3193.7,
+		"moving_time": 599,
+		"elapsed_time": 622,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-21T23:39:13Z",
+		"start_date_local": "2017-11-21T18:39:13Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.332,
+		"total_elevation_gain": 4.6,
+		"elev_high": 97.7,
+		"elev_low": 87,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.4
+		],
+		"map": {
+			"id": "a1285289049",
+			"polyline": "iamiGjkwcNXO?MIUGk@KuA@QDQRKLA|@_@`@@lBm@RAxAa@ZKrBe@LKDKE_@Ka@CQIKo@uFKk@IkA@[DEd@Qr@I`EiAZWDG?MUsAIgAIg@k@uEa@iCMiA[mBOwAEGIeA?m@NGXCn@OVKJ?XGl@S`@IVKrA[t@WLA|@ULAx@YhAYz@[ZGt@WN?zBw@zA[HGDKBu@OqB[oC\\KxAW\\QBG?IM_@S}AGQ]_B[eBi@uDK_AKmBSwB_@oCe@mCAm@RK`@Ot@IbAUd@QTET?JGAKW_ACSAw@OgAI_@OOa@cDGqACSBe@EgA[kBGq@IOEq@?e@GMEk@OaA?GLAJGvA[FS@IEOG?DP?F",
+			"resource_state": 3,
+			"summary_polyline": "iamiGjkwcNByEzN{D}AuNbIkCaE}\\l^_Kg@wHxCgAaG}b@lG{AkEi_@rBaA"
+		},
+		"max_speed": 10,
+		"average_watts": 70.2,
+		"kilojoules": 42,
+		"calories": 46.9
+	},
+	{
+		"id": 1285271906,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2202,
+		"moving_time": 450,
+		"elapsed_time": 592,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-21T23:17:07Z",
+		"start_date_local": "2017-11-21T18:17:07Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.893,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1285271906",
+			"polyline": "}|miGzorcNm@ZDA?KBRCL?b@RfBHlAGl@Cb@L`BJ^TtBHZBd@HVFhALl@ZjCDFBJJ~@@r@f@pDDx@LnAPt@RfBJtAHd@PdCNp@Z`CHpANzA\\tBTvBFRNbBHRPnADJHh@@`@BJBZDHBTBD@\\\\tBNjAN~BNbAJFBHN`BBb@Ax@W|BKxA]jCGhAAnABx@F|@Bj@`@tDDn@Nr@v@nFPvAJp@DH?\\HRLBLLD?jASDFB`@BJB\\BdANx@DANS",
+			"resource_state": 3,
+			"summary_polyline": "}|miGzorcNm@Zd@`LrQ`yAy@~VrCzT|BXt@tD"
+		},
+		"max_speed": 9.4,
+		"average_watts": 72.2,
+		"kilojoules": 32.5,
+		"calories": 36.3
+	},
+	{
+		"id": 1284598021,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2159.6,
+		"moving_time": 421,
+		"elapsed_time": 474,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-21T14:52:02Z",
+		"start_date_local": "2017-11-21T09:52:02Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.13,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1284598021",
+			"polyline": "scmiGrjwcNm@`AANOAIm@Cs@EUK[GiAQgAo@uFIW]mCK{AYmBUeDAwBH_BP{AJcBNwAHyA?g@SwAS_AMw@Ak@@WMuAWUSeBCY?WWiBYkDg@{Cq@oGAa@U{ACo@Kq@DUWmAGq@KMCQ}AwNo@yEAGEAAMg@cGM{@SyCQ{ACAEUBqAE{@e@yCGO@GRGGS@GJK",
+			"resource_state": 3,
+			"summary_polyline": "scmiGrjwcN_AnAwDk[h@wWiNyiAyB}\\"
+		},
+		"max_speed": 11.7,
+		"average_watts": 103,
+		"kilojoules": 43.4,
+		"calories": 48.4
+	},
+	{
+		"id": 1283961789,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2288.1,
+		"moving_time": 491,
+		"elapsed_time": 510,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-21T00:29:51Z",
+		"start_date_local": "2017-11-20T19:29:51Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.66,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1283961789",
+			"polyline": "g_niGhrrcNBE`@WDAFPHGPEGDFC@QL@G@EDGTAZDrAK|@KTG^HdBVxCz@pFFt@Jp@?FKB?HJz@T\\p@hHJd@n@hGVvCFNJt@NvADL@`@DXXbBNl@JbA\\tBVnBJPRxA@f@JfABPJNh@~EDJPrA@`@RnARvBLfB?n@OnAI^WzB?TKv@Ch@@f@C|ADvBAh@DvAFPHLRxAFRXpCZnBLvAb@zBDf@?RL~@LlBTz@DBZKPADKZGJGRA@GDFPA",
+			"resource_state": 3,
+			"summary_polyline": "g_niGhrrcN~Ai@O`OrPfsAk@zZlEh[nCi@"
+		},
+		"max_speed": 9.4,
+		"average_watts": 67.9,
+		"kilojoules": 33.3,
+		"calories": 37.2
+	},
+	{
+		"id": 1283307769,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2206.3,
+		"moving_time": 373,
+		"elapsed_time": 487,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-20T14:49:26Z",
+		"start_date_local": "2017-11-20T09:49:26Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.915,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1283307769",
+			"polyline": "y`miGbkwcN[t@E?EEYDO?YPUFAG@]Eo@GMIi@KY]{BIKCKa@iDM_AMc@YiCe@mDO_BIiBCw@@gBHkAb@wCRyDAq@_@kBUuBAIBE@WGk@Ka@KQIi@OyAKyASsASeCWwAIQSsAKcAGiAk@sEGuBEe@[mAKSEWaAeI}A{Na@{CSqB?c@MMA][oCDgAAy@]eBScBKGBELBBGEK",
+			"resource_state": 3,
+			"summary_polyline": "y`miGbkwcNcCfAkEyZb@yX}RqfB"
+		},
+		"max_speed": 11.9,
+		"average_watts": 133.2,
+		"kilojoules": 49.7,
+		"calories": 55.4
+	},
+	{
+		"id": 1281161735,
+		"name": "Greater Good Bar to Home ",
+		"description": null,
+		"distance": 2848.4,
+		"moving_time": 452,
+		"elapsed_time": 465,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-19T03:21:58Z",
+		"start_date_local": "2017-11-18T22:21:58Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.302,
+		"total_elevation_gain": 0,
+		"elev_high": 121.1,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.67,
+			-79.44
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1281161735",
+			"polyline": "cfpiGpnzcN^WMo@IaBOkAi@sEi@yDKmAk@aD{@wGAk@@KFGHEhAQZKdAUv@_@bA_@nAYLGJOf@QfCs@hBYp@Y`@Uh@SlBg@zE_BpAYlA_@hAe@|EyAx@Ob@OXAb@BLB^?\\InCoAjA_@`@Kz@O^CdAUv@KLGNWz@_@T]JC~EyAdAQbBa@^Ex@Sh@Qf@I`@QvAc@jB]B]jF_Bt@Mt@SHKAi@AQIi@OIEWSiBOsBKw@Cs@E]Ok@ECCD",
+			"resource_state": 3,
+			"summary_polyline": "cfpiGpnzcNgEke@xnBak@mBeP"
+		},
+		"max_speed": 10.2,
+		"average_watts": 71.6,
+		"kilojoules": 32.4,
+		"calories": 36.1
+	},
+	{
+		"id": 1281010450,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2594.2,
+		"moving_time": 588,
+		"elapsed_time": 669,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-18T23:14:53Z",
+		"start_date_local": "2017-11-18T18:14:53Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.412,
+		"total_elevation_gain": 21.7,
+		"elev_high": 120,
+		"elev_low": 98.1,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.67,
+			-79.44
+		],
+		"map": {
+			"id": "a1281010450",
+			"polyline": "sbmiGnlwcNf@SHDK?ECSP_@?a@JEFUNGb@IFM?q@PiA^s@NuCx@a@BoBh@GR?^NfCh@vDTfCSJSBYLWDQAQ@sAf@u@Pg@PeCp@IDcBf@{@PSJg@LKHmAl@c@LMFa@Hw@Xe@H]JSBMNa@R}@PMEi@Ai@Do@R{AXsAd@_@Fe@R[HSLm@R[Bo@NiAd@g@La@Tk@PMH_DdAO@eBl@MDMAQD]NoD~@UB[P_AZ_ATSHSPQFe@HU@iAf@c@XmA`@MVCJ@\\Fn@Lx@Hz@RhATbBRjBLp@NvABHBBD@BFBR?G",
+			"resource_state": 3,
+			"summary_polyline": "sbmiGnlwcNp@M{RfGr@fOixApb@`CnT"
+		},
+		"max_speed": 7.8,
+		"average_watts": 74.3,
+		"kilojoules": 43.7,
+		"calories": 48.7
+	},
+	{
+		"id": 1280945735,
+		"name": "Work to Bellwoods Brewery to Home",
+		"description": null,
+		"distance": 3652.3,
+		"moving_time": 997,
+		"elapsed_time": 1194,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-18T21:54:18Z",
+		"start_date_local": "2017-11-18T16:54:18Z",
+		"gear_id": "b3064020",
+		"average_speed": 3.663,
+		"total_elevation_gain": 11.6,
+		"elev_high": 106,
+		"elev_low": 89.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1280945735",
+			"polyline": "i~miGfrrcN_B_@JCFB?NF\\LNXf@\\bAH^Cb@@f@VpALdA\\lBD~@T|@PlAJlBLzAFrABLRb@FTTxB@`Al@dFFv@\\`D@j@^jBN~AZnBLzAFTv@~FDHBl@d@hDBn@Fj@Nd@TdBAPFl@DFD@\\ARGXBBARFXMx@IZGFPTzAHfA@`@Fb@Dd@@FDBN@x@Kz@[hAUhA_@fAKhAa@|@a@|@Y^O^ET?DBDBDTFtARpBDt@Hb@LlANv@Dp@LfAFpAb@rC@d@MJ@FTAh@Wb@Cd@Mb@Ed@KJAJTLz@P~AL`CXjCHRTFzAYdCu@JAJEB?ID?FOQCGOA{@RcBh@_@@a@HUHUL[Jo@^q@TQEG@_@Jo@L[Jo@He@Li@Xk@VgGnAq@VYDoAf@{@VULSBQHBBCF@ZBt@Hr@@b@Jt@E@?HIF",
+			"resource_state": 3,
+			"summary_polyline": "i~miGfrrcN_B_@jBhE`PbvA~EUnAnHrRyEjCzY~E_A|ArMrGoAgg@jML~F"
+		},
+		"max_speed": 7.7,
+		"average_watts": 41.2,
+		"kilojoules": 41.1,
+		"calories": 45.8
+	},
+	{
+		"id": 1280945715,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 2129.2,
+		"moving_time": 406,
+		"elapsed_time": 462,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-18T18:23:22Z",
+		"start_date_local": "2017-11-18T13:23:22Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.244,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1280945715",
+			"polyline": "sdmiG`owcNa@cACiAGu@?Qa@kCKMGe@c@uDQqAGi@?e@U{@K_AGSUkBQsBCkBBgBPaAT{BJgAP_AHu@OuAM]UwAcAgICu@KaAWaD{@sGa@_CMyA[wEo@uEYaDY{BEOCm@MkAEaAOaAEISeAKq@OCCOKoASeBIOSmA[}Ca@iBBK?UJ[B{@As@Gq@KgAO{@L]",
+			"resource_state": 3,
+			"summary_polyline": "sdmiG`owcNsF}a@nAoQoRg|ACaK"
+		},
+		"max_speed": 9.5,
+		"average_watts": 88.8,
+		"kilojoules": 36.1,
+		"calories": 40.2
+	},
+	{
+		"id": 1279579342,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2133.4,
+		"moving_time": 478,
+		"elapsed_time": 1005,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-17T23:24:46Z",
+		"start_date_local": "2017-11-17T18:24:46Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.463,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1279579342",
+			"polyline": "}~miGnrrcNAV@XFJTtA@VE~@RzBJt@HhAF^HRJz@\\pALtAJ^Hr@DLH~@B`AFt@b@nBHbBJd@b@dFP`ABx@VF@HLpAd@lDNnBBn@J^PnBf@d@BPJT@NDLD~@@j@D?EREBMAEBNb@Nt@Bv@LpA\\`BN~Bd@jDR~C@n@Kv@ClASfBI`AO|@Cl@?f@FbDP|Bt@rEXdCNp@\\pDTfBL?HFBLDBh@KXMNAHP?VBX",
+			"resource_state": 3,
+			"summary_polyline": "}~miGnrrcNfRz_BQt\\rCdTbC`A"
+		},
+		"max_speed": 8.5,
+		"average_watts": 57.4,
+		"kilojoules": 27.4,
+		"calories": 30.6
+	},
+	{
+		"id": 1279021826,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1864.3,
+		"moving_time": 490,
+		"elapsed_time": 525,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-17T14:38:58Z",
+		"start_date_local": "2017-11-17T09:38:58Z",
+		"gear_id": "b3064020",
+		"average_speed": 3.805,
+		"total_elevation_gain": 12,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1279021826",
+			"polyline": "wbmiGblwcNRWIL@H@GBBCFk@Nc@XECMyAa@aB?I]iCMs@G}@Ia@K{@ISUaBAGBOCQWiCUyAEe@GwAGqBHeCNsAF[HsADuBFy@EaAOw@_@iCAQBQAWYoAWaB?y@]wCEUIGAGEi@_@{BK}@GkBa@aDAe@MkACc@Ie@Ek@G[Eo@M_@Ea@GMMs@UqCm@qEc@gEYoBIaAQ_@GeAIe@",
+			"resource_state": 3,
+			"summary_polyline": "wbmiGblwcNgAh@yCuSeA}Nr@{PyN{lA"
+		},
+		"max_speed": 9.1,
+		"average_watts": 65.7,
+		"kilojoules": 32.2,
+		"calories": 35.9
+	},
+	{
+		"id": 1278381007,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2220.3,
+		"moving_time": 489,
+		"elapsed_time": 571,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-16T23:21:28Z",
+		"start_date_local": "2017-11-16T18:21:28Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.54,
+		"total_elevation_gain": 8.1,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1278381007",
+			"polyline": "g}miGbprcNm@EOLGNH@GGEWKACB@NDCN~BDFDTFF@HLX@|BNz@F`ARvAh@tC`@bDHV\\nBJ|ALpALdCJ|@`@jC^bDLp@Fz@N?BNAPRxBNf@DTAT\\`FNdAd@pCDh@Lb@?d@VtBHvAPt@Pl@Nx@`@nF\\nBHH@HDn@gAxKCvA?j@D~BDj@NlANx@`@dETpAHXXjCJb@Fr@PBFd@?r@h@nCNZ@PVE",
+			"resource_state": 3,
+			"summary_polyline": "g}miGbprcNyAClTzfBy@xV|Fr\\"
+		},
+		"max_speed": 10.9,
+		"average_watts": 69,
+		"kilojoules": 33.7,
+		"calories": 37.6
+	},
+	{
+		"id": 1277760934,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2189.5,
+		"moving_time": 408,
+		"elapsed_time": 442,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-16T14:51:22Z",
+		"start_date_local": "2017-11-16T09:51:22Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.366,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1277760934",
+			"polyline": "mbmiGdlwcNBNEBEAAGO?_@JKAMJEACOGMMu@A_@I]Aw@S{As@cEGy@KYOwAA_@]oCIS_@eF?mC@s@F{@ZuBP_C@iA]{DgAoIUiCGS_@eDi@sDQqBIQ[mCQaBIoA?YDMWeAKu@IQgAyIYgD[eCQ}BECAEQaAK}@Eu@WsBIeA?_@OsBI{@C}AOwAWiBCs@BC?FG?FC",
+			"resource_state": 3,
+			"summary_polyline": "mbmiGdlwcNeB?qD{XXcXmRahB"
+		},
+		"max_speed": 8.8,
+		"average_watts": 90.5,
+		"kilojoules": 36.9,
+		"calories": 41.2
+	},
+	{
+		"id": 1277133445,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2144.9,
+		"moving_time": 377,
+		"elapsed_time": 382,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-16T00:09:21Z",
+		"start_date_local": "2017-11-15T19:09:21Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.689,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1277133445",
+			"polyline": "g~miGnrrcNg@SH?E\\Ab@L^HTHFF\\BzAt@vFF`@FhA^dCTlCPvAFvAV~ADP^nDXvAD`AZxBLfB@l@`@jCTt@HjABN?ZV~AZ~CLx@FHF`@Dp@`@xCNvAPhAH~@\\nBPfBNx@Dz@VfB?hAUvAm@pHEx@Fz@XNBpBHjABPFJRvAFr@?l@Fz@XrBLjATnALnAAXNn@LlAJf@Lv@HTTUJC",
+			"resource_state": 3,
+			"summary_polyline": "g~miGnrrcNpR|eBaAhQ~Dx]dAzA"
+		},
+		"max_speed": 9.5,
+		"average_watts": 77.7,
+		"kilojoules": 29.3,
+		"calories": 32.7
+	},
+	{
+		"id": 1276651074,
+		"name": "Lunch Ride",
+		"description": null,
+		"distance": 721.3,
+		"moving_time": 160,
+		"elapsed_time": 206,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-15T17:55:35Z",
+		"start_date_local": "2017-11-15T12:55:35Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.508,
+		"total_elevation_gain": 7.6,
+		"elev_high": 102.3,
+		"elev_low": 93.8,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.4
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1276651074",
+			"polyline": "y}liGzxrcNGHG?{@XgCp@GCIQQeAC}@YiCKSBMCYMUGEmAVi@To@NqBl@a@Fi@NkBv@YFaC\\ED_@N?FS?YNWD",
+			"resource_state": 3,
+			"summary_polyline": "y}liGzxrcN{EpA{AwJyUtG"
+		},
+		"max_speed": 9.7,
+		"average_watts": 102.3,
+		"kilojoules": 16.4,
+		"calories": 18.3
+	},
+	{
+		"id": 1276608723,
+		"name": "Lunch Ride",
+		"description": null,
+		"distance": 807.2,
+		"moving_time": 210,
+		"elapsed_time": 268,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-15T17:25:11Z",
+		"start_date_local": "2017-11-15T12:25:11Z",
+		"gear_id": "b3064020",
+		"average_speed": 3.844,
+		"total_elevation_gain": 0,
+		"elev_high": 102.1,
+		"elev_low": 94,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.4
+		],
+		"map": {
+			"id": "a1276608723",
+			"polyline": "e~miGnqrcNIPETAJDb@Xx@DZ?XDBH@REBBDRARBHL?^QJKh@Qj@Kf@M^C\\Gz@U\\QJCZA\\Iz@Wd@UF@DALBXdDJVARBF?JCl@DPDBXBLAjBe@v@KfAYh@S`AQRCBGCE",
+			"resource_state": 3,
+			"summary_polyline": "e~miGnqrcNbA|FdO{D|@lHrKaC"
+		},
+		"max_speed": 9.2,
+		"average_watts": 34.8,
+		"kilojoules": 7.3,
+		"calories": 8.2
+	},
+	{
+		"id": 1276401380,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1646.6,
+		"moving_time": 379,
+		"elapsed_time": 491,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-15T14:37:51Z",
+		"start_date_local": "2017-11-15T09:37:51Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.345,
+		"total_elevation_gain": 9.2,
+		"elev_high": 105.3,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1276401380",
+			"polyline": "k`miGlkwcNy@^g@j@E?CGAg@Iy@S{Ag@yAGg@KOGe@e@{BGQQKWeBYkCk@eEKsBAcBToEBYR{@LgA@s@ADFYF_ACy@QMSmAQaBKm@G}@_@aDYcDCKYmBEcAOeACc@UoBWaBY{BMoBQkACF?c@Qu@C_@IMGc@IMYeCA]c@wCCZ",
+			"resource_state": 3,
+			"summary_polyline": "k`miGlkwcNkBbAaGg]x@gW_Lsz@"
+		},
+		"max_speed": 10.5,
+		"average_watts": 75.6,
+		"kilojoules": 28.7,
+		"calories": 32
+	},
+	{
+		"id": 1275719094,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2284,
+		"moving_time": 555,
+		"elapsed_time": 1192,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-15T00:16:48Z",
+		"start_date_local": "2017-11-14T19:16:48Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.115,
+		"total_elevation_gain": 6.8,
+		"elev_high": 106,
+		"elev_low": 95,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1275719094",
+			"polyline": "y}miG|qrcNiAXCEAK@[CHJZL`ADH`@rAFlAPlADJHdATjAFf@H`AXdBJjADTBFB~A@PDNFx@Fd@FRDTZbCJfA\\zADV|@pJ`@`DJ^b@fEPlARhB^lC@^Z|A\\`CZbB~@`IRtCCNIjAM~@OvBM|@E~@C~@A|CFbAX|BPDBGr@UXEH?Pb@HJXxAXIBFNFZ`@Tp@Jx@Ah@CFWHy@\\QTX`BBh@Hv@?F@JNNLHHPBp@DVPpBDHD@FMPDHEC@L?",
+			"resource_state": 3,
+			"summary_polyline": "y}miG|qrcNqAIzTxfB}@rTX|BlB]tCbFHbBgBdAlB~Lx@?"
+		},
+		"max_speed": 10.4,
+		"average_watts": 63.9,
+		"kilojoules": 35.5,
+		"calories": 39.5
+	},
+	{
+		"id": 1274933875,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1394,
+		"moving_time": 300,
+		"elapsed_time": 379,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-14T14:30:57Z",
+		"start_date_local": "2017-11-14T09:30:57Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.647,
+		"total_elevation_gain": 8,
+		"elev_high": 104.2,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1274933875",
+			"polyline": "wbmiGbkwcNmAnA@i@Ce@MsAEQASECMYKy@IeAIQIe@K}AEOWsCCGEWUa@u@uFEg@EeA@kABm@BIHm@AKFg@XuBF}BFc@?ODQ@c@EmASKEOOqBGIMcAQaAMaBIc@ScC[eBCi@Mi@K_ACs@a@mE?i@G_@EgBI_@As@CMIy@Sw@Iu@GB?J",
+			"resource_state": 3,
+			"summary_polyline": "wbmiGbkwcNmAnAuEy]x@_WkHom@"
+		},
+		"max_speed": 8.9,
+		"average_watts": 80.7,
+		"kilojoules": 24.2,
+		"calories": 27
+	},
+	{
+		"id": 1274382443,
+		"name": "Night Ride",
+		"description": null,
+		"distance": 2191.9,
+		"moving_time": 370,
+		"elapsed_time": 411,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-14T02:30:58Z",
+		"start_date_local": "2017-11-13T21:30:58Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.924,
+		"total_elevation_gain": 7.9,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1274382443",
+			"polyline": "k~miG|qrcNi@D?ECGE@CRBb@@LF?HP`@h@L\\DZ?hBNlBPdAn@fDb@~CFt@F`@Nl@j@jFHlBPbBNTl@|Eb@jE\\jBLhATpAd@xDl@tEFnAFd@ANZhCP`A?R\\vCr@~FBv@A|@MvAARm@lI@fCJFDV@TATJ`Av@nFl@xEV|ADj@AFD\\C\\BHL@DFHBh@UPELBN`@DRR`BEH@HH^DB",
+			"resource_state": 3,
+			"summary_polyline": "k~miG|qrcNs@p@lTbcBy@vT`DdXjB?t@nE"
+		},
+		"max_speed": 11,
+		"average_watts": 96.7,
+		"kilojoules": 35.8,
+		"calories": 39.9
+	},
+	{
+		"id": 1273623610,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2191.7,
+		"moving_time": 483,
+		"elapsed_time": 584,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-13T14:44:44Z",
+		"start_date_local": "2017-11-13T09:44:44Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.538,
+		"total_elevation_gain": 9.4,
+		"elev_high": 105.9,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1273623610",
+			"polyline": "wamiGhkwcNw@VW^GAK@WmACWKk@Ce@E[Mo@OMa@qDk@cEEc@@F@[S}AKMQsAW_DC{ANyCXgBFiAEKJ_BBQHW@QIkAg@mDCe@BYSiBO{@QOU_EOGo@eFIiA@oASiAUIAMYoD?]Ea@?_@Gw@EEEc@OgB[KIi@{@gKOo@Iq@?MIoAMsACKMiAAe@QcAg@}E_@cCOgBGOGGBS?i@S{BIc@KmADA[O",
+			"resource_state": 3,
+			"summary_polyline": "wamiGhkwcNkB\\iEeZ`@{XiSyeB"
+		},
+		"max_speed": 10.6,
+		"average_watts": 83.8,
+		"kilojoules": 40.5,
+		"calories": 45.1
+	},
+	{
+		"id": 1272813671,
+		"name": "Home to Burdock to Home",
+		"description": null,
+		"distance": 3781.1,
+		"moving_time": 677,
+		"elapsed_time": 978,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-12T19:55:43Z",
+		"start_date_local": "2017-11-12T14:55:43Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.585,
+		"total_elevation_gain": 8.6,
+		"elev_high": 109,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1272813671",
+			"polyline": "kdmiGdkwcNg@pAKPIDqBx@MBiAZk@JgAh@iAZg@NW?UFQLGTBJn@|CLfAP`AJdARfACHQHc@HgAVWPYLyC~@aEfAqBd@s@Xs@Ts@VcCj@q@VOTK`@@L\\lAj@vCb@pDZbBTrBp@jF?p@HNPhARxB`@nCx@|GDf@EDc@F?FET?]ECGu@Ka@KSG]AQ@MG_@AOv@WDAJGFK@KSqAQwAIo@?QCGMeAGOu@sFMiAEMY{CIoAWoBCk@DE\\AXMvA[JIh@MrAa@v@S`@OlAOj@YrA]jDmAbDeAf@CBDBI@[c@qCYkDJCf@U~DkAjCc@dBo@x@IrAi@FY^MLIHOBU@UCUMSWaBEKEg@YeB_@sBGEAQKa@",
+			"resource_state": 3,
+			"summary_polyline": "kdmiGdkwcNmPzHfB`N_^zKrI~p@i@rAw@{FrAy@sE}_@b]iJw@cJhT_HuBoO"
+		},
+		"max_speed": 10.2,
+		"average_watts": 86.1,
+		"kilojoules": 58.3,
+		"calories": 65
+	},
+	{
+		"id": 1268667740,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2058.8,
+		"moving_time": 447,
+		"elapsed_time": 447,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-10T00:04:28Z",
+		"start_date_local": "2017-11-09T19:04:28Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.606,
+		"total_elevation_gain": 7.9,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1268667740",
+			"polyline": "q_niG~prcN?HBABdAF`@D`@LDHH@J@vBR`AN~BPrAFz@X|ALdAV~@RvANtBRv@PvAB\\CDD@@HBh@N~ADPJLF`@RlCN~@FLJx@AHDLXvCPdANdB@`@^bCFx@Nx@Hn@HxAZ~AFz@FPLrARbADf@t@~GHpAJn@@f@?j@[fFe@hD?zAH~C\\~CP~@f@pDT~@Fr@^zBL`ADv@NXZS",
+			"resource_state": 3,
+			"summary_polyline": "q_niG~prcN~RxaB_@bZtE`W"
+		},
+		"max_speed": 7.7,
+		"average_watts": 55.9,
+		"kilojoules": 25,
+		"calories": 27.9
+	},
+	{
+		"id": 1267993444,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 2155.3,
+		"moving_time": 413,
+		"elapsed_time": 457,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-09T14:46:37Z",
+		"start_date_local": "2017-11-09T09:46:37Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.219,
+		"total_elevation_gain": 10,
+		"elev_high": 106,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1267993444",
+			"polyline": "acmiGplwcN]NQGE@MAEEa@uCW}BIKG_@WoBIeAOs@YuBQiB_@qCMoB?wCHuALoAH{AJ{@@aAHMD]C}AQa@EQOsB]yCCQIQGe@WkCEcA?GKAMy@e@sFW{BIoBE]EOMoAWwBUgAKeA[oBM_BWoBIeAo@gEa@cDGeAQUAIoAgNOmAAS?iAGu@c@mDU@BG",
+			"resource_state": 3,
+			"summary_polyline": "acmiGplwcNiA@iE{[l@qWiSyeB"
+		},
+		"max_speed": 9.2,
+		"average_watts": 82.5,
+		"kilojoules": 34.1,
+		"calories": 38
+	},
+	{
+		"id": 1267329595,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2216.2,
+		"moving_time": 513,
+		"elapsed_time": 1921,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-08T23:34:32Z",
+		"start_date_local": "2017-11-08T18:34:32Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.32,
+		"total_elevation_gain": 4.1,
+		"elev_high": 106,
+		"elev_low": 94.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1267329595",
+			"polyline": "m}miG`prcNi@zAHc@GACICk@BHEvAFh@FTVh@BXCfA@^Jj@`@dDJjAbAtFVdEZzBHbAHj@HtANjAJj@z@nH^zAFb@LdABj@TvBn@nEVdDRdAFt@L`@X`DFZFL`@pDTzA?nALfBA`@QhDYbDIlBAz@@v@RTHtBGVf@UXKF@XOH@FFBHTtAAFHf@JHDM?c@BQ~AkCcCJ?LBFDf@Dv@BHBx@",
+			"resource_state": 3,
+			"summary_polyline": "m}miG`prcNi@zAE{Af@lIjQzwASl\\lBm@t@`DhBoEcCJVxD"
+		},
+		"max_speed": 9.4,
+		"average_watts": 49,
+		"kilojoules": 25.1,
+		"calories": 28
+	},
+	{
+		"id": 1266629454,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 781.2,
+		"moving_time": 268,
+		"elapsed_time": 471,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-08T14:43:36Z",
+		"start_date_local": "2017-11-08T09:43:36Z",
+		"gear_id": "b3064020",
+		"average_speed": 2.915,
+		"total_elevation_gain": 0,
+		"elev_high": 105.3,
+		"elev_low": 102,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.41
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1266629454",
+			"polyline": "stmiGtctcNUPUs@@GHWF@FI?IK_@OuAK{B[qCMyAQiAQ_BYqB[}CS_B[IMeCB]ESWOAQBa@Lq@?KCKAa@IWCQOEAIEo@@OEi@RERSTOCB",
+			"resource_state": 3,
+			"summary_polyline": "stmiGtctcNsG}g@_@cIx@e@"
+		},
+		"max_speed": 8.7,
+		"average_watts": 32.6,
+		"kilojoules": 8.7,
+		"calories": 9.7
+	},
+	{
+		"id": 1266611357,
+		"name": "Much hangover",
+		"description": null,
+		"distance": 1408.8,
+		"moving_time": 333,
+		"elapsed_time": 401,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-08T14:30:27Z",
+		"start_date_local": "2017-11-08T09:30:27Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.231,
+		"total_elevation_gain": 8,
+		"elev_high": 104.1,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1266611357",
+			"polyline": "sbmiGdlwcNi@KEF?D[VMPAWIeA[kB[oAI{Ag@_EQkAGg@Ai@Qq@OeAC_@@OMs@YuEBiAHgA\\sCBo@PuB@m@C_@@a@QeAKmAQkASiAUaCKe@KiAm@wEO{@]qEOk@QmCMy@UeCUeBAYBD",
+			"resource_state": 3,
+			"summary_polyline": "sbmiGdlwcNyAj@sDkYi@yH`A{PgHun@"
+		},
+		"max_speed": 8.8,
+		"average_watts": 66.6,
+		"kilojoules": 22.2,
+		"calories": 24.7
+	},
+	{
+		"id": 1265898338,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2069.8,
+		"moving_time": 342,
+		"elapsed_time": 421,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T23:06:28Z",
+		"start_date_local": "2017-11-07T18:06:28Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.052,
+		"total_elevation_gain": 8,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1265898338",
+			"polyline": "e|miGhorcNq@@CCEDGTGHEXJhALh@?ZHz@A|@Bh@n@rFHz@l@lELxAFXJnBl@fDNvAj@~DVnER?PpALz@RfDHj@H`APz@HV`@bDDRJjACd@@^Jh@VrBx@fGJbAb@|CNlB?zAChAk@dH@PIxBBz@?h@BVATB`@~@hGj@rENp@RvA@vAFRDFF?",
+			"resource_state": 3,
+			"summary_polyline": "e|miGhorcNqA|@d@rHbQzxAa@xYjD|V"
+		},
+		"max_speed": 10.6,
+		"average_watts": 95.5,
+		"kilojoules": 32.6,
+		"calories": 36.4
+	},
+	{
+		"id": 1265215275,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1603.1,
+		"moving_time": 346,
+		"elapsed_time": 394,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T14:32:37Z",
+		"start_date_local": "2017-11-07T09:32:37Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.633,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1265215275",
+			"polyline": "qcmiG`kwcN_Bh@@SCYAo@YyDs@iGOc@Cu@Mo@o@mFKwAA{@?aABeAF}@RaB?]TcDFMDc@AkAEg@k@wDIcAMc@O}AKs@Q_DKk@Ei@AGQB@IQ_BCo@I[QuBQqACo@Mq@Eg@Oo@Aa@IeASeAEo@G]Gu@AQMu@QeBg@gDGk@BIBFEDCG_@PBDAFN@@J",
+			"resource_state": 3,
+			"summary_polyline": "qcmiG`kwcN_Bh@cDy[r@{V}Ku{@"
+		},
+		"max_speed": 9.5,
+		"average_watts": 83.5,
+		"kilojoules": 28.9,
+		"calories": 32.2
+	},
+	{
+		"id": 1264729539,
+		"name": "Home to Varsity VIP to Home",
+		"description": "The Killing of a Sacred Deer",
+		"distance": 8115.8,
+		"moving_time": 1518,
+		"elapsed_time": 11966,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T02:36:08Z",
+		"start_date_local": "2017-11-06T21:36:08Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.346,
+		"total_elevation_gain": 19.2,
+		"elev_high": 107.8,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1264729539",
+			"polyline": "}bmiGnlwcNEBKEEBS?KFCDCAEIe@yCEO[}AGs@Kg@c@oDIqAe@qDa@_EOaC@eB@g@`@gFTmB?{@K_CM{@KICIK{@Ac@WsAkBiRQqCGQK}@[aDGQQwAEC@QMaAEUKQKi@KSCUs@{FW_DIwAMw@QqBEa@E?EBM{@KmAi@{EIkAUcBA_AFo@A_AQaA]IMaAGk@?OFQNC{AI?g@B_@ASGCURe@RENIAIB_@LEHaAVQLc@Ju@LUMS?e@JIAyBh@cAh@m@PO@u@`@k@TUDQCUHW?UCQF]TQ?IHYCMIUm@Iw@EICg@M_AKIk@mAGQWaA_@uBcBoKKOCQ[sD@YBDCEAq@DQb@w@Ts@@[Qs@QWSSeAq@YYy@o@UWUBMEOAs@WW?GGYAGECMECWEE@YKCG@GMUGCE@QPGCMLO?KMSe@MASgAOmAEMc@gBIe@?YOg@AIN[CUDCDS?s@MWCWUgA_@@?GDDAoBEP@`@MpC@j@\\nC@Rf@rBAVJp@Vd@AVBZEn@?Xp@~CBVFvA\\zCLTZVXLJ?b@Gn@Q`Aa@^IH?JBLJh@x@TVn@d@x@^HHBHb@tE\\vBf@xD\\~CP|CRf@p@t@NTDJFVA^GZEbADn@A^BZFXLtB@Lb@tATh@NRBpAFp@X~AB\\rAxGHjAn@tDRdBP`AXxBPbBDp@@jBFt@Lx@FnAV~APtA~@hFBt@VxBHtAVpC^rBXlBR|@`@hDf@hBh@|Dr@tGA`@Fz@VnCr@nDj@xDLpAL|@f@hETjA?h@FTBFP@bCc@j@EnBo@XCb@YhAUxBk@fFeB~@QDBRCt@]FFHl@BlA?f@F\\BD",
+			"resource_state": 3,
+			"summary_polyline": "}bmiGnlwcNeABqEw]^aXaRqcB{AIE_Ba]nIcHk\\RmMeQoIuCcVOpF`Ep\\nGIpEzDdg@zzDn\\eI`@nE"
+		},
+		"max_speed": 12.5,
+		"average_watts": 82.1,
+		"kilojoules": 124.6,
+		"calories": 138.9
+	},
+	{
+		"id": 1264624281,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 1384.1,
+		"moving_time": 324,
+		"elapsed_time": 1115,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T01:41:34Z",
+		"start_date_local": "2017-11-06T20:41:34Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.272,
+		"total_elevation_gain": 6.3,
+		"elev_high": 100,
+		"elev_low": 93,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1264624281",
+			"polyline": "}`miGvlwcNZs@CHHTPbARrBJl@Dj@Np@Fr@BJJ|@AJH\\FJF@dAWdA[x@OvBo@VMbCq@PS@a@KqAQ_ADEFC|AWNKP[`@OHI@EFADCwA^k@j@MFg@RSBEXNtABr@GVs@R{Bh@gGbB]DEAg@kEU_BIkA[_BEMEE",
+			"resource_state": 3,
+			"summary_polyline": "}`miGvlwcNxCdNxMsDIgEhEoBmEjBDzDuMfDuBmN"
+		},
+		"max_speed": 9.9,
+		"average_watts": 70.6,
+		"kilojoules": 22.9,
+		"calories": 25.5
+	},
+	{
+		"id": 1264599638,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2183.7,
+		"moving_time": 395,
+		"elapsed_time": 438,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T01:17:20Z",
+		"start_date_local": "2017-11-06T20:17:20Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.528,
+		"total_elevation_gain": 0,
+		"elev_high": 115.2,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.67,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1264599638",
+			"polyline": "y}oiGfzvcN?\\v@rFRrC\\fC\\zCXpBVrADHP?l@Qn@[tDuArA]TAv@[~@SRCpBq@nCu@f@Q^QhAYFIpAa@b@Ut@Uh@KbA[~Cu@nCy@dA_@\\KPADDb@tDDn@DpALfAL^AJBRHPF@l@CxA[^O|EsAlFaBrA[d@GRGDG\\Kf@Cl@SFIRIFAFVD~@DTDpADHLB",
+			"resource_state": 3,
+			"summary_polyline": "y}oiGfzvcN~Dx[vr@{SdBxM~[sIl@lE"
+		},
+		"max_speed": 11.2,
+		"average_watts": 63.7,
+		"kilojoules": 25.2,
+		"calories": 28.1
+	},
+	{
+		"id": 1264579864,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 3023.3,
+		"moving_time": 602,
+		"elapsed_time": 633,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-07T00:48:26Z",
+		"start_date_local": "2017-11-06T19:48:26Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.022,
+		"total_elevation_gain": 19.8,
+		"elev_high": 114.6,
+		"elev_low": 98,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.67,
+			-79.42
+		],
+		"map": {
+			"id": "a1264579864",
+			"polyline": "{}miGfqrcNoCb@DLD@NMLv@JXJDj@j@HLNDDH@~At@~Ef@fF^rCDJTjCPnAJlAHf@@f@BXRdAn@zFLhADFDX@VCXZzADZJzBJb@ThB`AhGHx@VrAL~AF\\Bj@@LN`@Z|BF`A?b@Q?{@Xc@JM?o@XaAPSHmAXq@TgAXi@LKAIBUFSHI?y@TeCz@c@Js@\\}DhAgCx@{EnA_@Ly@LSHSDIHSFgANc@T{@HyD~AsAf@o@Z_@BWJ{@LkAZ]BIAUAEL?J^pE?HITUBcAd@oA`@}@TUDq@BGBGBAHBj@CZBN",
+			"resource_state": 3,
+			"summary_polyline": "{}miGfqrcNoCb@lCbDhPrwA_gAbZNjGwHnBEdB"
+		},
+		"max_speed": 9.9,
+		"average_watts": 84.9,
+		"kilojoules": 51.1,
+		"calories": 57
+	},
+	{
+		"id": 1263841015,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1807,
+		"moving_time": 330,
+		"elapsed_time": 347,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-06T14:37:13Z",
+		"start_date_local": "2017-11-06T09:37:13Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.476,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1263841015",
+			"polyline": "qamiGdkwcNs@h@I?e@NEI[}BCGEEa@eBIk@Gw@K_@UkBYcDG?U_CGMWgBQiC@a@?cBDgAj@yF?KIKBs@Tm@D[CmA]mBK{AQiAS_BCSUKMu@?u@IeAMKCMEo@U}AKsAGKAOKwAAiAKkAEOOiBY_BO{BYkBEQMyAEOO{AEOSmBIc@Iq@Ms@m@wGEMEa@Ci@GQCN",
+			"resource_state": 3,
+			"summary_polyline": "qamiGdkwcNiBn@sE{Zr@uXiNajA"
+		},
+		"max_speed": 10.4,
+		"average_watts": 94.5,
+		"kilojoules": 31.2,
+		"calories": 34.8
+	},
+	{
+		"id": 1263356539,
+		"name": "C’est What to Home",
+		"description": null,
+		"distance": 5511,
+		"moving_time": 1087,
+		"elapsed_time": 1158,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-06T03:02:14Z",
+		"start_date_local": "2017-11-05T22:02:14Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.07,
+		"total_elevation_gain": 22.7,
+		"elev_high": 97.8,
+		"elev_low": 81.1,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.37
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1263356539",
+			"polyline": "galiGhtmcNmApAFTJLLT\\fAd@bDFJLfA?NN^L~@HPHDDJCH\\|@?PYt@P~CHZJ|@DLD\\n@xBHJH\\T`@?NLn@HTTB[R`@bBFHHDWpAb@^`@JCn@VFJF`@b@@Fa@LI\\OJI^DBp@jABN?x@I\\K~@AHMN@Ld@bAJpATd@LZBLIF?JY\\GPQ@e@EOKI?CPIFo@\\KHMDYH[?KL[DYP}@Zs@ROC[NKLg@Tk@Cg@FkA|@_@L[@GBCJATDNNVF`AH^b@jA?JXn@?HJ^Kz@L`@@TPh@\\|A@b@J~@H\\?RF\\Dp@DZJVAPZbAJHDRAVJdAEn@L\\Lh@Fh@Tp@LxAPtANt@?HV|@CNXrA@ZAF@TIHENGdB?\\H`BDXTr@l@bDGHZpCB`AHrAZ|BXxAXjCVdBVvB?NLh@DFBH?b@D^EZDn@Nx@RvAZvDZhCFz@j@jDJrA`@nCBb@TrBN~@@RCHG?GDODKPBn@F^ANHhARfAEF?JCDOEa@DKNALAZNfBVbBD|@BJDJVjCVdB^nAJt@Bv@AHIDO@i@Jm@Ba@FcCn@i@Ra@JoAPIFa@Bi@J_AXcB~@K@i@RQLmBf@q@J_@Le@HQDGFEFAVXfDLn@@PEFi@DmA`@c@Dw@V]FEB]DKPCH@tA\\`DLvARnA?JHh@ATEDUAY@YF}Ad@qBd@{Aj@[Fg@TUB[RCFE^@^FTLdAR~@",
+			"resource_state": 3,
+			"summary_polyline": "galiGhtmcNmApAlEtQGfFhDdL?xEfCnCcA~ApBdOiWbKdLhs@KxHpNxlAm@z@f@pFkArAvCpUw^zJZpGeHrBhAjNqNzD`@bF"
+		},
+		"max_speed": 12.6,
+		"average_watts": 72.9,
+		"kilojoules": 79.2,
+		"calories": 88.3
+	},
+	{
+		"id": 1262989792,
+		"name": "Home to St. Lawrence Centre for the Arts",
+		"description": null,
+		"distance": 5525.6,
+		"moving_time": 1068,
+		"elapsed_time": 1181,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-05T19:13:11Z",
+		"start_date_local": "2017-11-05T14:13:11Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.174,
+		"total_elevation_gain": 5.1,
+		"elev_high": 97.7,
+		"elev_low": 81.2,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.65,
+			-79.38
+		],
+		"map": {
+			"id": "a1262989792",
+			"polyline": "mamiGxkwcNF@FACQBNGHLICSLCJEHG@IGK]sCASDGv@M|Ac@lAUZQjBk@rA]ZKDCBm@Is@GKMaAEKEq@ECDSAg@SuBUmABKBCZ?\\GxA_@~@]HIbAWN[?MG[?m@UiBA_AI}@Mw@MaB_@aBUaCYaBIcBIKg@{DWcBC]Kk@QwBSwAUiAEcAk@gEQ}AC_@O}@Ky@UcAGqAa@mDBWJEN?\\KhAa@HIVI|Bg@FWZMx@S^Qt@QvDkAlAUZKJOXKvAUnAq@v@@b@IXCDGJEVGTAfAc@zAe@RETFTEJGBM?OQwA[iE?a@i@uDCg@?u@Is@[gBIMEs@IOc@uE?OUkAIMG]QyAKc@e@aDMiAAkBMgAAQY_B@UI{@Km@Wu@C[LS@YGMOg@McA?UEYEI@]JG?KMi@Uq@M}@Eq@Ku@BQI}@KUSGg@{AQ{@MoAOk@UqAIiA@YEk@OWWoABGAI@OBILKJCH@JDL?NCLGr@C`Ae@l@UXH~@a@VNdAc@VETGFAFBDB?FJCLMAMBGLBL?VMLKhAa@BK^YNAL@DCFGBOMe@B@HJ?GU}@]qBY_DOS@UH[Vo@Be@ASUuAM_@[sAg@gEGMMgAEKKw@EIGy@FYA_@WsBGWW[aA[SO?SM[Q{@A]CMGQm@}@Kk@Qk@Kq@@UEMy@uBQ@",
+			"resource_state": 3,
+			"summary_polyline": "mamiGxkwcNv@q@a@{D`NsDoA}NtHgCuMqjApj@gPiLihAmGm]~VmIgF}h@uB_BuEiO"
+		},
+		"max_speed": 10.7,
+		"average_watts": 64.8,
+		"kilojoules": 69.2,
+		"calories": 77.2
+	},
+	{
+		"id": 1259972830,
+		"name": "ESA to Home",
+		"description": "",
+		"distance": 10114.7,
+		"moving_time": 1638,
+		"elapsed_time": 1811,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-04T00:29:58Z",
+		"start_date_local": "2017-11-03T20:29:58Z",
+		"gear_id": "b3064020",
+		"average_speed": 6.175,
+		"total_elevation_gain": 66.2,
+		"elev_high": 110.2,
+		"elev_low": 75,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.63,
+			-79.5
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1259972830",
+			"polyline": "srhiGfdgdNQXKJ{@Ta@NaBf@sFjBcB\\c@LWBaBp@}C~@gCfAe@NwAZ}@^wBr@WLe@ZuAlAcBbBmAp@m@JgAZ]Am@DcBEaBHeAZKJkA\\eB\\MOM{@K_@W_C_@yB]aD_@kC_@aBy@oFQq@QmBEQGAIBkBp@uBf@w@XuAZWLoA`@s@XsCv@_Bl@mA^ID]DmA\\MAIKCI_AsHy@gE[qC_A_HOWMs@_@eECw@@y@X{GLkCb@cCHs@d@cCNUPo@RgAdBsHxBmIf@mCB}@H}@XeHAw@MoBg@wDIc@Qm@O]Ye@oC}CYm@KW[oACc@I]Iw@Ks@ISE@G_@Og@WqDSeAOeBScAGm@YmBWeBG_AUkAUsB_@wBG}@Mu@E_@AKKGAIKuAE[KcBUoAUmBQ}@A]E?EQm@kFc@gCCQKOYiBSmBa@qCUoBsAqJSqBGUMaAOmBOiAQkB[qBSkBQcAM_BKq@MIMq@GcAu@iGKm@U_BOWeA}HuAuLG]GKGY]_CKgAk@iE[uC]cCM}AQoAGOGa@m@wFw@_GO_BQiAEq@QeAKsAIQCMAi@S_BK{AQs@I_AESKQQkAEq@YcCIc@Ec@GUWsBSiAYgC[sBA[w@iGQuBDSTA\\IP@dA[x@[nDiAN?l@WtEkAlBm@n@MTK`@E^MVE`AYl@WfAUDG@Kc@wDGOYcCBKNKhAOpAYdAa@z@STCFJBWAMGYIy@e@wDIeAKa@Ci@WyAm@cG?}@F}@EcAWcBQmBg@wDE_@W{AI}@?WEACIG[BUJOpAe@x@SFKBMC]Ki@U_Bi@sEGSMyAIM",
+			"resource_state": 3,
+			"summary_polyline": "srhiGfdgdNmh@hQeIlGkSrCaHwc@q^rJuGqh@tA_RbJa`@ViQkKi[iy@koGta@mLy@kJjIcB_Her@fDyBoBwN"
+		},
+		"max_speed": 11.8,
+		"average_watts": 106.7,
+		"kilojoules": 174.8,
+		"calories": 194.8
+	},
+	{
+		"id": 1259906297,
+		"name": "Work to ESA",
+		"description": null,
+		"distance": 12300.9,
+		"moving_time": 2162,
+		"elapsed_time": 2620,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-03T22:44:29Z",
+		"start_date_local": "2017-11-03T18:44:29Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.69,
+		"total_elevation_gain": 38.4,
+		"elev_high": 107.2,
+		"elev_low": 72.8,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.63,
+			-79.5
+		],
+		"map": {
+			"id": "a1259906297",
+			"polyline": "_~miGpqrcNa@ADBG@EDAF@ZZp@TjAFf@@h@Bd@HXXbDp@|EJzAHd@NzAJrA?RZdAFZ?^VpCZtCTxCP~@Dt@DRALf@~AVhBT|ClAfK^|DDRB^DXRp@BPHJTtB?b@\\fCFPTnB?b@Cl@QnBK~AMvAGjACTIvDEb@BHZJ@`@RrAf@lE^jEZrBNbBNL@PJ^L|@ZlDf@pDbAvJj@~DZjB`@|DJNNhAHjAAPKn@?bAZrBF~@Lp@Ff@H`CTdBr@jEPtCb@vDHF@FLdBf@rDj@jFHhA`@vCDJ@ZFBb@KJJLDj@K`@SLAHDJ?nA[l@IlCUzA[nA_@j@Kh@CREfAG`@BZKNAXINAZOrDaAt@I`Bk@pBi@JEJKbCu@vBi@vBo@dAUzAg@JKVEPKVGRAd@QFAHDBHTfAJr@Dj@@n@TnA`@rE\\bC~AhOn@xEHx@RlA`@dDf@`FDfAATLnACjAKRi@nF{@jHu@zEeA~EIjA?~DD`B?fCFxDAlBEpAPTAh@RdKHbBH`ABp@Z~B`@xDT~ARbAZpAh@jCdBbIx@|En@lEAPF`@x@fIGJF|@?v@d@~DnApE^|@r@zAHFl@v@DHb@Z~@~@d@`@HBZRh@b@tBvB`@Jd@r@HBX`@NPHDdArARVHBVh@|AxBVv@`@|Al@fCl@~Cb@fBh@jCHVHJL|@FH`@xDBJHH\\jC^zBXbCB`@@F@EH@@FlBtP^dCx@~GLp@PpBDNZpCX`BXnCAP~@`GDJNdADJLxALj@VzCLn@RlBX~Aj@hE^lBPvALbBj@xDLvAx@dF^pA`@fCPVHFLBTCp@YROxCiAv@Sb@Q^IVMfAYDB@F?HLx@Nr@JXFH`@?n@SD@HPRjBJvAl@rECFQJUTTo@ZABGBMwA}KGKGEGA{@TSCOQK]MyAOWm@FiBp@aCt@]Nk@LoBn@]FQJsBl@uBz@eBZkAj@[FSJ{@TqAb@WL[JWB]FeBh@KFM@QHY?@ED?",
+			"resource_state": 3,
+			"summary_polyline": "_~miGpqrcNi@l@xSbdBkAvTbNvcA`J`_AnZqDne@iMhK``A{Fbc@h@hf@tKbs@dB|TbDjJvRhRnDxHnJpg@hXjrBzNkDx@fD`B?lAvKk@h@x@gAwA}KgBAy@aDkj@nP"
+		},
+		"max_speed": 12.1,
+		"average_watts": 84.2,
+		"kilojoules": 181.9,
+		"calories": 202.9
+	},
+	{
+		"id": 1259270158,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 984.6,
+		"moving_time": 181,
+		"elapsed_time": 214,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-03T13:49:05Z",
+		"start_date_local": "2017-11-03T09:49:05Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.44,
+		"total_elevation_gain": 3.6,
+		"elev_high": 106,
+		"elev_low": 102,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.41
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1259270158",
+			"polyline": "apmiGpwtcN[OEu@UqBCo@[mAGm@Ee@B[ASe@wCWqCW_Ba@eES{AUmAU_Cc@iDKuAUoBCe@WICOQ_BGgA?i@H_@AYQaACe@?UKgAUIEYDKC_@",
+			"resource_state": 3,
+			"summary_polyline": "apmiGpwtcNoMegA"
+		},
+		"max_speed": 10.4,
+		"average_watts": 97.4,
+		"kilojoules": 17.6,
+		"calories": 19.6
+	},
+	{
+		"id": 1259207772,
+		"name": "Home to Raval",
+		"description": "",
+		"distance": 1186.4,
+		"moving_time": 199,
+		"elapsed_time": 199,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-03T12:54:40Z",
+		"start_date_local": "2017-11-03T08:54:40Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.962,
+		"total_elevation_gain": 5.8,
+		"elev_high": 102.1,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1259207772",
+			"polyline": "edmiGjlwcNAFMRMDGGAu@K_ACOIMEOIs@O{@MeAIUOaBQuAI_@c@}Dm@qEGyAAiB@w@LcBVkCLoCJ{@?]S_BEq@OsAIYS}A[qDw@wFk@}FEK?FE@",
+			"resource_state": 3,
+			"summary_polyline": "edmiGjlwcNwF}\\v@uUsEg_@"
+		},
+		"max_speed": 9.4,
+		"average_watts": 103.3,
+		"kilojoules": 20.5,
+		"calories": 22.9
+	},
+	{
+		"id": 1258630814,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2059.9,
+		"moving_time": 427,
+		"elapsed_time": 464,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-02T23:09:51Z",
+		"start_date_local": "2017-11-02T19:09:51Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.824,
+		"total_elevation_gain": 7,
+		"elev_high": 106,
+		"elev_low": 95.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1258630814",
+			"polyline": "q~miG|vrcNj@bCD`AFz@RpADx@ZlAL~@Dn@^jCL~BPhBPfABp@`@lCFx@BjAFNFj@^dB@TCBAFBVP|@Jv@TvC`@dCb@jDDLJj@HHHh@PlAb@xEPp@ZjCF|@^~BLlBJdAGj@WbGOnAM~BAtAF`A?dAp@lEJjALr@x@rHJf@ATDPCJ@JJZd@vCD@BRBHFC\\DJEDGl@OZQ",
+			"resource_state": 3,
+			"summary_polyline": "q~miG|vrcNbR|zA]p[dE|[nCM"
+		},
+		"max_speed": 11,
+		"average_watts": 65.8,
+		"kilojoules": 28.1,
+		"calories": 31.3
+	},
+	{
+		"id": 1257847665,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1868.9,
+		"moving_time": 394,
+		"elapsed_time": 496,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-02T13:40:54Z",
+		"start_date_local": "2017-11-02T09:40:54Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.743,
+		"total_elevation_gain": 9.1,
+		"elev_high": 105.3,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.4
+		],
+		"map": {
+			"id": "a1257847665",
+			"polyline": "cemiGplwcNa@\\WeACi@?gALQ?QMq@[{DIe@Sm@CMIMEk@Ia@S_CQgAGQ@MG[?i@MoBBmBJ}B?OB]`@cB@MGKJcAHUGGHgAAUUqBMUQqAKeADYAO[wBIQCSKy@?WUgCGMIy@@ICGAQSgAKsAEQBu@Cc@IQm@{DEe@Q{@BWA_@UiBc@{Bg@yFEWW?I]Gm@FEDUEgBKwAG_@KEKgAIg@Cg@GM@IDGPINCHB~@CKMJI",
+			"resource_state": 3,
+			"summary_polyline": "cemiGplwcNy@g@}C_^dAwQ_NikArBw@"
+		},
+		"max_speed": 9.7,
+		"average_watts": 83.3,
+		"kilojoules": 32.8,
+		"calories": 36.6
+	},
+	{
+		"id": 1257248335,
+		"name": "Work to Rainhard to Burdock to Home",
+		"description": null,
+		"distance": 15623.7,
+		"moving_time": 3093,
+		"elapsed_time": 4093,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-01T23:44:57Z",
+		"start_date_local": "2017-11-01T19:44:57Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.051,
+		"total_elevation_gain": 54.4,
+		"elev_high": 135,
+		"elev_low": 97.7,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1257248335",
+			"polyline": "i_niG|srcNPPLTL\\Lp@BfBJr@DJ\\zBRtBd@hCDz@AF?RPjB?p@B`@d@bCZpDLz@Rx@\\nEJr@?b@BPCDCEgBd@UBu@TMH[FYLMJ}@ZKF{@RWJWFIF}@T}@L]JIDu@TGJsBx@q@F_ARGBGFMBSN]?GEB^VbAZtBBh@NfA@d@DNJxAFrANh@NrALxAXjC@ZDLA\\Rx@XrBLZH|@FZLhAXhABd@Lv@Ah@@ZRbBTrBHTJpAJ\\VjBH|@Nz@Fx@H`@NnAPdA?\\{@d@iALs@Ra@F_ElAqD|@cAd@YBIDgAh@IDK?o@Zi@Jm@TcAPSJs@NGH_Bh@YN_@Je@Dc@NYPe@JcA^g@F[Hs@^QLa@Nc@?o@Lq@Ta@VQ@uA^}An@kATs@Zw@NaAh@s@PGFIDS?eA`@_@R[b@s@Ng@@i@HU@g@HOCkAb@m@Nc@ZeBh@GDUF[?[FWJ[FqAh@FN?JG~A@jDCvACx@?r@FbAD|ARlCDtAJhABx@L~@@D@z@LfAd@~GTrBPpCj@rEHPRfAnAxFDh@Jn@J~@Hj@BZP`BFPN`ANxA^`DHRf@jDh@vEd@nGLv@N~CNx@NjCFLPnBTlEZPFh@`@jFDT`@tDBx@FJFjA\\xCDzANlBHjBHbATzEBtBFt@A|@AXS`ASp@GZEj@WbACb@c@pCMjA]xB]hBOJUDk@FgARqAJ]DQH[FMDs@PGA[FINSDo@@C?GGRpBRRJn@JTBRTbBRdCf@rEPNHh@Dj@Hh@BlAV~BZvBFv@FJ^`DPdAN`BBHJDF^B^AHIP_Ab@[V{@z@Y`@@RGHi@\\MD_@VKTAHJ~@f@rCV|BHJBb@\\jBN`BXdBTnBFRHz@DLH`BA|BHd@[LD@N?Xa@GgB?a@HICq@Ek@Ms@@OMi@CWDKGa@Y{ABOS{@@MSo@@MSkAMeA?MESCk@G[BIVKR?D@p@WZSVANOIcACMO{Bk@gBEWDABQj@c@b@Uf@a@@OGs@m@qDYoBKqAO_AUoBCo@DKh@SJAzAg@~Aa@bCy@`Bc@dBs@zBu@`@Qd@QpAYNIDMf@OHKpAUj@U^IHGx@Uj@Mp@[FI`@OlBa@~@[~@Sj@EfBy@XOJMx@_@DIRgBJcB?OCc@Kw@GO]oBKw@u@eESgB[cBUq@Kk@E_@@[\\iB@O?c@o@cDa@oDUmAe@gDI[O}AKk@{@mGo@}FD[BEp@Ql@S~Be@~Bm@XO\\IlCgAdAS~CkAnA]HK?KS{@WkB]mBS}B[sBI}@q@gESyBEs@HY?GMSSk@UwBWgAg@oDYeCCm@[cC@e@LSt@UfASx@YRKj@k@ZKj@S`@I~@]p@MPIh@M\\OH?|@Wf@SFAFDLI?KKk@Cm@W}A@GLAFJDN?FOo@KUCMBKAGO]KOEMQqA?GDCx@UHQDSYqBKoBo@mEOa@EWDQFEH@x@]JAtBk@l@KpAa@fAWZO~@Sj@QDUAMc@cCGs@MgAbA_@j@QTC`Aa@PEH?l@OH?f@WPE~@Ij@YNMhAe@H?t@YdF}AjAYVABDFUGoA]oCUgAIk@[qCCk@OaAPQt@Yh@K^GP??M_@uBKy@SiBGaAUmCGSISEN?F",
+			"resource_state": 3,
+			"summary_polyline": "i_niG|srcNtIxs@m^fKnNjkA{`B`g@ElN|Br^bLxy@~JzoAcE|XwN~BfJpq@iHnHnEb[IrGl@eFsCoUjDqAoAmIbC_C_CsSlv@kWZ_GeE_VZyE_H{f@nZgKuJwv@hU_IqBc^|OkEu@cHh\\qJmBiRbDmAuByN"
+		},
+		"max_speed": 11.5,
+		"average_watts": 69,
+		"kilojoules": 213.5,
+		"calories": 238
+	},
+	{
+		"id": 1256385709,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1423.8,
+		"moving_time": 262,
+		"elapsed_time": 287,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-11-01T13:35:10Z",
+		"start_date_local": "2017-11-01T09:35:10Z",
+		"gear_id": "b3064020",
+		"average_speed": 5.434,
+		"total_elevation_gain": 8.2,
+		"elev_high": 105.1,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1256385709",
+			"polyline": "ybmiGblwcNG?YPc@HOBEAD@Iu@Eq@G_@GOYwBSuBu@aFY}Di@yCIkB@gDb@oDJiBP{@Ds@QqACqCCQGOE{@CM[y@QsAWeAK}@G_A[iDSw@WkCEm@Mu@[{DYeAGm@[s@CM?m@Gu@",
+			"resource_state": 3,
+			"summary_polyline": "ybmiGblwcN{A\\aE}\\h@a[qHej@"
+		},
+		"max_speed": 8.7,
+		"average_watts": 99.9,
+		"kilojoules": 26.2,
+		"calories": 29.2
+	},
+	{
+		"id": 1255592608,
+		"name": "Evening Ride",
+		"description": null,
+		"distance": 2443,
+		"moving_time": 496,
+		"elapsed_time": 694,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-10-31T23:06:51Z",
+		"start_date_local": "2017-10-31T19:06:51Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.925,
+		"total_elevation_gain": 3.5,
+		"elev_high": 111,
+		"elev_low": 97.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.67,
+			-79.41
+		],
+		"end_latlng": [
+			43.65,
+			-79.42
+		],
+		"map": {
+			"id": "a1255592608",
+			"polyline": "gmoiGhotcNhAg@pBk@JAb@OPBBBLn@Df@?`@Bf@Jr@BDd@tCJz@@RARECJLL@hBa@XCz@YvAU~B{@`@EDDL~@R|@N|A\\lBT~CrAfK`@`ELr@LbAXvAHj@HbAL~@HnAp@~FR`C\\jBNdATvBVhBHVPfBZdC@^b@bCJhA?LHNFFTDTATGXC|Cw@vC_AHGdAY`EqAt@GNGXGb@Ub@C`AWN@Hf@?j@F\\@^DRJXB@LE",
+			"resource_state": 3,
+			"summary_polyline": "gmoiGhotcN`G}A~A~MlMoCrQjxAt[uHfA|D"
+		},
+		"max_speed": 7.7,
+		"average_watts": 51.8,
+		"kilojoules": 25.7,
+		"calories": 28.7
+	},
+	{
+		"id": 1255509268,
+		"name": "Afternoon Ride",
+		"description": null,
+		"distance": 1565,
+		"moving_time": 327,
+		"elapsed_time": 436,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-10-31T21:53:57Z",
+		"start_date_local": "2017-10-31T17:53:57Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.786,
+		"total_elevation_gain": 8.6,
+		"elev_high": 110.9,
+		"elev_low": 101.6,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.66,
+			-79.4
+		],
+		"end_latlng": [
+			43.67,
+			-79.41
+		],
+		"map": {
+			"id": "a1255509268",
+			"polyline": "q|miGjorcNeAn@GN@LFXHnAVlBBxADd@@NN^X|ANdA@b@AFSFi@Ha@NMH[JsBj@a@N_@?e@NcARUB_BX]Ls@\\QDKA_A`@e@Ng@TmBn@g@Ta@HO?AD?l@XhBBh@PdAPfBD~@ZrBRjB@T_@JaA`@o@Fs@RM?e@LG?}@RWJIDk@PSDSHCFc@HCF{Bh@eA`@UNGPFT",
+			"resource_state": 3,
+			"summary_polyline": "q|miGjorcNmA~@pBdRe^|JvBjTyT|H"
+		},
+		"max_speed": 8.2,
+		"average_watts": 87.3,
+		"kilojoules": 28.5,
+		"calories": 31.8
+	},
+	{
+		"id": 1254838508,
+		"name": "Morning Ride",
+		"description": null,
+		"distance": 1634.3,
+		"moving_time": 347,
+		"elapsed_time": 368,
+		"manual": false,
+		"type": "Ride",
+		"start_date": "2017-10-31T13:33:30Z",
+		"start_date_local": "2017-10-31T09:33:30Z",
+		"gear_id": "b3064020",
+		"average_speed": 4.71,
+		"total_elevation_gain": 9.5,
+		"elev_high": 105.7,
+		"elev_low": 96,
+		"timezone": "(GMT-05:00) America/Toronto",
+		"start_latlng": [
+			43.65,
+			-79.42
+		],
+		"end_latlng": [
+			43.66,
+			-79.41
+		],
+		"map": {
+			"id": "a1254838508",
+			"polyline": "icmiGxjwcNDd@DFa@NW@GA[}AMe@KW{@gHIcAQaAAWMs@MgBO}@GSQuAMwABQA{DB}AXeBJ{@H_BPq@?kAGKAMCy@IMGq@M}AMi@A_@WoBISK_AIs@Ck@YQCMOqAD]A[Gk@EKKEG[I_AAw@GwASiBEu@_@}AKgA@[G_@AFCC@c@Kw@Ea@]eCEOGq@Oq@OuAEQQQC_@BBEF",
+			"resource_state": 3,
+			"summary_polyline": "icmiGxjwcNu@|@u@{C_DiWx@cWeLy|@"
+		},
+		"max_speed": 9.8,
+		"average_watts": 84.7,
+		"kilojoules": 29.4,
+		"calories": 32.8
 	}
 ]
