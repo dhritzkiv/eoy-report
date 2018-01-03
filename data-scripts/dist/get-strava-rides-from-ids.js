@@ -78,6 +78,7 @@ const main = async () => {
     const filteredRideIds = rideIds.filter(id => !cachedIdsSet.has(id));
     const rides = await getRidesByIds(filteredRideIds);
     const allRides = [...cachedRides, ...rides];
+    rides.forEach(ride => Object.keys(ride).filter(key => key.startsWith("_")).forEach(key => delete ride[key]));
     const ridesJSON = JSON.stringify(allRides, null, "\t");
     await asyncWriteFile(outFile, ridesJSON, "utf8");
 };
