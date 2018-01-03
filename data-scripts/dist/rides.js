@@ -225,7 +225,7 @@ if (outFile) {
     const originalPointCount = ridesArray.reduce(reducePoints, 0);
     console.time("simplify rides");
     ridesArray.forEach((ride) => {
-        ride.points = simplify(ride.points.map(([x, y]) => ({ x, y })), 0.00009, true).map(({ x, y }) => [x, y]);
+        ride.points = simplify(ride.points.map(([x, y]) => ({ x, y })), 0.0001, true).map(({ x, y }) => [x, y]);
     });
     console.timeEnd("simplify rides");
     const finalPointCount = ridesArray.reduce(reducePoints, 0);
