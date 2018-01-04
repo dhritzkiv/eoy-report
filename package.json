@@ -5,7 +5,8 @@
   "author": "Daniel Hritzkiv",
   "scripts": {
     "serve": "node server",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "output": "node data-scripts/dist/output.js"
   },
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
