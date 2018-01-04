@@ -947,12 +947,18 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Top brewery cities by beer servings",
+				title: "Number of Toronto beers",
+				data: {
+					type: "numeric",
+					value: 363
+				}
+			},
+			{
+				title: "Top non-Toronto brewery cities (by beer servings)",
 				data: {
 					type: "percentage",
 					value: [
-						["Toronto (CA)", 327],
-						["Etobicoke (CA)", 36],
+						//["Toronto (CA)", 363],
 						["Auckland (NZ)", 23],
 						["Ottawa (CA)", 22],
 						["Guelph (CA)", 20],
@@ -990,11 +996,17 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Top brewery countries by beer servings",
+				title: "Number of Canadian beers",
+				data: {
+					type: "numeric",
+					value: 621
+				}
+			},
+			{
+				title: "Top non-Canadian brewery countries (by beer servings)",
 				data: {
 					type: "percentage",
 					value: [
-						["Canada", 621],
 						["Australia", 80],
 						["United States", 66],
 						["New Zealand", 58],
