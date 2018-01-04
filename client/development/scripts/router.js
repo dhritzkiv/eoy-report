@@ -278,6 +278,9 @@ const Router = AmpersandRouter.extend({
 								geojson: makeGeoJSONTextLabelForPoint("Newmarket", [-79.466667, 44.05], 0.5)
 							},
 							{
+								geojson: makeGeoJSONTextLabelForPoint("St. Catherines", [-79.233333, 43.183333], 0.5)
+							},
+							{
 								geojson: makeGeoJSONTextLabelForPoint("Niagara Falls", [-79.106667, 43.06], 0.5)
 							}
 						],
