@@ -277,6 +277,14 @@ section.beer {
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
+section.coffee {
+	$colorBackground: saturate(mix(#d0d0bc, lighten(#a38c72, 25%), 50%), 5%);
+	$colorText: darken(#a38c72, 25%);
+	$colorValue: #e36e5f;
+
+	@include section($colorText, $colorValue, $colorBackground);
+}
+
 [data-hook=viz-holder] {
 	svg {
 		margin: 0 auto;
