@@ -97,7 +97,7 @@ const daysInYear = moment(endTime).diff(moment(startTime), "days");
 const dailyRidesMap = new Map();
 const dailyRideCountsMap = new utils_1.IncrementalMap();
 const dailyRideDistancesMap = new utils_1.IncrementalMap();
-for (let i = 1; i < daysInYear; i++) {
+for (let i = 1; i <= daysInYear; i++) {
     if (moment(startTime).dayOfYear(i).isAfter(new Date())) {
         break;
     }
@@ -234,6 +234,12 @@ if (outFile) {
     console.log("outputed file");
     console.groupEnd();
 }
+console.log();
+console.group("Top speeds");
+ridesWithMaps.sort(({ max_speed: a }, { max_speed: b }) => b - a)
+    .slice(0, 20)
+    .forEach((ride, index) => console.log("%d. ride %s top speed: %fkm/h", index + 1, ride.id, ride.max_speed * 3600 / 1000));
+console.groupEnd();
 const peakDistanceMap = new Map();
 ridesWithMaps.forEach(ride => {
     let maxDistance = -Number.MAX_VALUE;
@@ -251,6 +257,54 @@ ridesWithMaps.forEach(ride => {
     });
     peakDistanceMap.set(ride, maxDistance);
 });
+const weeksMap = new utils_1.IncrementalMap();
+const weeksDistanceMap = new utils_1.IncrementalMap();
+const monthsMap = new utils_1.IncrementalMap();
+const monthsDistanceMap = new utils_1.IncrementalMap();
+const dayOfWeekMap = new utils_1.IncrementalMap();
+const dayOfWeekDistanceMap = new utils_1.IncrementalMap();
+const dayOfWeekCountMap = new utils_1.IncrementalMap();
+rides.forEach(ride => {
+    const dayOfWeekKey = moment(ride.start_date_local_date).format("dddd");
+    //const dateKey = ride.start_date_local_date.toISOString().slice(0, 10);
+    const weekKey = moment(ride.start_date_local_date).format("YYYY-w");
+    const monthKey = ride.start_date_local_date.getMonth();
+    dayOfWeekMap.increment(dayOfWeekKey);
+    dayOfWeekDistanceMap.increment(dayOfWeekKey, ride.distance);
+    weeksMap.increment(weekKey);
+    weeksDistanceMap.increment(weekKey, ride.distance);
+    monthsMap.increment(monthKey);
+    monthsDistanceMap.increment(monthKey, ride.distance);
+});
+for (let i = 0; i < daysInYear; i++) {
+    const day = moment(startTime).add(i, "days");
+    const dayOfWeekKey = day.format("dddd");
+    dayOfWeekCountMap.increment(dayOfWeekKey);
+}
+console.log();
+console.group("Average rides per day of week");
+[...dayOfWeekMap]
+    .map(([day, count]) => [day, count / (dayOfWeekCountMap.get(day) || 1)])
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([day, average]) => console.log(`${day}: ${average}`));
+console.groupEnd();
+console.log();
+console.group("Average ride distance per day of week");
+[...dayOfWeekDistanceMap]
+    .map(([day, count]) => [day, count / (dayOfWeekCountMap.get(day) || 1)])
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([day, average]) => console.log(`${day}: ${average / 1000}km`));
+console.groupEnd();
+console.log();
+console.log("Rides by week:", [...weeksMap.values()]);
+console.log("Distance by week:", [...weeksDistanceMap.values()].map(d => d / 1000));
+console.log();
+console.group("Rides by month");
+[...monthsMap].forEach(([month, value]) => console.log(`${month}: ${value}`));
+console.groupEnd();
+console.group("Distance by month");
+[...monthsDistanceMap].forEach(([month, value]) => console.log(`${month}: ${value / 1000}km`));
+console.groupEnd();
 console.log();
 console.group("Top 10 rides by distance from start");
 [...peakDistanceMap]
@@ -299,6 +353,7 @@ const {
     maxStreakCoffees: weekendMaxStreakCoffees,
     maxDrySpell: weekendMaxDrySpell
 } = calculateStreaksForData(weekendValues);*/
+console.log();
 console.group("Basic stats by rides");
 console.log("total rides recorded: %d", rides.length);
 console.log("manually enterred rides: %d", rides.filter(({ manual }) => manual).length);
@@ -306,9 +361,10 @@ console.log("mean daily rides", simple_statistics_1.mean(dailyRideCounts));
 console.log("mean daily rides (dense)", simple_statistics_1.mean(dailyRideCountsDense));
 console.log("median daily rides", simple_statistics_1.median(dailyRideCounts));
 console.log("median daily rides (dense)", simple_statistics_1.median(dailyRideCountsDense));
-console.log("total distance: %fkm", simple_statistics_1.sum(dailyRideCountsDense) / 1000);
+console.log("total distance: %fkm", simple_statistics_1.sum(dailyRideDistancesDense) / 1000);
 console.log("average daily distance (sparse): %fkm", simple_statistics_1.mean(dailyRideDistances) / 1000);
-console.log("average daily distance: %fkm", simple_statistics_1.mean(dailyRideCountsDense) / 1000);
+console.log("average daily distance: %fkm", simple_statistics_1.mean(dailyRideDistancesDense) / 1000);
+console.log("total elevation gain: %fm", simple_statistics_1.sum(ridesWithMaps.map(ride => ride.total_elevation_gain)));
 console.groupEnd();
 console.log();
 console.group("Basic stats by days");
