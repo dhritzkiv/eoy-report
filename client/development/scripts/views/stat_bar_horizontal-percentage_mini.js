@@ -129,10 +129,10 @@ const HorizonatlBarStatView = StatView.extend({
 			.attr("x", xOffset)*/
 			.attr("rx", borderRadius)
 			.attr("ry", borderRadius)
-			.transition()
+			/*.transition()
 			.ease(d3.easeQuadInOut)
 			.duration(400)
-			.delay((d, i) => i * 8)
+			.delay((d, i) => i * 8)*/
 			.attr("width", visibleBarX);
 
 			visibleBar
