@@ -245,7 +245,10 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
-								uri: "/data/lake-ontario-coastline.geojson"
+								uri: "/data/toronto-green.geojson"
+							},
+							{
+								uri: "/data/gtha-waters.geojson"
 							},
 							{
 								uri: "/data/ytz-airport-grounds.geojson"
