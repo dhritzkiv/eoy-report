@@ -200,21 +200,42 @@ const Router = AmpersandRouter.extend({
 				title: "Total distance (km)",
 				data: {
 					type: "numeric",
-					value: 3602
+					value: 3662
 				}
 			},
 			{
 				title: "Total rides",
 				data: {
 					type: "numeric",
-					value: 691
+					value: 778
 				}
 			},
 			{
 				title: "Total time (hrs)",
 				data: {
 					type: "numeric",
-					value: 150.1
+					value: 183.4
+				}
+			},
+			{
+				title: "Number of riding days",
+				data: {
+					type: "numeric",
+					value: 290
+				}
+			},
+			{
+				title: "Longest riding streak (days)",
+				data: {
+					type: "numeric",
+					value: 35
+				}
+			},
+			{
+				title: "Longest no-riding streak (days)",
+				data: {
+					type: "numeric",
+					value: 9
 				}
 			},
 			{
@@ -267,20 +288,6 @@ const Router = AmpersandRouter.extend({
 				},
 				wide: "xfull",
 				tall: "y3"
-			},
-			{
-				title: "Top daily distance (km)",
-				data: {
-					type: "numeric",
-					value: 114.69
-				}
-			},
-			{
-				title: "Top weekly distance (km)",
-				data: {
-					type: "numeric",
-					value: 210.1
-				}
 			},
 			{
 				title: "Sydney rides",
@@ -355,17 +362,45 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Top monthly distance (km)",
+				title: "Top daily distance (km)",
 				data: {
 					type: "numeric",
-					value: 401.2
+					value: 114.69
+				}
+			},
+			{
+				title: "Top weekly distance (km)",
+				data: {
+					type: "numeric",
+					value: 253.6
+				}
+			},
+			{
+				title: "Greatest peak distance from ride start (km)",
+				data: {
+					type: "numeric",
+					value: 67.58
+				}
+			},
+			{
+				title: "Median daily distance (km)",
+				data: {
+					type: "numeric",
+					value: 4.54
 				}
 			},
 			{
 				title: "Total elevation gain (m)",
 				data: {
 					type: "numeric",
-					value: 6524
+					value: 15982
+				}
+			},
+			{
+				title: "Est. total energy (kcal)",
+				data: {
+					type: "numeric",
+					value: 64100
 				}
 			},
 			{
@@ -420,18 +455,126 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Est. total energy (cal)",
-				data: {
-					type: "numeric",
-					value: 64100
-				}
-			},
-			{
 				title: "Est. peak speed (km/h)",
 				data: {
 					type: "numeric",
-					value: 70
+					value: 68.76
 				}
+			},
+			{
+				title: "Highest average ride speed (km/h)",
+				data: {
+					type: "numeric",
+					value: 32.70
+				}
+			},
+			{
+				title: "Lowest average ride speed (km/h)",
+				data: {
+					type: "numeric",
+					value: 8.41
+				}
+			},
+			{
+				title: "Median average ride speed (km/h)",
+				data: {
+					type: "numeric",
+					value: 18.88
+				}
+			},
+			{
+				title: "Rides per month",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 56},
+						{label: "Feb", value: 35},
+						{label: "Mar", value: 42},
+						{label: "Apr", value: 71},
+						{label: "May", value: 86},
+						{label: "Jun", value: 74},
+						{label: "Jul", value: 83},
+						{label: "Aug", value: 91},
+						{label: "Sep", value: 69},
+						{label: "Oct", value: 68},
+						{label: "Nov", value: 63},
+						{label: "Dec", value: 33}
+					]
+				},
+				wide: "x2",
+				tall: "y1"
+			},
+			{
+				title: "Distance per month (km)",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 122.14},
+						{label: "Feb", value: 180.13},
+						{label: "Mar", value: 112.61},
+						{label: "Apr", value: 496.87},
+						{label: "May", value: 274.00},
+						{label: "Jun", value: 414.51},
+						{label: "Jul", value: 456.60},
+						{label: "Aug", value: 529.50},
+						{label: "Sep", value: 352.37},
+						{label: "Oct", value: 379.61},
+						{label: "Nov", value: 185.99},
+						{label: "Dec", value: 157.50}
+					]
+				},
+				wide: "x2",
+				tall: "y1"
+			},
+			{
+				title: "Weekly rides",
+				wide: "x2",
+				data: {
+					type: "line",
+					value: [11, 10, 15, 12, 19, 1, 14, 8, 1, 13, 1, 16, 15, 18, 11, 20, 15, 22, 20, 21, 18, 22, 16, 16, 15, 18, 21, 19, 20, 15, 21, 17, 27, 15, 21, 19, 18, 15, 11, 21, 12, 17, 13, 13, 14, 17, 14, 14, 15, 4, 10]
+				}
+			},
+			{
+				title: "Weekly distances",
+				wide: "x2",
+				data: {
+					type: "line",
+					value: [25.6601, 24.1133, 33.49, 21.482, 45.0935, 38.4778, 35.39, 25.96, 52.58, 32.6422, 2.211, 52.1354, 81.7957, 133.04, 59.13, 130.67, 81.3484, 89.9582, 87.15, 57.0851, 57.10, 94.3857, 67.05, 95.90, 150.1555, 44.4894, 99.49, 112.7891, 96.3119, 121.32, 86.04, 69.42, 253.65, 53.3013, 91.79, 120.86, 97.7202, 75.0552, 42.3963, 176.8607, 78.162, 43.8793, 71.05, 55.21, 39.8437, 36.7943, 41.93, 44.82, 69.8195, 34.45, 30.2618]
+				}
+			},
+			{
+				title: "Average rides per day of week",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Mon", value: 2.23},
+						{label: "Tue", value: 2.17},
+						{label: "Wed", value: 2.58},
+						{label: "Thr", value: 2.27},
+						{label: "Fri", value: 2.33},
+						{label: "Sat", value: 1.83},
+						{label: "Sun", value: 1.42}
+					]
+				},
+				wide: "x2",
+				tall: "y1"
+			},
+			{
+				title: "Average distance per day of week",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Mon", value: 8.40},
+						{label: "Tue", value: 5.22},
+						{label: "Wed", value: 7.64},
+						{label: "Thr", value: 5.38},
+						{label: "Fri", value: 6.69},
+						{label: "Sat", value: 19.82},
+						{label: "Sun", value: 17.29}
+					]
+				},
+				wide: "x2",
+				tall: "y1"
 			}
 		]);
 
