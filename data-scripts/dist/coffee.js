@@ -5,6 +5,7 @@ const assert = require("assert");
 const minimist = require("minimist");
 const simple_statistics_1 = require("simple-statistics");
 const moment = require("moment");
+const utils_1 = require("./utils");
 class NumberArray extends Array {
 }
 class NumberMap extends Map {
@@ -64,6 +65,18 @@ const data = lines
     value: Number(value)
 }))
     .sort(({ date: a }, { date: b }) => Number(a) - Number(b));
+console.log(data[0].date);
+console.log(data[data.length - 1].date);
+const startTime = moment(data[0].date).startOf("day").startOf("year");
+const endTime = moment(data[data.length - 1].date).startOf("day").endOf("year");
+const daysInYear = 365; //endTime.diff(moment(startTime), "days");
+const dayOfWeekCountMap = new utils_1.IncrementalMap();
+console.log("daysInYear", daysInYear);
+for (let i = 0; i < daysInYear; i++) {
+    const day = moment(startTime).add(i, "days");
+    const dayOfWeekKey = day.format("dddd");
+    dayOfWeekCountMap.increment(dayOfWeekKey);
+}
 /*const [{date: firstDate}] = data;
 const [{date: lastDate}] = [...data].reverse();
 const dateAfterLast = new Date(lastDate);
@@ -93,15 +106,24 @@ const moreCoffeeThanUsualDays = data.filter(({ value }) => value > modeCoffees);
 const coffeesByDayOfWeekSorted = getCoffeesByDayOfWeek(data)
     .map((value, index) => [moment().day(index).format("dddd"), value])
     .sort(([, a], [, b]) => b - a);
-const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];
-const dayOfLeastCoffees = coffeesByDayOfWeekSorted[coffeesByDayOfWeekSorted.length - 1];
-console.log("Coffees by day of week:");
+//const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];
+//const dayOfLeastCoffees = coffeesByDayOfWeekSorted[coffeesByDayOfWeekSorted.length - 1];
+console.log();
+console.group("Coffees by day of week:");
 coffeesByDayOfWeekSorted
     .forEach(([day, val]) => console.log(`${day}: ${val}`));
+console.groupEnd();
+console.log();
+console.group("Average coffees by day of week:");
+coffeesByDayOfWeekSorted
+    .map(([day, val]) => [day, val / (dayOfWeekCountMap.get(day) || 1)])
+    .forEach(([day, val]) => console.log(`${day}: ${val}`));
+console.groupEnd();
 const { maxStreakDays: totalMaxStreakDays, maxStreakCoffees: totalMaxStreakCoffees, maxDrySpell: totalMaxDrySpell } = calculateStreaksForData(dayValues);
 const { maxStreakDays: weekdayMaxStreakDays, maxStreakCoffees: weekdayMaxStreakCoffees, maxDrySpell: weekdayMaxDrySpell } = calculateStreaksForData(weekdayValues);
 const { maxStreakDays: weekendMaxStreakDays, maxStreakCoffees: weekendMaxStreakCoffees, maxDrySpell: weekendMaxDrySpell } = calculateStreaksForData(weekendValues);
-console.log("\n** Stats **");
+console.log();
+console.log("** Stats **");
 console.log("average", totalCount / data.length);
 console.log("average (weekdays)", weekdayCount / weekdayDays.length);
 console.log("average (weekends)", weekendCount / weekendDays.length);
@@ -125,8 +147,8 @@ console.log("total days without coffee", coffeelessDays.length);
 console.log("total weekdays without coffee", coffeelessWeekdays.length);
 console.log("total weekends without coffee", coffeelessWeekends.length);
 console.log("total days with more coffee than usual", moreCoffeeThanUsualDays.length);
-console.log("day of week with most coffees", dayOfMostCoffees.join(": "));
-console.log("day of week with least coffees", dayOfLeastCoffees.join(": "));
+//console.log("day of week with most coffees", dayOfMostCoffees.join(": "));
+//console.log("day of week with least coffees", dayOfLeastCoffees.join(": "));
 console.log("\n** Streaks **");
 console.log("longest streak (days)", totalMaxStreakDays);
 console.log("longest streak (coffees)", totalMaxStreakCoffees);
