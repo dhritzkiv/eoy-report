@@ -285,6 +285,14 @@ section.coffee {
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
+section.media {
+	$colorBackground: rgb(198, 195, 211);
+	$colorText: rgb(73, 45, 160);
+	$colorValue: darken(rgb(224, 121, 161), 12.5%);
+
+	@include section($colorText, $colorValue, $colorBackground);
+}
+
 [data-hook=viz-holder] {
 	svg {
 		margin: 0 auto;

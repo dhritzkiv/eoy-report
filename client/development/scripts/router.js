@@ -9,6 +9,7 @@ import AmpersandRouter from "ampersand-router";
 import CoffeeStatsPage from "./views/stats_coffee";
 import CyclingStatsPage from "./views/stats_cycling";
 import BeerStatsPage from "./views/stats_beer";
+import MediaStatsPage from "./views/stats_media";
 //import HealthStatsPage from "./views/stats_health";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
@@ -32,7 +33,7 @@ const Router = AmpersandRouter.extend({
 		"coffee": "coffee",
 		"cycling": "cycling",
 		"walking": "walking",
-		"audio-video": "av",
+		"media": "media",
 		"beer": "beer",
 		"health": "health"
 	},
@@ -1038,6 +1039,150 @@ const Router = AmpersandRouter.extend({
 	},
 	health() {
 		const view = new HealthStatsPage({});
+
+		this.trigger("newPage", view);
+		this.trigger("navigation");
+	},
+	media() {
+		const view = new MediaStatsPage({
+			name: "media"
+		});
+
+		view.stats.add([
+			{
+				title: "Total films",
+				data: {
+					type: "numeric",
+					value: 78
+				}
+			},
+			{
+				title: "Films seen in theatres",
+				data: {
+					type: "numeric",
+					value: 27
+				}
+			},
+			{
+				title: "Films seen on Netflix",
+				data: {
+					type: "numeric",
+					value: 27
+				}
+			},
+			{
+				title: "Films seen on a television",
+				data: {
+					type: "numeric",
+					value: 4
+				}
+			},
+			{
+				title: "Films seen while on a plane",
+				data: {
+					type: "numeric",
+					value: 2
+				}
+			},
+			{
+				title: "Films seen by myself",
+				data: {
+					type: "numeric",
+					value: 28
+				}
+			},
+			{
+				title: "Longest run time (minutes)",
+				data: {
+					type: "numeric",
+					value: 187
+				}
+			},
+			{
+				title: "Films by day of week",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Mon", value: 15},
+						{label: "Tue", value: 17},
+						{label: "Wed", value: 11},
+						{label: "Thu", value: 6},
+						{label: "Fri", value: 7},
+						{label: "Sat", value: 5},
+						{label: "Sun", value: 17}
+					]
+				},
+				wide: "x2"
+			},
+			{
+				title: "Longest dry spell (days)",
+				data: {
+					type: "numeric",
+					value: 34
+				}
+			},
+			{
+				title: "Longest streak (days)",
+				data: {
+					type: "numeric",
+					value: 3
+				}
+			},
+			{
+				title: "Films by month",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 0},
+						{label: "Feb", value: 5},
+						{label: "Mar", value: 6},
+						{label: "Apr", value: 4},
+						{label: "May", value: 5},
+						{label: "Jun", value: 4},
+						{label: "Jul", value: 5},
+						{label: "Aug", value: 7},
+						{label: "Sep", value: 10},
+						{label: "Oct", value: 14},
+						{label: "Nov", value: 11},
+						{label: "Dec", value: 7}
+					]
+				},
+				wide: "x2"
+			},
+			{
+				title: "Top release years (films)",
+				data: {
+					type: "percentage",
+					value: [
+						[2017, 27],
+						[2016, 23],
+						[2015, 4],
+						[2014, 3],
+						[1999, 3],
+						[2002, 2],
+						[1984, 2],
+						[1982, 2]
+					]
+				},
+				tall: "y2"
+			},
+			{
+				title: "Top cinemas (films)",
+				data: {
+					type: "percentage",
+					value: [
+						["Cineplex - Varsity & VIP", 10],
+						["Cineplex - Scotiabank Theatre", 9],
+						["TIFF Lightbox", 3],
+						["Event Cinemas - Auckland CBD", 2],
+						["Cineplex - Yonge-Dundas", 1],
+						["Dendy Cinemas - Newtown ", 1],
+						["Rialto Cinemas - Auckland", 1]
+					]
+				},
+				tall: "y2"
+			}
+		]);
 
 		this.trigger("newPage", view);
 		this.trigger("navigation");
