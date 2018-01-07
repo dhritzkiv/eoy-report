@@ -136,14 +136,14 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Longest dry streak (days)",
+				title: "Longest dry spell (days)",
 				data: {
 					type: "numeric",
 					value: 2
 				}
 			},
 			{
-				title: "Longest weekend dry streak (days)",
+				title: "Longest weekend dry spell (days)",
 				data: {
 					type: "numeric",
 					value: 7
@@ -788,7 +788,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Longest dry streak",
+				title: "Longest dry spell",
 				data: {
 					type: "numeric",
 					value: 2
@@ -1180,7 +1180,7 @@ const Router = AmpersandRouter.extend({
 						["TIFF Lightbox", 3],
 						["Event Cinemas - Auckland CBD", 2],
 						["Cineplex - Yonge-Dundas", 1],
-						["Dendy Cinemas - Newtown ", 1],
+						["Dendy Cinemas - Newtown", 1],
 						["Rialto Cinemas - Auckland", 1]
 					]
 				},
