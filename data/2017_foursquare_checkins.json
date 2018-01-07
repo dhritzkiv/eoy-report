@@ -1353,7 +1353,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "585169da15fb43799f1395f6",
@@ -2390,7 +2392,9 @@
 			"lng": 151.275841,
 			"lat": -33.889429
 		},
-		"venue_cc": "AU"
+		"venue_cc": "AU",
+		"venue_city": "Sydney",
+		"venue_state": "NSW"
 	},
 	{
 		"venue_id": "4b058763f964a520848f22e3",
@@ -3450,7 +3454,7 @@
 	},
 	{
 		"venue_id": "58952b4c4ca49b2aa57393e6",
-		"venue_name": "New Zealand natural",
+		"venue_name": "New Zealand Natural",
 		"venue_categories": [
 			"Ice Cream Shop"
 		],
@@ -3460,6 +3464,8 @@
 			"lat": -36.842457
 		},
 		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland",
 		"with": [
 			"Yaryna"
 		]
@@ -3681,6 +3687,8 @@
 			"lat": -36.8503226458592
 		},
 		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland",
 		"with": [
 			"Yaryna"
 		]
@@ -3975,7 +3983,9 @@
 			"lng": 174.8469603895178,
 			"lat": -36.890897052486935
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "570f3fdf498ec7dbd47e70e8",
@@ -3988,7 +3998,9 @@
 			"lng": 174.763687,
 			"lat": -36.843377
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "5171e0d4e4b0158bd67e48e2",
@@ -4061,7 +4073,9 @@
 			"lng": 174.75890623000635,
 			"lat": -36.86836980249405
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "4b4ab64df964a5205e8d26e3",
@@ -4119,7 +4133,9 @@
 			"lng": 174.74613059744718,
 			"lat": -36.85629022374343
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "4b2224d0f964a520fb4324e3",
@@ -4162,7 +4178,9 @@
 			"lng": 174.76076762128392,
 			"lat": -36.86531004381397
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "4d6222635c39b1f7c486174a",
@@ -4190,7 +4208,9 @@
 			"lng": 174.76345949133488,
 			"lat": -36.84279008558248
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "53fa803c498e0d297f341462",
@@ -4234,6 +4254,7 @@
 			"lat": -36.857964932819854
 		},
 		"venue_cc": "NZ",
+		"venue_city": "Auckland",
 		"venue_state": "Auckland"
 	},
 	{
@@ -4247,7 +4268,9 @@
 			"lng": 174.76023213842694,
 			"lat": -36.857433462982264
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "4b5797d5f964a520153928e3",
@@ -4305,7 +4328,9 @@
 			"lng": 174.763631,
 			"lat": -36.850451
 		},
-		"venue_cc": "NZ"
+		"venue_cc": "NZ",
+		"venue_city": "Auckland",
+		"venue_state": "Auckland"
 	},
 	{
 		"venue_id": "50b591c6e4b09eef28771ea2",
@@ -5071,7 +5096,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4b6a1058f964a52028c52be3",
@@ -6303,7 +6330,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "573409b8498e8b2de4feee14",
@@ -6978,7 +7007,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4adcfd7cf964a5203e6321e3",
@@ -7261,7 +7292,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "55208e01498e31eeac5ff582",
@@ -8030,7 +8063,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4bb660e06edc76b0e2d7301c",
@@ -8433,7 +8468,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "5929ae709deb7d7d29b7ad46",
@@ -8995,7 +9032,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "573409b8498e8b2de4feee14",
@@ -10604,7 +10643,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "584b4631730a923792576a68",
@@ -10647,7 +10688,9 @@
 			"lng": -79.422918,
 			"lat": 43.649446
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4c9a50f63bc3199ca87cb162",
@@ -11365,7 +11408,9 @@
 			"lng": -79.3989031071905,
 			"lat": 43.652564476551404
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "51438b33e4b0a40e33fe5e77",
@@ -11558,7 +11603,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "582df6be9615ee27a98091ce",
@@ -11989,7 +12036,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "582df6be9615ee27a98091ce",
@@ -12335,7 +12384,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "573409b8498e8b2de4feee14",
@@ -12699,7 +12750,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4e235b5cd22d0a3f5a0bc0a2",
@@ -13405,7 +13458,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "573409b8498e8b2de4feee14",
@@ -13433,7 +13488,9 @@
 			"lng": -80.04693056837675,
 			"lat": 43.97758736573123
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Orangeville",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4d697fb54c4637041358a3b3",
@@ -13734,7 +13791,9 @@
 			"lng": -79.41658708002389,
 			"lat": 43.644518546968264
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "542ade6a498e0b0d2595d9f1",
@@ -13807,7 +13866,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "573cf7fb498ea0619b6c64dd",
@@ -14165,7 +14226,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4aedc9d1f964a520ecce21e3",
@@ -14492,7 +14555,9 @@
 			"lng": -122.8627405205272,
 			"lat": 49.049942549812336
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Crescent Beach",
+		"venue_state": "BC"
 	},
 	{
 		"venue_id": "4bf9d57e8f32ef3b12c504aa",
@@ -14940,7 +15005,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4bdacb5a2a3a0f473e00acb6",
@@ -16317,7 +16384,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "55569b59498ec5aeca07911e",
@@ -16651,7 +16720,9 @@
 			"lng": -79.422918,
 			"lat": 43.649446
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "55f83dc7498e828911fa04c5",
@@ -16664,7 +16735,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "582df6be9615ee27a98091ce",
@@ -17157,7 +17230,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "58bc5afce9233e59f52901e6",
@@ -18241,7 +18316,9 @@
 			"lng": -79.439794807971,
 			"lat": 43.65973368208865
 		},
-		"venue_cc": "CA"
+		"venue_cc": "CA",
+		"venue_city": "Toronto",
+		"venue_state": "ON"
 	},
 	{
 		"venue_id": "4aec5d5bf964a5205ec621e3",
