@@ -19,6 +19,7 @@
     "ampersand-view": "^10.0.2",
     "ampersand-view-switcher": "^2.1.0",
     "async": "^2.6.0",
+    "csvtojson": "^1.1.9",
     "d3": "^4.12.2",
     "ease-component": "^1.0.0",
     "haversine": "^1.1.0",
