@@ -13,10 +13,6 @@ assert(Number.isFinite(year));
 const configRaw = fs.readFileSync(configPath, "utf8");
 const config = JSON.parse(configRaw);
 const foursquare = Foursquare(config);
-;
-;
-;
-;
 const asyncGetCheckins = (opts) => new Promise((resolve, reject) => {
     foursquare.Users.getCheckins(null, opts, config.secrets.accessToken, (err, data) => {
         if (err) {
@@ -33,11 +29,18 @@ const getCheckinsForYear = async () => {
     let isDone = false;
     const checkins = [];
     const formatCheckinVenue = (checkin) => ({
-        id: checkin.venue.id,
-        name: checkin.venue.name,
-        categories: checkin.venue.categories.map(cat => cat.name),
+        venue_id: checkin.venue.id,
+        venue_name: checkin.venue.name,
+        venue_categories: checkin.venue.categories.map(cat => cat.name),
         date: new Date(checkin.createdAt * 1000),
-        point: [checkin.venue.location.lng, checkin.venue.location.lat]
+        venue_location: {
+            lng: checkin.venue.location.lng,
+            lat: checkin.venue.location.lat
+        },
+        venue_cc: checkin.venue.location.cc,
+        venue_city: checkin.venue.location.city,
+        venue_state: checkin.venue.location.state,
+        with: checkin.with ? checkin.with.map(w => w.firstName) : undefined
     });
     while (!isDone) {
         const data = await asyncGetCheckins({

@@ -5,7 +5,7 @@ import * as fs from "fs";
 import * as assert from "assert";
 import * as minimist from "minimist";
 import * as moment from "moment";
-import { IncrementalMap } from "./utils";
+import { IncrementalMap, SimpleFoursquareCheckin as SimpleCheckin} from "./utils";
 import * as Foursquare from "node-foursquare";
 
 const {_: [outFile], c: configPath, year: yearString} = minimist(process.argv.slice(2));
@@ -22,31 +22,22 @@ const configRaw = fs.readFileSync(configPath, "utf8");
 const config = JSON.parse(configRaw);
 const foursquare = Foursquare(config);
 
-
-
 interface RawVenue {
 	id: string;
 	name: string;
-	categories: string[];
-	location: {lng: number, lat: number}
-};
+	categories: {name: string}[];
+	location: {lng: number, lat: number, cc: string, city: string, state: string}
+}
 
 interface RawCheckin {
 	venue: RawVenue;
 	createdAt: number;
-};
+	with?: {firstName: string}[];
+}
 
 interface RawCheckinResponse {
 	checkins: {items: RawCheckin[]};
-};
-
-interface SimpleCheckin {
-	id: string;
-	name: string;
-	categories: string[];
-	date: Date;
-	point: {lat: number, lng: number}[];
-};
+}
 
 const asyncGetCheckins = (opts) => new Promise<RawCheckinResponse>((resolve, reject) => {
 	foursquare.Users.getCheckins(null, opts, config.secrets.accessToken, (err, data: RawCheckinResponse) => {
@@ -66,12 +57,19 @@ const getCheckinsForYear = async () => {
 	let isDone = false;
 	const checkins: SimpleCheckin[] = [];
 
-	const formatCheckinVenue = (checkin) => ({
-		id: checkin.venue.id,
-		name: checkin.venue.name,
-		categories: checkin.venue.categories.map(cat => cat.name),
+	const formatCheckinVenue = (checkin: RawCheckin): SimpleCheckin => ({
+		venue_id: checkin.venue.id,
+		venue_name: checkin.venue.name,
+		venue_categories: checkin.venue.categories.map(cat => cat.name),
 		date: new Date(checkin.createdAt * 1000),//first date
-		point: [checkin.venue.location.lng, checkin.venue.location.lat]
+		venue_location: {
+			lng: checkin.venue.location.lng,
+			lat: checkin.venue.location.lat
+		},
+		venue_cc: checkin.venue.location.cc,
+		venue_city: checkin.venue.location.city,
+		venue_state: checkin.venue.location.state,
+		with: checkin.with ? checkin.with.map(w => w.firstName) : undefined
 	});
 
 	while (!isDone) {
