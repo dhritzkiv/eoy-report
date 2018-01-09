@@ -30,11 +30,11 @@ const main = async () => {
         geometry: {
             type: "MultiLineString",
             coordinates: walks
-                .filter(ride => ride.points)
-                .filter(ride => (!boundary.length ||
-                ride.points.every(tuple => tuple.every((a, i) => (a > boundary[0][i] &&
+                .filter(walk => walk.points)
+                .filter(walk => (!boundary.length ||
+                walk.points.every(tuple => tuple.every((a, i) => (a > boundary[0][i] &&
                     a < boundary[1][i])))))
-                .map(ride => ride.points)
+                .map(walk => walk.points)
         }
     };
     const geojson = {

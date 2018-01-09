@@ -44,15 +44,15 @@ const main = async () => {
 		geometry: {
 			type: "MultiLineString",
 			coordinates: <LatLonTuple[][]> walks
-			.filter(ride => ride.points)
-			.filter(ride => (
+			.filter(walk => walk.points)
+			.filter(walk => (
 				!boundary.length ||
-				ride.points.every(tuple => tuple.every((a, i) => (
+				walk.points.every(tuple => tuple.every((a, i) => (
 					a > boundary[0][i] &&
 					a < boundary[1][i]
 				)))
 			))
-			.map(ride => ride.points)
+			.map(walk => walk.points)
 		}
 	};
 
