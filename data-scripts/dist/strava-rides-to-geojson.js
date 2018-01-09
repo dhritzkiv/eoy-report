@@ -22,29 +22,6 @@ const asyncWriteFile = util_1.promisify(fs.writeFile);
 const main = async () => {
     const inJSON = await asyncReadFile(inFile, "utf8");
     const rides = JSON.parse(inJSON);
-    /*const features = rides
-    .filter(ride => ride.points)
-    .filter(ride => (
-        !boundary.length ||
-        ride.points.every(tuple => tuple.every((a, i) => (
-            a > boundary[0][i] &&
-            a < boundary[1][i]
-        )))
-    ))
-    .map(ride => {
-        const feature: GeoJSONFeature = {
-            type: "Feature",
-            properties: {
-                id: ride.id
-            },
-            geometry: {
-                type: "LineString",
-                coordinates: <LatLonTuple[]>ride.points.slice(0)
-            }
-        };
-
-        return feature;
-    });*/
     const feature = {
         type: "Feature",
         properties: {
