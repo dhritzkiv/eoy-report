@@ -10,6 +10,7 @@ import CoffeeStatsPage from "./views/stats_coffee";
 import CyclingStatsPage from "./views/stats_cycling";
 import BeerStatsPage from "./views/stats_beer";
 import MediaStatsPage from "./views/stats_media";
+import WalkingStatsPage from "./views/stats_walking";
 //import HealthStatsPage from "./views/stats_health";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
@@ -1035,6 +1036,200 @@ const Router = AmpersandRouter.extend({
 				},
 				wide: "x1",
 				tall: "y3"
+			}
+		]);
+
+		this.trigger("newPage", view);
+		this.trigger("navigation");
+	},
+	walking() {
+		const view = new WalkingStatsPage({
+			name: "walking"
+		});
+
+		view.stats.add([
+			{
+				title: "Toronto walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/toronto-green.geojson"
+							},
+							{
+								uri: "/data/gtha-waters.geojson"
+							},
+							{
+								uri: "/data/ytz-airport-grounds.geojson"
+							},
+							{
+								uri: "/data/yyz-airport-grounds.geojson"
+							},
+							{
+								uri: "/data/toronto-subway.geojson"
+							},
+							{
+								uri: "/data/2017_walks_toronto.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Toronto", [-79.383558, 43.652503])
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Hamilton", [-79.866091, 43.250021], 0.75)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Mississauga", [-79.65, 43.6], 0.75)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Oakville", [-79.687666, 43.467517], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Burlington", [-79.8, 43.316667], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Vaughan", [-79.5, 43.83333], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Newmarket", [-79.466667, 44.05], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("St. Catherines", [-79.233333, 43.183333], 0.5)
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Niagara Falls", [-79.106667, 43.06], 0.5)
+							}
+						],
+						center: [-79.383558, 43.652503],
+						minZoom: 18,
+						startZoom: 20
+					}
+				},
+				wide: "xfull",
+				tall: "y3"
+			},
+			{
+				title: "Sydney walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/sydney-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_walks_sydney.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Sydney", [151.212222, -33.868056])
+							}
+						],
+						center: [151.22, -33.8715],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Melbourne walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/melbourne-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_walks_melbourne.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Melbourne", [144.963, -37.814])
+							}
+						],
+						center: [144.963, -37.837],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Auckland walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/auckland-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_walks_auckland.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Auckland", [174.765, -36.847])
+							}
+						],
+						center: [174.795, -36.85],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Montreal walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/montreal-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_walks_montreal.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Montreal", [-73.57, 45.5])
+							}
+						],
+						center: [-73.57, 45.5125],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Vancouver walks",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							{
+								uri: "/data/vancouver-green.geojson"
+							},
+							{
+								uri: "/data/vancouver-coastline.geojson"
+							},
+							{
+								uri: "/data/2017_walks_vancouver.geojson"
+							},
+							{
+								geojson: makeGeoJSONTextLabelForPoint("Vancouver", [-123.1, 49.25])
+							}
+						],
+						center: [-123.1, 49.285],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
 			}
 		]);
 

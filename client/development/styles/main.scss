@@ -197,6 +197,10 @@ body > header {
 			&.linestring,
 			&.multilinestring {
 				stroke: $colorValue;
+
+				&.subway {
+					stroke: mix(#a9c6c7, $colorBackground, 50%);
+				}
 			}
 
 			&.text {
@@ -267,6 +271,13 @@ section.cycling {
 	$colorText: #0f9e5b;
 	$colorValue: #e36e5f;
 	@include section($colorText, $colorValue, $colorBackground2);
+}
+
+section.walking {
+	//$colorBackground: ;
+	$colorText: rgb(102, 45, 145);
+	$colorValue: desaturate(lighten(#24d672, 10%), 15%);
+	@include section($colorText, $colorValue, $colorBackground);
 }
 
 section.beer {
