@@ -204,8 +204,11 @@ body > header {
 			}
 
 			&.text {
+				fill: $colorText;
+				stroke: transparent;
+
 				&.shadow {
-					stroke-color: $colorBackground;
+					stroke: $colorBackground;
 					fill: $colorBackground;
 				}
 			}

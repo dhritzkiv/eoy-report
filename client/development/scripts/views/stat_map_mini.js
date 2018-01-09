@@ -59,19 +59,7 @@ const LineStatView = StatView.extend({
 
 				layersG
 				.selectAll("text.shadow")
-				.style("stroke-width", 2 / transform.k);
-
-				const shadowOffset = 2 / transform.k;
-
-				layersG
-				.selectAll("text.shadow.plus")
-				.attr("dx", shadowOffset)
-				.attr("dy", shadowOffset);
-
-				layersG
-				.selectAll("text.shadow.minus")
-				.attr("dx", -shadowOffset)
-				.attr("dy", -shadowOffset);
+				.style("stroke-width", 6 / transform.k);
 			});
 		};
 
@@ -143,29 +131,11 @@ const LineStatView = StatView.extend({
 					.attr("class", "text-holder");
 
 					layersG
-					.selectAll("text.shadow.plus")
+					.selectAll("text.shadow")
 					.data([geojson])
 					.enter()
 					.append("text")
-					.attr("class", "shadow plus")
-					.text(d => d.properties.text)
-					.attr("x", d => {
-						const [left] = path.centroid(d);
-
-						return left;
-					})
-					.attr("y", d => {
-						const [, top] = path.centroid(d);
-
-						return top;
-					});
-
-					layersG
-					.selectAll("text.shadow.minus")
-					.data([geojson])
-					.enter()
-					.append("text")
-					.attr("class", "shadow minus")
+					.attr("class", "shadow")
 					.text(d => d.properties.text)
 					.attr("x", d => {
 						const [left] = path.centroid(d);
