@@ -7,7 +7,7 @@ const Foursquare = require("node-foursquare");
 const { _: [outFile], c: configPath, year: yearString } = minimist(process.argv.slice(2));
 assert(outFile, "output file not specified");
 assert(configPath, "config not specified");
-const year = parseInt(yearString);
+const year = parseInt(yearString, 10);
 assert.equal(typeof year, "number");
 assert(Number.isFinite(year));
 const configRaw = fs.readFileSync(configPath, "utf8");

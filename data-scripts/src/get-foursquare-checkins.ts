@@ -13,7 +13,7 @@ const {_: [outFile], c: configPath, year: yearString} = minimist(process.argv.sl
 assert(outFile, "output file not specified");
 assert(configPath, "config not specified");
 
-const year = parseInt(yearString);
+const year = parseInt(yearString, 10);
 
 assert.equal(typeof year, "number");
 assert(Number.isFinite(year));
