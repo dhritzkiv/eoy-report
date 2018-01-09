@@ -5,6 +5,10 @@ class IncrementalMap<T> extends Map<T, number> {
 	}
 }
 
+interface Walk {
+	points: [number, number][],
+}
+
 interface SimpleFoursquareCheckin {
 	venue_id: string;
 	venue_name: string;
@@ -17,4 +21,4 @@ interface SimpleFoursquareCheckin {
 	with?: string[];
 }
 
-export {IncrementalMap, SimpleFoursquareCheckin};
+export {IncrementalMap, SimpleFoursquareCheckin, Walk};

@@ -9,6 +9,7 @@ const DATA_DEST_DIR = path.resolve(__dirname, "../../client/public/data")
 const SCRIPTS_DIR = __dirname;
 
 const DEDUPED_SIMPLIFIED_RIDES = path.join(DATA_SRC_DIR, "2017_rides_deduped_simplified.json");
+const DEDUPED_SIMPLIFIED_WALKS = path.join(DATA_SRC_DIR, "2017_walks_deduped_simplified.json");
 
 interface Area {
 	name: string,
@@ -74,6 +75,21 @@ const main = async () => {
 			path.join(SCRIPTS_DIR, "strava-rides-to-geojson.js"),
 			DEDUPED_SIMPLIFIED_RIDES,
 			path.join(DATA_DEST_DIR, `2017_rides_${area.name}.geojson`),
+			`--boundary=${JSON.stringify(area.boundary)}`
+		]);
+	}
+
+	await asyncExecFile(`node`, [
+		path.join(SCRIPTS_DIR, "walks.js"),
+		path.join(DATA_SRC_DIR, "2017_walks.json"),
+		DEDUPED_SIMPLIFIED_WALKS
+	]);
+
+	for (const area of areas) {
+		await asyncExecFile(`node`, [
+			path.join(SCRIPTS_DIR, "walks-to-geojson.js"),
+			DEDUPED_SIMPLIFIED_WALKS,
+			path.join(DATA_DEST_DIR, `2017_walks_${area.name}.geojson`),
 			`--boundary=${JSON.stringify(area.boundary)}`
 		]);
 	}
