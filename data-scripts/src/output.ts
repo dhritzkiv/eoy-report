@@ -10,6 +10,7 @@ const SCRIPTS_DIR = __dirname;
 
 const DEDUPED_SIMPLIFIED_RIDES = path.join(DATA_SRC_DIR, "2017_rides_deduped_simplified.json");
 const DEDUPED_SIMPLIFIED_WALKS = path.join(DATA_SRC_DIR, "2017_walks_deduped_simplified.json");
+const FOURSQUARE_CHECKINS = path.join(DATA_SRC_DIR, "2017_foursquare_checkins.json");
 
 interface Area {
 	name: string,
@@ -47,6 +48,23 @@ const areas: Area[] = [
 ];
 
 const main = async () => {
+
+	/*await asyncExecFile(`node`, [
+		path.join(SCRIPTS_DIR, "get-foursquare-checkins.js"),
+		FOURSQUARE_CHECKINS,
+		"-c",
+		path.join(DATA_SRC_DIR, "foursquare_config.json"),
+		"--year=2017"
+	]);*/
+
+	for (const area of areas) {
+		await asyncExecFile(`node`, [
+			path.join(SCRIPTS_DIR, "checkins-to-geojson.js"),
+			FOURSQUARE_CHECKINS,
+			path.join(DATA_DEST_DIR, `2017_checkins_${area.name}.geojson`),
+			`--boundary=${JSON.stringify(area.boundary)}`
+		]);
+	}
 
 	/*
 	//get strava ride ids
