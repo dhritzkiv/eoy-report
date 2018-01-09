@@ -1073,6 +1073,9 @@ const Router = AmpersandRouter.extend({
 								uri: "/data/2017_walks_toronto.geojson"
 							},
 							{
+								uri: "/data/2017_checkins_toronto.geojson"
+							},
+							{
 								geojson: makeGeoJSONTextLabelForPoint("Toronto", [-79.383558, 43.652503])
 							},
 							{
@@ -1121,6 +1124,9 @@ const Router = AmpersandRouter.extend({
 								uri: "/data/2017_walks_sydney.geojson"
 							},
 							{
+								uri: "/data/2017_checkins_sydney.geojson"
+							},
+							{
 								geojson: makeGeoJSONTextLabelForPoint("Sydney", [151.212222, -33.868056])
 							}
 						],
@@ -1143,6 +1149,9 @@ const Router = AmpersandRouter.extend({
 							},
 							{
 								uri: "/data/2017_walks_melbourne.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_melbourne.geojson"
 							},
 							{
 								geojson: makeGeoJSONTextLabelForPoint("Melbourne", [144.963, -37.814])
@@ -1169,6 +1178,9 @@ const Router = AmpersandRouter.extend({
 								uri: "/data/2017_walks_auckland.geojson"
 							},
 							{
+								uri: "/data/2017_checkins_auckland.geojson"
+							},
+							{
 								geojson: makeGeoJSONTextLabelForPoint("Auckland", [174.765, -36.847])
 							}
 						],
@@ -1191,6 +1203,9 @@ const Router = AmpersandRouter.extend({
 							},
 							{
 								uri: "/data/2017_walks_montreal.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_montreal.geojson"
 							},
 							{
 								geojson: makeGeoJSONTextLabelForPoint("Montreal", [-73.57, 45.5])
@@ -1218,6 +1233,9 @@ const Router = AmpersandRouter.extend({
 							},
 							{
 								uri: "/data/2017_walks_vancouver.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_vancouver.geojson"
 							},
 							{
 								geojson: makeGeoJSONTextLabelForPoint("Vancouver", [-123.1, 49.25])

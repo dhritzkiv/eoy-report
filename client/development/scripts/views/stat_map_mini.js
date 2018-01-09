@@ -39,7 +39,8 @@ const LineStatView = StatView.extend({
 		.translate([0, 0]);
 
 		const path = d3.geoPath()
-		.projection(projection);
+		.projection(projection)
+		.pointRadius(0.125);
 
 		const layersEls = [];
 
@@ -51,6 +52,11 @@ const LineStatView = StatView.extend({
 				.selectAll("path")
 				.attr("transform", transform)
 				.style("stroke-width", 2.5 / transform.k);
+
+				layersG
+				.selectAll("path.point:not(text), path.multipoint:not(text)")
+				.attr("transform", transform)
+				.style("stroke-width", 0.5 / Math.log10(transform.k));
 
 				layersG
 				.selectAll("text")

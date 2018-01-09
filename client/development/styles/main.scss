@@ -203,6 +203,17 @@ body > header {
 				}
 			}
 
+			&.point,
+			&.multipoint {
+				fill: $colorValue;
+				stroke: $colorValue;
+
+				&.checkin {
+					fill: blue;
+					stroke: blue;
+				}
+			}
+
 			&.text {
 				fill: $colorText;
 				stroke: transparent;
