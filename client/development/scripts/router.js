@@ -257,6 +257,9 @@ const Router = AmpersandRouter.extend({
 								uri: "/data/gtha-waters.geojson"
 							},
 							{
+								uri: "/data/lake-simcoe.geojson"
+							},
+							{
 								uri: "/data/ytz-airport-grounds.geojson"
 							},
 							{
@@ -1068,6 +1071,9 @@ const Router = AmpersandRouter.extend({
 							},
 							{
 								uri: "/data/gtha-waters.geojson"
+							},
+							{
+								uri: "/data/lake-simcoe.geojson"
 							},
 							{
 								uri: "/data/ytz-airport-grounds.geojson"
