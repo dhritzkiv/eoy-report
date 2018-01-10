@@ -308,6 +308,9 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
+								uri: "/data/sydney-green.geojson"
+							},
+							{
 								uri: "/data/sydney-coastline.geojson"
 							},
 							{
@@ -332,6 +335,9 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
+								uri: "/data/melbourne-green.geojson"
+							},
+							{
 								uri: "/data/melbourne-coastline.geojson"
 							},
 							{
@@ -355,6 +361,9 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
+							{
+								uri: "/data/auckland-green.geojson"
+							},
 							{
 								uri: "/data/auckland-coastline.geojson"
 							},
@@ -1118,6 +1127,9 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
+								uri: "/data/sydney-green.geojson"
+							},
+							{
 								uri: "/data/sydney-coastline.geojson"
 							},
 							{
@@ -1145,6 +1157,9 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
+								uri: "/data/melbourne-green.geojson"
+							},
+							{
 								uri: "/data/melbourne-coastline.geojson"
 							},
 							{
@@ -1171,6 +1186,9 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
+							{
+								uri: "/data/auckland-green.geojson"
+							},
 							{
 								uri: "/data/auckland-coastline.geojson"
 							},
