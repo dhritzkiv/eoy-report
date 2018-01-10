@@ -434,6 +434,9 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							{
+								uri: "/data/montreal-green.geojson"
+							},
+							{
 								uri: "/data/montreal-coastline.geojson"
 							},
 							{
@@ -1222,6 +1225,9 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
+							{
+								uri: "/data/montreal-green.geojson"
+							},
 							{
 								uri: "/data/montreal-coastline.geojson"
 							},
