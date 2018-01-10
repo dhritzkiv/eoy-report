@@ -40,7 +40,7 @@ const LineStatView = StatView.extend({
 
 		const path = d3.geoPath()
 		.projection(projection)
-		.pointRadius(0.125);
+		.pointRadius(0.1);
 
 		const layersEls = [];
 
