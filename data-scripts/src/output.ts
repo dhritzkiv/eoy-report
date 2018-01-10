@@ -39,7 +39,7 @@ const areas: Area[] = [
 	},
 	{
 		name: "auckland",
-		boundary: [[174.670433, -36.963407], [174.910759, -36.788739]]
+		boundary: [[174.5235, -37.3416], [175.2706, -36.5911]]
 	},
 	{
 		name: "vancouver",
