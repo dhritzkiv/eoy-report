@@ -17,6 +17,7 @@ const SCALE = 100000;
  * @property {number} [minZoom]
  * @property {number} [maxZoom]
  * @property {number} [startScale]
+ * @property {[[number, number], [number, number]]} extent
  */
 
 const LineStatView = StatView.extend({
@@ -79,7 +80,23 @@ const LineStatView = StatView.extend({
 			}
 
 			return !d3.event.button;
-		})
+		});
+
+		if (data.extent) {
+			const extentGeoJSON = {
+				type: "Feature",
+				geometry: {
+					type: "LineString",
+					coordinates: data.extent
+				}
+			};
+
+			const bounds = path.bounds(extentGeoJSON);
+
+			zooms.translateExtent(bounds);
+		}
+
+		zooms
 		.scaleExtent([(1 << minZoom) / SCALE, (1 << maxZoom) / SCALE])
 		.on("zoom", zoomed);
 
