@@ -34,6 +34,38 @@ const LineStatView = StatView.extend({
 		let height = 0;
 		let width = 0;
 
+		const scrollMessageG = svg
+		.append("g")
+		.attr("class", "scroll-message");
+
+		scrollMessageG
+		.append("rect");
+
+		scrollMessageG
+		.append("text")
+		.text("Hold shift to zoom")
+		.attr("x", "50%")
+		.attr("y", "50%");
+
+		svg.on("wheel", () => {
+			/** @type {{event: MouseWheelEvent}} */
+			const {event} = d3;
+			const hide = () => scrollMessageG.classed("show", false);
+
+			if (event.shiftKey) {
+				hide();
+
+				return true;
+			}
+
+			clearTimeout(scrollMessageG.showTimeout);
+
+			scrollMessageG
+			.classed("show", true);
+
+			scrollMessageG.showTimeout = setTimeout(hide, 2000);
+		});
+
 		// Initialize the projection to fit the world in a 1×1 square centered at the origin.
 		const projection = d3.geoMercator()
 		.scale(SCALE / TAU)
@@ -121,6 +153,15 @@ const LineStatView = StatView.extend({
 			);
 
 			svg
+			.attr("width", el.parentElement.clientWidth)
+			.attr("height", el.parentElement.clientHeight);
+
+			scrollMessageG.each(function() {
+				this.parentNode.appendChild(this);
+			});
+
+			scrollMessageG
+			.select("rect")
 			.attr("width", el.parentElement.clientWidth)
 			.attr("height", el.parentElement.clientHeight);
 		});

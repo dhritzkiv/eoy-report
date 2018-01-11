@@ -188,6 +188,27 @@ body > header {
 			stroke: $colorValue;
 		}
 
+		g.scroll-message {
+			opacity: 0;
+			transition: opacity 400ms $easeOutQuart;
+
+			&.show {
+				opacity: 1;
+				cursor: default;
+			}
+
+			& > rect {
+				fill: rgba($colorBackground, 0.9);
+			}
+
+			& > text {
+				font-weight: 400;
+				font-size: 1.1rem;
+				text-anchor: middle;
+				alignment-baseline: middle;
+			}
+		}
+
 		.feature {
 			&.polygon,
 			&.multipolygon {
