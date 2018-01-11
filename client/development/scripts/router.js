@@ -15,18 +15,7 @@ import WalkingStatsPage from "./views/stats_walking";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
 
-const makeGeoJSONTextLabelForPoint = (text, point, size = 1) => ({
-	type: "Feature",
-	properties: {
-		type: "text",
-		text,
-		size
-	},
-	geometry: {
-		"type": "Point",
-		"coordinates": point
-	}
-});
+import * as areas from "./data/areas";
 
 const Router = AmpersandRouter.extend({
 	routes: {
@@ -249,52 +238,13 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.toronto.extent,
 						layers: [
-							{
-								uri: "/data/toronto-green.geojson"
-							},
-							{
-								uri: "/data/gtha-waters.geojson"
-							},
-							{
-								uri: "/data/lake-simcoe.geojson"
-							},
-							{
-								uri: "/data/ytz-airport-grounds.geojson"
-							},
-							{
-								uri: "/data/yyz-airport-grounds.geojson"
-							},
+							...areas.toronto.baseLayers,
 							{
 								uri: "/data/2017_rides_toronto.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Toronto", [-79.383558, 43.652503])
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Hamilton", [-79.866091, 43.250021], 0.75)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Mississauga", [-79.65, 43.6], 0.75)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Oakville", [-79.687666, 43.467517], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Burlington", [-79.8, 43.316667], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Vaughan", [-79.5, 43.83333], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Newmarket", [-79.466667, 44.05], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("St. Catherines", [-79.233333, 43.183333], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Niagara Falls", [-79.106667, 43.06], 0.5)
-							}
+							...areas.toronto.labelLayers
 						],
 						center: [-79.383558, 43.652503],
 						minZoom: 18,
@@ -310,18 +260,11 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/sydney-green.geojson"
-							},
-							{
-								uri: "/data/sydney-coastline.geojson"
-							},
+							...areas.sydney.baseLayers,
 							{
 								uri: "/data/2017_rides_sydney.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Sydney", [151.212222, -33.868056])
-							}
+							...areas.sydney.labelLayers
 						],
 						center: [151.230278, -33.868056],
 						minZoom: 19,
@@ -337,18 +280,11 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/melbourne-green.geojson"
-							},
-							{
-								uri: "/data/melbourne-coastline.geojson"
-							},
+							...areas.melbourne.baseLayers,
 							{
 								uri: "/data/2017_rides_melbourne.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Melbourne", [144.963, -37.814])
-							}
+							...areas.melbourne.labelLayers
 						],
 						center: [144.963, -37.837],
 						minZoom: 19,
@@ -363,19 +299,13 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.auckland.extent,
 						layers: [
-							{
-								uri: "/data/auckland-green.geojson"
-							},
-							{
-								uri: "/data/auckland-coastline.geojson"
-							},
+							...areas.auckland.baseLayers,
 							{
 								uri: "/data/2017_rides_auckland.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Auckland", [174.765, -36.847])
-							}
+							...areas.auckland.labelLayers
 						],
 						center: [174.81, -36.8675],
 						minZoom: 19,
@@ -432,19 +362,13 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.montreal.extent,
 						layers: [
-							{
-								uri: "/data/montreal-green.geojson"
-							},
-							{
-								uri: "/data/montreal-coastline.geojson"
-							},
+							...areas.montreal.baseLayers,
 							{
 								uri: "/data/2017_rides_montreal.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Montreal", [-73.57, 45.5])
-							}
+							...areas.montreal.labelLayers
 						],
 						center: [-73.57, 45.5125],
 						minZoom: 19,
@@ -460,18 +384,11 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/vancouver-green.geojson"
-							},
-							{
-								uri: "/data/vancouver-coastline.geojson"
-							},
+							...areas.vancouver.baseLayers,
 							{
 								uri: "/data/2017_rides_vancouver.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Vancouver", [-123.1, 49.25])
-							}
+							...areas.vancouver.labelLayers
 						],
 						center: [-123.1, 49.285],
 						minZoom: 19,
@@ -1068,22 +985,9 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.toronto.extent,
 						layers: [
-							{
-								uri: "/data/toronto-green.geojson"
-							},
-							{
-								uri: "/data/gtha-waters.geojson"
-							},
-							{
-								uri: "/data/lake-simcoe.geojson"
-							},
-							{
-								uri: "/data/ytz-airport-grounds.geojson"
-							},
-							{
-								uri: "/data/yyz-airport-grounds.geojson"
-							},
+							...areas.toronto.baseLayers,
 							{
 								uri: "/data/toronto-subway.geojson"
 							},
@@ -1093,33 +997,7 @@ const Router = AmpersandRouter.extend({
 							{
 								uri: "/data/2017_checkins_toronto.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Toronto", [-79.383558, 43.652503])
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Hamilton", [-79.866091, 43.250021], 0.75)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Mississauga", [-79.65, 43.6], 0.75)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Oakville", [-79.687666, 43.467517], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Burlington", [-79.8, 43.316667], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Vaughan", [-79.5, 43.83333], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Newmarket", [-79.466667, 44.05], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("St. Catherines", [-79.233333, 43.183333], 0.5)
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Niagara Falls", [-79.106667, 43.06], 0.5)
-							}
+							...areas.toronto.labelLayers
 						],
 						center: [-79.383558, 43.652503],
 						minZoom: 18,
@@ -1135,21 +1013,14 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/sydney-green.geojson"
-							},
-							{
-								uri: "/data/sydney-coastline.geojson"
-							},
+							...areas.sydney.baseLayers,
 							{
 								uri: "/data/2017_walks_sydney.geojson"
 							},
 							{
 								uri: "/data/2017_checkins_sydney.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Sydney", [151.212222, -33.868056])
-							}
+							...areas.sydney.labelLayers
 						],
 						center: [151.22, -33.8715],
 						minZoom: 19,
@@ -1165,24 +1036,17 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/melbourne-green.geojson"
-							},
-							{
-								uri: "/data/melbourne-coastline.geojson"
-							},
+							...areas.melbourne.baseLayers,
 							{
 								uri: "/data/2017_walks_melbourne.geojson"
 							},
 							{
 								uri: "/data/2017_checkins_melbourne.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Melbourne", [144.963, -37.814])
-							}
+							...areas.melbourne.labelLayers
 						],
 						center: [144.963, -37.837],
-						minZoom: 19,
+						minZoom: 18,
 						startZoom: 20
 					}
 				},
@@ -1194,21 +1058,14 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.auckland.extent,
 						layers: [
-							{
-								uri: "/data/auckland-green.geojson"
-							},
-							{
-								uri: "/data/auckland-coastline.geojson"
-							},
+							...areas.auckland.baseLayers,
 							{
 								uri: "/data/2017_walks_auckland.geojson"
 							},
 							{
 								uri: "/data/2017_checkins_auckland.geojson"
-							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Auckland", [174.765, -36.847])
 							}
 						],
 						center: [174.795, -36.85],
@@ -1224,22 +1081,16 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "map",
 					value: {
+						extent: areas.montreal.extent,
 						layers: [
-							{
-								uri: "/data/montreal-green.geojson"
-							},
-							{
-								uri: "/data/montreal-coastline.geojson"
-							},
+							...areas.montreal.baseLayers,
 							{
 								uri: "/data/2017_walks_montreal.geojson"
 							},
 							{
 								uri: "/data/2017_checkins_montreal.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Montreal", [-73.57, 45.5])
-							}
+							...areas.montreal.labelLayers
 						],
 						center: [-73.57, 45.5125],
 						minZoom: 19,
@@ -1255,21 +1106,14 @@ const Router = AmpersandRouter.extend({
 					type: "map",
 					value: {
 						layers: [
-							{
-								uri: "/data/vancouver-green.geojson"
-							},
-							{
-								uri: "/data/vancouver-coastline.geojson"
-							},
+							...areas.vancouver.baseLayers,
 							{
 								uri: "/data/2017_walks_vancouver.geojson"
 							},
 							{
 								uri: "/data/2017_checkins_vancouver.geojson"
 							},
-							{
-								geojson: makeGeoJSONTextLabelForPoint("Vancouver", [-123.1, 49.25])
-							}
+							...areas.vancouver.labelLayers
 						],
 						center: [-123.1, 49.285],
 						minZoom: 19,
