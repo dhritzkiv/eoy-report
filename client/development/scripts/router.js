@@ -52,7 +52,7 @@ const Router = AmpersandRouter.extend({
 				title: "Total coffees",
 				data: {
 					type: "numeric",
-					value: 340.75
+					value: 341
 				}
 			},
 			{
