@@ -97,6 +97,24 @@ const toronto = {
 		},
 		{
 			geojson: makeGeoJSONTextLabelForPoint("Oro-Medonte", [-79.523333, 44.5], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("Markham", [-79.263333, 43.876667], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("King", [-79.6044, 44.0463], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("Caledon", [-79.866667, 43.866667], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("Mono", [-80.066667, 44.016667], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("Bradford", [-79.633333, 44.13333], 0.5)
+		},
+		{
+			geojson: makeGeoJSONTextLabelForPoint("Innisfil", [-79.583333, 44.3], 0.5)
 		}
 	]
 };
