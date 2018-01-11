@@ -189,7 +189,7 @@ const Router = AmpersandRouter.extend({
 						{label: "Sun", value: 0.47}
 					]
 				},
-				wide: "x2"
+				wide: "x1"
 			}
 		]);
 
@@ -583,7 +583,7 @@ const Router = AmpersandRouter.extend({
 						{label: "Sun", value: 1.42}
 					]
 				},
-				wide: "x2",
+				wide: "x1",
 				tall: "y1"
 			},
 			{
@@ -600,7 +600,7 @@ const Router = AmpersandRouter.extend({
 						{label: "Sun", value: 17.29}
 					]
 				},
-				wide: "x2",
+				wide: "x1",
 				tall: "y1"
 			}
 		]);
@@ -1359,7 +1359,7 @@ const Router = AmpersandRouter.extend({
 						{label: "Sun", value: 17}
 					]
 				},
-				wide: "x2"
+				wide: "x1"
 			},
 			{
 				title: "Longest dry spell (days)",
