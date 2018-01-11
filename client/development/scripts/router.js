@@ -49,14 +49,14 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.add([
 			{
-				title: "Total coffees",
+				title: "Total coffees (355mL servings)",
 				data: {
 					type: "numeric",
 					value: 341
 				}
 			},
 			{
-				title: "Est. total volume (L)",
+				title: "Estimated total volume (L)",
 				data: {
 					type: "numeric",
 					value: 120.93
