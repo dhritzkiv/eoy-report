@@ -167,6 +167,15 @@ body > header {
 	}
 
 	svg {
+		&.map {
+			cursor: move;
+			cursor: grab;
+
+			&:active {
+				cursor: grabbing;
+			}
+		}
+
 		.bar rect:not(.hover-bar) {
 			fill: $colorValue;
 		}

@@ -113,6 +113,7 @@ const LineStatView = StatView.extend({
 			.translate(...projectedCenter.map(d => -d));
 
 			svg
+			.classed("map", true)
 			.call(zooms)
 			.call(
 				zooms.transform,
