@@ -66,6 +66,10 @@ const LineStatView = StatView.extend({
 			scrollMessageG.showTimeout = setTimeout(hide, 2000);
 		});
 
+		scrollMessageG.on("mousedown", () => {
+			scrollMessageG.classed("show", false);
+		});
+
 		// Initialize the projection to fit the world in a 1×1 square centered at the origin.
 		const projection = d3.geoMercator()
 		.scale(SCALE / TAU)
