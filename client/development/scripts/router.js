@@ -6,6 +6,7 @@ import AmpersandRouter from "ampersand-router";
 //import MapsPage from "./views/maps";
 //import MapsLegendPage from "./views/maps-legend";
 
+import StatsPage from "./views/stats";
 import CoffeeStatsPage from "./views/stats_coffee";
 import CyclingStatsPage from "./views/stats_cycling";
 import BeerStatsPage from "./views/stats_beer";
@@ -25,7 +26,8 @@ const Router = AmpersandRouter.extend({
 		"walking": "walking",
 		"media": "media",
 		"beer": "beer",
-		"health": "health"
+		"health": "health",
+		"maps": "maps"
 	},
 	start: function() {
 
@@ -1108,6 +1110,179 @@ const Router = AmpersandRouter.extend({
 					value: {
 						layers: [
 							...areas.vancouver.baseLayers,
+							{
+								uri: "/data/2017_walks_vancouver.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_vancouver.geojson"
+							},
+							...areas.vancouver.labelLayers
+						],
+						center: [-123.1, 49.285],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			}
+		]);
+
+		this.trigger("newPage", view);
+		this.trigger("navigation");
+	},
+	maps() {
+		const view = new StatsPage({
+			name: "maps"
+		});
+
+		view.stats.add([
+			{
+				title: "Toronto activity",
+				data: {
+					type: "map",
+					value: {
+						extent: areas.toronto.extent,
+						layers: [
+							...areas.toronto.baseLayers,
+							{
+								uri: "/data/toronto-subway.geojson"
+							},
+							{
+								uri: "/data/2017_rides_toronto.geojson"
+							},
+							{
+								uri: "/data/2017_walks_toronto.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_toronto.geojson"
+							},
+							...areas.toronto.labelLayers
+						],
+						center: [-79.383558, 43.652503],
+						minZoom: 18,
+						startZoom: 20
+					}
+				},
+				wide: "xfull",
+				tall: "y3"
+			},
+			{
+				title: "Sydney activity",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							...areas.sydney.baseLayers,
+							{
+								uri: "/data/2017_rides_sydney.geojson"
+							},
+							{
+								uri: "/data/2017_walks_sydney.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_sydney.geojson"
+							},
+							...areas.sydney.labelLayers
+						],
+						center: [151.22, -33.8715],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Melbourne activity",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							...areas.melbourne.baseLayers,
+							{
+								uri: "/data/2017_rides_melbourne.geojson"
+							},
+							{
+								uri: "/data/2017_walks_melbourne.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_melbourne.geojson"
+							},
+							...areas.melbourne.labelLayers
+						],
+						center: [144.963, -37.837],
+						minZoom: 18,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Auckland activity",
+				data: {
+					type: "map",
+					value: {
+						extent: areas.auckland.extent,
+						layers: [
+							...areas.auckland.baseLayers,
+							{
+								uri: "/data/2017_rides_auckland.geojson"
+							},
+							{
+								uri: "/data/2017_walks_auckland.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_auckland.geojson"
+							},
+							...areas.auckland.labelLayers
+						],
+						center: [174.795, -36.85],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Montreal activity",
+				data: {
+					type: "map",
+					value: {
+						extent: areas.montreal.extent,
+						layers: [
+							...areas.montreal.baseLayers,
+							{
+								uri: "/data/2017_rides_montreal.geojson"
+							},
+							{
+								uri: "/data/2017_walks_montreal.geojson"
+							},
+							{
+								uri: "/data/2017_checkins_montreal.geojson"
+							},
+							...areas.montreal.labelLayers
+						],
+						center: [-73.57, 45.5125],
+						minZoom: 19,
+						startZoom: 20
+					}
+				},
+				wide: "x2",
+				tall: "y2"
+			},
+			{
+				title: "Vancouver activity",
+				data: {
+					type: "map",
+					value: {
+						layers: [
+							...areas.vancouver.baseLayers,
+							{
+								uri: "/data/2017_rides_vancouver.geojson"
+							},
 							{
 								uri: "/data/2017_walks_vancouver.geojson"
 							},

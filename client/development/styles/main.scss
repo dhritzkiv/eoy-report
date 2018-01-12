@@ -348,6 +348,27 @@ section.media {
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
+section.maps {
+	$colorBackground: rgb(211, 211, 211);
+	$colorText: rgb(63, 122, 129);
+	$colorValue: darken(rgb(216, 63, 183), 12.5%);
+
+	@include section($colorText, $colorValue, $colorBackground);
+
+	.feature {
+		&.linestring,
+		&.multilinestring {
+			&.walk {
+				stroke: #24d672;
+			}
+
+			&.cycle {
+				stroke: #e36e5f;
+			}
+		}
+	}
+}
+
 [data-hook=viz-holder] {
 	svg {
 		margin: 0 auto;
