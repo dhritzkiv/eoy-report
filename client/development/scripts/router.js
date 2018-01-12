@@ -1066,7 +1066,8 @@ const Router = AmpersandRouter.extend({
 							},
 							{
 								uri: "/data/2017_checkins_auckland.geojson"
-							}
+							},
+							...areas.auckland.labelLayers
 						],
 						center: [174.795, -36.85],
 						minZoom: 19,
