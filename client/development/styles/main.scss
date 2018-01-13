@@ -12,8 +12,8 @@ $colorAccent: #a9c6c7;
 
 $colorDull1: #353a3d;
 
-$colorCycling: #ec5f30;
-$colorWalking: #24d672;
+$colorCycling: #f66555;
+$colorWalking: #15e048;
 $colorFandL: #cb9625;
 $colorAandV: #5360e1;
 $colorMisc: #71616a;
@@ -313,14 +313,14 @@ section.stats-section {
 section.cycling {
 	$colorBackground2: darken(desaturate(lighten(#0f9e5b, 50%), 70%), 2%);
 	$colorText: #0f9e5b;
-	$colorValue: #e36e5f;
+	$colorValue: $colorCycling;
 	@include section($colorText, $colorValue, $colorBackground2);
 }
 
 section.walking {
 	//$colorBackground: ;
 	$colorText: rgb(102, 45, 145);
-	$colorValue: desaturate(lighten(#24d672, 10%), 15%);
+	$colorValue: desaturate(lighten($colorWalking, 10%), 15%);
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
@@ -359,11 +359,11 @@ section.maps {
 		&.linestring,
 		&.multilinestring {
 			&.walk {
-				stroke: #24d672;
+				stroke: $colorWalking;
 			}
 
 			&.cycle {
-				stroke: #e36e5f;
+				stroke: $colorCycling;
 			}
 		}
 	}
