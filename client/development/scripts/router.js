@@ -1370,12 +1370,12 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "bar",
 					value: [
-						{label: "Mon", value: 15},
+						{label: "Mon", value: 5},
 						{label: "Tue", value: 17},
-						{label: "Wed", value: 11},
-						{label: "Thu", value: 6},
-						{label: "Fri", value: 7},
-						{label: "Sat", value: 5},
+						{label: "Wed", value: 7},
+						{label: "Thu", value: 11},
+						{label: "Fri", value: 6},
+						{label: "Sat", value: 15},
 						{label: "Sun", value: 17}
 					]
 				},

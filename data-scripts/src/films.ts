@@ -76,7 +76,7 @@ const calculateStreaksForData = (data: number[]) => {
 	};
 };
 
-const getFilmsByDayOfWeek = (data: Films): number[] => {
+const getFilmsByDayOfWeek = (data: Films) => {
 	//create a new Map for holding values for each day of the week; fill it with empty data
 	const days = new IncrementalMap<number>();
 
@@ -84,7 +84,7 @@ const getFilmsByDayOfWeek = (data: Films): number[] => {
 	.map(({date, name}) => ({day: date.getUTCDay(), name}))
 	.forEach(({day, name}) => days.increment(day));
 
-	return [...days.values()];
+	return [...days];
 };
 
 const {_: [inFile]} = minimist(process.argv.slice(2));
@@ -124,7 +124,7 @@ const main = async () => {
 	}
 
 	const filmsByDayOfWeekSorted = getFilmsByDayOfWeek(films)
-	.map((value, index): [string, number] => [moment().day(index).format("dddd"), value])
+	.map(([day, value]): [string, number] => [moment().day(day).format("dddd"), value])
 	.sort(([, a], [, b]) => b - a);
 
 	const releaseYearMap = new IncrementalMap<number>();

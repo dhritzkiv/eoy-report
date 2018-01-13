@@ -63,7 +63,7 @@ const getFilmsByDayOfWeek = (data) => {
     data
         .map(({ date, name }) => ({ day: date.getUTCDay(), name }))
         .forEach(({ day, name }) => days.increment(day));
-    return [...days.values()];
+    return [...days];
 };
 const { _: [inFile] } = minimist(process.argv.slice(2));
 assert.ok(inFile, "Missing input file argument");
@@ -93,7 +93,7 @@ const main = async () => {
         dailyFilmCountsMap.set(i + 1, 0);
     }
     const filmsByDayOfWeekSorted = getFilmsByDayOfWeek(films)
-        .map((value, index) => [moment().day(index).format("dddd"), value])
+        .map(([day, value]) => [moment().day(day).format("dddd"), value])
         .sort(([, a], [, b]) => b - a);
     const releaseYearMap = new utils_1.IncrementalMap();
     films.forEach(({ year, date }) => {
