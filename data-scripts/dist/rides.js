@@ -70,18 +70,6 @@ const calculateStreaksForData = (data) => {
         maxDrySpell
     };
 };
-/**
- * @param data {RideDays} - an array of days
- */
-const getRidesByDayOfWeek = (data) => {
-    //create a new Map for holding values for each day of the week; fill it with empty data
-    const days = new utils_1.IncrementalMap(new NumberArray(7).fill(0).map((v, i) => [i, v]));
-    data
-        .map(({ date, rides }) => [date.getUTCDay(), simple_statistics_1.sum(rides.map(({ distance }) => distance))])
-        .map(([date, value]) => [date, value])
-        .forEach(([day, value]) => days.increment(day, value));
-    return [...days.values()];
-};
 const { _: [inFile, outFile] } = minimist(process.argv.slice(2));
 assert.ok(inFile, "Missing input file argument");
 const raw = fs.readFileSync(inFile, "utf8");
@@ -126,12 +114,6 @@ const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
 const weekendValues = weekendRides.map(mapToValue);
 const ridesWithMaps = rides.filter(({ map }) => map);
-/*let maxStreakDays = 0;
-let maxStreakRides = 0;
-let maxDryStreak = 0;
-for (const dayRideCount of dailyRideCounts) {
-
-}*/
 console.time("find dupes");
 ridesWithMaps.forEach(ride => ride.mapline_interop = simplify(ride.mapline.map(([x, y]) => ({ x, y })), TOLERANCE, true).map(({ x, y }) => [x, y]));
 //find a median point count for use in interpolation
@@ -313,46 +295,6 @@ console.group("Top 10 rides by distance from start");
     .forEach(([ride, distance], index) => console.log("%d. ride %s peak distance from start: %fkm", index + 1, ride.id, distance));
 console.groupEnd();
 const { maxStreakDays: totalMaxStreakDays, maxStreakRides: totalMaxStreakRides, maxDrySpell: totalMaxDrySpell } = calculateStreaksForData([...dailyRideCountsMap.values()]);
-/*const totalCount = sum(dayValues);
-const weekdayCount = sum(weekdayValues);
-const weekendCount = sum(weekendValues);
-const medianCoffees = median(dayValues);
-const medianWeekdayCoffees = median(weekdayValues);
-const medianWeekendCoffees = median(weekendValues);
-const modeCoffees = modeFast(dayValues);
-const modeWeekdayCoffees = modeFast(weekdayValues);
-const modeWeekendCoffees = modeFast(weekendValues);
-const mostCoffees = max(dayValues);
-const mostWeekdayCoffees = max(weekdayValues);
-const mostWeekendCoffees = max(weekendValues);
-const dryDays = data.filter(({value}) => !value);
-const dryWeekdays = weekdayDays.filter(({value}) => !value);
-const dryWeekends = weekendDays.filter(({value}) => !value);
-const moreCoffeeThanUsualDays = data.filter(({value}) => value > modeCoffees);*/
-/*const coffeesByDayOfWeekSorted = getRidesByDayOfWeek(data)
-.map((value, index): [string, number] => [moment().day(index).format("dddd"), value])
-.sort(([, a], [, b]) => b - a);
-
-const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];
-const dayOfLeastCoffees = coffeesByDayOfWeekSorted[coffeesByDayOfWeekSorted.length - 1];
-
-const {
-    maxStreakDays: totalMaxStreakDays,
-    maxStreakCoffees: totalMaxStreakCoffees,
-    maxDrySpell: totalMaxDrySpell
-} = calculateStreaksForData(dayValues);
-
-const {
-    maxStreakDays: weekdayMaxStreakDays,
-    maxStreakCoffees: weekdayMaxStreakCoffees,
-    maxDrySpell: weekdayMaxDrySpell
-} = calculateStreaksForData(weekdayValues);
-
-const {
-    maxStreakDays: weekendMaxStreakDays,
-    maxStreakCoffees: weekendMaxStreakCoffees,
-    maxDrySpell: weekendMaxDrySpell
-} = calculateStreaksForData(weekendValues);*/
 console.log();
 console.group("Basic stats by rides");
 console.log("total rides recorded: %d", rides.length);
@@ -436,39 +378,4 @@ console.log("# of days over 100km: %d", numberOfDaysOverXKilometres(100));
 console.log("Highest average speed: %fkm/h", simple_statistics_1.max(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
 console.log("Lowest average speed: %fkm/h", simple_statistics_1.min(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
 console.log("Median average speed: %fkm/h", simple_statistics_1.median(rides.map(({ average_speed }) => average_speed * 3600 / 1000)));
-/*console.log("average", totalCount / data.length);
-console.log("average (weekdays)", weekdayCount / weekdayDays.length);
-console.log("average (weekends)", weekendCount / weekendDays.length);
-console.log("median", medianCoffees);
-console.log("median (weekday)", medianWeekdayCoffees);
-console.log("median (weekend)", medianWeekendCoffees);
-console.log("mode", modeCoffees);
-console.log("mode (weekday)", modeWeekdayCoffees);
-console.log("mode (weekend)", modeWeekendCoffees);
-console.log("most", mostCoffees);
-console.log("most (weekday)", mostWeekdayCoffees);
-console.log("most (weekend)", mostWeekendCoffees);*/
-/*console.log("\n** Totals **");
-console.log("total days recorded", data.length);
-console.log("weekdays recorded", weekdayDays.length);
-console.log("weekend days recorded", weekendDays.length);
-console.log("total coffees", totalCount);
-console.log("weekday coffees", weekdayCount);
-console.log("weekend coffees", weekendCount);
-console.log("total days without coffee", dryDays.length);
-console.log("total weekdays without coffee", dryWeekdays.length);
-console.log("total weekends without coffee", dryWeekends.length);
-console.log("total days with more coffee than usual", moreCoffeeThanUsualDays.length);
-console.log("day of week with most coffees", dayOfMostCoffees.join(": "));
-console.log("day of week with least coffees", dayOfLeastCoffees.join(": "));*/
-/*console.log("\n** Streaks **");
-console.log("longest streak (days)", totalMaxStreakDays);
-console.log("longest streak (coffees)", totalMaxStreakCoffees);
-console.log("longest dry spell (days)", totalMaxDrySpell);
-console.log("longest weekday streak (days)", weekdayMaxStreakDays);
-console.log("longest weekday streak (coffees)", weekdayMaxStreakCoffees);
-console.log("longest weekday dry spell (days)", weekdayMaxDrySpell);
-console.log("longest weekend streak (days)", weekendMaxStreakDays);
-console.log("longest weekend streak (coffees)", weekendMaxStreakCoffees);
-console.log("longest weekend dry spell (days)", weekendMaxDrySpell);*/
 //# sourceMappingURL=rides.js.map

@@ -101,10 +101,10 @@ const getCheckinsByDayOfWeek = (data) => {
     data
         .map(({ date, venue_id }) => ({ day: date.getUTCDay(), venue_id }))
         .forEach(({ day }) => days.increment(day));
-    return [...days.values()];
+    return [...days];
 };
 const checkinsByDayOfWeekSorted = getCheckinsByDayOfWeek(checkins)
-    .map((value, index) => [moment().day(index).format("dddd"), value])
+    .map(([day, value]) => [moment().day(day).format("dddd"), value])
     .sort(([, a], [, b]) => b - a);
 console.log();
 console.group("Stats");

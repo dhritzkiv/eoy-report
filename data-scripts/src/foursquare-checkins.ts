@@ -114,7 +114,7 @@ checkins.forEach(checkin => {
 	}
 });
 
-const getCheckinsByDayOfWeek = (data: SimpleCheckin[]): number[] => {
+const getCheckinsByDayOfWeek = (data: SimpleCheckin[]) => {
 	//create a new Map for holding values for each day of the week; fill it with empty data
 	const days = new IncrementalMap<number>();
 
@@ -122,11 +122,11 @@ const getCheckinsByDayOfWeek = (data: SimpleCheckin[]): number[] => {
 	.map(({date, venue_id}) => ({day: date.getUTCDay(), venue_id}))
 	.forEach(({day}) => days.increment(day));
 
-	return [...days.values()];
+	return [...days];
 };
 
 const checkinsByDayOfWeekSorted = getCheckinsByDayOfWeek(checkins)
-.map((value, index): [string, number] => [moment().day(index).format("dddd"), value])
+.map(([day, value]): [string, number] => [moment().day(day).format("dddd"), value])
 .sort(([, a], [, b]) => b - a);
 
 console.log();

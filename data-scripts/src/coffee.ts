@@ -59,7 +59,7 @@ const calculateStreaksForData = (data: number[]) => {
 	};
 };
 
-const getCoffeesByDayOfWeek = (data: CoffeeDays): number[] => {
+const getCoffeesByDayOfWeek = (data: CoffeeDays) => {
 	//create a new Map for holding values for each day of the week; fill it with empty data
 	const days: NumberMap = new NumberMap(new NumberArray(7).fill(0).map<NumberTuple>((v: number, i) => [i, v]));
 
@@ -67,7 +67,7 @@ const getCoffeesByDayOfWeek = (data: CoffeeDays): number[] => {
 	.map(({date, value}) => [date.getUTCDay(), value])
 	.forEach(([day, value]) => days.set(day, (days.get(day) || 0) + value));
 
-	return [...days.values()];
+	return [...days];
 };
 
 const {_: [inFile]} = minimist(process.argv.slice(2));
@@ -134,7 +134,7 @@ const coffeelessWeekends = weekendDays.filter(({value}) => !value);
 const moreCoffeeThanUsualDays = data.filter(({value}) => value > modeCoffees);
 
 const coffeesByDayOfWeekSorted = getCoffeesByDayOfWeek(data)
-.map((value, index): [string, number] => [moment().day(index).format("dddd"), value])
+.map(([day, value]): [string, number] => [moment().day(day).format("dddd"), value])
 .sort(([, a], [, b]) => b - a);
 
 //const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];

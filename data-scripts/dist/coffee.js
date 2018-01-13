@@ -51,7 +51,7 @@ const getCoffeesByDayOfWeek = (data) => {
     data
         .map(({ date, value }) => [date.getUTCDay(), value])
         .forEach(([day, value]) => days.set(day, (days.get(day) || 0) + value));
-    return [...days.values()];
+    return [...days];
 };
 const { _: [inFile] } = minimist(process.argv.slice(2));
 assert.ok(inFile, "Missing input file argument");
@@ -104,7 +104,7 @@ const coffeelessWeekdays = weekdayDays.filter(({ value }) => !value);
 const coffeelessWeekends = weekendDays.filter(({ value }) => !value);
 const moreCoffeeThanUsualDays = data.filter(({ value }) => value > modeCoffees);
 const coffeesByDayOfWeekSorted = getCoffeesByDayOfWeek(data)
-    .map((value, index) => [moment().day(index).format("dddd"), value])
+    .map(([day, value]) => [moment().day(day).format("dddd"), value])
     .sort(([, a], [, b]) => b - a);
 //const dayOfMostCoffees = coffeesByDayOfWeekSorted[0];
 //const dayOfLeastCoffees = coffeesByDayOfWeekSorted[coffeesByDayOfWeekSorted.length - 1];
