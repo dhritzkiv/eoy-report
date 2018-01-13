@@ -1331,6 +1331,13 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
+				title: "Total films duration (hrs.)",
+				data: {
+					type: "numeric",
+					value: 141.2
+				}
+			},
+			{
 				title: "Films seen on Netflix",
 				data: {
 					type: "numeric",
