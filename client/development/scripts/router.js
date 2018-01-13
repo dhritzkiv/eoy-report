@@ -709,10 +709,17 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Days with more beer servings than usual",
+				title: "Days with more beer servings than median",
 				data: {
 					type: "numeric",
 					value: 143
+				}
+			},
+			{
+				title: "Days with less beer servings than median",
+				data: {
+					type: "numeric",
+					value: 107
 				}
 			},
 			{

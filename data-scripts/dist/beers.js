@@ -338,6 +338,7 @@ console.log("Median daily beers (all days):", simple_statistics_1.median(dailyTo
 console.log("Median daily beers (non-dry days):", simple_statistics_1.median(daysWithABeer));
 console.log("Mode daily beers:", simple_statistics_1.modeFast(dailyTotals));
 console.log("Days with more beers than usual:", daysWithABeer.filter(total => total > simple_statistics_1.median(dailyTotals)).length);
+console.log("Days with less beers than usual:", daysWithABeer.filter(total => total < simple_statistics_1.median(dailyTotals)).length);
 console.log("\n");
 console.log("Longest streak (beers):", maxStreakBeers);
 console.log("Longest streak (days):", maxStreakDays);
