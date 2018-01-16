@@ -177,7 +177,7 @@ const getWalks = async () => {
 		weeks.push(walks);
 	}
 
-	const weeksMerged = weeks.reduce((a, b) => a.concat(b), []);
+	const weeksMerged = weeks.reduce(concatArrays, <Walk[]>[]);
 	const walksJSON = JSON.stringify(weeksMerged, null, "\t");
 
 	fs.writeFileSync(outFile, walksJSON);
