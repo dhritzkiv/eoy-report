@@ -4,7 +4,7 @@
         "target": "esnext",
         "noImplicitAny": false,
         "moduleResolution": "node",
-        "sourceMap": true,
+		"inlineSourceMap": true,
         "outDir": "./dist",
         "baseUrl": ".",
         "paths": {
