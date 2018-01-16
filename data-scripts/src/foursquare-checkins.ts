@@ -70,8 +70,10 @@ for (let i = 0; i < 365; i++) {
 }
 
 const venuesMap = new IncrementalMap<string>();
-const countriesMap = new IncrementalMap<string>();
-const citiesMap = new IncrementalMap<string>();
+const countriesCheckinsMap = new IncrementalMap<string>();
+const countriesPlacesSet = new Set<string>();
+const citiesCheckinsMap = new IncrementalMap<string>();
+const citiesPlacesSet = new Set<string>();
 const categoriesMap = new IncrementalMap<string>();
 const coffeeShopsMap = new IncrementalMap<string>();
 const burgerJointsMap = new IncrementalMap<string>();
@@ -88,10 +90,13 @@ checkins.forEach(checkin => {
 	dailyCheckinCountsMap.increment(dayOfYear);
 
 	venuesMap.increment(venueKey);
-	countriesMap.increment(checkin.venue_cc);
+	countriesCheckinsMap.increment(checkin.venue_cc);
+	countriesPlacesSet.add(`${checkin.venue_cc}|${checkin.venue_name}`)
 
 	if (checkin.venue_city) {
-		citiesMap.increment([checkin.venue_city, checkin.venue_state, checkin.venue_cc].filter(p => p).join(", "));
+		citiesCheckinsMap.increment([checkin.venue_city, checkin.venue_state, checkin.venue_cc].filter(p => p).join(", "));
+
+		citiesPlacesSet.add(`${checkin.venue_city}, ${checkin.venue_cc}|${checkin.venue_name}`);
 	}
 
 	const categories = checkin.venue_categories.map(cat => cat.toLowerCase());
@@ -133,6 +138,12 @@ console.log();
 console.group("Stats");
 console.log("Total checkins: %d", checkins.length);
 console.log("Unique places: %d", venuesMap.size);
+//console.log("Median checkins per day");
+console.log("Places checked in more than once", [...venuesMap].filter(([name, count]) => count > 1).length);
+console.log("Places checked in more than twice", [...venuesMap].filter(([name, count]) => count > 2).length);
+console.log("Places checked in more than three times", [...venuesMap].filter(([name, count]) => count > 3).length);
+console.log("Places checked in more than five times", [...venuesMap].filter(([name, count]) => count > 5).length);
+console.log("Places checked in more than ten times", [...venuesMap].filter(([name, count]) => count > 10).length);
 console.groupEnd();
 
 console.log();
@@ -146,6 +157,12 @@ console.group("Average checkins by day of week");
 checkinsByDayOfWeekSorted
 .map(([day, val]) => [day, val / (dayOfWeekCountMap.get(day) || 1)])
 .forEach(([day, val]) => console.log(`${day}: ${val}`));
+console.groupEnd();
+
+console.log();
+console.group("Checkins by month");
+[...monthCountMap]
+.forEach(([month, val]) => console.log(`${month}: ${val}`));
 console.groupEnd();
 
 const {
@@ -171,18 +188,42 @@ console.group("Top venues");
 console.groupEnd();
 
 console.log();
-console.group("Top countries");
-[...countriesMap]
+console.group("Top countries (checkins)");
+[...countriesCheckinsMap]
 .sort(([, a], [, b]) => b - a)
 .slice(0, 10)
 .forEach(([key, val]) => console.log(`${key}: ${val}`));
 console.groupEnd();
 
 console.log();
-console.group("Top cities");
-[...citiesMap]
+console.group("Top countries (places)");
+[...
+	[...countriesPlacesSet]
+	.map(name => name.split("|")[0])
+	.reduce((map, name) => map.increment(name), new IncrementalMap<string>())
+]
 .sort(([, a], [, b]) => b - a)
-.slice(0, 20)
+.slice(0, 10)
+.forEach(([key, val]) => console.log(`${key}: ${val}`));
+console.groupEnd();
+
+console.log();
+console.group("Top cities (checkins)");
+[...citiesCheckinsMap]
+.sort(([, a], [, b]) => b - a)
+.slice(0, 50)
+.forEach(([key, val]) => console.log(`${key}: ${val}`));
+console.groupEnd();
+
+console.log();
+console.group("Top cities (places)");
+[...
+	[...citiesPlacesSet]
+	.map(name => name.split("|")[0])
+	.reduce((map, name) => map.increment(name), new IncrementalMap<string>())
+]
+.sort(([, a], [, b]) => b - a)
+.slice(0, 50)
 .forEach(([key, val]) => console.log(`${key}: ${val}`));
 console.groupEnd();
 
@@ -190,7 +231,7 @@ console.log()
 console.group("Top categories");
 [...categoriesMap]
 .sort(([, a], [, b]) => b - a)
-.slice(0, 40)
+.slice(0, 100)
 .forEach(([key, val]) => console.log(`${key}: ${val}`));
 console.groupEnd();
 
