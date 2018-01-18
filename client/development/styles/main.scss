@@ -249,8 +249,8 @@ body > header {
 				stroke: transparent;
 
 				&.shadow {
-					stroke: $colorBackground;
-					fill: $colorBackground;
+					stroke: mix($colorBackground, white, 75%);
+					fill: mix($colorBackground, white, 75%);
 				}
 			}
 		}
@@ -423,7 +423,7 @@ section.maps {
 		//word-break: break-all;
 		overflow: hidden;
 		padding: 0.85em;
-		background-color: rgba(white, 0.1);
+		background-color: rgba(white, 0.25);
 
 		header {
 			margin-bottom: $gutter;
