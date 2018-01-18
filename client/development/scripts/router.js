@@ -2,9 +2,6 @@
 import AmpersandRouter from "ampersand-router";
 
 //import StartPage from "./views/start";
-//import StatsPage from "./views/stats";
-//import MapsPage from "./views/maps";
-//import MapsLegendPage from "./views/maps-legend";
 
 import StatsPage from "./views/stats";
 import CoffeeStatsPage from "./views/stats_coffee";

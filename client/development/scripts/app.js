@@ -1,5 +1,4 @@
 import app from "ampersand-app";
-//import ViewSwitcher from "ampersand-view-switcher";
 //const Raven = require("raven-js");
 import Router from "./router";
 import MainView from "./views/main";
