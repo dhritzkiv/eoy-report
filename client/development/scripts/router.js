@@ -179,7 +179,7 @@ const Router = AmpersandRouter.extend({
 					value: [
 						{label: "Mon", value: 1.02},
 						{label: "Tue", value: 1.10},
-						{label: "Web", value: 1.08},
+						{label: "Wed", value: 1.08},
 						{label: "Thr", value: 1.04},
 						{label: "Fri", value: 1.00},
 						{label: "Sat", value: 0.84},
@@ -488,7 +488,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Weekly distances",
+				title: "Weekly distances (km)",
 				wide: "x2",
 				data: {
 					type: "line",
@@ -513,7 +513,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y1"
 			},
 			{
-				title: "Average distance per day of week",
+				title: "Average distance per day of week (km)",
 				data: {
 					type: "bar",
 					value: [
@@ -542,14 +542,14 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.add([
 			{
-				title: "Total beer servings",
+				title: "Total beers (servings)",
 				data: {
 					type: "numeric",
 					value: 910
 				}
 			},
 			{
-				title: "Top beers",
+				title: "Top beers (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -570,7 +570,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Top main beer styles",
+				title: "Top main beer styles (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -902,7 +902,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Number of Toronto beers",
+				title: "Number of Toronto brewery beers",
 				data: {
 					type: "numeric",
 					value: 363
@@ -951,7 +951,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Number of Canadian beers",
+				title: "Number of Canadian brewery beers",
 				data: {
 					type: "numeric",
 					value: 621
@@ -1350,7 +1350,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Total films duration (hrs.)",
+				title: "Total films duration (hours)",
 				data: {
 					type: "numeric",
 					value: 141.2
