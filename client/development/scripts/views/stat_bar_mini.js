@@ -52,11 +52,11 @@ const BarStatView = StatView.extend({
 		.append("g")
 		.attr("class", "bar");
 
-		const valueBarText = svgG
+		const valueTextBar = svgG
 		.append("g")
 		.attr("class", "text-bar");
 
-		const valueText = valueBarText.append("text");
+		const valueText = valueTextBar.append("text");
 
 		const labelBarText = svgG
 		.append("g")
@@ -75,13 +75,22 @@ const BarStatView = StatView.extend({
 			const valueTranslateX = (i * barWidth) + (xOffset + (barWidthWithSpace / 2));
 			const valueTranslateY = visibleBarY(value) - (margin.top / 2);
 
-			valueBarText
+			valueText.text(parseFloat(value.toFixed(2)));
+
+			const valueTextWidth = valueText.node().getComputedTextLength();
+
+			const leftBreach = valueTranslateX - (valueTextWidth / 2);
+			const rightBreach = (width - valueTranslateX) - (valueTextWidth / 2);
+			const dx = Math.min(Math.max(-leftBreach, 0), rightBreach);
+
+			valueText
+			.attr("dx", dx);
+
+			valueTextBar
 			.transition()
 			.ease(easingFunction)
 			.duration(transitionDuration)
 			.attr("transform", `translate(${valueTranslateX}, ${valueTranslateY})`);
-
-			valueText.text(parseFloat(value.toFixed(2)));
 
 			const labelTranslateX = valueTranslateX;
 			const labelTranslateY = height + (margin.top / 2);
@@ -126,7 +135,7 @@ const BarStatView = StatView.extend({
 			.attr("width", barWidth);
 
 			bar.attr("transform", (d, i) => barPosition(i));
-			valueBarText.attr("transform", (d, i) => barPosition(i));
+			valueTextBar.attr("transform", (d, i) => barPosition(i));
 
 			visibleBar
 			.attr("y", height)
