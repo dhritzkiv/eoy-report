@@ -71,7 +71,8 @@ const MainView = View.extend({
 
 		const pageContainer = this.pageContainer = this.query(".page-container");
 
-		this.pageSwitcher = new ViewSwitcher(pageContainer, {
+		this.pageSwitcher = new ViewSwitcher({
+			el: pageContainer,
 			show: (newView) => {
 				window.scrollTo(0, 0);
 
