@@ -12,7 +12,7 @@ import * as interpolateLineRange from "line-interpolate-points";
 import * as haversine from "haversine";
 import * as simplify from "simplify-js"
 
-const TOLERANCE = 0.001;
+const TOLERANCE = 0.00055;
 
 interface WalkForDeduping extends Walk {
 	points_interop: Walk["points"],
