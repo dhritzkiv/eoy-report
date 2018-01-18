@@ -11,6 +11,13 @@ import MediaStatsPage from "./views/stats_media";
 import WalkingStatsPage from "./views/stats_walking";
 //import HealthStatsPage from "./views/stats_health";
 
+import svg_coffee from "../img/category-icon_coffee.svg";
+import svg_beer from "../img/category-icon_beer.svg";
+import svg_cycling from "../img/category-icon_cycling.svg";
+import svg_health from "../img/category-icon_health.svg";
+import svg_media from "../img/category-icon_media.svg";
+import svg_walking from "../img/category-icon_walking.svg";
+
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
 
 import * as areas from "./data/areas";
@@ -32,7 +39,8 @@ const Router = AmpersandRouter.extend({
 	},
 	coffee() {
 		const view = new CoffeeStatsPage({
-			name: "coffee"
+			name: "coffee",
+			icon: svg_coffee
 		});
 
 		view.stats.add([
@@ -186,7 +194,8 @@ const Router = AmpersandRouter.extend({
 	},
 	cycling() {
 		const view = new CyclingStatsPage({
-			name: "cycling"
+			name: "cycling",
+			icon: svg_cycling
 		});
 
 		view.stats.add([
@@ -526,7 +535,8 @@ const Router = AmpersandRouter.extend({
 	},
 	beer() {
 		const view = new BeerStatsPage({
-			name: "beer"
+			name: "beer",
+			icon: svg_beer
 		});
 
 		view.stats.add([
@@ -982,7 +992,8 @@ const Router = AmpersandRouter.extend({
 	},
 	walking() {
 		const view = new WalkingStatsPage({
-			name: "walking"
+			name: "walking",
+			icon: svg_walking
 		});
 
 		view.stats.add([
@@ -1309,14 +1320,17 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	health() {
-		const view = new HealthStatsPage({});
+		const view = new StatsPage({
+			icon: svg_health
+		});
 
 		this.trigger("newPage", view);
 		this.trigger("navigation");
 	},
 	media() {
 		const view = new MediaStatsPage({
-			name: "media"
+			name: "media",
+			icon: svg_media
 		});
 
 		view.stats.add([

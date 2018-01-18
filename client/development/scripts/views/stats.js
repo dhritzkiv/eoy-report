@@ -11,18 +11,33 @@ const StatsView = View.extend({
 	props: {
 		name: {
 			type: "string"
+		},
+		icon: {
+			type: "string"
 		}
 	},
 	template: `
 		<section class="stats-section">
-			<main data-hook="stats-holder"></main>
+			<main data-hook="stats-holder">
+				<div class="stamp"></div>
+			</main>
 		</section>
 	`,
 	bindings: {
 		name: {
 			type: "class",
 			selector: "section"
-		}
+		},
+		icon: [
+			{
+				type: "toggle",
+				selector: ".stamp"
+			},
+			{
+				type: "innerHTML",
+				selector: ".stamp"
+			}
+		]
 	},
 	render() {
 		this.renderWithTemplate(this);
