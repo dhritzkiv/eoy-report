@@ -999,6 +999,162 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.add([
 			{
+				title: "Estimated total steps",
+				data: {
+					type: "numeric",
+					value: 2109860
+				}
+			},
+			{
+				title: "Steps by month (1000s)",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 166.29},
+						{label: "Feb", value: 397.87},
+						{label: "Mar", value: 192.91},
+						{label: "Apr", value: 154.30},
+						{label: "May", value: 155.06},
+						{label: "Jun", value: 151.20},
+						{label: "Jul", value: 181.98},
+						{label: "Aug", value: 139.81},
+						{label: "Sep", value: 158.05},
+						{label: "Oct", value: 117.37},
+						{label: "Nov", value: 115.35},
+						{label: "Dec", value: 149.77}
+					]
+				},
+				wide: "x2"
+			},
+			{
+				title: "Average Steps by day",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Mon", value: 5972.48},
+						{label: "Tue", value: 6138.12},
+						{label: "Wed", value: 5539.10},
+						{label: "Thu", value: 5506.77},
+						{label: "Fri", value: 5681.67},
+						{label: "Sat", value: 4900.83},
+						{label: "Sun", value: 4525.00}
+					]
+				},
+				wide: "x1"
+			},
+			{
+				title: "Median daily steps",
+				data: {
+					type: "numeric",
+					value: 4835
+				}
+			},
+			{
+				title: "Most daily steps",
+				data: {
+					type: "numeric",
+					value: 26737
+				}
+			},
+			{
+				title: "Days with over 10000 steps",
+				data: {
+					type: "numeric",
+					value: 40
+				}
+			},
+			{
+				title: "Days with fewer than 1000 steps",
+				data: {
+					type: "numeric",
+					value: 14
+				}
+			},
+			{
+				title: "Estimated total distance (km)",
+				data: {
+					type: "numeric",
+					value: 1604.31
+				}
+			},
+			{
+				title: "Average daily distance (km)",
+				data: {
+					type: "numeric",
+					value: 4.39
+				}
+			},
+			{
+				title: "Most daily distance (km)",
+				data: {
+					type: "numeric",
+					value: 27.35
+				}
+			},
+			{
+				title: "Distance by month (kms)",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 100.99},
+						{label: "Feb", value: 259.82},
+						{label: "Mar", value: 120.32},
+						{label: "Apr", value: 93.63},
+						{label: "May", value: 95.61},
+						{label: "Jun", value: 92.11},
+						{label: "Jul", value: 117.67},
+						{label: "Aug", value: 84.28},
+						{label: "Sep", value: 99.68},
+						{label: "Oct", value: 73.24},
+						{label: "Nov", value: 72.09},
+						{label: "Dec", value: 111.66}
+					]
+				},
+				wide: "x2"
+			},
+			{
+				title: "Estimated total time (hours)",
+				data: {
+					type: "numeric",
+					value: 410.29
+				}
+			},
+			{
+				title: "Average daily time (hours)",
+				data: {
+					type: "numeric",
+					value: 1.12
+				}
+			},
+			{
+				title: "Most daily time (hours)",
+				data: {
+					type: "numeric",
+					value: 6.10
+				}
+			},
+			{
+				title: "Duration by month (hours)",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Jan", value: 28.05},
+						{label: "Feb", value: 72.17},
+						{label: "Mar", value: 33.42},
+						{label: "Apr", value: 26.01},
+						{label: "May", value: 26.56},
+						{label: "Jun", value: 25.59},
+						{label: "Jul", value: 32.68},
+						{label: "Aug", value: 23.41},
+						{label: "Sep", value: 27.69},
+						{label: "Oct", value: 20.35},
+						{label: "Nov", value: 20.03},
+						{label: "Dec", value: 31.02}
+					]
+				},
+				wide: "x2"
+			},
+			{
 				title: "Toronto walks",
 				data: {
 					type: "map",

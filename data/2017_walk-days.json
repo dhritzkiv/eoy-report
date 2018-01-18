@@ -1,0 +1,4519 @@
+[
+	{
+		"date": "20170101",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3897,
+				"distance": 4099,
+				"steps": 5397,
+				"calories": 242
+			}
+		]
+	},
+	{
+		"date": "20170102",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5965,
+				"distance": 5911,
+				"steps": 8622,
+				"calories": 348
+			}
+		]
+	},
+	{
+		"date": "20170103",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4217,
+				"distance": 4187,
+				"steps": 6506,
+				"calories": 247
+			},
+			{
+				"activity": "running",
+				"group": "running",
+				"duration": 332,
+				"distance": 953,
+				"steps": 756,
+				"calories": 68
+			}
+		]
+	},
+	{
+		"date": "20170104",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2042,
+				"distance": 2074,
+				"steps": 3253,
+				"calories": 122
+			}
+		]
+	},
+	{
+		"date": "20170105",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2521,
+				"distance": 2523,
+				"steps": 3755,
+				"calories": 149
+			}
+		]
+	},
+	{
+		"date": "20170106",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4465,
+				"distance": 5130,
+				"steps": 6565,
+				"calories": 302
+			}
+		]
+	},
+	{
+		"date": "20170107",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5163,
+				"distance": 6140,
+				"steps": 8034,
+				"calories": 362
+			}
+		]
+	},
+	{
+		"date": "20170108",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3725,
+				"distance": 4232,
+				"steps": 5928,
+				"calories": 249
+			}
+		]
+	},
+	{
+		"date": "20170109",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6686,
+				"distance": 8183,
+				"steps": 10801,
+				"calories": 482
+			}
+		]
+	},
+	{
+		"date": "20170110",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2764,
+				"distance": 2781,
+				"steps": 3847,
+				"calories": 164
+			}
+		]
+	},
+	{
+		"date": "20170111",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2186,
+				"distance": 2053,
+				"steps": 3224,
+				"calories": 121
+			}
+		]
+	},
+	{
+		"date": "20170112",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2835,
+				"distance": 3594,
+				"steps": 4333,
+				"calories": 212
+			}
+		]
+	},
+	{
+		"date": "20170113",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3406,
+				"distance": 3508,
+				"steps": 5410,
+				"calories": 207
+			}
+		]
+	},
+	{
+		"date": "20170114",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6886,
+				"distance": 7654,
+				"steps": 10217,
+				"calories": 451
+			}
+		]
+	},
+	{
+		"date": "20170115",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3747,
+				"distance": 4080,
+				"steps": 5561,
+				"calories": 240
+			}
+		]
+	},
+	{
+		"date": "20170116",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3170,
+				"distance": 3192,
+				"steps": 5096,
+				"calories": 188
+			}
+		]
+	},
+	{
+		"date": "20170117",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4824,
+				"distance": 6314,
+				"steps": 8410,
+				"calories": 372
+			}
+		]
+	},
+	{
+		"date": "20170118",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1281,
+				"distance": 1129,
+				"steps": 1652,
+				"calories": 67
+			}
+		]
+	},
+	{
+		"date": "20170119",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1791,
+				"distance": 1768,
+				"steps": 2863,
+				"calories": 104
+			}
+		]
+	},
+	{
+		"date": "20170120",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3650,
+				"distance": 3746,
+				"steps": 4857,
+				"calories": 221
+			}
+		]
+	},
+	{
+		"date": "20170121",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4526,
+				"distance": 5023,
+				"steps": 6825,
+				"calories": 296
+			}
+		]
+	},
+	{
+		"date": "20170122",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5717,
+				"distance": 5755,
+				"steps": 8409,
+				"calories": 339
+			}
+		]
+	},
+	{
+		"date": "20170123",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3079,
+				"distance": 3176,
+				"steps": 4396,
+				"calories": 187
+			}
+		]
+	},
+	{
+		"date": "20170124",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3507,
+				"distance": 3654,
+				"steps": 5253,
+				"calories": 215
+			}
+		]
+	},
+	{
+		"date": "20170125",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4041,
+				"distance": 4152,
+				"steps": 5808,
+				"calories": 245
+			}
+		]
+	},
+	{
+		"date": "20170126",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2050,
+				"distance": 2047,
+				"steps": 3072,
+				"calories": 121
+			}
+		]
+	},
+	{
+		"date": "20170127",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2182,
+				"distance": 2184,
+				"steps": 3423,
+				"calories": 129
+			}
+		]
+	},
+	{
+		"date": "20170128",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2736,
+				"distance": 3004,
+				"steps": 4380,
+				"calories": 177
+			}
+		]
+	},
+	{
+		"date": "20170129",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2142,
+				"distance": 2871,
+				"steps": 3578,
+				"calories": 169
+			}
+		]
+	},
+	{
+		"date": "20170130",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2210,
+				"distance": 2144,
+				"steps": 3247,
+				"calories": 126
+			}
+		]
+	},
+	{
+		"date": "20170131",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2092,
+				"distance": 1987,
+				"steps": 2814,
+				"calories": 117
+			}
+		]
+	},
+	{
+		"date": "20170201",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1979,
+				"distance": 2015,
+				"steps": 2857,
+				"calories": 119
+			}
+		]
+	},
+	{
+		"date": "20170202",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5123,
+				"distance": 5800,
+				"steps": 8103,
+				"calories": 342
+			}
+		]
+	},
+	{
+		"date": "20170203",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1436,
+				"distance": 1319,
+				"steps": 1888,
+				"calories": 78
+			}
+		]
+	},
+	{
+		"date": "20170204",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2712,
+				"distance": 2718,
+				"steps": 4173,
+				"calories": 160
+			}
+		]
+	},
+	{
+		"date": "20170205",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5363,
+				"distance": 4318,
+				"steps": 6945,
+				"calories": 255
+			}
+		]
+	},
+	{
+		"date": "20170206",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 12965,
+				"distance": 17692,
+				"steps": 19432,
+				"calories": 1043
+			}
+		]
+	},
+	{
+		"date": "20170207",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 10228,
+				"distance": 13792,
+				"steps": 12804,
+				"calories": 813
+			}
+		]
+	},
+	{
+		"date": "20170208",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7960,
+				"distance": 9113,
+				"steps": 11647,
+				"calories": 537
+			}
+		]
+	},
+	{
+		"date": "20170209",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 9483,
+				"distance": 11557,
+				"steps": 15735,
+				"calories": 681
+			}
+		]
+	},
+	{
+		"date": "20170210",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4991,
+				"distance": 5879,
+				"steps": 7694,
+				"calories": 347
+			}
+		]
+	},
+	{
+		"date": "20170211",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 8089,
+				"distance": 9606,
+				"steps": 12529,
+				"calories": 566
+			}
+		]
+	},
+	{
+		"date": "20170212",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 8896,
+				"distance": 8979,
+				"steps": 12930,
+				"calories": 529
+			}
+		]
+	},
+	{
+		"date": "20170213",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 17915,
+				"distance": 20041,
+				"steps": 26737,
+				"calories": 1181
+			}
+		]
+	},
+	{
+		"date": "20170214",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 16781,
+				"distance": 20428,
+				"steps": 24549,
+				"calories": 1204
+			},
+			{
+				"activity": "running",
+				"group": "running",
+				"duration": 164,
+				"distance": 459,
+				"steps": 389,
+				"calories": 33
+			}
+		]
+	},
+	{
+		"date": "20170215",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 11511,
+				"distance": 18242,
+				"steps": 18064,
+				"calories": 1075
+			}
+		]
+	},
+	{
+		"date": "20170216",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 17194,
+				"distance": 26675,
+				"steps": 24338,
+				"calories": 1572
+			}
+		]
+	},
+	{
+		"date": "20170217",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 13290,
+				"distance": 15756,
+				"steps": 19379,
+				"calories": 929
+			}
+		]
+	},
+	{
+		"date": "20170218",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 12437,
+				"distance": 14957,
+				"steps": 18358,
+				"calories": 882
+			}
+		]
+	},
+	{
+		"date": "20170219",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 8008,
+				"distance": 8372,
+				"steps": 11393,
+				"calories": 493
+			}
+		]
+	},
+	{
+		"date": "20170220",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 12761,
+				"distance": 15245,
+				"steps": 19829,
+				"calories": 899
+			}
+		]
+	},
+	{
+		"date": "20170221",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 12926,
+				"distance": 14687,
+				"steps": 19015,
+				"calories": 866
+			}
+		]
+	},
+	{
+		"date": "20170222",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 15294,
+				"distance": 15831,
+				"steps": 21949,
+				"calories": 933
+			}
+		]
+	},
+	{
+		"date": "20170223",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4081,
+				"distance": 3995,
+				"steps": 5860,
+				"calories": 235
+			}
+		]
+	},
+	{
+		"date": "20170224",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7574,
+				"distance": 7900,
+				"steps": 11056,
+				"calories": 466
+			}
+		]
+	},
+	{
+		"date": "20170225",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 11619,
+				"distance": 18864,
+				"steps": 17916,
+				"calories": 1112
+			}
+		]
+	},
+	{
+		"date": "20170226",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 10802,
+				"distance": 14627,
+				"steps": 16500,
+				"calories": 862
+			}
+		]
+	},
+	{
+		"date": "20170227",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7571,
+				"distance": 10751,
+				"steps": 12153,
+				"calories": 634
+			}
+		]
+	},
+	{
+		"date": "20170228",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 8990,
+				"distance": 10445,
+				"steps": 13647,
+				"calories": 616
+			}
+		]
+	},
+	{
+		"date": "20170301",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6708,
+				"distance": 7515,
+				"steps": 10292,
+				"calories": 443
+			}
+		]
+	},
+	{
+		"date": "20170302",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 10536,
+				"distance": 13515,
+				"steps": 16860,
+				"calories": 797
+			}
+		]
+	},
+	{
+		"date": "20170303",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6996,
+				"distance": 8494,
+				"steps": 10849,
+				"calories": 501
+			}
+		]
+	},
+	{
+		"date": "20170304",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7453,
+				"distance": 26745,
+				"steps": 9973,
+				"calories": 1576
+			},
+			{
+				"activity": "running",
+				"group": "running",
+				"duration": 187,
+				"distance": 604,
+				"steps": 402,
+				"calories": 43
+			}
+		]
+	},
+	{
+		"date": "20170305",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3781,
+				"distance": 3849,
+				"steps": 5644,
+				"calories": 227
+			}
+		]
+	},
+	{
+		"date": "20170306",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2011,
+				"distance": 1957,
+				"steps": 2797,
+				"calories": 115
+			}
+		]
+	},
+	{
+		"date": "20170307",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5782,
+				"distance": 7195,
+				"steps": 9622,
+				"calories": 424
+			}
+		]
+	},
+	{
+		"date": "20170308",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2823,
+				"distance": 3042,
+				"steps": 4169,
+				"calories": 179
+			}
+		]
+	},
+	{
+		"date": "20170309",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2125,
+				"distance": 2223,
+				"steps": 3257,
+				"calories": 131
+			},
+			{
+				"activity": "running",
+				"group": "running",
+				"duration": 224,
+				"distance": 647,
+				"steps": 540,
+				"calories": 46
+			}
+		]
+	},
+	{
+		"date": "20170310",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4102,
+				"distance": 4470,
+				"steps": 5791,
+				"calories": 263
+			}
+		]
+	},
+	{
+		"date": "20170311",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2861,
+				"distance": 3350,
+				"steps": 4646,
+				"calories": 197
+			}
+		]
+	},
+	{
+		"date": "20170312",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4908,
+				"distance": 6834,
+				"steps": 8443,
+				"calories": 403
+			}
+		]
+	},
+	{
+		"date": "20170313",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5183,
+				"distance": 6438,
+				"steps": 8854,
+				"calories": 379
+			}
+		]
+	},
+	{
+		"date": "20170314",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4915,
+				"distance": 6571,
+				"steps": 9155,
+				"calories": 387
+			}
+		]
+	},
+	{
+		"date": "20170315",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5695,
+				"distance": 6820,
+				"steps": 9821,
+				"calories": 402
+			}
+		]
+	},
+	{
+		"date": "20170316",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5322,
+				"distance": 6602,
+				"steps": 9033,
+				"calories": 389
+			}
+		]
+	},
+	{
+		"date": "20170317",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3959,
+				"distance": 4054,
+				"steps": 6011,
+				"calories": 239
+			}
+		]
+	},
+	{
+		"date": "20170318",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2191,
+				"distance": 2864,
+				"steps": 3879,
+				"calories": 169
+			}
+		]
+	},
+	{
+		"date": "20170319",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 217,
+				"distance": 160,
+				"steps": 323,
+				"calories": 9
+			}
+		]
+	},
+	{
+		"date": "20170320",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2324,
+				"distance": 4258,
+				"steps": 3743,
+				"calories": 251
+			}
+		]
+	},
+	{
+		"date": "20170321",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4469,
+				"distance": 4537,
+				"steps": 6985,
+				"calories": 267
+			}
+		]
+	},
+	{
+		"date": "20170322",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1513,
+				"distance": 1513,
+				"steps": 2404,
+				"calories": 89
+			}
+		]
+	},
+	{
+		"date": "20170323",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3786,
+				"distance": 3958,
+				"steps": 5702,
+				"calories": 233
+			}
+		]
+	},
+	{
+		"date": "20170324",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2061,
+				"distance": 2165,
+				"steps": 3368,
+				"calories": 128
+			}
+		]
+	},
+	{
+		"date": "20170325",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1077,
+				"distance": 950,
+				"steps": 1429,
+				"calories": 56
+			}
+		]
+	},
+	{
+		"date": "20170326",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1144,
+				"distance": 1317,
+				"steps": 1914,
+				"calories": 78
+			}
+		]
+	},
+	{
+		"date": "20170327",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3716,
+				"distance": 4180,
+				"steps": 6170,
+				"calories": 246
+			}
+		]
+	},
+	{
+		"date": "20170328",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3271,
+				"distance": 3843,
+				"steps": 5498,
+				"calories": 227
+			}
+		]
+	},
+	{
+		"date": "20170329",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3074,
+				"distance": 3118,
+				"steps": 4802,
+				"calories": 184
+			}
+		]
+	},
+	{
+		"date": "20170330",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2443,
+				"distance": 2589,
+				"steps": 3857,
+				"calories": 153
+			}
+		]
+	},
+	{
+		"date": "20170331",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4224,
+				"distance": 4447,
+				"steps": 6681,
+				"calories": 262
+			}
+		]
+	},
+	{
+		"date": "20170401",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2808,
+				"distance": 2777,
+				"steps": 4040,
+				"calories": 164
+			}
+		]
+	},
+	{
+		"date": "20170402",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4647,
+				"distance": 5139,
+				"steps": 6928,
+				"calories": 303
+			}
+		]
+	},
+	{
+		"date": "20170403",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2203,
+				"distance": 2265,
+				"steps": 3142,
+				"calories": 134
+			}
+		]
+	},
+	{
+		"date": "20170404",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1839,
+				"distance": 1901,
+				"steps": 2817,
+				"calories": 112
+			}
+		]
+	},
+	{
+		"date": "20170405",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2434,
+				"distance": 2801,
+				"steps": 3736,
+				"calories": 165
+			}
+		]
+	},
+	{
+		"date": "20170406",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1508,
+				"distance": 1189,
+				"steps": 1908,
+				"calories": 70
+			}
+		]
+	},
+	{
+		"date": "20170407",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2527,
+				"distance": 2687,
+				"steps": 3980,
+				"calories": 158
+			}
+		]
+	},
+	{
+		"date": "20170408",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3775,
+				"distance": 4456,
+				"steps": 6473,
+				"calories": 263
+			}
+		]
+	},
+	{
+		"date": "20170409",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1436,
+				"distance": 1546,
+				"steps": 2302,
+				"calories": 91
+			}
+		]
+	},
+	{
+		"date": "20170410",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4396,
+				"distance": 5105,
+				"steps": 7036,
+				"calories": 301
+			}
+		]
+	},
+	{
+		"date": "20170411",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4275,
+				"distance": 5699,
+				"steps": 7341,
+				"calories": 336
+			}
+		]
+	},
+	{
+		"date": "20170412",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5149,
+				"distance": 5707,
+				"steps": 7976,
+				"calories": 336
+			}
+		]
+	},
+	{
+		"date": "20170413",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6417,
+				"distance": 7609,
+				"steps": 10312,
+				"calories": 448
+			}
+		]
+	},
+	{
+		"date": "20170414",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 12084,
+				"distance": 14079,
+				"steps": 20328,
+				"calories": 830
+			}
+		]
+	},
+	{
+		"date": "20170415",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2096,
+				"distance": 2397,
+				"steps": 3073,
+				"calories": 141
+			}
+		]
+	},
+	{
+		"date": "20170416",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2504,
+				"distance": 3137,
+				"steps": 3465,
+				"calories": 185
+			}
+		]
+	},
+	{
+		"date": "20170417",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4151,
+				"distance": 4566,
+				"steps": 6038,
+				"calories": 269
+			}
+		]
+	},
+	{
+		"date": "20170418",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2902,
+				"distance": 2916,
+				"steps": 4553,
+				"calories": 172
+			}
+		]
+	},
+	{
+		"date": "20170419",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2633,
+				"distance": 2647,
+				"steps": 4006,
+				"calories": 156
+			}
+		]
+	},
+	{
+		"date": "20170420",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3083,
+				"distance": 3158,
+				"steps": 4448,
+				"calories": 186
+			}
+		]
+	},
+	{
+		"date": "20170421",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3047,
+				"distance": 3257,
+				"steps": 4732,
+				"calories": 192
+			}
+		]
+	},
+	{
+		"date": "20170422",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2410,
+				"distance": 2353,
+				"steps": 3454,
+				"calories": 139
+			}
+		]
+	},
+	{
+		"date": "20170423",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2127,
+				"distance": 2045,
+				"steps": 3064,
+				"calories": 121
+			}
+		]
+	},
+	{
+		"date": "20170424",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2691,
+				"distance": 2694,
+				"steps": 4228,
+				"calories": 159
+			}
+		]
+	},
+	{
+		"date": "20170425",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1927,
+				"distance": 2227,
+				"steps": 2965,
+				"calories": 131
+			}
+		]
+	},
+	{
+		"date": "20170426",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3657,
+				"distance": 4087,
+				"steps": 5506,
+				"calories": 241
+			}
+		]
+	},
+	{
+		"date": "20170427",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1994,
+				"distance": 1965,
+				"steps": 2950,
+				"calories": 116
+			}
+		]
+	},
+	{
+		"date": "20170428",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6228,
+				"distance": 6719,
+				"steps": 9117,
+				"calories": 396
+			}
+		]
+	},
+	{
+		"date": "20170429",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1544,
+				"distance": 1577,
+				"steps": 2247,
+				"calories": 93
+			}
+		]
+	},
+	{
+		"date": "20170430",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1501,
+				"distance": 1421,
+				"steps": 2132,
+				"calories": 84
+			}
+		]
+	},
+	{
+		"date": "20170501",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2055,
+				"distance": 1884,
+				"steps": 3140,
+				"calories": 111
+			}
+		]
+	},
+	{
+		"date": "20170502",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3993,
+				"distance": 3960,
+				"steps": 5949,
+				"calories": 233
+			}
+		]
+	},
+	{
+		"date": "20170503",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3811,
+				"distance": 4764,
+				"steps": 5651,
+				"calories": 281
+			}
+		]
+	},
+	{
+		"date": "20170504",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3497,
+				"distance": 4011,
+				"steps": 5637,
+				"calories": 236
+			}
+		]
+	},
+	{
+		"date": "20170505",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2798,
+				"distance": 2840,
+				"steps": 3962,
+				"calories": 167
+			}
+		]
+	},
+	{
+		"date": "20170506",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1763,
+				"distance": 1341,
+				"steps": 2182,
+				"calories": 79
+			}
+		]
+	},
+	{
+		"date": "20170507",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1162,
+				"distance": 1074,
+				"steps": 1590,
+				"calories": 63
+			}
+		]
+	},
+	{
+		"date": "20170508",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2379,
+				"distance": 2472,
+				"steps": 3832,
+				"calories": 146
+			}
+		]
+	},
+	{
+		"date": "20170509",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1742,
+				"distance": 1651,
+				"steps": 2844,
+				"calories": 97
+			}
+		]
+	},
+	{
+		"date": "20170510",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2739,
+				"distance": 2702,
+				"steps": 4025,
+				"calories": 159
+			}
+		]
+	},
+	{
+		"date": "20170511",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5746,
+				"distance": 6028,
+				"steps": 8428,
+				"calories": 355
+			}
+		]
+	},
+	{
+		"date": "20170512",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3807,
+				"distance": 3539,
+				"steps": 5516,
+				"calories": 209
+			}
+		]
+	},
+	{
+		"date": "20170513",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4397,
+				"distance": 4629,
+				"steps": 6728,
+				"calories": 273
+			}
+		]
+	},
+	{
+		"date": "20170514",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1125,
+				"distance": 976,
+				"steps": 1471,
+				"calories": 58
+			}
+		]
+	},
+	{
+		"date": "20170515",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3332,
+				"distance": 4299,
+				"steps": 4837,
+				"calories": 253
+			}
+		]
+	},
+	{
+		"date": "20170516",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1997,
+				"distance": 1588,
+				"steps": 2689,
+				"calories": 94
+			}
+		]
+	},
+	{
+		"date": "20170517",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2175,
+				"distance": 2013,
+				"steps": 3457,
+				"calories": 119
+			}
+		]
+	},
+	{
+		"date": "20170518",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4061,
+				"distance": 4439,
+				"steps": 6043,
+				"calories": 262
+			}
+		]
+	},
+	{
+		"date": "20170519",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2942,
+				"distance": 2655,
+				"steps": 4271,
+				"calories": 156
+			}
+		]
+	},
+	{
+		"date": "20170520",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6422,
+				"distance": 6422,
+				"steps": 9332,
+				"calories": 379
+			}
+		]
+	},
+	{
+		"date": "20170521",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 13487,
+				"distance": 15565,
+				"steps": 20214,
+				"calories": 917
+			}
+		]
+	},
+	{
+		"date": "20170522",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4559,
+				"distance": 4797,
+				"steps": 5501,
+				"calories": 283
+			}
+		]
+	},
+	{
+		"date": "20170523",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4058,
+				"distance": 4372,
+				"steps": 5955,
+				"calories": 258
+			}
+		]
+	},
+	{
+		"date": "20170524",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1873,
+				"distance": 2108,
+				"steps": 2472,
+				"calories": 124
+			}
+		]
+	},
+	{
+		"date": "20170525",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2260,
+				"distance": 2088,
+				"steps": 3006,
+				"calories": 123
+			}
+		]
+	},
+	{
+		"date": "20170526",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1956,
+				"distance": 1970,
+				"steps": 2897,
+				"calories": 116
+			}
+		]
+	},
+	{
+		"date": "20170527",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1389,
+				"distance": 1097,
+				"steps": 1729,
+				"calories": 65
+			}
+		]
+	},
+	{
+		"date": "20170528",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3256,
+				"distance": 3339,
+				"steps": 4474,
+				"calories": 197
+			}
+		]
+	},
+	{
+		"date": "20170529",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2202,
+				"distance": 2194,
+				"steps": 3268,
+				"calories": 129
+			}
+		]
+	},
+	{
+		"date": "20170530",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5976,
+				"distance": 7122,
+				"steps": 9989,
+				"calories": 420
+			}
+		]
+	},
+	{
+		"date": "20170531",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2399,
+				"distance": 2389,
+				"steps": 3975,
+				"calories": 141
+			}
+		]
+	},
+	{
+		"date": "20170601",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2577,
+				"distance": 2609,
+				"steps": 3743,
+				"calories": 154
+			}
+		]
+	},
+	{
+		"date": "20170602",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1273,
+				"distance": 1062,
+				"steps": 1806,
+				"calories": 63
+			}
+		]
+	},
+	{
+		"date": "20170603",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4153,
+				"distance": 3916,
+				"steps": 5780,
+				"calories": 231
+			}
+		]
+	},
+	{
+		"date": "20170604",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1650,
+				"distance": 1655,
+				"steps": 2331,
+				"calories": 98
+			}
+		]
+	},
+	{
+		"date": "20170605",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1761,
+				"distance": 1667,
+				"steps": 2606,
+				"calories": 98
+			}
+		]
+	},
+	{
+		"date": "20170606",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2765,
+				"distance": 3018,
+				"steps": 4116,
+				"calories": 178
+			}
+		]
+	},
+	{
+		"date": "20170607",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1771,
+				"distance": 1570,
+				"steps": 2580,
+				"calories": 93
+			}
+		]
+	},
+	{
+		"date": "20170608",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2473,
+				"distance": 2804,
+				"steps": 3831,
+				"calories": 165
+			}
+		]
+	},
+	{
+		"date": "20170609",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3700,
+				"distance": 3407,
+				"steps": 5132,
+				"calories": 201
+			}
+		]
+	},
+	{
+		"date": "20170610",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3428,
+				"distance": 3771,
+				"steps": 5218,
+				"calories": 222
+			}
+		]
+	},
+	{
+		"date": "20170611",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2195,
+				"distance": 2245,
+				"steps": 3049,
+				"calories": 132
+			}
+		]
+	},
+	{
+		"date": "20170612",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2265,
+				"distance": 2274,
+				"steps": 2925,
+				"calories": 134
+			}
+		]
+	},
+	{
+		"date": "20170613",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2798,
+				"distance": 2862,
+				"steps": 4154,
+				"calories": 169
+			}
+		]
+	},
+	{
+		"date": "20170614",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3454,
+				"distance": 3635,
+				"steps": 5053,
+				"calories": 214
+			}
+		]
+	},
+	{
+		"date": "20170615",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3071,
+				"distance": 3467,
+				"steps": 4102,
+				"calories": 204
+			}
+		]
+	},
+	{
+		"date": "20170616",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2670,
+				"distance": 2829,
+				"steps": 4115,
+				"calories": 167
+			}
+		]
+	},
+	{
+		"date": "20170617",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6809,
+				"distance": 7277,
+				"steps": 10445,
+				"calories": 429
+			}
+		]
+	},
+	{
+		"date": "20170618",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7244,
+				"distance": 7614,
+				"steps": 10805,
+				"calories": 449
+			}
+		]
+	},
+	{
+		"date": "20170619",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5961,
+				"distance": 7011,
+				"steps": 9063,
+				"calories": 413
+			}
+		]
+	},
+	{
+		"date": "20170620",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5511,
+				"distance": 6609,
+				"steps": 9248,
+				"calories": 390
+			}
+		]
+	},
+	{
+		"date": "20170621",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4048,
+				"distance": 3829,
+				"steps": 6134,
+				"calories": 226
+			}
+		]
+	},
+	{
+		"date": "20170622",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4193,
+				"distance": 4266,
+				"steps": 6205,
+				"calories": 251
+			}
+		]
+	},
+	{
+		"date": "20170623",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2596,
+				"distance": 2515,
+				"steps": 3935,
+				"calories": 148
+			}
+		]
+	},
+	{
+		"date": "20170624",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 611,
+				"distance": 501,
+				"steps": 887,
+				"calories": 30
+			}
+		]
+	},
+	{
+		"date": "20170625",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1233,
+				"distance": 1287,
+				"steps": 2042,
+				"calories": 76
+			}
+		]
+	},
+	{
+		"date": "20170626",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6925,
+				"distance": 7902,
+				"steps": 11391,
+				"calories": 466
+			}
+		]
+	},
+	{
+		"date": "20170627",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3007,
+				"distance": 2972,
+				"steps": 4312,
+				"calories": 175
+			}
+		]
+	},
+	{
+		"date": "20170628",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3428,
+				"distance": 4015,
+				"steps": 4925,
+				"calories": 237
+			}
+		]
+	},
+	{
+		"date": "20170629",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3132,
+				"distance": 3121,
+				"steps": 4835,
+				"calories": 184
+			}
+		]
+	},
+	{
+		"date": "20170630",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4265,
+				"distance": 4434,
+				"steps": 6436,
+				"calories": 261
+			}
+		]
+	},
+	{
+		"date": "20170701",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2606,
+				"distance": 2558,
+				"steps": 3497,
+				"calories": 151
+			}
+		]
+	},
+	{
+		"date": "20170702",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1179,
+				"distance": 957,
+				"steps": 1675,
+				"calories": 56
+			}
+		]
+	},
+	{
+		"date": "20170703",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3996,
+				"distance": 3749,
+				"steps": 5816,
+				"calories": 221
+			}
+		]
+	},
+	{
+		"date": "20170704",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3796,
+				"distance": 3861,
+				"steps": 5744,
+				"calories": 228
+			}
+		]
+	},
+	{
+		"date": "20170705",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5735,
+				"distance": 5183,
+				"steps": 8450,
+				"calories": 305
+			}
+		]
+	},
+	{
+		"date": "20170706",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3023,
+				"distance": 3008,
+				"steps": 3803,
+				"calories": 177
+			}
+		]
+	},
+	{
+		"date": "20170707",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3239,
+				"distance": 3091,
+				"steps": 4516,
+				"calories": 182
+			}
+		]
+	},
+	{
+		"date": "20170708",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1411,
+				"distance": 1281,
+				"steps": 2055,
+				"calories": 76
+			}
+		]
+	},
+	{
+		"date": "20170709",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6238,
+				"distance": 6197,
+				"steps": 9005,
+				"calories": 365
+			}
+		]
+	},
+	{
+		"date": "20170710",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3678,
+				"distance": 3393,
+				"steps": 5213,
+				"calories": 200
+			}
+		]
+	},
+	{
+		"date": "20170711",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5253,
+				"distance": 5994,
+				"steps": 8392,
+				"calories": 353
+			}
+		]
+	},
+	{
+		"date": "20170712",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4495,
+				"distance": 4809,
+				"steps": 7545,
+				"calories": 283
+			}
+		]
+	},
+	{
+		"date": "20170713",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4193,
+				"distance": 4254,
+				"steps": 6007,
+				"calories": 251
+			}
+		]
+	},
+	{
+		"date": "20170714",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2927,
+				"distance": 2799,
+				"steps": 4439,
+				"calories": 165
+			}
+		]
+	},
+	{
+		"date": "20170715",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1707,
+				"distance": 1618,
+				"steps": 2393,
+				"calories": 95
+			}
+		]
+	},
+	{
+		"date": "20170716",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2098,
+				"distance": 2177,
+				"steps": 2767,
+				"calories": 128
+			}
+		]
+	},
+	{
+		"date": "20170717",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3793,
+				"distance": 3604,
+				"steps": 5776,
+				"calories": 212
+			}
+		]
+	},
+	{
+		"date": "20170718",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3758,
+				"distance": 3836,
+				"steps": 5845,
+				"calories": 226
+			}
+		]
+	},
+	{
+		"date": "20170719",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3879,
+				"distance": 3224,
+				"steps": 4191,
+				"calories": 190
+			}
+		]
+	},
+	{
+		"date": "20170720",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7787,
+				"distance": 4134,
+				"steps": 1336,
+				"calories": 244
+			}
+		]
+	},
+	{
+		"date": "20170721",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 11931,
+				"distance": 9156,
+				"steps": 9581,
+				"calories": 540
+			}
+		]
+	},
+	{
+		"date": "20170722",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 926,
+				"distance": 936,
+				"steps": 1277,
+				"calories": 55
+			}
+		]
+	},
+	{
+		"date": "20170723",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 676,
+				"distance": 690,
+				"steps": 945,
+				"calories": 41
+			}
+		]
+	},
+	{
+		"date": "20170724",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4704,
+				"distance": 4352,
+				"steps": 6727,
+				"calories": 257
+			}
+		]
+	},
+	{
+		"date": "20170725",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3692,
+				"distance": 4111,
+				"steps": 5499,
+				"calories": 242
+			}
+		]
+	},
+	{
+		"date": "20170726",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2555,
+				"distance": 2325,
+				"steps": 3803,
+				"calories": 137
+			}
+		]
+	},
+	{
+		"date": "20170727",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4660,
+				"distance": 4763,
+				"steps": 6995,
+				"calories": 281
+			}
+		]
+	},
+	{
+		"date": "20170728",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 13134,
+				"distance": 11078,
+				"steps": 16012,
+				"calories": 653
+			}
+		]
+	},
+	{
+		"date": "20170729",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 11789,
+				"distance": 11373,
+				"steps": 14684,
+				"calories": 670
+			}
+		]
+	},
+	{
+		"date": "20170730",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 10166,
+				"distance": 8402,
+				"steps": 11680,
+				"calories": 495
+			}
+		]
+	},
+	{
+		"date": "20170731",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4692,
+				"distance": 4239,
+				"steps": 6315,
+				"calories": 250
+			}
+		]
+	},
+	{
+		"date": "20170801",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5373,
+				"distance": 5886,
+				"steps": 8441,
+				"calories": 347
+			}
+		]
+	},
+	{
+		"date": "20170802",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5245,
+				"distance": 4278,
+				"steps": 5158,
+				"calories": 252
+			}
+		]
+	},
+	{
+		"date": "20170803",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2668,
+				"distance": 2934,
+				"steps": 3759,
+				"calories": 173
+			}
+		]
+	},
+	{
+		"date": "20170804",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3011,
+				"distance": 3114,
+				"steps": 4532,
+				"calories": 184
+			}
+		]
+	},
+	{
+		"date": "20170805",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1575,
+				"distance": 1843,
+				"steps": 2048,
+				"calories": 109
+			}
+		]
+	},
+	{
+		"date": "20170806",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3303,
+				"distance": 3318,
+				"steps": 4653,
+				"calories": 196
+			}
+		]
+	},
+	{
+		"date": "20170807",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1567,
+				"distance": 1441,
+				"steps": 2359,
+				"calories": 85
+			}
+		]
+	},
+	{
+		"date": "20170808",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5216,
+				"distance": 5588,
+				"steps": 7841,
+				"calories": 329
+			}
+		]
+	},
+	{
+		"date": "20170809",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3618,
+				"distance": 3665,
+				"steps": 5403,
+				"calories": 216
+			}
+		]
+	},
+	{
+		"date": "20170810",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1479,
+				"distance": 1299,
+				"steps": 2057,
+				"calories": 77
+			}
+		]
+	},
+	{
+		"date": "20170811",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2934,
+				"distance": 2921,
+				"steps": 4399,
+				"calories": 172
+			}
+		]
+	},
+	{
+		"date": "20170812",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1708,
+				"distance": 1951,
+				"steps": 2682,
+				"calories": 115
+			}
+		]
+	},
+	{
+		"date": "20170813",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1861,
+				"distance": 1730,
+				"steps": 2627,
+				"calories": 102
+			}
+		]
+	},
+	{
+		"date": "20170814",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2616,
+				"distance": 2471,
+				"steps": 3721,
+				"calories": 146
+			}
+		]
+	},
+	{
+		"date": "20170815",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3563,
+				"distance": 3990,
+				"steps": 5306,
+				"calories": 235
+			}
+		]
+	},
+	{
+		"date": "20170816",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3701,
+				"distance": 3900,
+				"steps": 5833,
+				"calories": 230
+			}
+		]
+	},
+	{
+		"date": "20170817",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4180,
+				"distance": 4731,
+				"steps": 6436,
+				"calories": 279
+			}
+		]
+	},
+	{
+		"date": "20170818",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4113,
+				"distance": 4017,
+				"steps": 6058,
+				"calories": 237
+			}
+		]
+	},
+	{
+		"date": "20170819",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1651,
+				"distance": 1510,
+				"steps": 2328,
+				"calories": 89
+			}
+		]
+	},
+	{
+		"date": "20170820",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2766,
+				"distance": 2865,
+				"steps": 4149,
+				"calories": 169
+			}
+		]
+	},
+	{
+		"date": "20170821",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5840,
+				"distance": 6318,
+				"steps": 8841,
+				"calories": 372
+			}
+		]
+	},
+	{
+		"date": "20170822",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2860,
+				"distance": 2850,
+				"steps": 4128,
+				"calories": 168
+			}
+		]
+	},
+	{
+		"date": "20170823",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4525,
+				"distance": 4457,
+				"steps": 6171,
+				"calories": 263
+			}
+		]
+	},
+	{
+		"date": "20170824",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3726,
+				"distance": 3820,
+				"steps": 5440,
+				"calories": 225
+			}
+		]
+	},
+	{
+		"date": "20170825",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3927,
+				"distance": 3628,
+				"steps": 5679,
+				"calories": 214
+			}
+		]
+	},
+	{
+		"date": "20170826",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 915,
+				"distance": 811,
+				"steps": 1328,
+				"calories": 48
+			}
+		]
+	},
+	{
+		"date": "20170827",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2147,
+				"distance": 1988,
+				"steps": 2812,
+				"calories": 117
+			}
+		]
+	},
+	{
+		"date": "20170828",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1711,
+				"distance": 1486,
+				"steps": 2326,
+				"calories": 88
+			}
+		]
+	},
+	{
+		"date": "20170829",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4618,
+				"distance": 4646,
+				"steps": 6625,
+				"calories": 274
+			}
+		]
+	},
+	{
+		"date": "20170830",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1134,
+				"distance": 962,
+				"steps": 1535,
+				"calories": 57
+			}
+		]
+	},
+	{
+		"date": "20170831",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3666,
+				"distance": 3369,
+				"steps": 5136,
+				"calories": 199
+			}
+		]
+	},
+	{
+		"date": "20170901",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1729,
+				"distance": 2329,
+				"steps": 2354,
+				"calories": 137
+			}
+		]
+	},
+	{
+		"date": "20170902",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1733,
+				"distance": 1536,
+				"steps": 2371,
+				"calories": 91
+			}
+		]
+	},
+	{
+		"date": "20170903",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 420,
+				"distance": 446,
+				"steps": 626,
+				"calories": 26
+			}
+		]
+	},
+	{
+		"date": "20170904",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1115,
+				"distance": 1024,
+				"steps": 1429,
+				"calories": 60
+			}
+		]
+	},
+	{
+		"date": "20170905",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3552,
+				"distance": 3489,
+				"steps": 5040,
+				"calories": 206
+			}
+		]
+	},
+	{
+		"date": "20170906",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5154,
+				"distance": 5614,
+				"steps": 7775,
+				"calories": 331
+			}
+		]
+	},
+	{
+		"date": "20170907",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2827,
+				"distance": 2627,
+				"steps": 3991,
+				"calories": 155
+			}
+		]
+	},
+	{
+		"date": "20170908",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1252,
+				"distance": 1151,
+				"steps": 1345,
+				"calories": 68
+			}
+		]
+	},
+	{
+		"date": "20170909",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 8258,
+				"distance": 8840,
+				"steps": 12069,
+				"calories": 521
+			}
+		]
+	},
+	{
+		"date": "20170910",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 854,
+				"distance": 683,
+				"steps": 1241,
+				"calories": 40
+			}
+		]
+	},
+	{
+		"date": "20170911",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2286,
+				"distance": 2209,
+				"steps": 3131,
+				"calories": 130
+			}
+		]
+	},
+	{
+		"date": "20170912",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3373,
+				"distance": 3521,
+				"steps": 5011,
+				"calories": 208
+			}
+		]
+	},
+	{
+		"date": "20170913",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5505,
+				"distance": 5481,
+				"steps": 8181,
+				"calories": 323
+			}
+		]
+	},
+	{
+		"date": "20170914",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4124,
+				"distance": 4247,
+				"steps": 6274,
+				"calories": 250
+			}
+		]
+	},
+	{
+		"date": "20170915",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2736,
+				"distance": 3058,
+				"steps": 4389,
+				"calories": 180
+			}
+		]
+	},
+	{
+		"date": "20170916",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4491,
+				"distance": 5290,
+				"steps": 6475,
+				"calories": 312
+			}
+		]
+	},
+	{
+		"date": "20170917",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4525,
+				"distance": 4281,
+				"steps": 6253,
+				"calories": 252
+			}
+		]
+	},
+	{
+		"date": "20170918",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3658,
+				"distance": 3633,
+				"steps": 5275,
+				"calories": 214
+			}
+		]
+	},
+	{
+		"date": "20170919",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3152,
+				"distance": 3098,
+				"steps": 4669,
+				"calories": 183
+			}
+		]
+	},
+	{
+		"date": "20170920",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6118,
+				"distance": 6266,
+				"steps": 9011,
+				"calories": 369
+			}
+		]
+	},
+	{
+		"date": "20170921",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5423,
+				"distance": 5005,
+				"steps": 7237,
+				"calories": 295
+			}
+		]
+	},
+	{
+		"date": "20170922",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7206,
+				"distance": 7768,
+				"steps": 10593,
+				"calories": 458
+			}
+		]
+	},
+	{
+		"date": "20170923",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3176,
+				"distance": 3403,
+				"steps": 4536,
+				"calories": 201
+			}
+		]
+	},
+	{
+		"date": "20170924",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2290,
+				"distance": 1931,
+				"steps": 2989,
+				"calories": 114
+			}
+		]
+	},
+	{
+		"date": "20170925",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4779,
+				"distance": 5066,
+				"steps": 6881,
+				"calories": 299
+			}
+		]
+	},
+	{
+		"date": "20170926",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4926,
+				"distance": 3185,
+				"steps": 2212,
+				"calories": 188
+			}
+		]
+	},
+	{
+		"date": "20170927",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6189,
+				"distance": 7079,
+				"steps": 9187,
+				"calories": 417
+			}
+		]
+	},
+	{
+		"date": "20170928",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4224,
+				"distance": 4684,
+				"steps": 5545,
+				"calories": 276
+			}
+		]
+	},
+	{
+		"date": "20170929",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 6410,
+				"distance": 6417,
+				"steps": 9696,
+				"calories": 378
+			}
+		]
+	},
+	{
+		"date": "20170930",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1616,
+				"distance": 1639,
+				"steps": 2265,
+				"calories": 97
+			}
+		]
+	},
+	{
+		"date": "20171001",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1282,
+				"distance": 1265,
+				"steps": 1851,
+				"calories": 75
+			}
+		]
+	},
+	{
+		"date": "20171002",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3982,
+				"distance": 3942,
+				"steps": 5711,
+				"calories": 232
+			}
+		]
+	},
+	{
+		"date": "20171003",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2817,
+				"distance": 2910,
+				"steps": 4231,
+				"calories": 172
+			}
+		]
+	},
+	{
+		"date": "20171004",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3667,
+				"distance": 3580,
+				"steps": 5247,
+				"calories": 211
+			}
+		]
+	},
+	{
+		"date": "20171005",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5281,
+				"distance": 5631,
+				"steps": 7559,
+				"calories": 332
+			}
+		]
+	},
+	{
+		"date": "20171006",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3404,
+				"distance": 3150,
+				"steps": 4913,
+				"calories": 186
+			}
+		]
+	},
+	{
+		"date": "20171007",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1531,
+				"distance": 1445,
+				"steps": 2096,
+				"calories": 85
+			}
+		]
+	},
+	{
+		"date": "20171008",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 764,
+				"distance": 670,
+				"steps": 992,
+				"calories": 39
+			}
+		]
+	},
+	{
+		"date": "20171009",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1580,
+				"distance": 1281,
+				"steps": 1640,
+				"calories": 76
+			}
+		]
+	},
+	{
+		"date": "20171010",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2878,
+				"distance": 2686,
+				"steps": 4103,
+				"calories": 158
+			}
+		]
+	},
+	{
+		"date": "20171011",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2391,
+				"distance": 2886,
+				"steps": 3638,
+				"calories": 170
+			}
+		]
+	},
+	{
+		"date": "20171012",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4600,
+				"distance": 4207,
+				"steps": 6492,
+				"calories": 248
+			}
+		]
+	},
+	{
+		"date": "20171013",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3217,
+				"distance": 3810,
+				"steps": 4197,
+				"calories": 225
+			}
+		]
+	},
+	{
+		"date": "20171014",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4329,
+				"distance": 4350,
+				"steps": 5920,
+				"calories": 256
+			}
+		]
+	},
+	{
+		"date": "20171015",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3441,
+				"distance": 4141,
+				"steps": 4644,
+				"calories": 244
+			}
+		]
+	},
+	{
+		"date": "20171016",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4177,
+				"distance": 4481,
+				"steps": 6486,
+				"calories": 264
+			}
+		]
+	},
+	{
+		"date": "20171017",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3505,
+				"distance": 4268,
+				"steps": 5407,
+				"calories": 252
+			}
+		]
+	},
+	{
+		"date": "20171018",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1893,
+				"distance": 1766,
+				"steps": 2876,
+				"calories": 104
+			}
+		]
+	},
+	{
+		"date": "20171019",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2813,
+				"distance": 2944,
+				"steps": 4012,
+				"calories": 174
+			}
+		]
+	},
+	{
+		"date": "20171020",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4301,
+				"distance": 4354,
+				"steps": 6160,
+				"calories": 257
+			}
+		]
+	},
+	{
+		"date": "20171021",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3634,
+				"distance": 3535,
+				"steps": 4850,
+				"calories": 208
+			}
+		]
+	},
+	{
+		"date": "20171022",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2359,
+				"distance": 2013,
+				"steps": 3403,
+				"calories": 119
+			}
+		]
+	},
+	{
+		"date": "20171023",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2489,
+				"distance": 2729,
+				"steps": 3944,
+				"calories": 161
+			}
+		]
+	},
+	{
+		"date": "20171024",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 306,
+				"distance": 334,
+				"steps": 553,
+				"calories": 20
+			}
+		]
+	},
+	{
+		"date": "20171026",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 542,
+				"distance": 586,
+				"steps": 810,
+				"calories": 35
+			}
+		]
+	},
+	{
+		"date": "20171027",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 790,
+				"distance": 819,
+				"steps": 1226,
+				"calories": 48
+			}
+		]
+	},
+	{
+		"date": "20171028",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1677,
+				"distance": 1856,
+				"steps": 2405,
+				"calories": 109
+			}
+		]
+	},
+	{
+		"date": "20171029",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 98,
+				"distance": 56,
+				"steps": 58,
+				"calories": 3
+			}
+		]
+	},
+	{
+		"date": "20171030",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2544,
+				"distance": 2608,
+				"steps": 3831,
+				"calories": 154
+			}
+		]
+	},
+	{
+		"date": "20171031",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3088,
+				"distance": 2997,
+				"steps": 4327,
+				"calories": 177
+			}
+		]
+	},
+	{
+		"date": "20171101",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2948,
+				"distance": 2642,
+				"steps": 3883,
+				"calories": 156
+			}
+		]
+	},
+	{
+		"date": "20171102",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2921,
+				"distance": 2655,
+				"steps": 4199,
+				"calories": 156
+			}
+		]
+	},
+	{
+		"date": "20171103",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4048,
+				"distance": 4408,
+				"steps": 5980,
+				"calories": 260
+			}
+		]
+	},
+	{
+		"date": "20171104",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1341,
+				"distance": 1107,
+				"steps": 1831,
+				"calories": 65
+			}
+		]
+	},
+	{
+		"date": "20171105",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3024,
+				"distance": 3268,
+				"steps": 4816,
+				"calories": 193
+			}
+		]
+	},
+	{
+		"date": "20171106",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3762,
+				"distance": 4724,
+				"steps": 5453,
+				"calories": 278
+			}
+		]
+	},
+	{
+		"date": "20171107",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4750,
+				"distance": 4935,
+				"steps": 5665,
+				"calories": 291
+			}
+		]
+	},
+	{
+		"date": "20171108",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2096,
+				"distance": 2144,
+				"steps": 2881,
+				"calories": 126
+			}
+		]
+	},
+	{
+		"date": "20171109",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 522,
+				"distance": 388,
+				"steps": 638,
+				"calories": 23
+			}
+		]
+	},
+	{
+		"date": "20171110",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 656,
+				"distance": 665,
+				"steps": 984,
+				"calories": 39
+			}
+		]
+	},
+	{
+		"date": "20171111",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3436,
+				"distance": 3553,
+				"steps": 5310,
+				"calories": 209
+			}
+		]
+	},
+	{
+		"date": "20171112",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1965,
+				"distance": 2003,
+				"steps": 3002,
+				"calories": 118
+			}
+		]
+	},
+	{
+		"date": "20171113",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3684,
+				"distance": 3831,
+				"steps": 5178,
+				"calories": 226
+			}
+		]
+	},
+	{
+		"date": "20171114",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2856,
+				"distance": 2930,
+				"steps": 4293,
+				"calories": 173
+			}
+		]
+	},
+	{
+		"date": "20171115",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3259,
+				"distance": 3813,
+				"steps": 4880,
+				"calories": 225
+			}
+		]
+	},
+	{
+		"date": "20171116",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3940,
+				"distance": 4016,
+				"steps": 5923,
+				"calories": 237
+			}
+		]
+	},
+	{
+		"date": "20171117",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3759,
+				"distance": 4043,
+				"steps": 5727,
+				"calories": 238
+			}
+		]
+	},
+	{
+		"date": "20171118",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1901,
+				"distance": 1940,
+				"steps": 2403,
+				"calories": 114
+			}
+		]
+	},
+	{
+		"date": "20171119",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 709,
+				"distance": 504,
+				"steps": 906,
+				"calories": 30
+			}
+		]
+	},
+	{
+		"date": "20171120",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1944,
+				"distance": 3436,
+				"steps": 2946,
+				"calories": 203
+			}
+		]
+	},
+	{
+		"date": "20171209",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3015,
+				"distance": 3859,
+				"steps": 4652,
+				"calories": 227
+			}
+		]
+	},
+	{
+		"date": "20171210",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2682,
+				"distance": 3044,
+				"steps": 4092,
+				"calories": 179
+			}
+		]
+	},
+	{
+		"date": "20171211",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3361,
+				"distance": 4139,
+				"steps": 5894,
+				"calories": 244
+			}
+		]
+	},
+	{
+		"date": "20171212",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5108,
+				"distance": 5552,
+				"steps": 8412,
+				"calories": 327
+			}
+		]
+	},
+	{
+		"date": "20171213",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5778,
+				"distance": 6732,
+				"steps": 9748,
+				"calories": 397
+			}
+		]
+	},
+	{
+		"date": "20171214",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4471,
+				"distance": 5389,
+				"steps": 7383,
+				"calories": 318
+			}
+		]
+	},
+	{
+		"date": "20171215",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2876,
+				"distance": 3310,
+				"steps": 3804,
+				"calories": 195
+			}
+		]
+	},
+	{
+		"date": "20171216",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 94,
+				"distance": 108,
+				"steps": 0,
+				"calories": 6
+			}
+		]
+	},
+	{
+		"date": "20171217",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 3525,
+				"distance": 5498,
+				"steps": 692,
+				"calories": 324
+			}
+		]
+	},
+	{
+		"date": "20171218",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2625,
+				"distance": 2675,
+				"steps": 4146,
+				"calories": 158
+			}
+		]
+	},
+	{
+		"date": "20171219",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4744,
+				"distance": 5401,
+				"steps": 7237,
+				"calories": 318
+			}
+		]
+	},
+	{
+		"date": "20171220",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4129,
+				"distance": 4247,
+				"steps": 5859,
+				"calories": 250
+			}
+		]
+	},
+	{
+		"date": "20171221",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 21957,
+				"distance": 11828,
+				"steps": 4894,
+				"calories": 697
+			}
+		]
+	},
+	{
+		"date": "20171222",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 9791,
+				"distance": 6287,
+				"steps": 2524,
+				"calories": 371
+			}
+		]
+	},
+	{
+		"date": "20171223",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1789,
+				"distance": 1061,
+				"steps": 1019,
+				"calories": 63
+			}
+		]
+	},
+	{
+		"date": "20171224",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2807,
+				"distance": 2947,
+				"steps": 3840,
+				"calories": 174
+			}
+		]
+	},
+	{
+		"date": "20171225",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 1935,
+				"distance": 1749,
+				"steps": 2646,
+				"calories": 103
+			}
+		]
+	},
+	{
+		"date": "20171226",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2747,
+				"distance": 2827,
+				"steps": 4019,
+				"calories": 167
+			}
+		]
+	},
+	{
+		"date": "20171227",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 7611,
+				"distance": 7280,
+				"steps": 7340,
+				"calories": 429
+			}
+		]
+	},
+	{
+		"date": "20171228",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 4674,
+				"distance": 5495,
+				"steps": 7670,
+				"calories": 324
+			}
+		]
+	},
+	{
+		"date": "20171229",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 5811,
+				"distance": 5660,
+				"steps": 7140,
+				"calories": 334
+			}
+		]
+	},
+	{
+		"date": "20171231",
+		"summary": [
+			{
+				"activity": "walking",
+				"group": "walking",
+				"duration": 2267,
+				"distance": 2341,
+				"steps": 3275,
+				"calories": 138
+			}
+		]
+	}
+]

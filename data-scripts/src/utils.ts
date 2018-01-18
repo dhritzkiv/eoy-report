@@ -9,6 +9,20 @@ interface Walk {
 	points: [number, number][],
 }
 
+interface Summaries {
+	group: "walking" | "running",
+	activity: "walking" | "running",
+	duration: number,
+	distance: number,
+	steps: number,
+	calories: number
+}
+
+interface WalkingDay {
+	date: string,
+	summary: Summaries[]
+}
+
 interface SimpleFoursquareCheckin {
 	venue_id: string;
 	venue_name: string;
@@ -21,4 +35,4 @@ interface SimpleFoursquareCheckin {
 	with?: string[];
 }
 
-export {IncrementalMap, SimpleFoursquareCheckin, Walk};
+export {IncrementalMap, SimpleFoursquareCheckin, Walk, WalkingDay};
