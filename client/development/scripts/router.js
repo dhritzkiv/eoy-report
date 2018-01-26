@@ -394,7 +394,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Est. total energy (kcal)",
+				title: "Estimated total energy (kcal)",
 				data: {
 					type: "numeric",
 					value: 64100
@@ -693,7 +693,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Total breweries",
+				title: "Total breweries enjoyed",
 				data: {
 					type: "numeric",
 					value: 281
@@ -785,10 +785,10 @@ const Router = AmpersandRouter.extend({
 					value: [2,1,0,1,0,3,4,2,2,2,1,1,4,10,8,2,1,6,2,0,1,4,1,3,2,3,1,1,2,2,1,4,1,4,1,0,3,1,5,6,5,9,4,3,4,2,4,14,5,5,5,3,8,6,1,9,5,4,3,2,1,4,4,5,2,2,1,5,4,1,2,3,4,1,2,3,1,0,1,1,4,2,1,1,1,1,1,1,2,0,1,13,4,1,1,1,2,3,3,1,0,9,1,3,1,1,5,0,4,2,1,3,1,1,3,1,6,3,3,0,1,2,2,1,6,1,3,1,7,2,2,1,4,3,1,4,2,1,4,0,6,0,2,1,4,2,5,1,2,1,1,1,5,2,4,0,1,2,2,4,7,5,0,5,1,4,2,2,4,0,2,2,3,0,5,1,0,3,4,1,4,3,3,5,3,2,0,1,1,4,1,1,4,1,4,3,2,0,2,2,2,1,3,0,2,2,1,1,3,4,6,1,1,3,2,2,3,2,4,1,8,0,3,3,5,3,1,1,1,1,4,3,1,2,0,0,2,2,3,2,1,4,1,1,2,1,0,1,3,2,1,4,3,1,2,2,5,4,2,3,2,1,5,3,5,7,3,4,5,0,1,1,12,0,0,4,2,5,4,2,3,2,0,2,3,1,4,2,0,1,0,2,2,11,2,1,2,1,3,6,3,1,0,3,1,2,1,4,2,4,2,2,1,3,2,1,1,1,2,6,1,4,5,2,1,0,2,3,2,2,1,2,1,2,2,3,3,2,3,1,3,2,4,1,1,3,1,1,3,0,3,2,2,0,1,5,3,5,2,2,1,1,1,1,1,2]
 				},
 				wide: "xfull",
-				tall: "y2"
+				tall: "y1"
 			},
 			{
-				title: "Top bars (by servings)",
+				title: "Top bars (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -844,7 +844,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Top breweries by servings",
+				title: "Top breweries (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -887,7 +887,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Top bottle shops by servings",
+				title: "Top bottle shops (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -919,7 +919,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Top serving styles by servings",
+				title: "Top serving styles (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -936,14 +936,14 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Number of Toronto brewery beers",
+				title: "Number of Toronto brewery beers (servings)",
 				data: {
 					type: "numeric",
 					value: 363
 				}
 			},
 			{
-				title: "Top non-Toronto brewery cities (by beer servings)",
+				title: "Top non-Toronto brewery cities (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -985,14 +985,14 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Number of Canadian brewery beers",
+				title: "Number of Canadian brewery beers (servings)",
 				data: {
 					type: "numeric",
 					value: 621
 				}
 			},
 			{
-				title: "Top non-Canadian brewery countries (by beer servings)",
+				title: "Top non-Canadian brewery countries (servings)",
 				data: {
 					type: "percentage",
 					value: [
@@ -1124,7 +1124,7 @@ const Router = AmpersandRouter.extend({
 					type: "numeric",
 					value: 27.35
 				}
-			},
+			},/*
 			{
 				title: "Distance by month (kms)",
 				data: {
@@ -1145,7 +1145,7 @@ const Router = AmpersandRouter.extend({
 					]
 				},
 				wide: "x2"
-			},
+			},*/
 			{
 				title: "Estimated total time (hours)",
 				data: {
@@ -1166,7 +1166,7 @@ const Router = AmpersandRouter.extend({
 					type: "numeric",
 					value: 6.10
 				}
-			},
+			},/*
 			{
 				title: "Duration by month (hours)",
 				data: {
