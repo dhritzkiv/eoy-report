@@ -93,11 +93,9 @@ days.forEach(day => {
 		dailyDurationCountMap.increment(dateKey, activity.duration);
 		dayOfWeekDurationCountMap.increment(dayOfWeekKey, activity.duration);
 
-		dailyCaloriesCountMap.increment(dateKey, activity.duration);
-		dayOfWeekCaloriesCountMap.increment(dayOfWeekKey, activity.duration);
+		dailyCaloriesCountMap.increment(dateKey, activity.calories);
+		dayOfWeekCaloriesCountMap.increment(dayOfWeekKey, activity.calories);
 	});
-
-
 
 	const monthDaySteps = monthlyStepCountByDaysMap.get(monthKey) || [];
 	const monthDayDistance = monthlyStepCountByDaysMap.get(monthKey) || [];
@@ -154,6 +152,17 @@ console.log("Daily average duration: %dhrs", secondsToHours(averageDailyDuration
 console.log("Estimated total duration: %dhrs", secondsToHours(averageDailyDurationCount) * 365);
 console.log("Daily median duration: %dhrs", secondsToHours(medianDailyDurationCount));
 console.log("Daily max duration: %dhrs", secondsToHours(max(dailyDurationCountValues)));
+console.groupEnd();
+
+
+console.group("Calories");
+const dailyCaloriesCountValues = [...dailyCaloriesCountMap.values()];
+const averageDailyCaloriesCount = mean(dailyCaloriesCountValues);
+const medianDailyCaloriesCount = median(dailyCaloriesCountValues);
+console.log("Daily average calories: %d", averageDailyCaloriesCount);
+console.log("Estimated total calories: %d", averageDailyCaloriesCount * 365);
+console.log("Daily median calories: %d", medianDailyCaloriesCount);
+console.log("Daily max calories: %d", max(dailyCaloriesCountValues));
 console.groupEnd();
 
 console.log();

@@ -1153,6 +1153,20 @@ const Router = AmpersandRouter.extend({
 					]
 				},
 				wide: "x2"
+			},*/
+			{
+				title: "Estimated total energy (kcal)",
+				data: {
+					type: "numeric",
+					value: 94600
+				}
+			},
+			{
+				title: "Average daily energy (kcal)",
+				data: {
+					type: "numeric",
+					value: 259.19
+				}
 			},
 			{
 				title: "Toronto walks",
