@@ -1169,7 +1169,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Toronto walks",
+				title: "Toronto walks and places",
 				data: {
 					type: "map",
 					value: {
@@ -1196,7 +1196,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y3"
 			},
 			{
-				title: "Sydney walks",
+				title: "Sydney walks and places",
 				data: {
 					type: "map",
 					value: {
@@ -1219,7 +1219,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Melbourne walks",
+				title: "Melbourne walks and places",
 				data: {
 					type: "map",
 					value: {
@@ -1242,7 +1242,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Auckland walks",
+				title: "Auckland walks and places",
 				data: {
 					type: "map",
 					value: {
@@ -1266,7 +1266,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Montreal walks",
+				title: "Montreal walks and places",
 				data: {
 					type: "map",
 					value: {
@@ -1290,7 +1290,7 @@ const Router = AmpersandRouter.extend({
 				tall: "y2"
 			},
 			{
-				title: "Vancouver walks",
+				title: "Vancouver walks and places",
 				data: {
 					type: "map",
 					value: {
