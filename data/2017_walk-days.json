@@ -4392,8 +4392,8 @@
 			{
 				"activity": "walking",
 				"group": "walking",
-				"duration": 21957,
-				"distance": 11828,
+				"duration": 4000,
+				"distance": 4000,
 				"steps": 4894,
 				"calories": 697
 			}
@@ -4405,8 +4405,8 @@
 			{
 				"activity": "walking",
 				"group": "walking",
-				"duration": 9791,
-				"distance": 6287,
+				"duration": 3000,
+				"distance": 2500,
 				"steps": 2524,
 				"calories": 371
 			}
