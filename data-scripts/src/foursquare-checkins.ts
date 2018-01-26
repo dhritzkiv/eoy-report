@@ -80,11 +80,15 @@ const burgerJointsMap = new IncrementalMap<string>();
 const airportsMap = new IncrementalMap<string>();
 const mexicanRestaurantsMap = new IncrementalMap<string>();
 const sandwichPlacesMap = new IncrementalMap<string>();
+const categoryUniquePlacesSet = new Set<string>();
+const categoryUniquePlacesByCitySet = new Set<string>();
 
 checkins.forEach(checkin => {
 	const venueKey = `${checkin.venue_name} - ${checkin.venue_id}`;
 	const dayOfYear = moment(checkin.date).dayOfYear();
 	const monthKey = moment(checkin.date).format("MMMM");
+	const cityKey = [checkin.venue_city, checkin.venue_state, checkin.venue_cc].filter(p => p).join(", ");
+	const categories = checkin.venue_categories.map(cat => cat.toLowerCase());
 
 	monthCountMap.increment(monthKey);
 	dailyCheckinCountsMap.increment(dayOfYear);
@@ -94,14 +98,15 @@ checkins.forEach(checkin => {
 	countriesPlacesSet.add(`${checkin.venue_cc}|${checkin.venue_name}`)
 
 	if (checkin.venue_city) {
-		citiesCheckinsMap.increment([checkin.venue_city, checkin.venue_state, checkin.venue_cc].filter(p => p).join(", "));
+		citiesCheckinsMap.increment(cityKey);
 
-		citiesPlacesSet.add(`${checkin.venue_city}, ${checkin.venue_cc}|${checkin.venue_name}`);
+		citiesPlacesSet.add(`${cityKey}|${checkin.venue_name}`);
+
+		categories.forEach(category => categoryUniquePlacesByCitySet.add(`${category}|${cityKey}|${venueKey}`));
 	}
 
-	const categories = checkin.venue_categories.map(cat => cat.toLowerCase());
-
 	categories.forEach(category => categoriesMap.increment(category));
+	categories.forEach(category => categoryUniquePlacesSet.add(`${category}|${venueKey}`));
 
 	//Coffee
 	const coffeeShopCategories = ["coffee shop", "café"];
@@ -273,4 +278,56 @@ console.group("Top sandwich places");
 .sort(([, a], [, b]) => b - a)
 .slice(0, 10)
 .forEach(([key, val]) => console.log(`${key}: ${val}`));
+console.groupEnd();
+
+const categoryUniquePlacesMap = new IncrementalMap<string>();
+
+[...categoryUniquePlacesSet]
+.map(key => (key.match(/^([a-zA-Z0-9\s\-\_]+)|/) || [])[0])
+.filter(category => category)
+.forEach(category => categoryUniquePlacesMap.increment(category));
+
+console.log();
+console.group("Top unique categories");
+[...categoryUniquePlacesMap]
+.sort(([, a], [, b]) => b - a)
+.slice(0, 50)
+.forEach(([key, val]) => console.log(`${key}: ${val}`));
+console.groupEnd();
+
+const categoryUniquePlacesByCityMap = new IncrementalMap<string>();
+
+[...categoryUniquePlacesByCitySet]
+.map(key => key.split("|").slice(0, 2).join("|"))
+.filter(category => category)
+.forEach(category => categoryUniquePlacesByCityMap.increment(category));
+
+console.log();
+console.group("Top unique categories by city");
+const categoriesByCityMap = [...categoryUniquePlacesByCityMap]
+.map(([tupleString, val]): [string[], number] => [tupleString.split("|"), val])
+//use the aggregate total category values (not city specific) to retrieve most common categories
+//.sort(([[a]], [[b]]) => (categoryUniquePlacesMap.get(b) || 0) - (categoryUniquePlacesMap.get(a) || 0))
+//.sort(([, a], [, b]) => b - a)
+.reduce((map, [[category, city], val]) => {
+	const arr = map.get(city) || [];
+
+	arr.push([category, val]);
+	map.set(city, arr);
+
+	return map;
+}, new Map<string, [string, number][]>());
+
+[...categoriesByCityMap]
+.sort(([a], [b]) => (citiesCheckinsMap.get(b) || 0) - (citiesCheckinsMap.get(a) || 0))
+.forEach(([city, arr]) => {
+	console.group(city);
+
+	arr
+	.sort(([, a], [, b]) => b - a)
+	.slice(0, 25)
+	.forEach(([category, val]) => console.log(`${category}: ${val}`));
+
+	console.groupEnd();
+})
 console.groupEnd();

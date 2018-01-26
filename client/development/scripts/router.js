@@ -60,6 +60,20 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
+				title: "Total coffee shops (coffees)",
+				data: {
+					type: "numeric",
+					value: 234
+				}
+			},
+			{
+				title: "Unique coffee shops",
+				data: {
+					type: "numeric",
+					value: 69
+				}
+			},
+			{
 				title: "Top coffee shops (coffees)",
 				data: {
 					type: "percentage",
@@ -73,6 +87,26 @@ const Router = AmpersandRouter.extend({
 						["Jimmy's Coffee (Fashion District)", 4],
 						["Jimmy's Coffee (Kensington Market)", 4],
 						["Little Pebbles", 3]
+					]
+				},
+				tall: "y2"
+			},
+			{
+				title: "Top cities by unique coffee shops visited",
+				data: {
+					type: "percentage",
+					value: [
+						["Toronto, CA", 38],
+						["Auckland, NZ", 11],
+						["Sydney, AU", 11],
+						["Melbourne, AU", 7],
+						["Vancouver, CA", 3],
+						["Montreal, CA", 2],
+						["Mississauga, CA", 1],
+						["Surrey, BC", 1],
+						["Katoomba, AU", 1],
+						["Ottawa, CA", 1],
+						["Shanghai, CN", 1]
 					]
 				},
 				tall: "y2"
