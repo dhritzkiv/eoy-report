@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
+    "@types/moment-timezone": "^0.5.3",
     "@types/node": "^9.3.0",
     "ampersand-app": "^2.0.0",
     "ampersand-collection": "^2.0.2",
@@ -27,6 +28,7 @@
     "lastfmapi": "^0.1.1",
     "line-interpolate-points": "^1.0.5",
     "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "moves-api": "0.0.5",
     "node-foursquare": "^0.3.2",
     "proj4": "^2.4.4",

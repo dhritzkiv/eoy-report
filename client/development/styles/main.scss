@@ -348,6 +348,14 @@ section.media {
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
+section.health {
+	$colorText: #9e005d;
+	$colorBackground: rgb(195, 195, 207);
+	$colorValue: darken(desaturate(rgb(26, 198, 216), 5%), 2%);
+
+	@include section($colorText, $colorValue, $colorBackground);
+}
+
 section.maps {
 	$colorBackground: rgb(211, 211, 211);
 	$colorText: rgb(63, 122, 129);
