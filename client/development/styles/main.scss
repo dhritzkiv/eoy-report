@@ -239,8 +239,8 @@ body > header {
 				stroke: $colorValue;
 
 				&.checkin {
-					fill: blue;
-					stroke: blue;
+					fill: mix(rgb(102, 45, 145), blue, 66%);
+					stroke: mix(rgb(102, 45, 145), blue, 66%);
 				}
 			}
 
