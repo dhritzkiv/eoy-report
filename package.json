@@ -11,7 +11,6 @@
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
     "@types/moment-timezone": "^0.5.3",
-    "@types/node": "^9.4.0",
     "ampersand-app": "^2.0.0",
     "ampersand-collection": "^2.0.2",
     "ampersand-model": "^8.0.1",
@@ -47,6 +46,8 @@
     "xhr": "^2.4.1"
   },
   "devDependencies": {
+    "@types/node": "^9.4.0",
+    "@types/sax": "^1.0.0",
     "autoprefixer": "^7.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
