@@ -23,14 +23,13 @@ interface WeightDoc {
 	date: Date
 }
 
-const weightDocs: WeightDoc[] = [];
-
-
 // stream usage
 // takes the same options as the parser
 const processWeight = () => new Promise<WeightDoc[]>((resolve, reject) => {
 	const rawFS = fs.createReadStream(inFile, "utf8");
 	const saxStream = sax.createStream(true, {});
+
+	const weightDocs: WeightDoc[] = [];
 
 	saxStream.on("opentag", (node) => {
 		const attributes = node.attributes || {};
