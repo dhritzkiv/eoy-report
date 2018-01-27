@@ -11,7 +11,7 @@
   "dependencies": {
     "@mapbox/polyline": "^0.2.0",
     "@types/moment-timezone": "^0.5.3",
-    "@types/node": "^9.3.0",
+    "@types/node": "^9.4.0",
     "ampersand-app": "^2.0.0",
     "ampersand-collection": "^2.0.2",
     "ampersand-model": "^8.0.1",
@@ -67,7 +67,7 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.3",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "jscs": "^3.0.7",
     "jshint": "^2.9.5",
@@ -77,7 +77,7 @@
     "rollup": "^0.53.4",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-babel-minify": "^3.1.2",
-    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-html": "^0.2.1",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.2",
@@ -86,6 +86,6 @@
     "typescript-eslint-parser": "^12.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.9.0"
+    "watchify": "^3.10.0"
   }
 }
