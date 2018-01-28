@@ -1642,7 +1642,28 @@ const Router = AmpersandRouter.extend({
 				title: "Days sick",
 				data: {
 					type: "numeric",
-					value: "5"
+					value: 5
+				}
+			},
+			{
+				title: "Median weight (lbs)",
+				data: {
+					type: "numeric",
+					value: 70.03
+				}
+			},
+			{
+				title: "Heaviest weight (kg)",
+				data: {
+					type: "numeric",
+					value: 72.76
+				}
+			},
+			{
+				title: "Lightest weight (kg)",
+				data: {
+					type: "numeric",
+					value: 68.67
 				}
 			}
 		]);
