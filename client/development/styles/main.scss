@@ -145,8 +145,6 @@ body > header {
 		}
 	}
 
-
-
 	@media screen and (max-width: $ipadPortrait) {
 		flex-direction: column;
 
@@ -415,13 +413,16 @@ $columns: 6;
 $height: 196px;
 $width: 220px;
 
-.stats-section {
-	padding: 0.5rem;
+[data-hook=stats-holder] {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
-	grid-auto-rows: auto;
+	grid-auto-rows: minmax(auto, $height);
 	grid-gap: 0.5rem;
 	grid-auto-flow: dense;
+
+	@media screen and (max-width: ($width * 2)) {
+		grid-template-columns: 100%;
+	}
 
 	.stamp {
 		display: flex;
@@ -429,26 +430,24 @@ $width: 220px;
 		align-items: center;
 		//height: 400px;
 		//width: 400px;
-		grid-column-start: span 2;
+		//grid-column-start: span 2;
+		grid-column-end: span 2;
 		//grid-column-end: -1;//send to right side
 		grid-row-end: span 2;
 		padding: $gutter;
 		box-sizing: border-box;
 		overflow: hidden;
 
+
+		@media screen and (max-width: ($width * 2)) {
+			grid-column-end: span 1;
+		}
+
 		svg {
 			width: 100%;
 			height: 100%;
 		}
 	}
-}
-
-[data-hook=stats-holder] {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
-	grid-auto-rows: minmax(auto, $height);
-	grid-gap: 0.5rem;
-	grid-auto-flow: dense;
 
 	article {
 		display: flex;
