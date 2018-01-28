@@ -70,6 +70,10 @@ const HorizonatlBarStatView = StatView.extend({
 			width = el.parentElement.clientWidth - margin.left - margin.right;
 			height = Math.min((data.length * barHeightWithSpace), el.parentElement.clientHeight) - margin.top - margin.bottom;
 
+			if (!width || !height) {
+				return;
+			}
+
 			//update range
 			x.range([0, width]);
 
