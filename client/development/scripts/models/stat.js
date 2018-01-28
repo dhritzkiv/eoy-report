@@ -3,7 +3,8 @@ import State from "ampersand-state";
 const StatModel = State.extend({
 	props: {
 		title: {
-			type: "string"
+			type: "string",
+			default: ""
 		},
 		data: {
 			type: "object"
