@@ -205,7 +205,7 @@ const Router = AmpersandRouter.extend({
 				},
 				wide: "x2",
 				tall: "y2"
-			}*/,
+			},*/
 			{
 				title: "Average coffees per day of week",
 				data: {
@@ -1725,6 +1725,13 @@ const Router = AmpersandRouter.extend({
 				data: {
 					type: "numeric",
 					value: 28
+				}
+			},
+			{
+				title: "Films seen before",
+				data: {
+					type: "numeric",
+					value: 7
 				}
 			},
 			{
