@@ -12,7 +12,6 @@ import * as interpolateLineRange from "line-interpolate-points";
 /// <reference path="./haversine.d.ts"/>
 import * as haversine from "haversine";
 import * as simplify from "simplify-js"
-import { months } from "moment";
 
 interface RideDay {
 	date: Date;
