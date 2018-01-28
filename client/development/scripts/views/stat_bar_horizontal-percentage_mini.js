@@ -15,6 +15,7 @@ const HorizonatlBarStatView = StatView.extend({
 		const barHeight = 10;
 		const spaceBetween = 4;
 		const barHeightWithSpace = (barHeight * 4) + spaceBetween;
+		const minimumSpaceBetweenValues = 10;
 
 		let width = 0;
 		let height = 0;
@@ -98,18 +99,20 @@ const HorizonatlBarStatView = StatView.extend({
 			.text(function(d) {
 				const originalTitle = d[0];
 				let currentTitle = originalTitle;
-				const valueLength = d[1].length;
+				const valueLength = d[1].toString().length;
 				const currentValueWidth = this.getSubStringLength(0, valueLength);
 
 				while (currentTitle.length) {
 					const currentWidth = this.getSubStringLength(0, currentTitle.length);
 					const elipsisWidth = currentTitle === originalTitle ? 0 : this.getSubStringLength(0, 3);
 
-					if (currentWidth < (width - currentValueWidth - 15 - elipsisWidth)) {
+					if ((currentWidth + minimumSpaceBetweenValues) < (width - currentValueWidth - elipsisWidth)) {
 						break;
 					}
 
-					currentTitle = `${originalTitle.substring(0, currentTitle.length - 2)}…`;
+					const futureTitle = `${originalTitle.substring(0, currentTitle.length - 2)}…`;
+
+					currentTitle = futureTitle;
 				}
 
 				return currentTitle;
@@ -123,7 +126,7 @@ const HorizonatlBarStatView = StatView.extend({
 				const barWidth = visibleBarX(d);
 				const titleTextWidth = title.node().getComputedTextLength();
 
-				const dx = Math.min(width, Math.max(barWidth, titleTextWidth + valueTextWidth + 15));
+				const dx = Math.min(width, Math.max(barWidth, titleTextWidth + valueTextWidth + minimumSpaceBetweenValues));
 
 				return dx;
 			});
