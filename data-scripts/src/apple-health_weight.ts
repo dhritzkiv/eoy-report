@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as assert from "assert";
 import * as path from "path";
 import * as minimist from "minimist";
-import * as moment from "moment-timezone";
+import * as moment from "moment";
 import { IncrementalMap } from "./utils";
 import * as csvtojson from "csvtojson";
 import { median, mean, min, max, quantile, sampleStandardDeviation } from "simple-statistics";
@@ -43,7 +43,7 @@ const processWeight = () => new Promise<WeightDoc[]>((resolve, reject) => {
 			};
 
 			weightDocs.push(weightDoc);
-			console.log("weight record", weightDoc);
+			//console.log("weight record", weightDoc);
 		}
 	});
 
@@ -62,17 +62,32 @@ const main = async () => {
 	console.timeEnd("stream");
 
 	const weightsFilteredByYear = weightDocs.filter(({date}) => date.getFullYear() === year);
-
-	//const sortedWeightsByDate = weightsFilteredByYear.sort(({date: a}, {date: b}) => Number(a) - Number(b));
-	//const sortedWeightsByValue = weightsFilteredByYear.sort(({value: a}, {value: b}) => b - a);
 	const weightsByValue = weightsFilteredByYear.map(({value}) => value);
 
-	console.log("weights recorded", weightsFilteredByYear.length);
+	const quarterWeighInsMap = new Map<number, WeightDoc[]>();
+
+	weightsFilteredByYear.forEach(weighIn => {
+		const quarterKey = moment(weighIn.date).quarter();
+		const quarterArray = quarterWeighInsMap.get(quarterKey) || [];
+
+		quarterArray.push(weighIn);
+
+		quarterWeighInsMap.set(quarterKey, quarterArray);
+	});
+
+	console.log("weigh ins", weightsFilteredByYear.length);
 	console.log("heaviest: %flbs", max(weightsByValue));
 	console.log("lightest: %flbs", min(weightsByValue));
 	console.log("average: %flbs", mean(weightsByValue));
 	console.log("median: %flbs", median(weightsByValue));
 	console.log("std.dev.: %flbs", sampleStandardDeviation(weightsByValue));
+
+	console.group("Average weights by quarter");
+	[...quarterWeighInsMap]
+	.map(([quarter, weighIns]) => [quarter, mean(weighIns.map(weighIn => weighIn.value))])
+	.sort(([a], [b]) => a - b)
+	.forEach(([quarter, averageWeight]) => console.log("Quarter %d: %flbs", quarter, averageWeight));
+	console.groupEnd();
 
 	/*const maximumDelta = [...sortedWeightsByDate]
 	.reverse()

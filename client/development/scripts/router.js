@@ -1649,14 +1649,14 @@ const Router = AmpersandRouter.extend({
 				title: "Median weight (lbs)",
 				data: {
 					type: "numeric",
-					value: 70.03
+					value: 70.42
 				}
 			},
 			{
 				title: "Heaviest weight (kg)",
 				data: {
 					type: "numeric",
-					value: 72.76
+					value: 73.48
 				}
 			},
 			{
