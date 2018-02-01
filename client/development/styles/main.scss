@@ -487,6 +487,10 @@ $width: 220px;
 			font-family: $ffHeading1;
 			letter-spacing: 0.01em;
 			margin: 0;
+
+			span {
+				display: inline-block;
+			}
 		}
 
 		h2 {
