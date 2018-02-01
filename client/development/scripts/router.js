@@ -89,7 +89,8 @@ const Router = AmpersandRouter.extend({
 						["Little Pebbles", 3]
 					]
 				},
-				tall: "y2"
+				tall: "y2",
+				wide: "x2"
 			},
 			{
 				title: "Top cities by unique coffee shops visited",
