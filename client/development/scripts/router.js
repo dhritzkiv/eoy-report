@@ -187,7 +187,7 @@ const Router = AmpersandRouter.extend({
 					type: "numeric",
 					value: 29
 				}
-			}/*,
+			},/*,
 			{
 				title: "Daily coffees",
 				data: {
@@ -1686,10 +1686,10 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Films seen in theatres",
+				title: "Total films duration (hours)",
 				data: {
 					type: "numeric",
-					value: 27
+					value: 141.2
 				}
 			},
 			{
@@ -1738,6 +1738,22 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
+				title: "Films by day of week",
+				data: {
+					type: "bar",
+					value: [
+						{label: "Mon", value: 5},
+						{label: "Tue", value: 17},
+						{label: "Wed", value: 7},
+						{label: "Thu", value: 11},
+						{label: "Fri", value: 6},
+						{label: "Sat", value: 15},
+						{label: "Sun", value: 17}
+					]
+				},
+				wide: "x1"
+			},
+			{
 				title: "Films seen by myself",
 				data: {
 					type: "numeric",
@@ -1757,22 +1773,6 @@ const Router = AmpersandRouter.extend({
 					type: "numeric",
 					value: 187
 				}
-			},
-			{
-				title: "Films by day of week",
-				data: {
-					type: "bar",
-					value: [
-						{label: "Mon", value: 5},
-						{label: "Tue", value: 17},
-						{label: "Wed", value: 7},
-						{label: "Thu", value: 11},
-						{label: "Fri", value: 6},
-						{label: "Sat", value: 15},
-						{label: "Sun", value: 17}
-					]
-				},
-				wide: "x1"
 			},
 			{
 				title: "Longest dry spell (days)",
