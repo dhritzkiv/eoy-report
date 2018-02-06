@@ -1711,28 +1711,28 @@ const Router = AmpersandRouter.extend({
 				wide: "x2"
 			},
 			{
-				title: "Films seen in theatres",
+				title: "Films watched in theatres",
 				data: {
 					type: "numeric",
 					value: 27
 				}
 			},
 			{
-				title: "Films seen on Netflix",
+				title: "Films watched on Netflix",
 				data: {
 					type: "numeric",
 					value: 27
 				}
 			},
 			{
-				title: "Films seen on a television",
+				title: "Films watched on a television",
 				data: {
 					type: "numeric",
 					value: 4
 				}
 			},
 			{
-				title: "Films seen while on a plane",
+				title: "Films watched while on a plane",
 				data: {
 					type: "numeric",
 					value: 2
@@ -1755,14 +1755,14 @@ const Router = AmpersandRouter.extend({
 				wide: "x1"
 			},
 			{
-				title: "Films seen by myself",
+				title: "Films watched by myself",
 				data: {
 					type: "numeric",
 					value: 28
 				}
 			},
 			{
-				title: "Films seen before",
+				title: "Films watched before",
 				data: {
 					type: "numeric",
 					value: 7
@@ -1884,7 +1884,7 @@ const Router = AmpersandRouter.extend({
 				}
 			},
 			{
-				title: "Average artists plays",
+				title: "Average artist plays",
 				data: {
 					type: "numeric",
 					value: 12.45
