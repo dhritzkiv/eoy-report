@@ -28,6 +28,7 @@
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "moves-api": "0.0.5",
+    "musicbrainz": "^0.2.6",
     "node-foursquare": "^0.3.2",
     "proj4": "^2.4.4",
     "raven-js": "^3.22.1",
