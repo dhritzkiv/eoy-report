@@ -487,14 +487,21 @@ console.groupEnd();
 const rideDaysInKilometres = dailyRideDistances.map(d => d / 1000);
 const numberOfDaysOverXKilometres = (min: number) => rideDaysInKilometres.filter(d => d > min).length;
 
+const rideWeeksInKilometres = [...weeksDistanceMap.values()].map(d => d / 1000);
+const numberOfWeeksOverXKilometres = (min: number) => rideWeeksInKilometres.filter(d => d > min).length;
+
 console.log();
-console.group("Days by distance groups");
+console.group("Lengths of time by distance groups");
 console.log("# of days over 5km: %d", numberOfDaysOverXKilometres(5));
 console.log("# of days over 10km: %d", numberOfDaysOverXKilometres(10));
 console.log("# of days over 25km: %d", numberOfDaysOverXKilometres(25));
 console.log("# of days over 50km: %d", numberOfDaysOverXKilometres(50));
 console.log("# of days over 75km: %d", numberOfDaysOverXKilometres(75));
 console.log("# of days over 100km: %d", numberOfDaysOverXKilometres(100));
+console.log("# of weeks over 100km: %d", numberOfWeeksOverXKilometres(100));
+console.log("# of weeks over 150km: %d", numberOfWeeksOverXKilometres(150));
+console.log("# of weeks over 200km: %d", numberOfWeeksOverXKilometres(200));
+console.groupEnd();
 
 console.log("Highest average speed: %fkm/h", max(rides.map(({average_speed}) => average_speed * 3600 / 1000)));
 console.log("Lowest average speed: %fkm/h", min(rides.map(({average_speed}) => average_speed * 3600 / 1000)));
