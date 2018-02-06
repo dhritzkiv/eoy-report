@@ -4,7 +4,7 @@ import * as path from "path";
 import * as minimist from "minimist";
 import {quantile, median, mean, max, min, sum, modeFast as mode, standardDeviation} from "simple-statistics";
 import * as moment from "moment";
-import {Ride} from "./strava-activities";
+import {Ride, RideWithMap} from "./strava-activities";
 import {IncrementalMap} from "./utils";
 /// <reference path="./polyline.d.ts" name="@mapbox/polyline"/>
 import * as polyline from "@mapbox/polyline";
@@ -25,8 +25,12 @@ class NumberArray extends Array<number> {}
 interface NumberTuple extends NumberArray { 0: number; 1: number; }
 
 class NumberMap extends Map<number, number> {
-	constructor(entries?: NumberTuple[]) {
-		super(entries);
+	constructor(entries?: Iterable<[number, number]>) {
+		if (entries) {
+			super(entries);
+		} else {
+			super();
+		}
 	}
 }
 
@@ -101,6 +105,7 @@ const data: Ride[] = JSON.parse(raw);
 assert.ok(Array.isArray(data), "Data is not an array");
 
 const rides = data.map(d => new Ride(d));
+const ridesWithMaps = data.filter(({map}) => map).map(d => new RideWithMap(d));
 
 rides.sort(({start_date_local_date: a}, {start_date_local_date: b}) => Number(a) - Number(b));
 
@@ -148,7 +153,6 @@ const weekendRides = rides.filter(({start_date_local_date: date}) => isWeekend(d
 const dayValues = rides.map(mapToValue);
 const weekdayValues = weekdayRides.map(mapToValue);
 const weekendValues = weekendRides.map(mapToValue);
-const ridesWithMaps = rides.filter(({map}) => map);
 
 console.time("find dupes");
 
@@ -164,7 +168,7 @@ const medianPointCount = median(ridesWithMaps.map(ride => ride.mapline_interop.l
 //interpolate maps to use same # of points
 ridesWithMaps.forEach((ride) => ride.mapline_interop = interpolateLineRange(ride.mapline_interop, medianPointCount));
 
-const dupesMap = new Map<Ride, Set<Ride>>();
+const dupesMap = new Map<RideWithMap, Set<RideWithMap>>();
 
 //finds related rides
 ridesWithMaps
@@ -213,7 +217,7 @@ console.log("rides before de-duping", dupesMap.size);
 
 for (const [parentRide, parentRelatedRides] of dupesMap) {
 
-	const recursiveMergeAndDeleteRelatedRide = (relatedRides: Set<Ride>) => {
+	const recursiveMergeAndDeleteRelatedRide = (relatedRides: Set<RideWithMap>) => {
 		for (const relatedRide of relatedRides) {
 			const subrelatedRides = dupesMap.get(relatedRide);
 

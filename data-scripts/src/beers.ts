@@ -42,9 +42,9 @@ interface Checkin extends CheckinBase {
 }
 
 class Checkin implements Checkin {
-	checkin_id: string | null;
-	beer_id: string | null;
-	brewery_id: string | null;
+	checkin_id: string | undefined;
+	beer_id: string | undefined;
+	brewery_id: string | undefined;
 
 	static from = (input: CheckinRaw): Checkin => {
 		const checkin = new Checkin();
@@ -72,19 +72,19 @@ class Checkin implements Checkin {
 		if (input.checkin_url) {
 			const match = input.checkin_url.match(/([0-9]+)$/);
 
-			checkin.checkin_id = match && match[1];
+			checkin.checkin_id = match && match[1] || undefined;
 		}
 
 		if (input.beer_url) {
 			const match = input.beer_url.match(/([0-9]+)$/);
 
-			checkin.beer_id = match && match[1];
+			checkin.beer_id = match && match[1] || undefined;
 		}
 
 		if (input.brewery_url) {
 			const match = input.brewery_url.match(/([0-9]+)$/);
 
-			checkin.brewery_id = match && match[1];
+			checkin.brewery_id = match && match[1] || undefined;
 		}
 
 		return checkin;

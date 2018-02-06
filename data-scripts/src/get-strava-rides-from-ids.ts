@@ -21,7 +21,7 @@ const RATE_LIMIT_RESET_IN_MINUTES = 15;
 const asyncDelay = promisify(setTimeout);
 
 class CustomError extends Error {
-	errors: object[];
+	errors: object[] | undefined;
 }
 
 interface GetActivityArg {

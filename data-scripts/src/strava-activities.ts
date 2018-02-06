@@ -49,6 +49,10 @@ interface Activity {
 
 interface Ride extends Activity {}
 
+interface RideWithMap extends Ride {
+	map: ActivityMap;
+}
+
 /**
  * @enumerable decorator that sets the enumerable property of a class field to false.
  * @param value true|false
@@ -86,14 +90,6 @@ class Ride implements Ride {
 	@writable(true)
 	private _start_date_local_date: Date;
 
-	@enumerable(false)
-	@writable(true)
-	private _mapline: polyline.LatLonTuple[];
-
-	@enumerable(false)
-	@writable(true)
-	private _mapline_interop: polyline.LatLonTuple[];
-
 	constructor(data: Activity) {
 		this.id = data.id;
 		this.name = data.name;
@@ -125,10 +121,6 @@ class Ride implements Ride {
 
 		this._start_date_date = new Date(this.start_date);
 		this._start_date_local_date = new Date(this.start_date_local);
-
-		if (this.map) {
-			this._mapline = polyline.decode(this.map.polyline);
-		}
 	}
 
 	@enumerable(false)
@@ -140,6 +132,16 @@ class Ride implements Ride {
 	get start_date_local_date() {
 		return this._start_date_local_date;
 	}
+}
+
+class RideWithMap extends Ride implements RideWithMap {
+	@enumerable(false)
+	@writable(true)
+	private _mapline: polyline.LatLonTuple[];
+
+	@enumerable(false)
+	@writable(true)
+	private _mapline_interop!: polyline.LatLonTuple[];
 
 	@enumerable(false)
 	get mapline() {
@@ -154,8 +156,14 @@ class Ride implements Ride {
 	set mapline_interop(val) {
 		this._mapline_interop = val;
 	}
+
+	constructor(data: Activity) {
+		super(data);
+
+		this._mapline = polyline.decode(this.map.polyline);
+	}
 }
 
 export default Ride;
 
-export {Activity, /*ActivityWithMap, */Ride};
+export {Activity, /*ActivityWithMap, */Ride, RideWithMap};

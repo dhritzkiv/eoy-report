@@ -22,8 +22,12 @@ class NumberArray extends Array<number> {}
 interface NumberTuple extends NumberArray { 0: number; 1: number; }
 
 class NumberMap extends Map<number, number> {
-	constructor(entries?: NumberTuple[]) {
-		super(entries);
+	constructor(entries?: Iterable<[number, number]>) {
+		if (entries) {
+			super(entries);
+		} else {
+			super();
+		}
 	}
 }
 

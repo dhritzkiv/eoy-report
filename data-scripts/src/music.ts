@@ -25,8 +25,12 @@ class NumberArray extends Array<number> {}
 interface NumberTuple extends NumberArray { 0: number; 1: number; }
 
 class NumberMap extends Map<number, number> {
-	constructor(entries?: NumberTuple[]) {
-		super(entries);
+	constructor(entries?: Iterable<[number, number]>) {
+		if (entries) {
+			super(entries);
+		} else {
+			super();
+		}
 	}
 }
 
@@ -87,7 +91,7 @@ trackInfoData.forEach(info => trackInfoMap.set(`${info.name}|${info.album}|${inf
 
 class Track implements Track {
 	date: moment.Moment;
-	info: TrackInfo;
+	info!: TrackInfo;
 
 	constructor(opts: Track) {
 		this.name = opts.name;
@@ -103,7 +107,7 @@ class Track implements Track {
 		const info = trackInfoMap.get(`${this.name}|${this.album}|${this.artist}`);
 
 		if (!info) {
-			console.warn("No info for ${this.name} - ${this.artist}");
+			throw new Error("No info for ${this.name} - ${this.artist}");
 		} else {
 			this.info = info;
 		}
@@ -118,7 +122,7 @@ class Track implements Track {
 	}
 
 	get duration() {
-		return this.info.duration;
+		return this.info && this.info.duration || 0;
 	}
 }
 
