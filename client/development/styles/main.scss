@@ -376,8 +376,12 @@ section.maps {
 }
 
 [data-hook=viz-holder] {
+	line-height: 0;
+	overflow: auto;
+
 	svg {
 		margin: 0 auto;
+		display: block;
 	}
 
 	g rect.hover-bar {
