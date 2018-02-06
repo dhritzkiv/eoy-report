@@ -118,7 +118,7 @@ class Track implements Track {
 	}
 
 	get trackId() {
-		return `${this.name}|${this.albumId}`
+		return `${this.name}|${this.artist}`
 	}
 
 	get duration() {

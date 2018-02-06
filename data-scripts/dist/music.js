@@ -84,7 +84,7 @@ class Track {
         return `${this.album}|${this.artist}`;
     }
     get trackId() {
-        return `${this.name}|${this.albumId}`;
+        return `${this.name}|${this.artist}`;
     }
     get duration() {
         return this.info && this.info.duration || 0;
