@@ -93,12 +93,12 @@ const LineStatView = StatView.extend({
 				layersG
 				.selectAll("path.point:not(text), path.multipoint:not(text)")
 				.attr("transform", transform)
-				.style("stroke-width", 0.5 / Math.log10(transform.k));
+				.style("stroke-width", `${0.5 / Math.log10(transform.k)}px`);
 
 				layersG
 				.selectAll("text")
 				.attr("transform", transform)
-				.style("font-size", d => (24 * d.properties.size) / transform.k);
+				.style("font-size", d => `${(24 * d.properties.size) / transform.k}px`);
 
 				layersG
 				.selectAll("text.shadow")
