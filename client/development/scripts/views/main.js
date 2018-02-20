@@ -52,7 +52,6 @@ const MainView = View.extend({
 						${svg_walking}
 					</a>
 				</article>
-				<article class="category-icon coding"></article>
 			</div>
 		</header>
 		<main class="page-container"></main>
