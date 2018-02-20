@@ -1,5 +1,6 @@
 import StatView from "./stat";
 import * as d3 from "d3";
+import app from "ampersand-app";
 
 const LineStatView = StatView.extend({
 	/**
@@ -50,6 +51,8 @@ const LineStatView = StatView.extend({
 		});
 
 		resize();
+
+		app.onFontLoad(resize, this);
 
 		const windowResizeListener = () => {
 			const newWidth = el.clientWidth - margin.left - margin.right;

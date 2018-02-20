@@ -1,4 +1,5 @@
 import StatView from "./stat";
+import app from "ampersand-app";
 
 const bindings = {
 	...StatView.prototype.bindings,
@@ -64,6 +65,8 @@ const NumericStatMiniView = StatView.extend({
 		const sizeTextToFitBound = this.sizeTextToFit.bind(this, valueSpan);
 
 		sizeTextToFitBound();
+
+		app.onFontLoad(sizeTextToFitBound, this);
 
 		window.addEventListener("resize", sizeTextToFitBound);
 

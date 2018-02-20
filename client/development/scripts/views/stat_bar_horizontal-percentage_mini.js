@@ -1,5 +1,6 @@
 import StatView from "./stat";
 import * as d3 from "d3";
+import app from "ampersand-app";
 
 const HorizonatlBarStatView = StatView.extend({
 	/**
@@ -142,6 +143,8 @@ const HorizonatlBarStatView = StatView.extend({
 		});
 
 		resize();
+
+		app.onFontLoad(resize, this);
 
 		const windowResizeListener = () => {
 			const newWidth = el.clientWidth - margin.left - margin.right;

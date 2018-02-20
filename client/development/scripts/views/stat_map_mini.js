@@ -1,5 +1,6 @@
 import StatView from "./stat";
 import * as d3 from "d3";
+import app from "ampersand-app";
 
 const PI = Math.PI;
 const TAU = 2 * PI;
@@ -275,6 +276,8 @@ const LineStatView = StatView.extend({
 				resize();
 			}
 		};
+
+		app.onFontLoad(resize, this);
 
 		window.addEventListener("resize", windowResizeListener, false);
 

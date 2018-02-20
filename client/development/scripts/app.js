@@ -41,6 +41,22 @@ app.extend({
 			pushState: true,
 			root: "/"
 		});
+	},
+	onFontLoad(callback, thisArg) {
+		if (!this.fontsLoaded) {
+			let fontLoadArgs;
+
+			const fontLoadHandler = () => {
+				app.off(...fontLoadArgs);
+				callback();
+			};
+
+			fontLoadArgs = ["fontsactive", fontLoadHandler];
+
+			app.on(...fontLoadArgs);
+
+			thisArg.once("remove", () => app.off(...fontLoadArgs));
+		}
 	}
 });
 
@@ -62,6 +78,45 @@ app.extend({
 	var prevScript = document.getElementsByTagName(sciptTagName)[0];
 	prevScript.parentNode.insertBefore(script, prevScript);
 })();*/
+
+(function(d) {
+	const config = {
+		kitId: "mcd6sge",
+		scriptTimeout: 3000,
+		async: true,
+		active: () => {
+			app.emit("fontsactive");
+			app.fontsLoaded = true;
+		}
+	};
+
+	const h = d.documentElement;
+	const t = setTimeout(() => {
+		h.className = `${h.className.replace(/\bwf-loading\b/g,"")} wf-inactive`;
+	},config.scriptTimeout);
+	const tk = d.createElement("script");
+	let f = false;
+	const s = d.getElementsByTagName("script")[0];
+	let a;
+
+	h.className += " wf-loading";tk.src = `https://use.typekit.net/${ config.kitId }.js`;tk.async = true;
+
+	tk.onload = tk.onreadystatechange = function() {
+		a = this.readyState;
+
+		if(f || a && a !== "complete" && a !== "loaded") {
+			return;
+		}
+
+		f = true;clearTimeout(t);
+
+		try{
+			window.Typekit.load(config);
+		} catch(e) {}
+	};
+
+	s.parentNode.insertBefore(tk,s);
+}(document));
 
 window.app = app;
 

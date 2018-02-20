@@ -1,6 +1,7 @@
 import StatView from "./stat";
 import * as d3 from "d3";
 import throttle from "lodash/throttle";
+import app from "ampersand-app";
 
 const BarStatView = StatView.extend({
 	/**
@@ -156,6 +157,8 @@ const BarStatView = StatView.extend({
 		}), 1000);
 
 		resize();
+
+		app.onFontLoad(resize, this);
 
 		const windowResizeListener = () => {
 			const newWidth = el.clientWidth - margin.left - margin.right;
