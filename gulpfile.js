@@ -4,10 +4,6 @@ const path = require("path");
 const fs = require("fs");
 const gulp = require("gulp");
 const uglify = require("gulp-uglify");
-const source = require("vinyl-source-stream");
-const buffer = require("vinyl-buffer");
-//const watchify = require('watchify');
-const browserify = require("browserify");
 const sass = require("gulp-sass");
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
@@ -19,7 +15,6 @@ const developmentDir = path.join(__dirname, "client", "development");
 const publicDir = path.join(__dirname, "client", "public");
 const sourceStylesDir = path.join(developmentDir, "styles");
 const outputStylesDir = path.join(publicDir, "css");
-const sourceScriptsDir = path.join(developmentDir, "scripts");
 const outputScriptsDir = path.join(publicDir, "js");
 
 const assetsOptions = {
@@ -70,47 +65,6 @@ const uglifyOptions = {
 	}
 };
 
-function makeBundler(src) {
-
-	const bundler = browserify(src, {
-		cache: {},
-		packageCache: {},
-		fullPaths: false,
-		debug: true
-	});
-
-	bundler.plugin("watchify");
-	bundler.transform("babelify");
-	bundler.transform("brfs");
-
-	bundler.transform("browserify-versionify", {
-		filter: /app\.js$/,
-		version: require("./package.json").version
-	});
-
-	return bundler;
-}
-
-function makeBundle(bundler, targetFile) {
-	return function bundle() {
-		return bundler.bundle()
-		.on("error", err => console.error(err.message))
-		.pipe(source(targetFile))
-		.pipe(buffer())
-		.pipe(sourcemaps.init({loadMaps: true}))
-		.pipe(sourcemaps.write("./", {
-			addComment: true,
-			sourceRoot: "./"//source map points to files relative to the root of this repo.
-		}))
-		.pipe(gulp.dest(outputScriptsDir));
-	};
-}
-
-const clientAppBundler = makeBundler(path.join(sourceScriptsDir, "app.js"));
-const clientAppBundle = makeBundle(clientAppBundler, "2016.min.js");
-
-gulp.task("app-bundle", clientAppBundle);
-
 gulp.task("sass", () => {
 
 	const browserSupport = [
@@ -133,10 +87,6 @@ gulp.task("sass", () => {
 	]))
 	//.pipe(sourcemaps.write('./maps'))
 	.pipe(gulp.dest(outputStylesDir));
-});
-
-gulp.task("browserify", ["app-bundle"], () => {
-	clientAppBundler.on("update", clientAppBundle);
 });
 
 gulp.task("uglify-js-clients", () => {
@@ -168,13 +118,10 @@ gulp.task("minify-css", () => {
 	.pipe(gulp.dest(outputStylesDir));
 });
 
-gulp.task("build", ["app-bundle", "sass"], () => {
-	clientAppBundler.close();
-});
+gulp.task("build", ["sass"]);
 
 gulp.task("release", ["minify-css", "uglify-js-clients"]);
 
-gulp.task("watch", ["browserify"], () => {
+gulp.task("watch", () => {
 	gulp.watch(path.join(sourceStylesDir, "*.scss"), ["sass"]);
-	//gulp.start("browserify");
 });
