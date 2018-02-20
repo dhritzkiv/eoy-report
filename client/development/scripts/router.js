@@ -1,7 +1,4 @@
-//import app from "ampersand-app";
 import AmpersandRouter from "ampersand-router";
-
-//import StartPage from "./views/start";
 
 import StatsPage from "./views/stats";
 import CoffeeStatsPage from "./views/stats_coffee";
@@ -20,7 +17,7 @@ import svg_walking from "../img/category-icon_walking.svg";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
 
-import * as areas from "./data/areas";
+import * as areas from "./utils/areas";
 
 const Router = AmpersandRouter.extend({
 	routes: {
