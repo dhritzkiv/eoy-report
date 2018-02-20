@@ -18,11 +18,8 @@ $colorFandL: #cb9625;
 $colorAandV: #5360e1;
 $colorMisc: #71616a;
 
-$ffHeading1: "Knockout-HTF33-JuniorHeviwt", sans-serif;
-$ffHeading2: "Knockout-HTF52-Cruiserweight", sans-serif;
-
-$ffSans: $ffHeading2;//"futura-pt", "Futura PT", Futura, sans-serif;
-$ffSerif: "adobe-caslon-pro", "Adobe Caslon Pro", "Baskerville", serif;
+$ffHeading1: "rift-soft", sans-serif;
+$ffHeading2: "acumin-pro-wide", sans-serif;
 
 $gutter: 16px;
 
@@ -65,7 +62,6 @@ body {
 	color: $colorText;
 	background-color: $colorBackground;
 	background-attachment: fixed;
-	font-family: $ffSans;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -73,12 +69,13 @@ body {
 	justify-content: center;
 	width: 100vw;
 	min-height: 100vh;
+	font-family: $ffHeading2;
+	font-weight: 700;
 }
 
 p {
 	font-size: 1em;
 	line-height: 21px;
-	font-family: $ffSerif;
 	margin: ($gutter / 2) 0;
 }
 
@@ -91,30 +88,33 @@ body > header {
 	width: 100%;
 
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 
 	.about {
-		flex: 1 0 auto;
-		width: 600px;
-		padding: $gutter;
+		flex: 0 0 auto;
+		width: 100%;
+		text-align: center;
+		padding: $gutter / 2;
 	}
 
 	.categories-list {
-		flex: 1 1 auto;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
+		flex: 0 1 auto;
 		padding: $gutter;
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: $gutter / 4;
+
+		@media screen and (max-width: $ipadPortrait) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
 		article {
 			position: relative;
-			width: 33%;
-			padding: $gutter / 4;
 
 			svg {
 				width: 100%;
@@ -155,9 +155,7 @@ body > header {
 }
 
 @mixin section($colorText, $colorValue, $colorBackground) {
-	min-height: 100vh;
 	color: $colorText;
-	padding: $gutter * 4 0;
 	background-color: $colorBackground;
 
 	h3 {
@@ -269,6 +267,8 @@ body > header {
 }
 
 section.stats-section {
+	min-height: 100vh;
+	padding: $gutter/2 0;
 	$colorText: #223bb9;
 	$colorValue: #e36e5f;
 	$colorBackground: $colorBackground;
@@ -442,7 +442,6 @@ $width: 196px;
 		box-sizing: border-box;
 		overflow: hidden;
 
-
 		@media screen and (max-width: ($width * 2)) {
 			grid-column-end: span 1;
 		}
@@ -477,9 +476,9 @@ $width: 196px;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
-			/*overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;*/
+			overflow: hidden;
+			//text-overflow: ellipsis;
+			//white-space: nowrap;
 		}
 
 		& > * {
@@ -488,20 +487,23 @@ $width: 196px;
 
 		h3 {
 			font-size: 5.8em;
+			line-height: 1em;
 			font-family: $ffHeading1;
 			letter-spacing: 0.01em;
 			margin: 0;
 
 			span {
 				display: inline-block;
+				line-height: 1em;
 			}
 		}
 
 		h2 {
-			font-size: 1em;
+			font-size: 0.9em;
 			font-family: $ffHeading2;
-			font-weight: 500;
-			letter-spacing: 0.05em;
+			font-weight: 800;
+			letter-spacing: 0em;
+			line-height: 1.125em;
 			margin: 0;
 			text-transform: uppercase;
 
