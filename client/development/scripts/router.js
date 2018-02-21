@@ -1,12 +1,6 @@
 import AmpersandRouter from "ampersand-router";
 
 import StatsPage from "./views/stats";
-import CoffeeStatsPage from "./views/stats_coffee";
-import CyclingStatsPage from "./views/stats_cycling";
-import BeerStatsPage from "./views/stats_beer";
-import MediaStatsPage from "./views/stats_media";
-import WalkingStatsPage from "./views/stats_walking";
-//import HealthStatsPage from "./views/stats_health";
 
 import svg_coffee from "../img/category-icon_coffee.svg";
 import svg_beer from "../img/category-icon_beer.svg";
@@ -36,7 +30,7 @@ const Router = AmpersandRouter.extend({
 		//noop
 	},
 	coffee() {
-		const view = new CoffeeStatsPage({
+		const view = new StatsPage({
 			name: "coffee",
 			icon: svg_coffee
 		});
@@ -226,7 +220,7 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	cycling() {
-		const view = new CyclingStatsPage({
+		const view = new StatsPage({
 			name: "cycling",
 			icon: svg_cycling
 		});
@@ -567,7 +561,7 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	beer() {
-		const view = new BeerStatsPage({
+		const view = new StatsPage({
 			name: "beer",
 			icon: svg_beer
 		});
@@ -1024,7 +1018,7 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	walking() {
-		const view = new WalkingStatsPage({
+		const view = new StatsPage({
 			name: "walking",
 			icon: svg_walking
 		});
@@ -1670,7 +1664,7 @@ const Router = AmpersandRouter.extend({
 		this.trigger("navigation");
 	},
 	media() {
-		const view = new MediaStatsPage({
+		const view = new StatsPage({
 			name: "media",
 			icon: svg_media
 		});
