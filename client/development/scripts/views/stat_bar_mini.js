@@ -80,9 +80,9 @@ const BarStatView = StatView.extend({
 
 			const valueTextWidth = valueText.node().getComputedTextLength();
 
-			const leftBreach = valueTranslateX - (valueTextWidth / 2);
-			const rightBreach = (width - valueTranslateX) - (valueTextWidth / 2);
-			const dx = Math.min(Math.max(-leftBreach, 0), rightBreach);
+			let leftBreach = valueTranslateX - (valueTextWidth / 2);
+			let rightBreach = (width - valueTranslateX) - (valueTextWidth / 2);
+			let dx = Math.min(Math.max(-leftBreach, 0), rightBreach);
 
 			valueText
 			.attr("dx", dx);
@@ -103,6 +103,15 @@ const BarStatView = StatView.extend({
 			.attr("transform", `translate(${labelTranslateX}, ${labelTranslateY})`);
 
 			labelText.text(label);
+
+			const labelTextWidth = labelText.node().getComputedTextLength();
+
+			leftBreach = labelTranslateX - (labelTextWidth / 2);
+			rightBreach = (width - labelTranslateX) - (labelTextWidth / 2);
+			dx = Math.min(Math.max(-leftBreach, 0), rightBreach);
+
+			labelText
+			.attr("dx", dx);
 		};
 
 		bar.on("mouseover touchstart", showText);
