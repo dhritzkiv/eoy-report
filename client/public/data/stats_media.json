@@ -1,0 +1,453 @@
+[
+	{
+		"title": "Total films",
+		"data": {
+			"type": "numeric",
+			"value": 78
+		}
+	},
+	{
+		"title": "Total films duration (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 141.2
+		}
+	},
+	{
+		"title": "Top cinemas (films)",
+		"data": {
+			"type": "percentage",
+			"value": [
+				["Cineplex - Varsity & VIP", 10],
+				["Cineplex - Scotiabank Theatre", 9],
+				["TIFF Lightbox", 3],
+				["Event Cinemas - Auckland CBD", 2],
+				["Cineplex - Yonge-Dundas", 1],
+				["Dendy Cinemas - Newtown", 1],
+				["Rialto Cinemas - Auckland", 1]
+			]
+		},
+		"tall": "y2",
+		"wide": "x2"
+	},
+	{
+		"title": "Films watched in theatres",
+		"data": {
+			"type": "numeric",
+			"value": 27
+		}
+	},
+	{
+		"title": "Films watched on Netflix",
+		"data": {
+			"type": "numeric",
+			"value": 27
+		}
+	},
+	{
+		"title": "Films watched on a television",
+		"data": {
+			"type": "numeric",
+			"value": 4
+		}
+	},
+	{
+		"title": "Films watched while on a plane",
+		"data": {
+			"type": "numeric",
+			"value": 2
+		}
+	},
+	{
+		"title": "Films by day of week",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Mon", "value": 5},
+				{"label": "Tue", "value": 17},
+				{"label": "Wed", "value": 7},
+				{"label": "Thu", "value": 11},
+				{"label": "Fri", "value": 6},
+				{"label": "Sat", "value": 15},
+				{"label": "Sun", "value": 17}
+			]
+		},
+		"wide": "x1"
+	},
+	{
+		"title": "Films watched by myself",
+		"data": {
+			"type": "numeric",
+			"value": 28
+		}
+	},
+	{
+		"title": "Films watched before",
+		"data": {
+			"type": "numeric",
+			"value": 7
+		}
+	},
+	{
+		"title": "Longest run time (minutes)",
+		"data": {
+			"type": "numeric",
+			"value": 187
+		}
+	},
+	{
+		"title": "Longest dry spell (days)",
+		"data": {
+			"type": "numeric",
+			"value": 34
+		}
+	},
+	{
+		"title": "Longest streak (days)",
+		"data": {
+			"type": "numeric",
+			"value": 3
+		}
+	},
+	{
+		"title": "Films by month",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Jan", "value": 0},
+				{"label": "Feb", "value": 5},
+				{"label": "Mar", "value": 6},
+				{"label": "Apr", "value": 4},
+				{"label": "May", "value": 5},
+				{"label": "Jun", "value": 4},
+				{"label": "Jul", "value": 5},
+				{"label": "Aug", "value": 7},
+				{"label": "Sep", "value": 10},
+				{"label": "Oct", "value": 14},
+				{"label": "Nov", "value": 11},
+				{"label": "Dec", "value": 7}
+			]
+		},
+		"wide": "x2"
+	},
+	{
+		"title": "Top release years (films)",
+		"data": {
+			"type": "percentage",
+			"value": [
+				[2017, 27],
+				[2016, 23],
+				[2015, 4],
+				[2014, 3],
+				[1999, 3],
+				[2002, 2],
+				[1984, 2],
+				[1982, 2]
+			]
+		},
+		"tall": "y2"
+	},
+	{
+		"title": "Total track plays",
+		"data": {
+			"type": "numeric",
+			"value": 18868
+		}
+	},
+	{
+		"title": "Unique tracks played",
+		"data": {
+			"type": "numeric",
+			"value": 7837
+		}
+	},
+	{
+		"title": "Average track plays",
+		"data": {
+			"type": "numeric",
+			"value": 2.41
+		}
+	},
+	{
+		"title": "Total music play time (days)",
+		"data": {
+			"type": "numeric",
+			"value": 46.44
+		}
+	},
+	{
+		"title": "Median daily track plays",
+		"data": {
+			"type": "numeric",
+			"value": 48
+		}
+	},
+	{
+		"title": "Most daily track plays",
+		"data": {
+			"type": "numeric",
+			"value": 181
+		}
+	},
+	{
+		"title": "Days without listening to music",
+		"data": {
+			"type": "numeric",
+			"value": 32
+		}
+	},
+	{
+		"title": "Unique artists played",
+		"data": {
+			"type": "numeric",
+			"value": 1515
+		}
+	},
+	{
+		"title": "Average artist plays",
+		"data": {
+			"type": "numeric",
+			"value": 12.45
+		}
+	},
+	{
+		"title": "Longest music play streak (days)",
+		"data": {
+			"type": "numeric",
+			"value": 71
+		}
+	},
+	{
+		"title": "Longest music no-play spell (days)",
+		"data": {
+			"type": "numeric",
+			"value": 5
+		}
+	},
+	{
+		"title": "Track plays by month",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Jan", "value": 2154},
+				{"label": "Feb", "value": 637},
+				{"label": "Mar", "value": 2323},
+				{"label": "Apr", "value": 1980},
+				{"label": "May", "value": 1352},
+				{"label": "Jun", "value": 1317},
+				{"label": "Jul", "value": 1546},
+				{"label": "Aug", "value": 1946},
+				{"label": "Sep", "value": 1225},
+				{"label": "Oct", "value": 1472},
+				{"label": "Nov", "value": 1542},
+				{"label": "Dec", "value": 1372}
+			]
+		},
+		"wide": "x2"
+	},
+	{
+		"title": "Weekly track plays",
+		"data": {
+			"type": "line",
+			"value": [671, 413, 647, 308, 574, 126, 68, 64, 137, 430, 530, 663, 641, 622, 371, 470, 412, 429, 414, 115, 341, 153, 470, 221, 276, 345, 255, 375, 496, 368, 294, 542, 402, 387, 527, 298, 352, 261, 120, 418, 216, 329, 291, 345, 347, 478, 342, 483, 286, 329, 262, 154]
+		},
+		"wide": "x2",
+		"tall": "y1"
+	},
+	{
+		"title": "Average track plays by day of week",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Mon", "value": 45.48},
+				{"label": "Tue", "value": 52.27},
+				{"label": "Wed", "value": 57.92},
+				{"label": "Thu", "value": 55.81},
+				{"label": "Fri", "value": 56.15},
+				{"label": "Sat", "value": 48.54},
+				{"label": "Sun", "value": 45.67}
+			]
+		},
+		"wide": "x1"
+	},
+	{
+		"title": "Top tracks (plays)",
+		"data": {
+			"type": "percentage",
+			"value": [
+				["Up With People – Lambchop", 79],
+				["Ballad Of The Dying Man – Father John Misty", 75],
+				["You Masculine You – Lambchop", 67],
+				["Up in Hudson – Dirty Projectors", 65],
+				["Nashville Parent – Lambchop", 57],
+				["Two Wildly Different Perspectives – Father John Misty", 56],
+				["What Else Could It Be? – Lambchop", 56],
+				["Little Bubble – Dirty Projectors", 55],
+				["Things It Would Have Been Helpful to Know Before the Revolution – Father John Misty", 53],
+				["The Distance from Her to There – Lambchop", 51],
+				["The Book I Haven't Read – Lambchop", 49],
+				["The Petrified Florist – Lambchop", 46],
+				["Total Entertainment Forever – Father John Misty" , 45],
+				["Keep Your Name – Dirty Projectors" , 44],
+				["Pure Comedy – Father John Misty" , 39],
+				["Get It Together (feat. Black Coffee & Jorja Smith) – Drake" , 37],
+				["The Butcher Boy – Lambchop" , 37],
+				["Madiba Riddim – Drake" , 36],
+				["Intruders – The Antlers" , 34],
+				["Blem – Drake" , 33],
+				["Morning Dove – Julie Byrne", 30],
+				["Birdie – Father John Misty", 30],
+				["Moon In Your Mouth – Goldfrapp", 28],
+				["Passionfruit – Drake", 28],
+				["The Old Gold Shoe – Lambchop", 28],
+				["Director – The Antlers", 28],
+				["Leaving LA – Father John Misty", 27],
+				["Grumpus – Lambchop", 27],
+				["Anything – SZA", 27],
+				["4422 – Drake", 27],
+				["Everything Is Never Enough – Goldfrapp", 26],
+				["Jorja Interlude – Drake", 26],
+				["Hotel – The Antlers", 25],
+				["Gone Tomorrow – Lambchop", 25],
+				["The Singer Has Become A Deejay – Soulwax", 25],
+				["The Bus Song – Jay Som", 25],
+				["Gonna Get Better – Broken Social Scene", 25],
+				["Anymore – Goldfrapp", 25],
+				["Follow My Voice – Julie Byrne", 25],
+				["Please Take Me With You – Broken Social Scene", 25],
+				["Ocean – Goldfrapp", 25],
+				["Towers And Masons – Broken Social Scene", 24],
+				["Hug of Thunder – Broken Social Scene", 24],
+				["Gyalchester – Drake", 24],
+				["Rugged Country – Japanese Breakfast", 24],
+				["Victim Lover – Broken Social Scene", 24],
+				["Systemagic – Silver Eye – Goldfrapp", 23],
+				["The Woman That Loves You – Psychopomp – Japanese Breakfast", 23],
+				["Revisited – Familiars – The Antlers", 23],
+				["Everybody Wants To Love You – Psychopomp – Japanese Breakfast", 23]
+			]
+		},
+		"tall": "y2",
+		"wide": "x3"
+	},
+	{
+		"title": "Top albums (plays)",
+		"data": {
+			"type": "percentage",
+			"value": [
+				["Nixon – Lambchop", 497],
+				["Pure Comedy – Father John Misty", 439],
+				["More Life – Drake", 375],
+				["The OOZ – King Krule", 271],
+				["Hug Of Thunder – Broken Social Scene", 261],
+				["CTRL – SZA", 248],
+				["Dirty Projectors – Dirty Projectors", 228],
+				["Silver Eye – Goldfrapp", 225],
+				["Goths (Deluxe Version) – The Mountain Goats", 205],
+				["Mr. M – Lambchop", 203],
+				["FROM DEEWEE – Soulwax", 191],
+				["Familiars – The Antlers", 189],
+				["Psychopomp – Japanese Breakfast", 184],
+				["Drunk – Thundercat", 178],
+				["Not Even Happiness – Julie Byrne", 176],
+				["Visions Of A Life – Wolf Alice", 161],
+				["Whiteout Conditions – The New Pornographers", 152],
+				["Crack-Up – Fleet Foxes", 146],
+				["Blade Runner 2049 (Original Motion Picture Soundtrack) – Hans Zimmer & Benjamin Wallfisch", 142],
+				["I See You – The xx", 136],
+				["In Mind – Real Estate", 130],
+				["Everybody Works – Jay Som", 128],
+				["New Energy – Four Tet", 119],
+				["Graceland – Paul Simon", 115],
+				["Ti Amo – Phoenix", 113],
+				["Mr Finish Line – Vulfpeck", 102],
+				["Phases – Angel Olsen", 99],
+				["Capacity – Big Thief", 94],
+				["The Visitor – Kadhja Bonet", 94],
+				["Monsters of Folk – Monsters of Folk", 93],
+				["Each Other – Aidan Knight", 91],
+				["Flotus – Lambchop", 90],
+				["Migration – Bonobo", 87],
+				["Eternally Even – Jim James", 86],
+				["Mass Romantic – The New Pornographers", 85],
+				["Arca – Arca", 81],
+				["No Shape – Perfume Genius", 81],
+				["A Deeper Understanding – The War on Drugs", 78],
+				["Teens Of Denial – Car Seat Headrest", 77],
+				["OK Computer – Radiohead", 75],
+				["Plastic Cough – Great Grandpa", 74],
+				["Since I Left You – The Avalanches", 69],
+				["Mister Mellow – Washed Out", 66],
+				["Wildflower – The Avalanches", 66],
+				["Half-Light – Rostam", 65],
+				["Everything Now – Arcade Fire", 65],
+				["Apocalipstick – Cherry Glazerr", 64],
+				["ken (Deluxe Version) – Destroyer", 64],
+				["Out in the Storm – Waxahatchee", 64],
+				["Yours Conditionally – Tennis", 60]
+			]
+		},
+		"tall": "y2",
+		"wide": "x2"
+	},
+	{
+		"title": "Top artists (plays)",
+		"data": {
+			"type": "percentage",
+			"value": [
+				["Lambchop", 844],
+				["Father John Misty", 540],
+				["The New Pornographers", 438],
+				["Broken Social Scene", 409],
+				["Drake", 377],
+				["The Antlers", 348],
+				["Radiohead", 294],
+				["King Krule", 284],
+				["Dirty Projectors", 263],
+				["Goldfrapp", 255],
+				["SZA", 249],
+				["Destroyer", 221],
+				["Japanese Breakfast", 220],
+				["The Mountain Goats", 212],
+				["Soulwax", 206],
+				["Julie Byrne", 206],
+				["Thundercat", 197],
+				["Four Tet", 179],
+				["Fleet Foxes", 169],
+				["Wolf Alice", 163],
+				["Real Estate", 163],
+				["Paul Simon", 150],
+				["Hans Zimmer & Benjamin Wallfisch", 142],
+				["The xx", 142],
+				["The Avalanches", 141],
+				["Bonobo", 134],
+				["Vulfpeck", 129],
+				["Jay Som", 128],
+				["Sharon Van Etten", 123],
+				["Phoenix", 118],
+				["Animal Collective", 113],
+				["Justice", 110],
+				["Andrew Bird", 108],
+				["Perfume Genius", 104],
+				["Angel Olsen", 101],
+				["Tennis", 101],
+				["Arcade Fire", 98],
+				["Big Thief", 97],
+				["Kadhja Bonet", 94],
+				["Monsters of Folk", 93],
+				["El Guincho", 92],
+				["Aidan Knight", 91],
+				["Sufjan Stevens", 90],
+				["Waxahatchee", 89],
+				["Car Seat Headrest", 88],
+				["The War on Drugs", 88],
+				["Jim James", 86],
+				["LCD Soundsystem", 81],
+				["Arca", 81],
+				["Beck", 80]
+			]
+		},
+		"tall": "y2",
+		"wide": "x1"
+	}
+]

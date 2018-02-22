@@ -1,0 +1,137 @@
+[
+	{
+		"title": "Estimated total sleep duration (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 2520.64
+		}
+	},
+	{
+		"title": "Median sleep duration (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 6.94
+		}
+	},
+	{
+		"title": "Longest sleep duration (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 10.016
+		}
+	},
+	{
+		"title": "Shortest non-nap sleep duration (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 3.43
+		}
+	},
+	{
+		"title": "Average sleep duration by day of week (hours)",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Mon", "value": 7.39},
+				{"label": "Tue", "value": 6.93},
+				{"label": "Wed", "value": 6.63},
+				{"label": "Thu", "value": 6.31},
+				{"label": "Fri", "value": 6.83},
+				{"label": "Sat", "value": 7.71},
+				{"label": "Sun", "value": 6.68}
+			]
+		},
+		"wide": "x1"
+	},
+	{
+		"title": "Average nightly sleep duration by month (hours)",
+		"data": {
+			"type": "bar",
+			"value": [
+				{"label": "Jan", "value": 6.38},
+				{"label": "Feb", "value": 6.98},
+				{"label": "Mar", "value": 6.60},
+				{"label": "Apr", "value": 6.91},
+				{"label": "May", "value": 7.41},
+				{"label": "Jun", "value": 6.78},
+				{"label": "Jul", "value": 7.24},
+				{"label": "Aug", "value": 7.16},
+				{"label": "Sep", "value": 6.77},
+				{"label": "Oct", "value": 6.66},
+				{"label": "Nov", "value": 7.08},
+				{"label": "Dec", "value": 7.07}
+			]
+		},
+		"wide": "x2"
+	},
+	{
+		"title": "Latest wake-up",
+		"data": {
+			"type": "numeric",
+			"value": "13:02"
+		}
+	},
+	{
+		"title": "Earliest wake-up",
+		"data": {
+			"type": "numeric",
+			"value": "03:22"
+		}
+	},
+	{
+		"title": "Latest bedtime",
+		"data": {
+			"type": "numeric",
+			"value": "04:52"
+		}
+	},
+	{
+		"title": "Earliest bedtime",
+		"data": {
+			"type": "numeric",
+			"value": "22:48"
+		}
+	},
+	{
+		"title": "Median bedtime",
+		"data": {
+			"type": "numeric",
+			"value": "1:52:44"
+		}
+	},
+	{
+		"title": "Median wakeup time",
+		"data": {
+			"type": "numeric",
+			"value": "8:30:53"
+		}
+	},
+	{
+		"title": "Days sick",
+		"data": {
+			"type": "numeric",
+			"value": 5
+		}
+	},
+	{
+		"title": "Median weight (lbs)",
+		"data": {
+			"type": "numeric",
+			"value": 70.42
+		}
+	},
+	{
+		"title": "Heaviest weight (kg)",
+		"data": {
+			"type": "numeric",
+			"value": 73.48
+		}
+	},
+	{
+		"title": "Lightest weight (kg)",
+		"data": {
+			"type": "numeric",
+			"value": 68.67
+		}
+	}
+]

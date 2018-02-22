@@ -1,4 +1,4 @@
-import Collection from "ampersand-collection";
+import Collection from "ampersand-rest-collection";
 import StatModel from "./stat";
 
 const StatsCollection = Collection.extend({

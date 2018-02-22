@@ -1,0 +1,783 @@
+[
+	{
+		"title": "Estimated total steps",
+		"data": {
+			"type": "numeric",
+			"value": 2109860
+		}
+	},
+	{
+		"title": "Steps by month (1000s)",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Jan",
+					"value": 166.29
+				},
+				{
+					"label": "Feb",
+					"value": 397.87
+				},
+				{
+					"label": "Mar",
+					"value": 192.91
+				},
+				{
+					"label": "Apr",
+					"value": 154.3
+				},
+				{
+					"label": "May",
+					"value": 155.06
+				},
+				{
+					"label": "Jun",
+					"value": 151.2
+				},
+				{
+					"label": "Jul",
+					"value": 181.98
+				},
+				{
+					"label": "Aug",
+					"value": 139.81
+				},
+				{
+					"label": "Sep",
+					"value": 158.05
+				},
+				{
+					"label": "Oct",
+					"value": 117.37
+				},
+				{
+					"label": "Nov",
+					"value": 115.35
+				},
+				{
+					"label": "Dec",
+					"value": 149.77
+				}
+			]
+		},
+		"wide": "x2"
+	},
+	{
+		"title": "Average Steps by day",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Mon",
+					"value": 5972.48
+				},
+				{
+					"label": "Tue",
+					"value": 6138.12
+				},
+				{
+					"label": "Wed",
+					"value": 5539.1
+				},
+				{
+					"label": "Thu",
+					"value": 5506.77
+				},
+				{
+					"label": "Fri",
+					"value": 5681.67
+				},
+				{
+					"label": "Sat",
+					"value": 4900.83
+				},
+				{
+					"label": "Sun",
+					"value": 4525
+				}
+			]
+		},
+		"wide": "x1"
+	},
+	{
+		"title": "Median daily steps",
+		"data": {
+			"type": "numeric",
+			"value": 4835
+		}
+	},
+	{
+		"title": "Most daily steps",
+		"data": {
+			"type": "numeric",
+			"value": 26737
+		}
+	},
+	{
+		"title": "Days with over 10000 steps",
+		"data": {
+			"type": "numeric",
+			"value": 40
+		}
+	},
+	{
+		"title": "Days with fewer than 1000 steps",
+		"data": {
+			"type": "numeric",
+			"value": 14
+		}
+	},
+	{
+		"title": "Estimated total distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 1604.31
+		}
+	},
+	{
+		"title": "Average daily distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 4.39
+		}
+	},
+	{
+		"title": "Most daily distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 27.35
+		}
+	},
+	{
+		"title": "Estimated total time (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 410.29
+		}
+	},
+	{
+		"title": "Average daily time (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 1.12
+		}
+	},
+	{
+		"title": "Most daily time (hours)",
+		"data": {
+			"type": "numeric",
+			"value": 6.1
+		}
+	},
+	{
+		"title": "Estimated total energy (kcal)",
+		"data": {
+			"type": "numeric",
+			"value": 94600
+		}
+	},
+	{
+		"title": "Average daily energy (kcal)",
+		"data": {
+			"type": "numeric",
+			"value": 259.19
+		}
+	},
+	{
+		"title": "Toronto walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						-80.125,
+						42.8667
+					],
+					[
+						-78.9,
+						44.7501
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/toronto-green.geojson"
+					},
+					{
+						"uri": "/data/gtha-waters.geojson"
+					},
+					{
+						"uri": "/data/lake-simcoe.geojson"
+					},
+					{
+						"uri": "/data/ytz-airport-grounds.geojson"
+					},
+					{
+						"uri": "/data/yyz-airport-grounds.geojson"
+					},
+					{
+						"uri": "/data/toronto-subway.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_toronto.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_toronto.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Toronto",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.383558,
+									43.652503
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Hamilton",
+								"size": 0.75
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.866091,
+									43.250021
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Mississauga",
+								"size": 0.75
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.65,
+									43.6
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Oakville",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.687666,
+									43.467517
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Burlington",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.8,
+									43.316667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Vaughan",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.5,
+									43.83333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Newmarket",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.466667,
+									44.05
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "St. Catherines",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.233333,
+									43.183333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Niagara Falls",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.106667,
+									43.06
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Barrie",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.690332,
+									44.389356
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Oro-Medonte",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.523333,
+									44.5
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Markham",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.263333,
+									43.876667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "King",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.6044,
+									44.0463
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Caledon",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.866667,
+									43.866667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Mono",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-80.066667,
+									44.016667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Bradford",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.633333,
+									44.13333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Innisfil",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.583333,
+									44.3
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-79.383558,
+					43.652503
+				],
+				"minZoom": 18,
+				"startZoom": 20
+			}
+		},
+		"wide": "xfull",
+		"tall": "y3"
+	},
+	{
+		"title": "Sydney walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/sydney-green.geojson"
+					},
+					{
+						"uri": "/data/sydney-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_sydney.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_sydney.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Sydney",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									151.212222,
+									-33.868056
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					151.22,
+					-33.8715
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Melbourne walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/melbourne-green.geojson"
+					},
+					{
+						"uri": "/data/melbourne-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_melbourne.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_melbourne.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Melbourne",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									144.963,
+									-37.814
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					144.963,
+					-37.837
+				],
+				"minZoom": 18,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Auckland walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						174.655,
+						-37.0167
+					],
+					[
+						175.254,
+						-36.675
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/auckland-green.geojson"
+					},
+					{
+						"uri": "/data/auckland-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_auckland.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_auckland.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Auckland",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									174.765,
+									-36.847
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					174.795,
+					-36.85
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Montreal walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						-73.7698,
+						45.3262
+					],
+					[
+						-73.2987,
+						45.8579
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/montreal-green.geojson"
+					},
+					{
+						"uri": "/data/montreal-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_montreal.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_montreal.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Montreal",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-73.57,
+									45.5
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-73.57,
+					45.5125
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Vancouver walks and places",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/vancouver-green.geojson"
+					},
+					{
+						"uri": "/data/vancouver-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_walks_vancouver.geojson"
+					},
+					{
+						"uri": "/data/2017_checkins_vancouver.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Vancouver",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-123.1,
+									49.25
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-123.1,
+					49.285
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	}
+]

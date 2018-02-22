@@ -1,0 +1,1001 @@
+[
+	{
+		"title": "Total distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 3662
+		}
+	},
+	{
+		"title": "Total rides",
+		"data": {
+			"type": "numeric",
+			"value": 778
+		}
+	},
+	{
+		"title": "Total time (hrs)",
+		"data": {
+			"type": "numeric",
+			"value": 183.4
+		}
+	},
+	{
+		"title": "Number of riding days",
+		"data": {
+			"type": "numeric",
+			"value": 290
+		}
+	},
+	{
+		"title": "Longest riding streak (days)",
+		"data": {
+			"type": "numeric",
+			"value": 35
+		}
+	},
+	{
+		"title": "Longest no-riding streak (days)",
+		"data": {
+			"type": "numeric",
+			"value": 9
+		}
+	},
+	{
+		"title": "Toronto rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						-80.125,
+						42.8667
+					],
+					[
+						-78.9,
+						44.7501
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/toronto-green.geojson"
+					},
+					{
+						"uri": "/data/gtha-waters.geojson"
+					},
+					{
+						"uri": "/data/lake-simcoe.geojson"
+					},
+					{
+						"uri": "/data/ytz-airport-grounds.geojson"
+					},
+					{
+						"uri": "/data/yyz-airport-grounds.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_toronto.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Toronto",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.383558,
+									43.652503
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Hamilton",
+								"size": 0.75
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.866091,
+									43.250021
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Mississauga",
+								"size": 0.75
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.65,
+									43.6
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Oakville",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.687666,
+									43.467517
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Burlington",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.8,
+									43.316667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Vaughan",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.5,
+									43.83333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Newmarket",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.466667,
+									44.05
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "St. Catherines",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.233333,
+									43.183333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Niagara Falls",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.106667,
+									43.06
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Barrie",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.690332,
+									44.389356
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Oro-Medonte",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.523333,
+									44.5
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Markham",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.263333,
+									43.876667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "King",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.6044,
+									44.0463
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Caledon",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.866667,
+									43.866667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Mono",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-80.066667,
+									44.016667
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Bradford",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.633333,
+									44.13333
+								]
+							}
+						}
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Innisfil",
+								"size": 0.5
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-79.583333,
+									44.3
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-79.383558,
+					43.652503
+				],
+				"minZoom": 18,
+				"startZoom": 20
+			}
+		},
+		"wide": "xfull",
+		"tall": "y3"
+	},
+	{
+		"title": "Sydney rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/sydney-green.geojson"
+					},
+					{
+						"uri": "/data/sydney-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_sydney.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Sydney",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									151.212222,
+									-33.868056
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					151.230278,
+					-33.868056
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Melbourne rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/melbourne-green.geojson"
+					},
+					{
+						"uri": "/data/melbourne-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_melbourne.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Melbourne",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									144.963,
+									-37.814
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					144.963,
+					-37.837
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Auckland rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						174.655,
+						-37.0167
+					],
+					[
+						175.254,
+						-36.675
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/auckland-green.geojson"
+					},
+					{
+						"uri": "/data/auckland-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_auckland.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Auckland",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									174.765,
+									-36.847
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					174.81,
+					-36.8675
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Top daily distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 114.69
+		}
+	},
+	{
+		"title": "Top weekly distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 253.6
+		}
+	},
+	{
+		"title": "Greatest peak distance from ride start (km)",
+		"data": {
+			"type": "numeric",
+			"value": 67.58
+		}
+	},
+	{
+		"title": "Median daily distance (km)",
+		"data": {
+			"type": "numeric",
+			"value": 4.54
+		}
+	},
+	{
+		"title": "Total elevation gain (m)",
+		"data": {
+			"type": "numeric",
+			"value": 15982
+		}
+	},
+	{
+		"title": "Estimated total energy (kcal)",
+		"data": {
+			"type": "numeric",
+			"value": 64100
+		}
+	},
+	{
+		"title": "Montreal rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"extent": [
+					[
+						-73.7698,
+						45.3262
+					],
+					[
+						-73.2987,
+						45.8579
+					]
+				],
+				"layers": [
+					{
+						"uri": "/data/montreal-green.geojson"
+					},
+					{
+						"uri": "/data/montreal-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_montreal.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Montreal",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-73.57,
+									45.5
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-73.57,
+					45.5125
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Vancouver rides",
+		"data": {
+			"type": "map",
+			"value": {
+				"layers": [
+					{
+						"uri": "/data/vancouver-green.geojson"
+					},
+					{
+						"uri": "/data/vancouver-coastline.geojson"
+					},
+					{
+						"uri": "/data/2017_rides_vancouver.geojson"
+					},
+					{
+						"geojson": {
+							"type": "Feature",
+							"properties": {
+								"type": "text",
+								"text": "Vancouver",
+								"size": 1
+							},
+							"geometry": {
+								"type": "Point",
+								"coordinates": [
+									-123.1,
+									49.25
+								]
+							}
+						}
+					}
+				],
+				"center": [
+					-123.1,
+					49.285
+				],
+				"minZoom": 19,
+				"startZoom": 20
+			}
+		},
+		"wide": "x2",
+		"tall": "y2"
+	},
+	{
+		"title": "Est. peak speed (km/h)",
+		"data": {
+			"type": "numeric",
+			"value": 68.76
+		}
+	},
+	{
+		"title": "Highest average ride speed (km/h)",
+		"data": {
+			"type": "numeric",
+			"value": 32.7
+		}
+	},
+	{
+		"title": "Lowest average ride speed (km/h)",
+		"data": {
+			"type": "numeric",
+			"value": 8.41
+		}
+	},
+	{
+		"title": "Median average ride speed (km/h)",
+		"data": {
+			"type": "numeric",
+			"value": 18.88
+		}
+	},
+	{
+		"title": "Rides per month",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Jan",
+					"value": 56
+				},
+				{
+					"label": "Feb",
+					"value": 35
+				},
+				{
+					"label": "Mar",
+					"value": 42
+				},
+				{
+					"label": "Apr",
+					"value": 71
+				},
+				{
+					"label": "May",
+					"value": 86
+				},
+				{
+					"label": "Jun",
+					"value": 74
+				},
+				{
+					"label": "Jul",
+					"value": 83
+				},
+				{
+					"label": "Aug",
+					"value": 91
+				},
+				{
+					"label": "Sep",
+					"value": 69
+				},
+				{
+					"label": "Oct",
+					"value": 68
+				},
+				{
+					"label": "Nov",
+					"value": 63
+				},
+				{
+					"label": "Dec",
+					"value": 33
+				}
+			]
+		},
+		"wide": "x2",
+		"tall": "y1"
+	},
+	{
+		"title": "Distance per month (km)",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Jan",
+					"value": 122.14
+				},
+				{
+					"label": "Feb",
+					"value": 180.13
+				},
+				{
+					"label": "Mar",
+					"value": 112.61
+				},
+				{
+					"label": "Apr",
+					"value": 496.87
+				},
+				{
+					"label": "May",
+					"value": 274
+				},
+				{
+					"label": "Jun",
+					"value": 414.51
+				},
+				{
+					"label": "Jul",
+					"value": 456.6
+				},
+				{
+					"label": "Aug",
+					"value": 529.5
+				},
+				{
+					"label": "Sep",
+					"value": 352.37
+				},
+				{
+					"label": "Oct",
+					"value": 379.61
+				},
+				{
+					"label": "Nov",
+					"value": 185.99
+				},
+				{
+					"label": "Dec",
+					"value": 157.5
+				}
+			]
+		},
+		"wide": "x2",
+		"tall": "y1"
+	},
+	{
+		"title": "Weekly rides",
+		"wide": "x2",
+		"data": {
+			"type": "line",
+			"value": [
+				11,
+				10,
+				15,
+				12,
+				19,
+				1,
+				14,
+				8,
+				1,
+				13,
+				1,
+				16,
+				15,
+				18,
+				11,
+				20,
+				15,
+				22,
+				20,
+				21,
+				18,
+				22,
+				16,
+				16,
+				15,
+				18,
+				21,
+				19,
+				20,
+				15,
+				21,
+				17,
+				27,
+				15,
+				21,
+				19,
+				18,
+				15,
+				11,
+				21,
+				12,
+				17,
+				13,
+				13,
+				14,
+				17,
+				14,
+				14,
+				15,
+				4,
+				10
+			]
+		}
+	},
+	{
+		"title": "Weekly distances (km)",
+		"wide": "x2",
+		"data": {
+			"type": "line",
+			"value": [
+				25.6601,
+				24.1133,
+				33.49,
+				21.482,
+				45.0935,
+				38.4778,
+				35.39,
+				25.96,
+				52.58,
+				32.6422,
+				2.211,
+				52.1354,
+				81.7957,
+				133.04,
+				59.13,
+				130.67,
+				81.3484,
+				89.9582,
+				87.15,
+				57.0851,
+				57.1,
+				94.3857,
+				67.05,
+				95.9,
+				150.1555,
+				44.4894,
+				99.49,
+				112.7891,
+				96.3119,
+				121.32,
+				86.04,
+				69.42,
+				253.65,
+				53.3013,
+				91.79,
+				120.86,
+				97.7202,
+				75.0552,
+				42.3963,
+				176.8607,
+				78.162,
+				43.8793,
+				71.05,
+				55.21,
+				39.8437,
+				36.7943,
+				41.93,
+				44.82,
+				69.8195,
+				34.45,
+				30.2618
+			]
+		}
+	},
+	{
+		"title": "Average rides per day of week",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Mon",
+					"value": 2.23
+				},
+				{
+					"label": "Tue",
+					"value": 2.17
+				},
+				{
+					"label": "Wed",
+					"value": 2.58
+				},
+				{
+					"label": "Thr",
+					"value": 2.27
+				},
+				{
+					"label": "Fri",
+					"value": 2.33
+				},
+				{
+					"label": "Sat",
+					"value": 1.83
+				},
+				{
+					"label": "Sun",
+					"value": 1.42
+				}
+			]
+		},
+		"wide": "x1",
+		"tall": "y1"
+	},
+	{
+		"title": "Average distance per day of week (km)",
+		"data": {
+			"type": "bar",
+			"value": [
+				{
+					"label": "Mon",
+					"value": 8.4
+				},
+				{
+					"label": "Tue",
+					"value": 5.22
+				},
+				{
+					"label": "Wed",
+					"value": 7.64
+				},
+				{
+					"label": "Thr",
+					"value": 5.38
+				},
+				{
+					"label": "Fri",
+					"value": 6.69
+				},
+				{
+					"label": "Sat",
+					"value": 19.82
+				},
+				{
+					"label": "Sun",
+					"value": 17.29
+				}
+			]
+		},
+		"wide": "x1",
+		"tall": "y1"
+	}
+]
