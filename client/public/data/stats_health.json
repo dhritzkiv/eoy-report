@@ -114,7 +114,7 @@
 		}
 	},
 	{
-		"title": "Median weight (lbs)",
+		"title": "Median weight (kg)",
 		"data": {
 			"type": "numeric",
 			"value": 70.42
