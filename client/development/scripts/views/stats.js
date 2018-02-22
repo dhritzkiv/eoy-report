@@ -2,7 +2,6 @@ import View from "ampersand-view";
 
 import StatsCollection from "../models/stats";
 import StatNumericMiniView from "./stat_numeric_mini";
-import StatLinechartMiniView from "./stat_line_mini";
 import StatBarchartMiniView from "./stat_bar_mini";
 import StatHorizontalPercentageBarchartMiniView from "./stat_bar_horizontal-percentage_mini";
 import StatMapMiniView from "./stat_map_mini";
@@ -49,8 +48,6 @@ const StatsView = View.extend({
 			switch (model.data.type) {
 				case "numeric":
 					return new StatNumericMiniView(opts);
-				case "line":
-					return new StatLinechartMiniView(opts);
 				case "bar":
 					return new StatBarchartMiniView(opts);
 				case "percentage":
