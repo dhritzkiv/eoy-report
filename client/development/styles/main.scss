@@ -129,7 +129,8 @@ body > header {
 			}
 
 			&:hover,
-			&:active {
+			&:active,
+			&.active {
 				svg .extras {
 					& > g,
 					&.border {
