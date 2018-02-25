@@ -155,10 +155,6 @@ const BarStatView = StatView.extend({
 			.attr("ry", borderRadius);
 
 			visibleBar
-			.transition()
-			.ease(d3.easeQuadInOut)
-			.duration(400)
-			.delay((d, i) => i * 8)
 			.attr("y", ({value: d}) => visibleBarY(d))
 			.attr("height", ({value: d}) => visibleBarHeight(d));
 
