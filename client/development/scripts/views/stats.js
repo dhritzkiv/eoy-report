@@ -13,13 +13,27 @@ const StatsView = View.extend({
 		},
 		icon: {
 			type: "string"
+		},
+		loading: {
+			type: "boolean",
+			default: true
+		},
+		hiding: {
+			type: "boolean",
+			default: false
 		}
 	},
 	template: `
-		<section class="stats-section">
+		<section class="stats-section loading">
 			<main data-hook="stats-holder">
-				<div class="stamp"></div>
+				<div class="stamp">
+					<div class="back"><a href="/" title="Back">⬅&#xFE0E;</a></div>
+					<div class="icon"></div>
+				</div>
 			</main>
+			<footer>
+
+			</footer>
 		</section>
 	`,
 	bindings: {
@@ -34,9 +48,19 @@ const StatsView = View.extend({
 			},
 			{
 				type: "innerHTML",
-				selector: ".stamp"
+				selector: ".stamp .icon"
 			}
-		]
+		],
+		loading: {
+			type: "booleanClass",
+			name: "loading",
+			selector: ".stats-section"
+		},
+		hiding: {
+			type: "booleanClass",
+			name: "hiding",
+			selector: ".stats-section"
+		}
 	},
 	render() {
 		this.renderWithTemplate(this);
@@ -58,8 +82,15 @@ const StatsView = View.extend({
 					break;
 			}
 		}, this.queryByHook("stats-holder"));
-
 		/* eslint-enable prefer-arrow-callback*/
+
+		requestAnimationFrame(() => {
+			if (!this.stats.length) {
+				this.listenToOnce(this.stats, "sync", () => this.set("loading", false));
+			} else {
+				this.set("loading", false);
+			}
+		});
 
 		return this;
 	},

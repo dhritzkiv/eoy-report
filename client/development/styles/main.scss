@@ -79,13 +79,19 @@ p {
 	margin: ($gutter / 2) 0;
 }
 
-body > header {
+#start {
 	$colorBackground: #f7d6cd;
 	$colorText: #0f9e5b;
 	background-color: $colorBackground;
 	color: $colorText;
 	min-height: 100vh;
 	width: 100%;
+	transition: opacity 500ms $easeOutQuart;
+
+	&.hiding {
+		opacity: 0;
+		transition-timing-function: $easeInQuart;
+	}
 
 	display: flex;
 	flex-direction: column;
@@ -102,7 +108,7 @@ body > header {
 
 	.categories-list {
 		flex: 0 1 auto;
-		padding: $gutter;
+		padding: $gutter / 4;
 		display: grid;
 		align-items: center;
 		justify-items: center;
@@ -115,6 +121,12 @@ body > header {
 
 		article {
 			position: relative;
+
+			a {
+				user-select: none;
+				-webkit-touch-callout: none;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+			}
 
 			svg {
 				width: 100%;
@@ -274,6 +286,16 @@ section.stats-section {
 	$colorValue: #e36e5f;
 	$colorBackground: $colorBackground;
 	@include section($colorText, $colorValue, $colorBackground);
+	transition: opacity 500ms $easeOutQuart;
+
+	&.loading,
+	&.hiding {
+		opacity: 0;
+	}
+
+	&.hiding {
+		transition-timing-function: $easeInQuart;
+	}
 
 	h3 {
 		text-overflow: clip;
@@ -418,6 +440,9 @@ $columns: 6;
 $height: 196px;
 $width: 196px;
 
+$singleColumnDeviceMaxWidth: $width * 1.5;
+$dualColumnDeviceMaxWidth: $width * 2;
+
 [data-hook=stats-holder] {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
@@ -425,14 +450,19 @@ $width: 196px;
 	grid-gap: 0.35rem;
 	grid-auto-flow: dense;
 
-	@media screen and (max-width: ($width * 2)) {
+	@media screen and (max-width: $dualColumnDeviceMaxWidth) {
+		//49% because the full width column won't be full width otherwise. bug?
+		grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+	}
+
+	@media screen and (max-width: $singleColumnDeviceMaxWidth) {
 		grid-template-columns: 100%;
 	}
 
 	.stamp {
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		justify-content: space-between;
+		align-items: stretch;
 		//height: 400px;
 		//width: 400px;
 		//grid-column-start: span 2;
@@ -443,8 +473,34 @@ $width: 196px;
 		box-sizing: border-box;
 		overflow: hidden;
 
-		@media screen and (max-width: ($width * 2)) {
+		@media screen and (max-width: $singleColumnDeviceMaxWidth) {
 			grid-column-end: span 1;
+		}
+
+		.back {
+			position: relative;
+			width: 32px;
+			height: 32px;
+			margin-right: -16px;
+			margin-bottom: -16px;
+			flex: 0 0 32px;
+			overflow: hidden;
+			z-index: 10;
+
+			a {
+				font-weight: 800;
+				text-decoration: none;
+				color: inherit;
+				font-size: 21px;
+			}
+		}
+
+		.icon {
+			position: relative;
+			flex: 1 1 auto;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
 		}
 
 		svg {
@@ -517,7 +573,7 @@ $width: 196px;
 			&.x#{$i} {
 				grid-column-end: span $i;
 
-				@media screen and (max-width: $width * 2) {
+				@media screen and (max-width: $singleColumnDeviceMaxWidth) {
 					grid-column-end: span 1;
 				}
 			}

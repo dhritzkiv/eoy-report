@@ -1,17 +1,11 @@
 import AmpersandRouter from "ampersand-router";
 
 import StatsPage from "./views/stats";
+import StartPage from "./views/start";
 
-import svg_coffee from "../img/category-icon_coffee.svg";
-import svg_beer from "../img/category-icon_beer.svg";
-import svg_cycling from "../img/category-icon_cycling.svg";
-import svg_health from "../img/category-icon_health.svg";
-import svg_media from "../img/category-icon_media.svg";
-import svg_walking from "../img/category-icon_walking.svg";
+import {svg_coffee, svg_beer, svg_cycling, svg_health, svg_media, svg_walking} from "./utils/icons";
 
 //const DEFAULT_TITLE = "Daniel's Twenty Seventeen";
-
-import * as areas from "./utils/areas";
 
 const Router = AmpersandRouter.extend({
 	routes: {
@@ -24,7 +18,9 @@ const Router = AmpersandRouter.extend({
 		"health": "health"
 	},
 	start: function() {
-		//noop
+		const view = new StartPage();
+
+		this.trigger("newPage", view);
 	},
 	coffee() {
 		const view = new StatsPage({
@@ -34,10 +30,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_coffee.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	},
 	cycling() {
 		const view = new StatsPage({
@@ -47,10 +42,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_rides.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	},
 	beer() {
 		const view = new StatsPage({
@@ -60,10 +54,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_beer.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	},
 	walking() {
 		const view = new StatsPage({
@@ -73,10 +66,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_walking.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	},/*
 	maps() {
 		const view = new StatsPage({
@@ -249,7 +241,6 @@ const Router = AmpersandRouter.extend({
 		]);
 
 		this.trigger("newPage", view);
-		this.trigger("navigation");
 	},*/
 	health() {
 		const view = new StatsPage({
@@ -259,10 +250,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_health.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	},
 	media() {
 		const view = new StatsPage({
@@ -272,10 +262,9 @@ const Router = AmpersandRouter.extend({
 
 		view.stats.url = "/data/stats_media.json";
 
-		view.stats.fetch();
-
 		this.trigger("newPage", view);
-		this.trigger("navigation");
+
+		view.stats.fetch();
 	}/*,
 	places() {
 		const view = new StatsPage({
@@ -518,7 +507,6 @@ const Router = AmpersandRouter.extend({
 		]);
 
 		this.trigger("newPage", view);
-		this.trigger("navigation");
 	}*/
 });
 
