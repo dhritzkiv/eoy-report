@@ -18,7 +18,7 @@ const MainView = View.extend({
 	<body>
 		<header>
 			<div class="about">
-				<h1>Twenty Seventeen</h1>
+				<h1>Daniel's Twenty Seventeen</h1>
 			</div>
 
 			<div class="categories-list">
