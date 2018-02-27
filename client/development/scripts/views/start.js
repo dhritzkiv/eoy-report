@@ -83,6 +83,8 @@ const StartView = View.extend({
 
 		this.delayShimmer();
 
+		this.once("remove", () => clearTimeout(this.shimmerTimer));
+
 		return this;
 	},
 	delayShimmer() {
