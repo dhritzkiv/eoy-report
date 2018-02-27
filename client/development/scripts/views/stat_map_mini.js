@@ -44,7 +44,7 @@ const LineStatView = StatView.extend({
 
 		scrollMessageG
 		.append("text")
-		.text("Hold shift to zoom")
+		.text("Hold shift and scroll to zoom")
 		.attr("x", "50%")
 		.attr("y", "50%");
 
