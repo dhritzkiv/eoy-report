@@ -31,3 +31,5 @@ client/public/css
 .DS_Store
 config-production.json
 /data/foursquare_config.json
+
+.env.json
