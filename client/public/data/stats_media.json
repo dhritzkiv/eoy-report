@@ -89,21 +89,21 @@
 		}
 	},
 	{
-		"title": "Longest run time (minutes)",
+		"title": "Longest film run time (minutes)",
 		"data": {
 			"type": "numeric",
 			"value": 187
 		}
 	},
 	{
-		"title": "Longest dry spell (days)",
+		"title": "Longest film dry spell (days)",
 		"data": {
 			"type": "numeric",
 			"value": 34
 		}
 	},
 	{
-		"title": "Longest streak (days)",
+		"title": "Longest film streak (days)",
 		"data": {
 			"type": "numeric",
 			"value": 3
