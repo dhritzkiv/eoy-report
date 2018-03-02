@@ -165,6 +165,13 @@
 		}
 	},
 	{
+		"title": "Beer servings over 10% ABV",
+		"data": {
+			"type": "numeric",
+			"value": 80
+		}
+	},
+	{
 		"title": "Top bars (servings)",
 		"data": {
 			"type": "percentage",
