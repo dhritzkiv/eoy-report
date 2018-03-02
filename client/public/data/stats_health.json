@@ -114,6 +114,13 @@
 		}
 	},
 	{
+		"title": "Haircuts",
+		"data": {
+			"type": "numeric",
+			"value": 12
+		}
+	},
+	{
 		"title": "Median weight (kg)",
 		"data": {
 			"type": "numeric",
