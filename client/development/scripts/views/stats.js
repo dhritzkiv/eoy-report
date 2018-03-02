@@ -23,6 +23,16 @@ const StatsView = View.extend({
 			default: false
 		}
 	},
+	derived: {
+		pageTitle: {
+			deps: ["name"],
+			fn() {
+				const capitalizedName = `${this.name[0].toUpperCase()}${this.name.slice(1)}`;
+
+				return `${capitalizedName} stats - Daniel's Twenty Seventeen`;
+			}
+		}
+	},
 	template: `
 		<section class="stats-section loading">
 			<main data-hook="stats-holder">

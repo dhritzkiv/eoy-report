@@ -41,6 +41,10 @@ const MainView = View.extend({
 				if (!newView) {
 					return;
 				}
+
+				if (newView.pageTitle) {
+					document.title = newView.pageTitle;
+				}
 			}
 		});
 

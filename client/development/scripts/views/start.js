@@ -7,6 +7,7 @@ const asyncRAF = () => new Promise(resolve => requestAnimationFrame(resolve));
 const asyncSetTimemout = (delay) => new Promise(resolve => setTimeout(resolve, delay));
 
 const StartView = View.extend({
+	pageTitle: "Daniel's Twenty Seventeen",
 	props: {
 		hiding: {
 			type: "boolean",
