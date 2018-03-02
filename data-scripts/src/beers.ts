@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as assert from "assert";
 import * as minimist from "minimist";
 import * as moment from "moment";
-import {median, sum, modeFast} from "simple-statistics";
+import {median, sum, modeFast, max, min} from "simple-statistics";
 import {IncrementalMap} from "./utils";
 
 interface CheckinBase {
@@ -457,6 +457,15 @@ console.log("\n");
 console.log("Longest streak (beers):", maxStreakBeers);
 console.log("Longest streak (days):", maxStreakDays);
 console.log("Longest dry spell (days):", maxDrought);
+
+const beerABVs = checkins.map(({beer_abv}) => beer_abv).filter(a => a);
+console.log("Beers under 3% ABV: %d", beerABVs.filter(a => a < 3).length);
+console.log("Beers under 5% ABV: %d", beerABVs.filter(a => a < 5).length);
+console.log("Beers over 10% ABV: %d", beerABVs.filter(a => a > 10).length);
+console.log("Beers over 13% ABV: %d", beerABVs.filter(a => a > 13).length);
+console.log("Beers over 15% ABV: %d", beerABVs.filter(a => a > 15).length);
+console.log("Min ABV: %d", min(beerABVs));
+console.log("Max ABV: %d", max(beerABVs));
 
 //console.log("daily aggregates", dailyTotals);
 //console.log("weekly totals", weeklyTotals);
