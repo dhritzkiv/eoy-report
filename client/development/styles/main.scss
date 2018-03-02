@@ -114,6 +114,8 @@ p {
 		justify-items: center;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: $gutter / 4;
+		width: 100%;
+		max-width: 820px;
 
 		@media screen and (max-width: $ipadPortrait) {
 			grid-template-columns: repeat(2, 1fr);
