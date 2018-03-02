@@ -21,8 +21,8 @@ const StartView = View.extend({
 		}
 	},
 	events: {
-		"mouseover .categories-list": "delayShimmer",
-		"touchstart .categories-list": "delayShimmer"
+		"mousemove .categories-list": "delayShimmer",
+		"touchmove .categories-list": "delayShimmer"
 	},
 	template: `
 		<header id="start">
