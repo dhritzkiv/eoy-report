@@ -32,32 +32,32 @@ const StartView = View.extend({
 
 			<div class="categories-list">
 				<article class="category-icon coffee">
-					<a href="/coffee">
+					<a href="/coffee" alt="Icon for coffee stats">
 						${svg_coffee}
 					</a>
 				</article>
 				<article class="category-icon cycling">
-					<a href="/cycling">
+					<a href="/cycling" alt="Icon for cycling stats">
 						${svg_cycling}
 					</a>
 				</article>
 				<article class="category-icon beer">
-					<a href="/beer">
+					<a href="/beer" alt="Icon for beer stats">
 						${svg_beer}
 					</a>
 				</article>
 				<article class="category-icon health">
-					<a href="/health">
+					<a href="/health" alt="Icon for health stats">
 						${svg_health}
 					</a>
 				</article>
 				<article class="category-icon walking">
-					<a href="/walking">
+					<a href="/walking" alt="Icon for walking stats">
 						${svg_walking}
 					</a>
 				</article>
 				<article class="category-icon media">
-					<a href="/media">
+					<a href="/media" alt="Icon for media stats">
 						${svg_media}
 					</a>
 				</article>
