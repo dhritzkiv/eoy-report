@@ -339,9 +339,8 @@ section.cycling {
 }
 
 section.walking {
-	//$colorBackground: ;
 	$colorText: rgb(102, 45, 145);
-	$colorValue: desaturate(lighten($colorWalking, 10%), 15%);
+	$colorValue: desaturate(lighten($colorWalking, 3%), 20%);
 	@include section($colorText, $colorValue, $colorBackground);
 }
 
@@ -372,7 +371,7 @@ section.media {
 section.health {
 	$colorText: #9e005d;
 	$colorBackground: rgb(195, 195, 207);
-	$colorValue: darken(desaturate(rgb(26, 198, 216), 5%), 2%);
+	$colorValue: darken(desaturate(#96b2f5, 10%), 12%);
 
 	@include section($colorText, $colorValue, $colorBackground);
 }

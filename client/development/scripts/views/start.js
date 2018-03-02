@@ -51,14 +51,14 @@ const StartView = View.extend({
 						${svg_health}
 					</a>
 				</article>
-				<article class="category-icon media">
-					<a href="/media">
-						${svg_media}
-					</a>
-				</article>
 				<article class="category-icon walking">
 					<a href="/walking">
 						${svg_walking}
+					</a>
+				</article>
+				<article class="category-icon media">
+					<a href="/media">
+						${svg_media}
 					</a>
 				</article>
 			</div>
