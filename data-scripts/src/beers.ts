@@ -467,6 +467,15 @@ console.log("Beers over 15% ABV: %d", beerABVs.filter(a => a > 15).length);
 console.log("Min ABV: %d", min(beerABVs));
 console.log("Max ABV: %d", max(beerABVs));
 
+const beerIBUs = checkins.map(({beer_ibu}) => beer_ibu).filter(a => a);
+console.log("Beers under 10 IBU: %d", beerIBUs.filter(a => a < 10).length);
+console.log("Beers under 50 IBU: %d", beerIBUs.filter(a => a < 50).length);
+console.log("Beers over 100 IBU: %d", beerIBUs.filter(a => a > 100).length);
+console.log("Beers over 125 IBU: %d", beerIBUs.filter(a => a > 125).length);
+console.log("Beers over 150 IBU: %d", beerIBUs.filter(a => a > 150).length);
+console.log("Min IBU: %d", min(beerIBUs));
+console.log("Max IBU: %d", max(beerIBUs));
+
 //console.log("daily aggregates", dailyTotals);
 //console.log("weekly totals", weeklyTotals);
 //console.log("monthly totals", monthlyTotals);
