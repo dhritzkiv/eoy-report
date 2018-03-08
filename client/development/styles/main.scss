@@ -1,22 +1,11 @@
 $colorDark1: #4C77A6;
-$colorDark2: #353a3d;
-$colorDark3: #282c2e;
-
 $colorBackground: #d0d0bc;
 $colorBackgroundDarker: #f7ddb7;
-
-$colorText: saturate(darken($colorDark1, 25%), 25%);
-$colorTextLight: #a38c72;
-
-$colorAccent: #a9c6c7;
-
 $colorDull1: #353a3d;
+$colorText: saturate(darken($colorDark1, 25%), 25%);
 
 $colorCycling: #f66555;
 $colorWalking: #15e048;
-$colorFandL: #cb9625;
-$colorAandV: #5360e1;
-$colorMisc: #71616a;
 
 $ffHeading1: "rift-soft", sans-serif;
 $ffHeading2: "acumin-pro-wide", sans-serif;
