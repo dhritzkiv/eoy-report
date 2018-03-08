@@ -160,6 +160,14 @@ p {
 		}
 	}
 
+	footer {
+		padding: $gutter * 2 $gutter / 2 $gutter $gutter / 2;
+
+		a {
+			color: rgb(73, 45, 160);
+		}
+	}
+
 	@media screen and (max-width: $ipadPortrait) {
 		flex-direction: column;
 

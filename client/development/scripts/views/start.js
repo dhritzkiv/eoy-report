@@ -26,7 +26,7 @@ const StartView = View.extend({
 		"touchmove .categories-list": "delayShimmer"
 	},
 	template: `
-		<header id="start">
+		<main id="start">
 			<div class="about">
 				<h1>Daniel's Twenty Seventeen</h1>
 			</div>
@@ -63,7 +63,11 @@ const StartView = View.extend({
 					</a>
 				</article>
 			</div>
-		</header>
+
+			<footer>
+				<a href="https://github.com/dhritzkiv/eoy-report" target="_blank" rel="noopener">Source and Credits</a>
+			</footer>
+		</main>
 	`,
 	render() {
 		this.renderWithTemplate();
