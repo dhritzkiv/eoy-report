@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "node server",
     "lint": "eslint . --fix",
+    "build": "rollup -c ./client/rollup.config.js && gulp sass",
     "output": "node data-scripts/dist/output.js"
   },
   "dependencies": {
