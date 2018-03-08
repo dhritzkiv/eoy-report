@@ -39,6 +39,10 @@ Looking for previous years' reports?
 
 ---
 
+## Requirements
+
+- [Node.js](https://nodejs.org)
+
 ## Development
 
 ### Clone and install
@@ -49,11 +53,11 @@ cd eoy-report
 npm install
 ```
 
-### Build
-
-Compile the JS (using rollup) and CSS (using Sass and PostCSS). Run the local server to serve up the site. Compile Typescript for the data scripts
+### Build and Run
 
 #### Client JS
+
+Compile the JS using rollup
 
 ```sh
 rollup -w -c ./client/rollup.config.js
@@ -61,11 +65,15 @@ rollup -w -c ./client/rollup.config.js
 
 #### CSS
 
+Compile CSS using Sass and PostCSS (via Gulp)
+
 ```sh
 gulp watch
 ```
 
 #### Typescript
+
+Compile Typescript for the data scripts
 
 ```sh
 tsc -w -p data-scripts
@@ -73,7 +81,13 @@ tsc -w -p data-scripts
 
 #### Serve
 
-Run `node server/server.js` to start the Express-based static server. Alternatively, serve the contents of `public/` up as static files with Nginx or similar.
+Run the Express-based static server.
+
+```sh
+node server/server.js
+```
+
+Alternatively, serve the contents of `public/` up as static files with Nginx or similar.
 
 
 ## Contact
