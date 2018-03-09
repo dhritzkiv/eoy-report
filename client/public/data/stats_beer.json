@@ -203,7 +203,7 @@
 				["Good George Brew Pub", 5]
 			]
 		},
-		"wide": "x1",
+		"wide": "x2",
 		"tall": "y3"
 	},
 	{
@@ -260,7 +260,7 @@
 				["Oskar Blues Brewery", 5]
 			]
 		},
-		"wide": "x1",
+		"wide": "x2",
 		"tall": "y3"
 	},
 	{
@@ -292,7 +292,7 @@
 				["LCBO (Spadina & Dundas)", 2]
 			]
 		},
-		"wide": "x1",
+		"wide": "x2",
 		"tall": "y3"
 	},
 	{
