@@ -69,8 +69,10 @@ const HorizonatlBarStatView = StatView.extend({
 		.attr("height", barHeight);*/
 
 		const resize = () => requestAnimationFrame(() => {
-			width = el.parentElement.clientWidth - margin.left - margin.right;
-			height = Math.max((data.length * barHeightWithSpace), el.parentElement.clientHeight) - margin.top - margin.bottom;
+			const contentHeight = (data.length * barHeightWithSpace);
+
+			width = el.clientWidth - margin.left - margin.right;
+			height = Math.max(contentHeight, el.parentElement.clientHeight) - margin.top - margin.bottom;
 
 			if (!width || !height) {
 				return;
@@ -140,6 +142,11 @@ const HorizonatlBarStatView = StatView.extend({
 			visibleBar
 			.attr("y", barHeight)
 			.attr("height", barHeight);
+
+			//check if a scrollbar likely appeared, causing the container to shrink
+			if (width > (el.clientWidth - margin.left - margin.right)) {
+				resize();
+			}
 		});
 
 		resize();
