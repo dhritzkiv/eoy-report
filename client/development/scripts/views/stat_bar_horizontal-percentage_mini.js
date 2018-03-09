@@ -121,6 +121,10 @@ const HorizonatlBarStatView = StatView.extend({
 				return currentTitle;
 			});
 
+			barTextTitle
+			.append("svg:title")
+			.text(d => d[0]);
+
 			barTextValue
 			.attr("dx", function(d) {
 				const title = d3.select(this.parentNode).select(".bar-text.title");
