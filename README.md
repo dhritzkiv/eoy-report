@@ -12,8 +12,8 @@ See the [live version here.](https://2017.danielhritzkiv.com/)
 
 ### Personal data sources
 
-- [Strava](https://www.strava.com) for past rides geometric.
-- [Moves](https://moves-app.com) for walking geometric data
+- [Strava](https://www.strava.com) for past rides data.
+- [Moves](https://moves-app.com) for walking data
 - [Foursquare](https://foursquare.com)/[Swarm](https://swarmapp.com) for location checkins
 - [last.fm](https://last.fm) for music listening history
 - [Letterboxd](https://letterboxd.com) for movie journaling
